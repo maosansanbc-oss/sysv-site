@@ -110,19 +110,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "97e44543e85eff7f",
-      "enriched_at": "2026-11-24",
-      "summary": "inclusionAI: Ling 3.2 Flash (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1048K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "Ling 3.2 Flash is a limited-free OpenRouter endpoint ($0 input/output) with a 1M-token context, text+image input, and tool, structured-output, and reasoning support. The :free tier is rate-capped at 20 RPM and 50 RPD without credits, rising to 1,000 RPD after a $10 lifetime credit purchase.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Long-context text and image analysis up to 1M tokens",
+        "Prototyping agentic workflows with tools and structured outputs",
+        "Low-volume interactive reasoning tasks at $0 cost"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is rate-limited (20 RPM, 50 RPD without credits), not unlimited",
+        "Daily request caps may constrain sustained or high-throughput use"
+      ],
+      "source": "deepseek",
+      "cache_hash": "97e44543e85eff7f",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -992,19 +992,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "c93862b1944b3357",
-      "enriched_at": "2026-11-24",
-      "summary": "Qwen: Qwen3.7 Flash is a real-time paid endpoint billed at $0.03/1M input and $0.13/1M output tokens (estimated $0.5 for 8M input + 2M output tokens) with a 1000K context window.",
+      "summary": "Qwen3.7 Flash is a paid, tiered vision-language reasoning model from Alibaba with a 1M-token context and text+image+video input. It supports tool use and reasoning but not structured outputs, and long-context prompts incur tiered price surcharges above a threshold.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "General API automation",
-        "Long-context inputs up to 1000K tokens"
+        "Multimodal agents combining text, image, and video inputs",
+        "Visual coding and computer interaction tasks",
+        "Object recognition and spatial understanding workloads"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Check tiered long-context price surcharges"
-      ]
+        "Paid tiered pricing with long-context surcharges above a prompt-length threshold",
+        "No structured outputs support, which limits strict schema-constrained responses"
+      ],
+      "source": "deepseek",
+      "cache_hash": "c93862b1944b3357",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -1244,19 +1244,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "6b2d8b52caebbf1e",
-      "enriched_at": "2026-11-24",
-      "summary": "DeepSeek: DeepSeek V4.1 Flash 1017 is a real-time paid endpoint billed at $0.03/1M input and $0.2/1M output tokens (estimated $0.64 for 8M input + 2M output tokens) with a 1048K context window.",
+      "summary": "DeepSeek V4.1 Flash 1017 is a paid, real-time interactive text-and-image-to-text endpoint priced at 0.03 per 1M input tokens and 0.2 per 1M output tokens. It offers a 1,048,576-token context window with tools, structured outputs, and reasoning support.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1048K tokens"
+        "Long-context text and image understanding tasks",
+        "Agentic or tool-calling workflows needing structured outputs",
+        "Cost-sensitive high-volume real-time inference"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
+        "Very large context window can still drive high token costs on long inputs or outputs"
+      ],
+      "source": "deepseek",
+      "cache_hash": "6b2d8b52caebbf1e",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -2756,19 +2756,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "c5feb46acaf9c108",
-      "enriched_at": "2026-11-24",
-      "summary": "OpenAI: GPT-6 Luna is a real-time paid endpoint billed at $0.1/1M input and $0.5/1M output tokens (estimated $1.8 for 8M input + 2M output tokens) with a 1050K context window.",
+      "summary": "GPT-6 Luna is a paid, tiered, real-time interactive model priced at 0.1 input / 0.5 output per 1M tokens with a 1,050,000-token context and text+image+file-to-text modality. It supports tools, structured outputs, and reasoning, and is positioned as the fast, cost-efficient option below GPT-6 Sol for high-volume, latency-sensitive workloads.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1050K tokens"
+        "High-volume chat and classification",
+        "Latency-sensitive lightweight agentic tasks",
+        "Long-context multimodal inputs with tools and structured outputs"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Check tiered long-context price surcharges"
-      ]
+        "Paid tiered pricing includes long-context surcharges above a prompt-length threshold",
+        "Large context and multimodal inputs can raise effective cost despite low per-token rates"
+      ],
+      "source": "deepseek",
+      "cache_hash": "c5feb46acaf9c108",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -3764,19 +3764,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "98f7cf08fd297e7c",
-      "enriched_at": "2026-11-24",
-      "summary": "DeepSeek: DeepSeek V4 Flash Vision Exp is a real-time paid endpoint billed at $0.2156/1M input and $0.6468/1M output tokens (estimated $3.02 for 8M input + 2M output tokens) with a 1048K context window.",
+      "summary": "DeepSeek V4 Flash Vision Exp is a paid, real-time interactive endpoint priced at 0.2156 per 1M input tokens and 0.6468 per 1M output tokens. It supports text+image input to text output with a 1,048,576-token context, plus tools, structured outputs, and reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1048K tokens"
+        "Multimodal tasks combining image understanding with text generation",
+        "Long-context workloads up to ~1M tokens",
+        "Agentic or tool-using workflows needing structured outputs"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Experimental model; behavior and stability may change",
+        "Paid per-token pricing plus OpenRouter top-up fees (5.5% card / 5% crypto) unless using BYOK"
+      ],
+      "source": "deepseek",
+      "cache_hash": "98f7cf08fd297e7c",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -4709,19 +4709,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "9171081fd51100a3",
-      "enriched_at": "2026-11-24",
-      "summary": "Qwen: Qwen3.6 Flash is a real-time paid endpoint billed at $0.1875/1M input and $1.125/1M output tokens (estimated $3.75 for 8M input + 2M output tokens) with a 1000K context window.",
+      "summary": "Qwen3.6 Flash is a paid, tiered-pricing model supporting text, image, and video input with a 1M-token context window. It offers tools, structured outputs, and reasoning, with input/output pricing of 0.1875/1.125 per 1M tokens.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1000K tokens"
+        "Long-context multimodal analysis across text, image, and video",
+        "Real-time interactive applications needing fast responses",
+        "Tool-augmented and structured-output workflows"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Check tiered long-context price surcharges"
-      ]
+        "Tiered long-context surcharges apply above a threshold prompt length",
+        "Paid endpoint with per-token costs; not free or unlimited"
+      ],
+      "source": "deepseek",
+      "cache_hash": "9171081fd51100a3",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -4835,19 +4835,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "82749ca374054ba9",
-      "enriched_at": "2026-11-24",
-      "summary": "OpenAI: GPT-5.6 Luna is a real-time paid endpoint billed at $0.2/1M input and $1.2/1M output tokens (estimated $4.0 for 8M input + 2M output tokens) with a 1050K context window.",
+      "summary": "GPT-5.6 Luna is a paid, tiered, real-time interactive endpoint priced at 0.2/1.2 per 1M input/output tokens with a 1,050,000-token context and text+image+file-to-text modality. It supports tools, structured outputs, and reasoning, and is positioned as a fast, cost-efficient model for high-volume, latency-sensitive work.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1050K tokens"
+        "High-volume chat and classification",
+        "Latency-sensitive lightweight agentic workflows",
+        "Structured-output tasks with tool use"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Check tiered long-context price surcharges"
-      ]
+        "Paid tiered pricing includes long-context surcharges above a prompt-length threshold",
+        "Large context does not imply flat pricing; costs rise with prompt length"
+      ],
+      "source": "deepseek",
+      "cache_hash": "82749ca374054ba9",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -5591,19 +5591,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "818fb4d0d0c79764",
-      "enriched_at": "2026-11-24",
-      "summary": "Qwen: Qwen3.5 Plus 2026-04-20 is a real-time paid endpoint billed at $0.3/1M input and $1.8/1M output tokens (estimated $6.0 for 8M input + 2M output tokens) with a 1000K context window.",
+      "summary": "Qwen3.5 Plus 2026-04-20 is a paid, tiered multimodal model accepting text, image, and video input with text output and a 1M token context window. It supports tools, structured outputs, and reasoning, priced at 0.3 per 1M input and 1.8 per 1M output tokens.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1000K tokens"
+        "Long-context multimodal analysis across text, image, and video",
+        "Interactive real-time applications requiring tool use and structured outputs",
+        "Reasoning-heavy tasks within a 1M token context window"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Check tiered long-context price surcharges"
-      ]
+        "Paid tiered pricing includes long-context surcharges above a prompt-length threshold",
+        "Output tokens cost notably more than input tokens, so generation-heavy workloads raise cost"
+      ],
+      "source": "deepseek",
+      "cache_hash": "818fb4d0d0c79764",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -6536,19 +6536,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "e39b95bd33519137",
-      "enriched_at": "2026-11-24",
-      "summary": "DeepSeek: DeepSeek V4 Pro 0423 is a real-time paid endpoint billed at $1.28/1M input and $2.56/1M output tokens (estimated $15.36 for 8M input + 2M output tokens) with a 1048K context window.",
+      "summary": "DeepSeek V4 Pro 0423 is a paid, real-time text-to-text API endpoint priced at $1.28 per 1M input tokens and $2.56 per 1M output tokens. It is a 1.6T-parameter MoE model (49B activated) with a 1,048,576-token context window and support for tools, structured outputs, and reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1048K tokens"
+        "Long-context reasoning over large documents up to 1M tokens",
+        "Agentic and tool-calling workflows",
+        "Structured output generation and coding tasks"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing; OpenRouter adds 5.5% card or 5% crypto top-up fees unless using BYOK",
+        "Text-only modality with no image or audio input support"
+      ],
+      "source": "deepseek",
+      "cache_hash": "e39b95bd33519137",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -6788,19 +6788,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "6461de2d21298551",
-      "enriched_at": "2026-11-24",
-      "summary": "DeepSeek: DeepSeek V4 Pro 0813 is a real-time paid endpoint billed at $0.111/1M input and $4.44/1M output tokens (estimated $9.77 for 8M input + 2M output tokens) with a 1048K context window.",
+      "summary": "DeepSeek V4 Pro 0813 is a paid, real-time text-to-text mixture-of-experts model with a 1,048,576-token context window and per-token pricing of 0.111 input / 4.44 output per 1M tokens. It supports tools, structured outputs, and reasoning, with standard real-time per-token API pricing plus OpenRouter top-up fees unless using BYOK.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1048K tokens"
+        "Long-context text processing up to ~1M tokens",
+        "Tool-using and structured-output workflows",
+        "Reasoning-heavy tasks via real-time API"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token endpoint; not free",
+        "OpenRouter 5.5% card / 5% crypto top-up fee applies unless BYOK"
+      ],
+      "source": "deepseek",
+      "cache_hash": "6461de2d21298551",
+      "enriched_at": "2026-11-24"
     }
   },
   {

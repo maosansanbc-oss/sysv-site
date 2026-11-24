@@ -5,8 +5,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "4d596d3a695ce89d",
-    "lastmod": "2026-11-24T17:33:14Z"
+    "semantic_hash": "5908214d778500a7",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/about/": {
     "url": "/about/",
@@ -86,8 +86,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ca8d89a22dd06981",
-    "lastmod": "2026-11-24T17:33:14Z"
+    "semantic_hash": "24e9085475736542",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/compare/baidu-ernie-5-5-flash-preview-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/baidu-ernie-5-5-flash-preview-free-vs-particle-ai-particle-1-free/",
@@ -230,8 +230,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "f1a22b77e2679297",
-    "lastmod": "2026-11-24T17:33:14Z"
+    "semantic_hash": "f1400fd439397133",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/compare/liquid-lfm-3-1-7b-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/liquid-lfm-3-1-7b-free-vs-particle-ai-particle-1-free/",
@@ -410,8 +410,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "33989ac136fd015f",
-    "lastmod": "2026-11-24T17:33:14Z"
+    "semantic_hash": "989fefac53f19cc6",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/": {
     "url": "/models/",
@@ -419,8 +419,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5ac823aaa92b8ae5",
-    "lastmod": "2026-11-24T17:33:14Z"
+    "semantic_hash": "b181bd32f57d9689",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/anthropic-claude-haiku-4-5-batch/": {
     "url": "/models/anthropic-claude-haiku-4-5-batch/",
@@ -545,8 +545,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "40a766901670772b",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "f83fe6b726263790",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/deepseek-deepseek-v4-1-flash-batch/": {
     "url": "/models/deepseek-deepseek-v4-1-flash-batch/",
@@ -590,8 +590,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "25fa4597b9a7da4e",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "fc6a6c8f371d5a0e",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/deepseek-deepseek-v4-flash/": {
     "url": "/models/deepseek-deepseek-v4-flash/",
@@ -608,8 +608,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "bf25f04b1e51b5e2",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "138b05724ac1e7da",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/deepseek-deepseek-v4-pro/": {
     "url": "/models/deepseek-deepseek-v4-pro/",
@@ -617,8 +617,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "da80e036fec2641d",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "6e38bc0777450b05",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/dots-studio-dots-3-note-preview-free/": {
     "url": "/models/dots-studio-dots-3-note-preview-free/",
@@ -788,8 +788,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5328adfdb356c446",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "730e5667311734a9",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/liquid-lfm-3-1-7b-free/": {
     "url": "/models/liquid-lfm-3-1-7b-free/",
@@ -1283,8 +1283,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d5c3d64fd485476b",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "87a479481317e9af",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/openai-gpt-5-mini-batch/": {
     "url": "/models/openai-gpt-5-mini-batch/",
@@ -1391,8 +1391,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "9e1d10c29626f134",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "cacc5b6d85e8d79c",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/openai-gpt-oss-120b-batch/": {
     "url": "/models/openai-gpt-oss-120b-batch/",
@@ -1661,8 +1661,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "02290b14858556ad",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "4709bd68ceb83471",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/qwen-qwen3-6-27b/": {
     "url": "/models/qwen-qwen3-6-27b/",
@@ -1688,8 +1688,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "75d9c27a4ec43016",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "c5c6e57fddbde8e8",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/qwen-qwen3-6-plus/": {
     "url": "/models/qwen-qwen3-6-plus/",
@@ -1706,8 +1706,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "11d89ccf6105f6c9",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "c0cbb9c9695beaf8",
+    "lastmod": "2026-11-24T17:38:33Z"
   },
   "/models/qwen-qwen3-7-max/": {
     "url": "/models/qwen-qwen3-7-max/",
