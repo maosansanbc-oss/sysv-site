@@ -68,18 +68,6 @@ jobs:
       - name: Run Independent SEO Indexing Quality Gate (seo_gate)
         run: python3 -m scripts.seo_gate
 
-      - name: Commit data snapshots, permanent registries & ops ledger
-        run: |
-          git config user.name "sysv-bot"
-          git config user.email "bot@sysv.cn"
-          git add data/models.json data/repos.json data/price_changes.json data/published_comparisons.json data/published_pages.json data/selection_audit.json data/ops_metrics.json data/history/
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(data): daily snapshot & registry $(date -u +%Y-%m-%d)"
-            git push
-          else
-            echo "No data changes to commit."
-          fi
-
       - name: Check optional Cloudflare Pages credentials
         id: check_cf
         env:
@@ -111,6 +99,18 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Commit data snapshots, permanent registries & ops ledger (after Pages deploy)
+        run: |
+          git config user.name "sysv-bot"
+          git config user.email "bot@sysv.cn"
+          git add data/models.json data/repos.json data/price_changes.json data/published_comparisons.json data/published_pages.json data/selection_audit.json data/ops_metrics.json data/history/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(data): daily snapshot & registry $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No data changes to commit."
+          fi
 
       - name: Ping IndexNow for changed URLs only (optional)
         if: success()
