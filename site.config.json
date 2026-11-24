@@ -2,39 +2,23 @@
   "site_name": "SysV Radar",
   "domain": "sysv.cn",
   "base_url": "https://sysv.cn",
-  "tagline": "Automated LLM API Pricing, Free-Tier Radar & Open-Source Infra Benchmarks",
-  "description": "Daily updated directory of free LLM APIs, real-time token pricing comparison, interactive cost calculator, and trending open-source developer infrastructure.",
+  "tagline": "Zero-Cost Infrastructure & AI Automation Radar",
+  "description": "Task-oriented LLM API cost calculator, verified free-tier directory (excluding dynamic routers), daily price-change history, and self-hosted AI infrastructure benchmarks.",
   "contact_email": "hello@sysv.cn",
   "language": "en",
   "pipeline": {
-    "max_models_tracked": 120,
+    "max_models_tracked": 140,
+    "min_models_health_floor": 40,
     "max_daily_llm_enrich": 10,
+    "prompt_version": "v2.0",
     "max_compare_pages": 40,
-    "max_repos_tracked": 60,
-    "github_topics": ["llm", "ai-agent", "self-hosted", "devops", "cli"]
+    "max_repos_tracked": 48
   },
   "monetization": {
     "adsense_client_id": "",
     "adsense_slot_top": "",
     "adsense_slot_in_article": "",
     "adsense_slot_sidebar": "",
-    "affiliates": [
-      {
-        "id": "vps-cloud",
-        "name": "Deploy Self-Hosted AI on Cloud VPS",
-        "cta": "Compare Starter Cloud Credits",
-        "url": "https://sysv.cn/about/#partners",
-        "badge": "Infrastructure",
-        "description": "Run your own open-source models, n8n workflows, and API proxies on low-cost cloud servers."
-      },
-      {
-        "id": "api-gateway",
-        "name": "Unified Multi-Model API Routing",
-        "cta": "Explore Free-Tier Gateways",
-        "url": "https://sysv.cn/free-llm-apis/",
-        "badge": "API Tooling",
-        "description": "Route requests across free and low-cost LLM endpoints with automatic fallback."
-      }
-    ]
+    "affiliates": []
   }
 }

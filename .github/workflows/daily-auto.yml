@@ -36,12 +36,12 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Fetch latest public LLM pricing & open-source repos
+      - name: Fetch latest public LLM pricing, history snapshots & curated infra repos
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 -m scripts.fetch_data
 
-      - name: Incremental enrichment via free-tier LLM router
+      - name: Incremental enrichment with SHA-256 hash invalidation
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -53,13 +53,19 @@ jobs:
       - name: Build static site into dist/
         run: python3 -m scripts.build_site
 
-      - name: Commit lightweight data snapshots (prevents 60-day cron pause)
+      - name: Run automated Quality Gate (blocks broken/misclassified publishes)
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
+        run: python3 -m scripts.health_check
+
+      - name: Commit data snapshots & price history (prevents 60-day cron pause)
         run: |
           git config user.name "sysv-bot"
           git config user.email "bot@sysv.cn"
-          git add data/models.json data/repos.json
+          git add data/models.json data/repos.json data/price_changes.json data/history/
           if ! git diff --cached --quiet; then
-            git commit -m "chore(data): automated daily snapshot $(date -u +%Y-%m-%d)"
+            git commit -m "chore(data): daily snapshot & price history $(date -u +%Y-%m-%d)"
             git push
           else
             echo "No data changes to commit."
@@ -77,16 +83,23 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Notify failure via optional Webhook
+      - name: Notify anomaly via PushPlus or Webhook (failure only)
         if: failure()
         env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
           ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
         run: |
           python3 -c '
           import json, os, urllib.request
-          url = os.getenv("ALERT_WEBHOOK_URL", "").strip()
-          if url:
-              payload = json.dumps({"text": "SysV Radar daily workflow failed. Check GitHub Actions logs."}).encode()
-              req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-              urllib.request.urlopen(req, timeout=10)
+          msg = "SysV Radar (sysv.cn) daily pipeline FAILED. Please check GitHub Actions logs."
+          pp = os.getenv("PUSHPLUS_TOKEN", "").strip()
+          if pp:
+              payload = json.dumps({"token": pp, "title": "[SysV Radar] Pipeline Alert", "content": msg, "template": "txt"}).encode()
+              req = urllib.request.Request("https://www.pushplus.plus/send", data=payload, headers={"Content-Type": "application/json"})
+              urllib.request.urlopen(req, timeout=12)
+          wh = os.getenv("ALERT_WEBHOOK_URL", "").strip()
+          if wh:
+              payload = json.dumps({"text": msg}).encode()
+              req = urllib.request.Request(wh, data=payload, headers={"Content-Type": "application/json"})
+              urllib.request.urlopen(req, timeout=12)
           '

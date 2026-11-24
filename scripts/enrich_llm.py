@@ -1,11 +1,16 @@
-"""Incrementally enrich models & repos with structured insights using free LLM APIs.
+"""V2 Incremental LLM Enrichment with SHA-256 Content-Hash Cache Invalidation.
 
-Rules to avoid free-tier quota exhaustion and Google thin-content penalties:
-1. Never re-enrich entries that already have valid LLM enrichment.
-2. Cap LLM calls per daily run via `pipeline.max_daily_llm_enrich`.
-3. Provide rich, data-backed deterministic fallback when no API key is set yet.
+Fixes V1 BUG 03:
+- Computes deterministic SHA-256 hash over pricing_type, pricing numbers, context_length,
+  modality, description, and prompt_version.
+- Automatically invalidates and re-enriches whenever pricing tier or specs change
+  (e.g., Free -> Paid), preventing stale/contradictory AI copy.
+- Strictly separates deterministic factual metrics (computed in Python) from semantic
+  analysis (LLM), forbidding the LLM from inventing or misstating prices.
 """
 
+import hashlib
+import json
 import time
 from typing import Any
 
@@ -13,144 +18,206 @@ from scripts.llm_router import generate_json_with_fallback, get_available_provid
 from scripts.utils import DATA_DIR, load_config, load_json, save_json, utc_today
 
 
-def _deterministic_model_enrichment(m: dict[str, Any]) -> dict[str, Any]:
-    ctx_k = int(m["context_length"] / 1000) if m.get("context_length") else 0
-    is_free = bool(m.get("is_free"))
-    p_in = float(m.get("prompt_price_per_m", 0.0))
-    p_out = float(m.get("completion_price_per_m", 0.0))
+def compute_model_hash(m: dict[str, Any], prompt_version: str) -> str:
+    payload = {
+        "id": m.get("id"),
+        "pricing_type": m.get("pricing_type"),
+        "prompt_price_per_m": m.get("prompt_price_per_m"),
+        "completion_price_per_m": m.get("completion_price_per_m"),
+        "context_length": m.get("context_length"),
+        "modality": m.get("modality"),
+        "task_category": m.get("task_category"),
+        "description": m.get("description"),
+        "prompt_version": prompt_version,
+    }
+    raw = json.dumps(payload, sort_keys=True, ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()[:16]
 
-    if is_free:
-        tier_summary = (
-            f"{m['name']} is currently listed at $0 per million tokens, making it practical for "
-            f"scheduled cron pipelines, prototyping, and low-budget batch processing."
+
+def compute_repo_hash(r: dict[str, Any], prompt_version: str) -> str:
+    payload = {
+        "full_name": r.get("full_name"),
+        "category": r.get("category"),
+        "language": r.get("language"),
+        "license": r.get("license"),
+        "deployment_tier": r.get("deployment_tier"),
+        "description": r.get("description"),
+        "prompt_version": prompt_version,
+    }
+    raw = json.dumps(payload, sort_keys=True, ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()[:16]
+
+
+def _deterministic_model_enrichment(m: dict[str, Any], cache_hash: str) -> dict[str, Any]:
+    ctx_k = int(m["context_length"] / 1000) if m.get("context_length") else 0
+    ptype = m.get("pricing_type", "unknown")
+    p_in = m.get("prompt_price_per_m")
+    p_out = m.get("completion_price_per_m")
+
+    if ptype == "free":
+        summary = (
+            f"{m['name']} is a verified zero-cost ($0/1M tokens) text endpoint with a {ctx_k}K context window, "
+            f"well suited for scheduled batch automation and low-budget prototyping."
         )
         best_for = [
-            "Zero-budget batch summarization and scheduled automation jobs",
-            "Rapid API prototyping before committing to paid token quotas",
-            "Fallback endpoint inside multi-provider LLM routers",
+            "Zero-cost scheduled batch jobs and daily content/data extraction",
+            "Fallback node inside a multi-provider free-tier LLM router",
+            "Early MVP validation before committing to paid token budgets",
         ]
         watch_outs = [
-            "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-            "Latency and availability can fluctuate compared to paid SLA tiers",
+            "Free endpoints enforce strict requests-per-minute (RPM) and daily caps",
+            "Upstream providers may retire or re-price free tiers with short notice",
+        ]
+    elif ptype == "free_router":
+        summary = (
+            f"{m['name']} automatically routes prompts across currently active zero-cost ($0) models, "
+            f"reducing manual maintenance when individual free endpoints hit rate limits."
+        )
+        best_for = [
+            "Hands-off fallback routing when specific free models are throttled",
+            "Non-critical background summarization where model identity can vary",
+            "Zero-budget testing of OpenAI-compatible client pipelines",
+        ]
+        watch_outs = [
+            "Underlying routed model changes dynamically so output style can vary",
+            "Subject to shared free-tier concurrency limits",
+        ]
+    elif ptype == "variable":
+        summary = (
+            f"{m['name']} is a dynamic routing endpoint with variable billing—there is no fixed token rate; "
+            f"you pay the actual rate of whichever downstream model handles each request."
+        )
+        best_for = [
+            "Workloads where automatic quality-vs-cost model selection beats hardcoding one model",
+            "Mixed-complexity agent loops combining simple routing with hard coding steps",
+            "Simplifying API integration behind a single unified endpoint ID",
+        ]
+        watch_outs = [
+            "NOT a free model: routing has no markup, but downstream paid models are billed normally",
+            "Monthly spend can fluctuate unpredictably if hard prompts route to frontier models",
+        ]
+    elif ptype == "paid" and p_in is not None and p_out is not None:
+        est_10m = round(p_in * 8 + p_out * 2, 2)
+        summary = (
+            f"{m['name']} is a paid API endpoint billed at ${p_in}/1M input tokens and ${p_out}/1M output tokens "
+            f"(~${est_10m} for 8M input + 2M output tokens) with a {ctx_k}K context window."
+        )
+        best_for = [
+            "Production workloads needing predictable throughput and paid SLA limits",
+            f"Large-document or codebase tasks up to {ctx_k}K tokens" if ctx_k >= 128 else "Structured extraction, classification, and API automation",
+            "Cost-controlled pipelines paired with prompt caching and response caching",
+        ]
+        watch_outs = [
+            "Output tokens are typically more expensive than input tokens—cap max_tokens carefully",
+            "Always cache repeated extractions by content hash to avoid duplicate API spend",
         ]
     else:
-        est_10m = round(p_in * 8 + p_out * 2, 2)
-        tier_summary = (
-            f"{m['name']} is priced at ${p_in}/1M input tokens and ${p_out}/1M output tokens "
-            f"(~${est_10m} for a typical 8M input + 2M output monthly workload) with a {ctx_k}K context window."
+        summary = (
+            f"{m['name']} uses specialized or non-standard billing ({m.get('pricing_label', ptype)}); "
+            f"verify exact unit pricing on the upstream provider page before production use."
         )
         best_for = [
-            "Production API workloads requiring predictable rate limits",
-            f"Long-context extraction tasks up to {ctx_k}K tokens" if ctx_k >= 100 else "Structured JSON generation and classification",
-            "Cost-controlled developer tooling and backend automation",
+            "Specialized non-standard or preview workloads matching its declared modality",
+            "Experimental testing with strict per-request budget caps",
+            "Evaluating emerging capabilities prior to general availability",
         ]
         watch_outs = [
-            "Always monitor output token ratios since completion tokens cost more than prompt tokens",
-            "Cache repeated system prompts and static extractions to prevent runaway monthly spend",
+            "Standard per-million-token text calculators do not apply cleanly to this endpoint",
+            "Confirm current billing units directly in the OpenRouter model specification",
         ]
 
     return {
         "source": "deterministic-fallback",
+        "cache_hash": cache_hash,
         "enriched_at": utc_today(),
-        "summary": tier_summary,
+        "summary": summary,
         "best_for": best_for,
         "watch_outs": watch_outs,
-        "faq": [
-            {
-                "q": f"Is {m['name']} free to use via API?",
-                "a": (
-                    f"Yes, {m['name']} is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
-                    if is_free
-                    else f"No, {m['name']} is a paid endpoint billed at ${p_in} per 1M input tokens and ${p_out} per 1M output tokens."
-                ),
-            },
-            {
-                "q": f"What is the context window of {m['name']}?",
-                "a": f"{m['name']} supports up to {m['context_length']:,} tokens ({ctx_k}K) with modality {m.get('modality', 'text->text')}.",
-            },
-        ],
     }
 
 
 def _build_model_prompt(m: dict[str, Any]) -> str:
     return (
-        "Analyze this LLM API endpoint strictly based on the provided factual metadata. "
-        "Do NOT invent benchmark scores or unverified claims. Return a JSON object with keys: "
-        '"summary" (2 concise sentences), "best_for" (array of 3 concise strings), '
-        '"watch_outs" (array of 2 concise strings), and "faq" (array of 2 objects with "q" and "a").\n\n'
-        f"Metadata:\n"
-        f"- Name: {m['name']}\n"
+        "Provide concise engineering decision guidance for this LLM API endpoint strictly from the facts below. "
+        "CRITICAL RULES:\n"
+        "1. NEVER claim a 'variable' or 'paid' endpoint is free.\n"
+        "2. Do NOT invent benchmark scores, rate limits, or unverified pricing.\n"
+        "3. Focus on practical task suitability (coding, bulk translation, batch extraction, agent loops) and engineering trade-offs.\n"
+        'Return valid JSON only with keys: "summary" (2 concise factual sentences), '
+        '"best_for" (array of 3 concise strings), "watch_outs" (array of 2 concise strings).\n\n'
+        f"Facts:\n"
+        f"- Name: {m['name']} ({m['id']})\n"
         f"- Provider: {m['provider']}\n"
+        f"- Pricing Classification: {m['pricing_type']} ({m['pricing_label']})\n"
+        f"- Input Price per 1M tokens: {m['prompt_price_per_m']}\n"
+        f"- Output Price per 1M tokens: {m['completion_price_per_m']}\n"
         f"- Context Length: {m['context_length']} tokens\n"
-        f"- Input Price: ${m['prompt_price_per_m']} per 1M tokens\n"
-        f"- Output Price: ${m['completion_price_per_m']} per 1M tokens\n"
-        f"- Free Tier: {m['is_free']}\n"
         f"- Modality: {m.get('modality', 'text->text')}\n"
-        f"- Description: {m.get('description', '')}\n"
+        f"- Task Category: {m.get('task_category', 'general')}\n"
+        f"- Official Description: {m.get('description', '')}\n"
     )
 
 
-def _deterministic_repo_enrichment(r: dict[str, Any]) -> dict[str, Any]:
-    lang = r.get("language", "Multi")
-    stars = int(r.get("stars", 0))
+def _deterministic_repo_enrichment(r: dict[str, Any], cache_hash: str) -> dict[str, Any]:
+    lic_note = (
+        f"Permissive {r.get('license', 'Unknown')} license suitable for most commercial self-hosting"
+        if r.get("commercial_friendly")
+        else f"Licensed under {r.get('license', 'Unknown')} — review commercial/copyleft obligations before hosted use"
+    )
     return {
         "source": "deterministic-fallback",
+        "cache_hash": cache_hash,
         "enriched_at": utc_today(),
         "summary": (
-            f"{r['full_name']} is an active {lang} open-source project with {stars:,} GitHub stars, "
-            f"focused on practical developer infrastructure and self-hosted automation."
+            f"{r['full_name']} is a {r.get('category', 'Self-Hosted Infra')} project written in {r.get('language', 'Multi')} "
+            f"with {r.get('stars', 0):,} stars ({r.get('maintenance_status', 'Active')}), targeting {r.get('deployment_tier', 'VPS')} deployments."
         ),
         "best_for": [
-            f"Teams standardizing on {lang}-based self-hosted infrastructure",
-            "Reducing recurring SaaS bills through open-source deployment",
-            "Integrating into automated CI/CD or AI data pipelines",
+            f"Replacing recurring SaaS bills in {r.get('category', 'developer infrastructure')} workflows",
+            f"Deploying on {r.get('deployment_tier', 'self-hosted VPS')} setups",
+            "Integrating into automated zero-or-low-cost developer pipelines",
         ],
         "watch_outs": [
-            "Verify the repository license before embedding into commercial hosted products",
-            "Pin release versions in production to avoid breaking upgrades",
+            lic_note,
+            "Pin container tags or release versions before running unattended cron/production traffic",
         ],
     }
 
 
 def _build_repo_prompt(r: dict[str, Any]) -> str:
     return (
-        "Analyze this open-source GitHub repository strictly based on the provided factual metadata. "
-        "Do NOT invent features. Return a JSON object with keys: "
-        '"summary" (2 concise sentences), "best_for" (array of 3 concise strings), '
-        'and "watch_outs" (array of 2 concise strings).\n\n'
-        f"Metadata:\n"
-        f"- Repository: {r['full_name']}\n"
-        f"- Language: {r.get('language', 'Unknown')}\n"
-        f"- Stars: {r.get('stars', 0)}\n"
-        f"- Topics: {', '.join(r.get('topics', []))}\n"
-        f"- Description: {r.get('description', '')}\n"
+        "Provide concise self-hosting and deployment decision notes for this open-source infrastructure repo strictly from the facts below. "
+        'Return valid JSON only with keys: "summary" (2 concise sentences), '
+        '"best_for" (array of 3 concise strings), "watch_outs" (array of 2 concise strings).\n\n'
+        f"Facts:\n"
+        f"- Repo: {r['full_name']} | Category: {r.get('category')}\n"
+        f"- Language: {r.get('language')} | Stars: {r.get('stars')} | License: {r.get('license')} (commercial_friendly={r.get('commercial_friendly')})\n"
+        f"- Deployment Tier: {r.get('deployment_tier')} | Docker Signal: {r.get('has_docker')} | Maintenance: {r.get('maintenance_status')}\n"
+        f"- Description: {r.get('description')}\n"
     )
 
 
-def _valid_model_enrichment(data: dict[str, Any] | None) -> bool:
+def _valid_enrichment(data: dict[str, Any] | None, pricing_type: str | None = None) -> bool:
     if not data:
         return False
-    return (
+    if not (
         isinstance(data.get("summary"), str)
         and isinstance(data.get("best_for"), list)
         and isinstance(data.get("watch_outs"), list)
-        and isinstance(data.get("faq"), list)
-    )
-
-
-def _valid_repo_enrichment(data: dict[str, Any] | None) -> bool:
-    if not data:
+    ):
         return False
-    return (
-        isinstance(data.get("summary"), str)
-        and isinstance(data.get("best_for"), list)
-        and isinstance(data.get("watch_outs"), list)
-    )
+    # Guardrail: reject LLM output that falsely calls a variable/paid endpoint free
+    if pricing_type in ("variable", "paid"):
+        s_low = data["summary"].lower()
+        if "$0" in s_low or "completely free" in s_low or "zero-cost" in s_low:
+            return False
+    return True
 
 
 def main() -> None:
     cfg = load_config()
     max_calls = int(cfg["pipeline"].get("max_daily_llm_enrich", 10))
+    prompt_ver = str(cfg["pipeline"].get("prompt_version", "v2.0"))
     has_live_llm = len(get_available_providers()) > 0
 
     models_path = DATA_DIR / "models.json"
@@ -159,49 +226,62 @@ def main() -> None:
     repos = load_json(repos_path, default=[])
 
     llm_calls_used = 0
+    invalidated_count = 0
 
     for m in models:
-        existing = m.get("enrichment")
-        already_llm = existing and existing.get("source") not in (None, "deterministic-fallback")
+        c_hash = compute_model_hash(m, prompt_ver)
+        existing = m.get("enrichment") or {}
+        hash_matches = existing.get("cache_hash") == c_hash
+        already_llm = hash_matches and existing.get("source") not in (None, "deterministic-fallback")
         if already_llm:
             continue
+        if existing and not hash_matches:
+            invalidated_count += 1
 
         if has_live_llm and llm_calls_used < max_calls:
             parsed, provider = generate_json_with_fallback(_build_model_prompt(m))
-            if _valid_model_enrichment(parsed):
+            if _valid_enrichment(parsed, pricing_type=m.get("pricing_type")):
                 parsed["source"] = provider
+                parsed["cache_hash"] = c_hash
                 parsed["enriched_at"] = utc_today()
                 m["enrichment"] = parsed
                 llm_calls_used += 1
-                time.sleep(1.2)
+                time.sleep(1.0)
                 continue
 
-        if not existing:
-            m["enrichment"] = _deterministic_model_enrichment(m)
+        if not hash_matches or not existing:
+            m["enrichment"] = _deterministic_model_enrichment(m, c_hash)
 
     for r in repos:
-        existing = r.get("enrichment")
-        already_llm = existing and existing.get("source") not in (None, "deterministic-fallback")
+        c_hash = compute_repo_hash(r, prompt_ver)
+        existing = r.get("enrichment") or {}
+        hash_matches = existing.get("cache_hash") == c_hash
+        already_llm = hash_matches and existing.get("source") not in (None, "deterministic-fallback")
         if already_llm:
             continue
+        if existing and not hash_matches:
+            invalidated_count += 1
 
         if has_live_llm and llm_calls_used < max_calls:
             parsed, provider = generate_json_with_fallback(_build_repo_prompt(r))
-            if _valid_repo_enrichment(parsed):
+            if _valid_enrichment(parsed):
                 parsed["source"] = provider
+                parsed["cache_hash"] = c_hash
                 parsed["enriched_at"] = utc_today()
                 r["enrichment"] = parsed
                 llm_calls_used += 1
-                time.sleep(1.2)
+                time.sleep(1.0)
                 continue
 
-        if not existing:
-            r["enrichment"] = _deterministic_repo_enrichment(r)
+        if not hash_matches or not existing:
+            r["enrichment"] = _deterministic_repo_enrichment(r, c_hash)
 
     save_json(models_path, models)
     save_json(repos_path, repos)
-    mode = f"{llm_calls_used} live LLM enrichments" if has_live_llm else "deterministic mode (no LLM API key configured yet)"
-    print(f"[enrich_llm] Completed: {mode}. Models={len(models)}, Repos={len(repos)}.")
+    print(
+        f"[enrich_llm] Done: live_llm_calls={llm_calls_used}, cache_invalidated={invalidated_count}, "
+        f"models={len(models)}, repos={len(repos)}."
+    )
 
 
 if __name__ == "__main__":
