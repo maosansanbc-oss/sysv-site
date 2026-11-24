@@ -1,0 +1,54 @@
+[
+  {
+    "full_name": "BerriAI/litellm",
+    "slug": "berriai-litellm",
+    "name": "litellm",
+    "owner": "BerriAI",
+    "html_url": "https://github.com/BerriAI/litellm",
+    "description": "Call 100+ LLM APIs using the OpenAI format with unified fallback routing, spend tracking, and proxy caching.",
+    "language": "Python",
+    "stars": 22500,
+    "forks": 2900,
+    "topics": ["llm", "api-gateway", "openai", "proxy"],
+    "updated_at": "2026-11-24"
+  },
+  {
+    "full_name": "ollama/ollama",
+    "slug": "ollama-ollama",
+    "name": "ollama",
+    "owner": "ollama",
+    "html_url": "https://github.com/ollama/ollama",
+    "description": "Get up and running with open-weight large language models locally via a simple CLI and REST API.",
+    "language": "Go",
+    "stars": 140000,
+    "forks": 11500,
+    "topics": ["llm", "self-hosted", "cli", "inference"],
+    "updated_at": "2026-11-24"
+  },
+  {
+    "full_name": "n8n-io/n8n",
+    "slug": "n8n-io-n8n",
+    "name": "n8n",
+    "owner": "n8n-io",
+    "html_url": "https://github.com/n8n-io/n8n",
+    "description": "Fair-code workflow automation platform with native AI nodes, cron scheduling, and 400+ integrations.",
+    "language": "TypeScript",
+    "stars": 95000,
+    "forks": 26000,
+    "topics": ["automation", "ai-agent", "self-hosted", "workflow"],
+    "updated_at": "2026-11-24"
+  },
+  {
+    "full_name": "caddyserver/caddy",
+    "slug": "caddyserver-caddy",
+    "name": "caddy",
+    "owner": "caddyserver",
+    "html_url": "https://github.com/caddyserver/caddy",
+    "description": "Fast, extensible reverse proxy and static web server with automatic HTTPS certificates out of the box.",
+    "language": "Go",
+    "stars": 64000,
+    "forks": 4300,
+    "topics": ["devops", "web-server", "https", "self-hosted"],
+    "updated_at": "2026-11-24"
+  }
+]

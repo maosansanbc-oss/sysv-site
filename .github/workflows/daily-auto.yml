@@ -1,0 +1,92 @@
+name: Daily Auto Update & Deploy (sysv.cn)
+
+on:
+  schedule:
+    # Runs every day at 02:15 UTC (10:15 Beijing Time)
+    - cron: "15 2 * * *"
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - "scripts/**"
+      - "site.config.json"
+      - ".github/workflows/daily-auto.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch latest public LLM pricing & open-source repos
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 -m scripts.fetch_data
+
+      - name: Incremental enrichment via free-tier LLM router
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
+        run: python3 -m scripts.enrich_llm
+
+      - name: Build static site into dist/
+        run: python3 -m scripts.build_site
+
+      - name: Commit lightweight data snapshots (prevents 60-day cron pause)
+        run: |
+          git config user.name "sysv-bot"
+          git config user.email "bot@sysv.cn"
+          git add data/models.json data/repos.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(data): automated daily snapshot $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No data changes to commit."
+          fi
+
+      - name: Check Cloudflare deploy credentials
+        id: check_cf
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$CF_TOKEN" ] && [ -n "$CF_ACCOUNT" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare secrets not configured yet; skipping Pages deploy."
+          fi
+
+      - name: Deploy dist/ to Cloudflare Pages
+        if: steps.check_cf.outputs.ready == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=sysv-site
+
+      - name: Notify failure via optional Webhook
+        if: failure()
+        env:
+          ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
+        run: |
+          python3 -c '
+          import json, os, urllib.request
+          url = os.getenv("ALERT_WEBHOOK_URL", "").strip()
+          if url:
+              payload = json.dumps({"text": "SysV Radar daily workflow failed. Check GitHub Actions logs."}).encode()
+              req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
+              urllib.request.urlopen(req, timeout=10)
+          '
