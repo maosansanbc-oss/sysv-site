@@ -1,7 +1,7 @@
 {
   "/": {
-    "hash": "4d3c2548391fbde6",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "caa09f07f52f3f85",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/about/": {
     "hash": "640616c75579009a",
@@ -240,8 +240,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/models/deepseek-deepseek-v4-1-flash/": {
-    "hash": "dfde0e26466d7c92",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "bb236c6db269bc0a",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/deepseek-deepseek-v4-flash-0731-batch/": {
     "hash": "b897baa9ec9ae11a",
@@ -324,8 +324,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/models/google-gemma-4-26b-a4b-it-free/": {
-    "hash": "30316bba99782274",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "6a25a40f427a8e96",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/google-gemma-4-26b-a4b-it/": {
     "hash": "bfbcbdfb97ce03c9",
@@ -344,8 +344,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/models/liquid-lfm-3-1-7b-free/": {
-    "hash": "a8b435d25af1f6ff",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "e8b2549b4edeac58",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/meta-muse-ember/": {
     "hash": "93e8f984fd92a2a8",
@@ -436,8 +436,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/models/mistralai-mistral-nemo/": {
-    "hash": "775f3166cc36af3c",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "d424089a4ca44aa0",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/mistralai-mistral-saba/": {
     "hash": "4e1ff8ca5857047d",
@@ -476,16 +476,16 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/models/nvidia-nemotron-3-5-super-vl-free/": {
-    "hash": "e155b6e6916fe4d0",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "2823526e0bfa345a",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-free/": {
-    "hash": "b0b2f455db66bdaa",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "5d79f00c8ccf843d",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/nvidia-nemotron-3-ultra-550b-a55b-free/": {
-    "hash": "0f2152464e327355",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "e380bc66682d3300",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/nvidia-switchyard/": {
     "hash": "190ee39a58069b24",
@@ -652,12 +652,12 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/models/openrouter-free/": {
-    "hash": "22a11ca824e5d62d",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "99437c2a3aacaf88",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/particle-ai-particle-1-free/": {
-    "hash": "91b5f839e8377605",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "f9ce287746f2ab1c",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/qwen-qwen-2-5-72b-instruct/": {
     "hash": "58fd2522b9dc4e25",
@@ -828,8 +828,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/models/recursive-flint-v1-0-free/": {
-    "hash": "6e9d4bd518c2ff96",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "4e24a007c85eb7ca",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/models/typesafe-jev-router/": {
     "hash": "d4d0b2744e490bec",
@@ -848,8 +848,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/": {
-    "hash": "51655cf83ce5b5b6",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "4873dbb13857aa88",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/agentscope-ai-qwenpaw/": {
     "hash": "0f63dd6115c8c4f5",
@@ -860,20 +860,20 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/berriai-litellm/": {
-    "hash": "04612e64e3c38d05",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "52cb08a61bca51df",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/chatboxai-chatbox/": {
-    "hash": "83ee54c6b6896255",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "3f5a4b73d92c8042",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/chatgptnextweb-nextchat/": {
     "hash": "9c1a7e091d8c12b9",
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/cheaper-inference-omniroute/": {
-    "hash": "f06ebb01e3a89661",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "e33603d71bb30b25",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/cherryhq-cherry-studio/": {
     "hash": "bf3d6438b0b989f1",
@@ -884,8 +884,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/composiohq-awesome-claude-skills/": {
-    "hash": "0bc9c471f0949a0e",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "3c713c5e93640eea",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/conductor-oss-conductor/": {
     "hash": "6a16459e8ef4a246",
@@ -904,8 +904,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/enescingoz-awesome-n8n-templates/": {
-    "hash": "7e399c9817cf154e",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "ab9f5e88133d97b2",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/freestylefly-awesome-gpt-image-2/": {
     "hash": "313bb4be347b9774",
@@ -916,12 +916,12 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/harry0703-moneyprinterturbo/": {
-    "hash": "872dc88117676ad7",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "a174081c1b8d0e30",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/hkuds-nanobot/": {
-    "hash": "d3a1d3a310694981",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "52a111e7108d9e53",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/kong-kong/": {
     "hash": "640ce4cca53f482c",
@@ -932,8 +932,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/langfuse-langfuse/": {
-    "hash": "b1abdf3a2457a607",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "b21a8f363b6b177f",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/learningcircuit-local-deep-research/": {
     "hash": "7730dba621c1cdfa",
@@ -948,8 +948,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/milind-soni-openmausbot/": {
-    "hash": "e565f9f479d59b48",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "2e3bc5e0a7471cf6",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/modsetter-surfsense/": {
     "hash": "f52375621b0dffa2",
@@ -960,8 +960,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/n8n-io-n8n/": {
-    "hash": "f1b1e4feb9f4614c",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "d96b6063437df17a",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/nanocoai-nanoclaw/": {
     "hash": "a69964ebbe2e2ab2",
@@ -980,28 +980,28 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/ollama-ollama/": {
-    "hash": "cd2cfb242112444c",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "728173651286f26b",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/open-multi-agent-open-multi-agent/": {
     "hash": "42bfcba38fe86bdc",
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/open-webui-open-webui/": {
-    "hash": "48f2b0d945de3b5c",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "63a70f81d96f691c",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/paperclipai-paperclip/": {
-    "hash": "a48d61b7fe36badb",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "38135600f6c26c51",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/portkey-ai-gateway/": {
     "hash": "c3bfc74e06aecff9",
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/quantumnous-new-api/": {
-    "hash": "70d93b2192384f6a",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "e1dabdf6a0057db9",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/respanai-respan-gateway/": {
     "hash": "92138f678204773f",
@@ -1032,8 +1032,8 @@
     "lastmod": "2026-11-24T16:18:40Z"
   },
   "/repos/vxcontrol-pentagi/": {
-    "hash": "2ec7c29ef3ca48a1",
-    "lastmod": "2026-11-24T16:18:40Z"
+    "hash": "6257deda36accd1a",
+    "lastmod": "2026-11-24T16:37:20Z"
   },
   "/repos/xing61-zzz-api/": {
     "hash": "67caaa16ea82724b",

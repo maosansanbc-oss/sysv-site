@@ -41,19 +41,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "c23b38c3135f08bc",
-      "enriched_at": "2026-11-24",
-      "summary": "Particle AI: Particle-1 (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1048K context window. OpenRouter :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits); NOT unlimited.",
+      "summary": "Particle-1 is a limited free tier ($0) interactive text+image-to-text model with a 1,048,576-token context, tools, structured outputs, and reasoning. It is a token-efficient agentic coding model from Particle AI, post-trained on DeepSeek V4.1 Flash.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Agentic coding and terminal workflows",
+        "Large-context codebase changes",
+        "Structured, tool-using reasoning tasks"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "The :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits) and is not unlimited.",
+        "Free-tier availability and throughput may be constrained; verify limits before production use."
+      ],
+      "source": "deepseek",
+      "cache_hash": "c23b38c3135f08bc",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -212,19 +212,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "c15a55eb6de1c434",
-      "enriched_at": "2026-11-24",
-      "summary": "NVIDIA: Nemotron 3 Ultra (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1000K context window. OpenRouter :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits); NOT unlimited.",
+      "summary": "NVIDIA Nemotron 3 Ultra (free) is a limited-free-tier text-to-text endpoint with a 1M-token context, reasoning, and tool support. It is priced at $0 per 1M input/output tokens but is strictly rate-limited on OpenRouter's :free tier.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Long-context reasoning tasks up to 1M tokens",
+        "Tool-augmented agent workflows",
+        "Cost-sensitive prototyping on a limited free tier"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "OpenRouter :free tier is rate-limited (~20 RPM, 50 RPD without purchased credits), not unlimited",
+        "Structured outputs are not supported"
+      ],
+      "source": "deepseek",
+      "cache_hash": "c15a55eb6de1c434",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -326,19 +326,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "7819dc147bf8eaa0",
-      "enriched_at": "2026-11-24",
-      "summary": "NVIDIA: Nemotron 3.5 Super VL (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1000K context window. OpenRouter :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits); NOT unlimited.",
+      "summary": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model (12B active of 120B total) offered via OpenRouter's limited free tier at $0 input/output. It supports text, image, and video inputs with a 1M-token context, plus tools, structured outputs, and reasoning.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Multimodal tasks involving images, documents, GUI screenshots, or video",
+        "Long-context reasoning up to 1M tokens",
+        "Prototyping with tools and structured outputs at zero cost"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits), not unlimited",
+        "Rate limits may constrain sustained or high-volume interactive use"
+      ],
+      "source": "deepseek",
+      "cache_hash": "7819dc147bf8eaa0",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -383,19 +383,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "dc2b0c3ea51934aa",
-      "enriched_at": "2026-11-24",
-      "summary": "Google: Gemma 4 26B A4B  (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 262K context window. OpenRouter :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits); NOT unlimited.",
+      "summary": "Gemma 4 26B A4B IT is an instruction-tuned MoE model from Google DeepMind with 25.2B total parameters and 3.8B active per token, offered on OpenRouter's limited free tier at $0. It supports text, image, and video inputs with a 262,144-token context, tool use, and reasoning, but not structured outputs.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Multimodal tasks involving text, image, and video inputs",
+        "Long-context workloads up to 262K tokens",
+        "Tool-augmented and reasoning-heavy interactive use"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is strictly rate-limited (roughly 20 RPM and 50 RPD without purchased credits), not unlimited",
+        "Structured outputs are not supported"
+      ],
+      "source": "deepseek",
+      "cache_hash": "dc2b0c3ea51934aa",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -497,19 +497,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "d621f4a37ae2f97e",
-      "enriched_at": "2026-11-24",
-      "summary": "LiquidAI: LFM3-1.7B (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 262K context window. OpenRouter :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits); NOT unlimited.",
+      "summary": "LFM3-1.7B is a compact 1.7B-parameter text-to-text model offered on a limited free tier at $0 per 1M input/output tokens, with a 256K-token context. It supports tools, structured outputs, and reasoning, and is post-trained for agentic use.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Agentic workflows needing tool calling and structured outputs",
+        "Long-context text tasks up to 256K tokens",
+        "Cost-sensitive prototyping on a limited free tier"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "The :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits) and is not unlimited",
+        "Prompts and outputs may be retained and used, so avoid sensitive data"
+      ],
+      "source": "deepseek",
+      "cache_hash": "d621f4a37ae2f97e",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -554,19 +554,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "a685d7cf5f25a7e9",
-      "enriched_at": "2026-11-24",
-      "summary": "Recursive: Flint (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 262K context window. OpenRouter :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits); NOT unlimited.",
+      "summary": "Flint is an open-weight mixture-of-experts text-to-text model with roughly 2.5B active parameters out of 40B total, offered via OpenRouter's limited free tier at $0 input/output. It supports a 262,144-token context, tool use, and reasoning, but not structured outputs.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Coding-agent workflows",
+        "Long-context tasks up to 262K tokens",
+        "Tool-using reasoning experiments on a free tier"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "The :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits) and is not unlimited",
+        "Structured outputs are not supported, so schema-constrained generation needs workarounds"
+      ],
+      "source": "deepseek",
+      "cache_hash": "a685d7cf5f25a7e9",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -611,19 +611,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "6bd3ed9bc23e1617",
-      "enriched_at": "2026-11-24",
-      "summary": "NVIDIA: Nemotron 3 Nano Omni (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 256K context window. OpenRouter :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits); NOT unlimited.",
+      "summary": "NVIDIA Nemotron 3 Nano Omni is a 30B-A3B open multimodal model offered on a limited free tier ($0) via OpenRouter, accepting text, image, audio, and video inputs with a 256K context. It supports tool use and reasoning but not structured outputs, and is positioned as a perception/context sub-agent in enterprise agent systems.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Multimodal perception sub-agents handling text, image, audio, and video inputs",
+        "Long-context reasoning tasks up to 256K tokens",
+        "Prototyping agent workflows that require tool calling"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "The :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits) and is not unlimited",
+        "Structured outputs are not supported, so schema-constrained generation must be handled externally"
+      ],
+      "source": "deepseek",
+      "cache_hash": "6bd3ed9bc23e1617",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -668,19 +668,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "64bad2dc66384f60",
-      "enriched_at": "2026-11-24",
-      "summary": "Free Models Router routes prompts strictly across active $0 rate-limited models to reduce manual model switching.",
+      "summary": "openrouter/free is a free router that randomly selects among active $0 endpoints on OpenRouter, filtering for models that support the request. It offers a 200K context window with text+image input, tools, structured outputs, and reasoning, but is subject to shared OpenRouter free RPM/RPD caps.",
       "best_for": [
-        "Hands-off fallback when individual :free endpoints return HTTP 429",
-        "Non-critical background summarization where exact model identity can vary",
-        "Testing OpenAI-compatible clients at zero token cost"
+        "Free interactive inference with no per-token cost",
+        "Multimodal text+image requests needing large context",
+        "Prototyping with tools, structured outputs, and reasoning"
       ],
       "watch_outs": [
-        "Output consistency varies because the underlying model changes dynamically",
-        "Still subject to shared OpenRouter free-tier RPM/RPD limits"
-      ]
+        "Shared OpenRouter free RPM/RPD caps apply, so throughput is rate-limited",
+        "Random model selection means output behavior and quality can vary between calls"
+      ],
+      "source": "deepseek",
+      "cache_hash": "64bad2dc66384f60",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -725,19 +725,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "f313cdce345115f5",
-      "enriched_at": "2026-11-24",
-      "summary": "Mistral: Mistral Nemo is a real-time paid endpoint billed at $0.029/1M input and $0.03/1M output tokens (estimated $0.29 for 8M input + 2M output tokens) with a 131K context window.",
+      "summary": "Mistral Nemo is a paid, real-time text-to-text model with 131,072-token context and per-token pricing of 0.029/0.03 per 1M input/output tokens. It supports tools and structured outputs, is multilingual, and does not include reasoning capability.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 131K tokens"
+        "Long-context text tasks up to 128k tokens",
+        "Multilingual applications across supported languages",
+        "Tool-calling and structured-output workflows"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; not a free endpoint",
+        "No built-in reasoning capability, so complex reasoning tasks may need another model"
+      ],
+      "source": "deepseek",
+      "cache_hash": "f313cdce345115f5",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -1238,19 +1238,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "041e31bc9e936ecf",
-      "enriched_at": "2026-11-24",
-      "summary": "DeepSeek: DeepSeek V4.1 Flash is a real-time paid endpoint billed at $0.0507/1M input and $0.2028/1M output tokens (estimated $0.81 for 8M input + 2M output tokens) with a 1048K context window.",
+      "summary": "DeepSeek V4.1 Flash is a paid, real-time interactive text+image-to-text model priced at 0.0507 input / 0.2028 output per 1M tokens. It offers a 1,048,576-token context window with tools, structured outputs, and reasoning support.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1048K tokens"
+        "Long-context document and image analysis",
+        "Tool-augmented and structured-output workflows",
+        "Cost-sensitive high-volume real-time inference"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; not a free endpoint",
+        "Very large context windows can raise per-request token costs"
+      ],
+      "source": "deepseek",
+      "cache_hash": "041e31bc9e936ecf",
+      "enriched_at": "2026-11-24"
     }
   },
   {
