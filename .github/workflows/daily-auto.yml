@@ -14,9 +14,18 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   update-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -56,26 +65,17 @@ jobs:
             echo "No data changes to commit."
           fi
 
-      - name: Check Cloudflare deploy credentials
-        id: check_cf
-        env:
-          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          if [ -n "$CF_TOKEN" ] && [ -n "$CF_ACCOUNT" ]; then
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "Cloudflare secrets not configured yet; skipping Pages deploy."
-          fi
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
 
-      - name: Deploy dist/ to Cloudflare Pages
-        if: steps.check_cf.outputs.ready == 'true'
-        uses: cloudflare/wrangler-action@v3
+      - name: Upload static site artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=sysv-site
+          path: dist
+
+      - name: Deploy to GitHub Pages (sysv.cn)
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Notify failure via optional Webhook
         if: failure()

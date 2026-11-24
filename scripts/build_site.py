@@ -879,6 +879,8 @@ def build_seo_files(
         "/feed.xml\n"
         "  Cache-Control: public, max-age=1800\n"
     )
+    # GitHub Pages custom domain binding + Cloudflare Pages headers
+    write_page("CNAME", f"{cfg['domain']}\n")
     write_page("_headers", headers_txt)
 
     client_id = str(cfg.get("monetization", {}).get("adsense_client_id") or "").strip()
