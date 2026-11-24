@@ -7,8 +7,8 @@
     "html_url": "https://github.com/morluto/rea",
     "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
     "language": "TypeScript",
-    "stars": 476592,
-    "forks": 116067,
+    "stars": 476636,
+    "forks": 116071,
     "topics": [
       "agent-skills",
       "ai",
@@ -34,40 +34,6 @@
     }
   },
   {
-    "full_name": "NousResearch/hermes-agent",
-    "slug": "nousresearch-hermes-agent",
-    "name": "hermes-agent",
-    "owner": "NousResearch",
-    "html_url": "https://github.com/NousResearch/hermes-agent",
-    "description": "The agent that grows with you",
-    "language": "Python",
-    "stars": 265814,
-    "forks": 60191,
-    "topics": [
-      "ai",
-      "ai-agent",
-      "ai-agents",
-      "anthropic",
-      "chatgpt",
-      "claude"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "NousResearch/hermes-agent is an active Python open-source project with 265,814 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on Python-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
     "full_name": "n8n-io/n8n",
     "slug": "n8n-io-n8n",
     "name": "n8n",
@@ -75,8 +41,8 @@
     "html_url": "https://github.com/n8n-io/n8n",
     "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
     "language": "TypeScript",
-    "stars": 211962,
-    "forks": 61642,
+    "stars": 211972,
+    "forks": 61641,
     "topics": [
       "ai",
       "apis",
@@ -109,7 +75,7 @@
     "html_url": "https://github.com/firecrawl/firecrawl",
     "description": "Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API.",
     "language": "TypeScript",
-    "stars": 208542,
+    "stars": 208569,
     "forks": 10897,
     "topics": [
       "ai",
@@ -143,7 +109,7 @@
     "html_url": "https://github.com/huggingface/transformers",
     "description": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
     "language": "Python",
-    "stars": 169246,
+    "stars": 169247,
     "forks": 35280,
     "topics": [
       "audio",
@@ -170,40 +136,6 @@
     }
   },
   {
-    "full_name": "immich-app/immich",
-    "slug": "immich-app-immich",
-    "name": "immich",
-    "owner": "immich-app",
-    "html_url": "https://github.com/immich-app/immich",
-    "description": "High performance self-hosted photo and video management solution.",
-    "language": "TypeScript",
-    "stars": 120019,
-    "forks": 7687,
-    "topics": [
-      "backup-tool",
-      "flutter",
-      "google-photos",
-      "google-photos-alternative",
-      "javascript",
-      "mobile-app"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "immich-app/immich is an active TypeScript open-source project with 120,019 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
     "full_name": "career-ops-hq/career-ops",
     "slug": "career-ops-hq-career-ops",
     "name": "career-ops",
@@ -211,8 +143,8 @@
     "html_url": "https://github.com/career-ops-hq/career-ops",
     "description": "Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and an application tracker. It helps you fill in each application; you press Submit. Runs locally in Codex, OpenCode and other AI CLIs,",
     "language": "JavaScript",
-    "stars": 84558,
-    "forks": 15468,
+    "stars": 84563,
+    "forks": 15470,
     "topics": [
       "agent-skills",
       "ai-agent",
@@ -238,40 +170,6 @@
     }
   },
   {
-    "full_name": "netdata/netdata",
-    "slug": "netdata-netdata",
-    "name": "netdata",
-    "owner": "netdata",
-    "html_url": "https://github.com/netdata/netdata",
-    "description": "Full-stack observability · Metrics · Logs · Traces · Flows · Topology · Infrastructure · APM · NPM · DBM · RUM · Synthetics · Cloud · AI SRE · OpenTelemetry · SNMP · NetFlow/IPFIX/sFlow · IPMI · Redfish · 2000+ integrations",
-    "language": "Go",
-    "stars": 81609,
-    "forks": 6740,
-    "topics": [
-      "ai",
-      "anomaly-detection",
-      "dashboard",
-      "data-visualization",
-      "database",
-      "devops"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "netdata/netdata is an active Go open-source project with 81,609 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on Go-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
     "full_name": "unslothai/unsloth",
     "slug": "unslothai-unsloth",
     "name": "unsloth",
@@ -279,8 +177,8 @@
     "html_url": "https://github.com/unslothai/unsloth",
     "description": "Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4.1, MiniMax-H3, Gemma 4, FLUX and more.",
     "language": "Python",
-    "stars": 80144,
-    "forks": 7459,
+    "stars": 80149,
+    "forks": 7460,
     "topics": [
       "agent",
       "ai",
@@ -313,8 +211,8 @@
     "html_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
     "description": "LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.",
     "language": "Python",
-    "stars": 74259,
-    "forks": 58395,
+    "stars": 74269,
+    "forks": 58404,
     "topics": [
       "a-stock",
       "ai-agent",
@@ -340,30 +238,30 @@
     }
   },
   {
-    "full_name": "appwrite/appwrite",
-    "slug": "appwrite-appwrite",
-    "name": "appwrite",
-    "owner": "appwrite",
-    "html_url": "https://github.com/appwrite/appwrite",
-    "description": "The open-source cloud for agents & devs. Including Auth, Databases, Storage, Functions, Messaging, Hosting, Realtime, WAF and more",
-    "language": "TypeScript",
-    "stars": 58560,
-    "forks": 5913,
+    "full_name": "ClickHouse/ClickHouse",
+    "slug": "clickhouse-clickhouse",
+    "name": "ClickHouse",
+    "owner": "ClickHouse",
+    "html_url": "https://github.com/ClickHouse/ClickHouse",
+    "description": "ClickHouse® is a real-time analytics database management system",
+    "language": "C++",
+    "stars": 51101,
+    "forks": 9316,
     "topics": [
-      "android",
-      "appwrite",
-      "backend",
-      "backend-as-a-service",
-      "docker",
-      "firebase"
+      "ai",
+      "analytics",
+      "big-data",
+      "clickhouse",
+      "cloud-native",
+      "cpp"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "appwrite/appwrite is an active TypeScript open-source project with 58,560 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "ClickHouse/ClickHouse is an active C++ open-source project with 51,101 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
+        "Teams standardizing on C++-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -374,28 +272,28 @@
     }
   },
   {
-    "full_name": "AstrBotDevs/AstrBot",
-    "slug": "astrbotdevs-astrbot",
-    "name": "AstrBot",
-    "owner": "AstrBotDevs",
-    "html_url": "https://github.com/AstrBotDevs/AstrBot",
-    "description": "AI Agent Assistant & development framework that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨",
+    "full_name": "getsentry/sentry",
+    "slug": "getsentry-sentry",
+    "name": "sentry",
+    "owner": "getsentry",
+    "html_url": "https://github.com/getsentry/sentry",
+    "description": "Developer-first error tracking and performance monitoring",
     "language": "Python",
-    "stars": 47436,
-    "forks": 3667,
+    "stars": 45872,
+    "forks": 4987,
     "topics": [
-      "agent",
-      "ai",
-      "astrbot",
-      "chatbot",
-      "chatgpt",
-      "discord"
+      "apm",
+      "crash-reporting",
+      "crash-reports",
+      "csp-report",
+      "devops",
+      "django"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "AstrBotDevs/AstrBot is an active Python open-source project with 47,436 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "getsentry/sentry is an active Python open-source project with 45,872 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
         "Teams standardizing on Python-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
@@ -408,30 +306,30 @@
     }
   },
   {
-    "full_name": "linshenkx/prompt-optimizer",
-    "slug": "linshenkx-prompt-optimizer",
-    "name": "prompt-optimizer",
-    "owner": "linshenkx",
-    "html_url": "https://github.com/linshenkx/prompt-optimizer",
-    "description": "An AI prompt optimizer for writing better prompts and getting better AI results.",
-    "language": "TypeScript",
-    "stars": 42393,
-    "forks": 4763,
+    "full_name": "soxoj/maigret",
+    "slug": "soxoj-maigret",
+    "name": "maigret",
+    "owner": "soxoj",
+    "html_url": "https://github.com/soxoj/maigret",
+    "description": "🕵️‍♂️ Collect a dossier on a person by username from 6K websites",
+    "language": "Python",
+    "stars": 41226,
+    "forks": 3336,
     "topics": [
-      "ai-prompts",
-      "ai-tools",
-      "llm",
-      "prompt",
-      "prompt-engineering",
-      "prompt-optimization"
+      "cli",
+      "cybersecurity",
+      "identification",
+      "information-gathering",
+      "infosec",
+      "investigation"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "linshenkx/prompt-optimizer is an active TypeScript open-source project with 42,393 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "soxoj/maigret is an active Python open-source project with 41,226 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
+        "Teams standardizing on Python-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -442,62 +340,28 @@
     }
   },
   {
-    "full_name": "can1357/oh-my-pi",
-    "slug": "can1357-oh-my-pi",
-    "name": "oh-my-pi",
-    "owner": "can1357",
-    "html_url": "https://github.com/can1357/oh-my-pi",
-    "description": "⌥ Coding agent with the IDE wired in. Built by Stencil Labs.",
-    "language": "TypeScript",
-    "stars": 39790,
-    "forks": 4597,
-    "topics": [
-      "ai-agent",
-      "ai-coding-agent",
-      "anthropic",
-      "bun",
-      "claude",
-      "cli"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "can1357/oh-my-pi is an active TypeScript open-source project with 39,790 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "trycua/cua",
-    "slug": "trycua-cua",
-    "name": "cua",
-    "owner": "trycua",
-    "html_url": "https://github.com/trycua/cua",
-    "description": "Scale computer-use 2.0 with open-source drivers, cross-OS sandboxes, and benchmarks for training, evaluation, and data generation.",
+    "full_name": "codewhale-hq/Codewhale",
+    "slug": "codewhale-hq-codewhale",
+    "name": "Codewhale",
+    "owner": "codewhale-hq",
+    "html_url": "https://github.com/codewhale-hq/Codewhale",
+    "description": "Open-source Rust coding agent for terminal, web, and desktop. Any model, multi-agent fleets, MCP & plugins, OS sandboxing, and session receipts.",
     "language": "Rust",
-    "stars": 32861,
-    "forks": 2489,
+    "stars": 41197,
+    "forks": 3578,
     "topics": [
-      "agent",
+      "agent-client-protocol",
+      "agent-orchestration",
       "ai-agent",
-      "apple",
-      "computer-use",
-      "computer-use-agent",
-      "containerization"
+      "ai-coding",
+      "cli",
+      "coding-agent"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "trycua/cua is an active Rust open-source project with 32,861 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "codewhale-hq/Codewhale is an active Rust open-source project with 41,197 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
         "Teams standardizing on Rust-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
@@ -544,30 +408,30 @@
     }
   },
   {
-    "full_name": "QwenLM/qwen-code",
-    "slug": "qwenlm-qwen-code",
-    "name": "qwen-code",
-    "owner": "QwenLM",
-    "html_url": "https://github.com/QwenLM/qwen-code",
-    "description": "An open-source AI coding agent that lives in your terminal.",
-    "language": "TypeScript",
-    "stars": 30919,
-    "forks": 3579,
+    "full_name": "ccch1mneyyy/dsh-Go",
+    "slug": "ccch1mneyyy-dsh-go",
+    "name": "dsh-Go",
+    "owner": "ccch1mneyyy",
+    "html_url": "https://github.com/ccch1mneyyy/dsh-Go",
+    "description": "dsh-go — DeepSeek Harness 装进口袋：手机本机运行，也能遥控你的电脑。",
+    "language": "Dart",
+    "stars": 31240,
+    "forks": 1511,
     "topics": [
-      "agentic",
-      "ai",
       "ai-agent",
-      "ai-coding",
-      "cli",
-      "coding-agent"
+      "android",
+      "android-app",
+      "coding-agent",
+      "deepseek",
+      "deepseek-harness"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "QwenLM/qwen-code is an active TypeScript open-source project with 30,919 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "ccch1mneyyy/dsh-Go is an active Dart open-source project with 31,240 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
+        "Teams standardizing on Dart-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -585,8 +449,8 @@
     "html_url": "https://github.com/kestra-io/kestra",
     "description": "Orchestrate everything, everywhere. The open-source control plane for workflows across data, infrastructure, business processes and AI agents. Declarative YAML, event-driven, any language, Git-versioned, scalable to millions of executions.",
     "language": "Java",
-    "stars": 30332,
-    "forks": 3554,
+    "stars": 30333,
+    "forks": 3555,
     "topics": [
       "ai-agents",
       "automation",
@@ -612,98 +476,30 @@
     }
   },
   {
-    "full_name": "mastra-ai/mastra",
-    "slug": "mastra-ai-mastra",
-    "name": "mastra",
-    "owner": "mastra-ai",
-    "html_url": "https://github.com/mastra-ai/mastra",
-    "description": "Mastra is the modern TypeScript framework for AI-powered applications and agents.",
+    "full_name": "coleam00/Archon",
+    "slug": "coleam00-archon",
+    "name": "Archon",
+    "owner": "coleam00",
+    "html_url": "https://github.com/coleam00/Archon",
+    "description": "The first open-source harness builder for AI coding. Make AI coding deterministic and repeatable.",
     "language": "TypeScript",
-    "stars": 29785,
-    "forks": 3131,
+    "stars": 23988,
+    "forks": 3543,
     "topics": [
-      "agents",
       "ai",
-      "chatbots",
-      "evals",
-      "javascript",
-      "llm"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "mastra-ai/mastra is an active TypeScript open-source project with 29,785 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "milind-soni/OpenMausBot",
-    "slug": "milind-soni-openmausbot",
-    "name": "OpenMausBot",
-    "owner": "milind-soni",
-    "html_url": "https://github.com/milind-soni/OpenMausBot",
-    "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
-    "language": "TypeScript",
-    "stars": 27407,
-    "forks": 3915,
-    "topics": [
-      "ai-agents",
-      "claude-code",
-      "codex",
-      "computer-use",
-      "docker",
-      "electron"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "milind-soni/OpenMausBot is an active TypeScript open-source project with 27,407 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "xerj-org/xerj",
-    "slug": "xerj-org-xerj",
-    "name": "xerj",
-    "owner": "xerj-org",
-    "html_url": "https://github.com/xerj-org/xerj",
-    "description": "AI search engine and MCP server for bots and agents. One Rust binary indexes code, docs, logs, JSONL/CSV and PDFs for BM25 full-text, vector and hybrid search, code search without grep, agent memory and RAG. Elasticsearch-compatible API; Corpus Hub serves hundreds of reference memory corpora.",
-    "language": "Rust",
-    "stars": 21304,
-    "forks": 1329,
-    "topics": [
-      "agent-memory",
-      "ai-agents",
-      "bm25",
-      "claude-code",
+      "automation",
+      "bun",
+      "claude",
       "cli",
-      "code-search"
+      "coding-assistant"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "xerj-org/xerj is an active Rust open-source project with 21,304 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "coleam00/Archon is an active TypeScript open-source project with 23,988 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on Rust-based self-hosted infrastructure",
+        "Teams standardizing on TypeScript-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -714,30 +510,30 @@
     }
   },
   {
-    "full_name": "kortix-ai/CompanyOS",
-    "slug": "kortix-ai-companyos",
-    "name": "CompanyOS",
-    "owner": "kortix-ai",
-    "html_url": "https://github.com/kortix-ai/CompanyOS",
-    "description": "Kortix CompanyOS – the open-source operating system for the AI-native company. Connect every data source, orchestrate agents, and keep their skills, memory and connectors in one git repo you own. Any model, in our cloud or yours.",
-    "language": "TypeScript",
-    "stars": 20792,
-    "forks": 3475,
+    "full_name": "DuarteSantos8/openGym",
+    "slug": "duartesantos8-opengym",
+    "name": "openGym",
+    "owner": "DuarteSantos8",
+    "html_url": "https://github.com/DuarteSantos8/openGym",
+    "description": "Open-source gym & body-weight tracker, now in the App Store (iPhone + Apple Watch) and as an Android APK. Plan routines, log workouts, see which muscles are trained, import from Strong/Hevy/FitNotes. Self-host it or use it on the phone alone.",
+    "language": "JavaScript",
+    "stars": 23832,
+    "forks": 3198,
     "topics": [
-      "ai",
-      "ai-agents",
-      "company-as-code",
-      "company-operating-system",
-      "company-os",
-      "companyos"
+      "apple-watch",
+      "bodyweight",
+      "docker",
+      "fitness",
+      "fitness-tracker",
+      "gym"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "kortix-ai/CompanyOS is an active TypeScript open-source project with 20,792 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "DuarteSantos8/openGym is an active JavaScript open-source project with 23,832 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
+        "Teams standardizing on JavaScript-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -755,7 +551,7 @@
     "html_url": "https://github.com/jub0t/Concat",
     "description": "Beta: The truly free, open-source, local-first, cross-platform video editor. Scriptable through a JSON-RPC API & MCP.",
     "language": "Rust",
-    "stars": 19962,
+    "stars": 19967,
     "forks": 2440,
     "topics": [
       "ffmpeg",
@@ -782,28 +578,28 @@
     }
   },
   {
-    "full_name": "zhouxiaoka/autoclip",
-    "slug": "zhouxiaoka-autoclip",
-    "name": "autoclip",
-    "owner": "zhouxiaoka",
-    "html_url": "https://github.com/zhouxiaoka/autoclip",
-    "description": "AutoClip｜一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。Open-source AI video clipping & content repurposing.",
+    "full_name": "peach-mitao/peach",
+    "slug": "peach-mitao-peach",
+    "name": "peach",
+    "owner": "peach-mitao",
+    "html_url": "https://github.com/peach-mitao/peach",
+    "description": "Peach: Local-first video metadata scraper and media manager.",
     "language": "Python",
-    "stars": 15129,
-    "forks": 2255,
+    "stars": 15277,
+    "forks": 1793,
     "topics": [
-      "ai-agent",
-      "ai-video-editor",
-      "content-repurposing",
-      "desktop-app",
-      "douyin",
-      "instagram-reels"
+      "local-first",
+      "media-library",
+      "media-manager",
+      "python",
+      "react",
+      "self-hosted"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "zhouxiaoka/autoclip is an active Python open-source project with 15,129 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "peach-mitao/peach is an active Python open-source project with 15,277 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
         "Teams standardizing on Python-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
@@ -816,30 +612,30 @@
     }
   },
   {
-    "full_name": "Unleash/unleash",
-    "slug": "unleash-unleash",
-    "name": "unleash",
-    "owner": "Unleash",
-    "html_url": "https://github.com/Unleash/unleash",
-    "description": "Open-source feature management platform",
-    "language": "TypeScript",
-    "stars": 14336,
-    "forks": 933,
+    "full_name": "Tracer-Cloud/opensre",
+    "slug": "tracer-cloud-opensre",
+    "name": "opensre",
+    "owner": "Tracer-Cloud",
+    "html_url": "https://github.com/Tracer-Cloud/opensre",
+    "description": "The open-source agent for CI/CD reliability.",
+    "language": "Python",
+    "stars": 15067,
+    "forks": 2004,
     "topics": [
-      "activation-strategies",
-      "collaboration",
-      "continuous-delivery",
-      "continuous-deployment",
+      "alerting",
+      "ci-cd",
+      "cli",
+      "datadog",
       "devops",
-      "devtool"
+      "gitlab-ci"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "Unleash/unleash is an active TypeScript open-source project with 14,336 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "Tracer-Cloud/opensre is an active Python open-source project with 15,067 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
+        "Teams standardizing on Python-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -850,28 +646,163 @@
     }
   },
   {
-    "full_name": "modelcontextprotocol/inspector",
-    "slug": "modelcontextprotocol-inspector",
-    "name": "inspector",
-    "owner": "modelcontextprotocol",
-    "html_url": "https://github.com/modelcontextprotocol/inspector",
-    "description": "Deterministic testing tools for MCP servers",
-    "language": "TypeScript",
-    "stars": 11353,
-    "forks": 1586,
+    "full_name": "infracost/infracost",
+    "slug": "infracost-infracost",
+    "name": "infracost",
+    "owner": "infracost",
+    "html_url": "https://github.com/infracost/infracost",
+    "description": "Cloud cost intelligence for engineers, AI coding agents, and CI/CD 💰📉 Shift FinOps Left!",
+    "language": "Go",
+    "stars": 12631,
+    "forks": 703,
     "topics": [
-      "cli",
-      "debug",
-      "mcp",
-      "tool",
-      "tui",
-      "web"
+      "aws",
+      "azure",
+      "cdk",
+      "cloud",
+      "cloud-cost-estimates",
+      "cloud-formation"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "modelcontextprotocol/inspector is an active TypeScript open-source project with 11,353 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "infracost/infracost is an active Go open-source project with 12,631 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on Go-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "GitoxideLabs/gitoxide",
+    "slug": "gitoxidelabs-gitoxide",
+    "name": "gitoxide",
+    "owner": "GitoxideLabs",
+    "html_url": "https://github.com/GitoxideLabs/gitoxide",
+    "description": "A tasteful, lean, fast & safe pure Rust implementation of Git",
+    "language": "Rust",
+    "stars": 12170,
+    "forks": 600,
+    "topics": [
+      "blazingly-fast",
+      "built-with-rust",
+      "cli",
+      "git",
+      "version-control"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "GitoxideLabs/gitoxide is an active Rust open-source project with 12,170 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on Rust-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "omnigent-ai/omnigent",
+    "slug": "omnigent-ai-omnigent",
+    "name": "omnigent",
+    "owner": "omnigent-ai",
+    "html_url": "https://github.com/omnigent-ai/omnigent",
+    "description": "Omnigent is an open-source AI agent framework and meta-harness: orchestrate Claude Code, Codex, Cursor, Pi, and custom agents — swap harnesses without rewriting, enforce policies and sandboxing, and collaborate in real time from any device.",
+    "language": "Python",
+    "stars": 11529,
+    "forks": 1937,
+    "topics": [
+      "agent-framework",
+      "agent-governance",
+      "agent-orchestration",
+      "agents",
+      "ai",
+      "ai-agent"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "omnigent-ai/omnigent is an active Python open-source project with 11,529 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on Python-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "MakazhanAlpamys/Soup",
+    "slug": "makazhanalpamys-soup",
+    "name": "Soup",
+    "owner": "MakazhanAlpamys",
+    "html_url": "https://github.com/MakazhanAlpamys/Soup",
+    "description": "Fine-tune LLMs from one YAML. Layer streaming trains an 8B model on a 4 GB laptop GPU.",
+    "language": "Python",
+    "stars": 10766,
+    "forks": 1792,
+    "topics": [
+      "cli",
+      "consumer-gpu",
+      "dpo",
+      "fine-tuning",
+      "gguf",
+      "huggingface"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "MakazhanAlpamys/Soup is an active Python open-source project with 10,766 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on Python-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "makecindy/cindy",
+    "slug": "makecindy-cindy",
+    "name": "cindy",
+    "owner": "makecindy",
+    "html_url": "https://github.com/makecindy/cindy",
+    "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
+    "language": "TypeScript",
+    "stars": 10542,
+    "forks": 1346,
+    "topics": [
+      "agent",
+      "ai-agent",
+      "ai-assistant",
+      "android",
+      "claude-code",
+      "codex"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "makecindy/cindy is an active TypeScript open-source project with 10,542 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
         "Teams standardizing on TypeScript-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
@@ -918,30 +849,30 @@
     }
   },
   {
-    "full_name": "Flagsmith/flagsmith",
-    "slug": "flagsmith-flagsmith",
-    "name": "flagsmith",
-    "owner": "Flagsmith",
-    "html_url": "https://github.com/Flagsmith/flagsmith",
-    "description": "Flagsmith is an open-source feature flag platform with remote config and experimentation. Choose from self-hosted or cloud deployment options.",
-    "language": "Python",
-    "stars": 9281,
-    "forks": 651,
+    "full_name": "elie222/rakazo",
+    "slug": "elie222-rakazo",
+    "name": "rakazo",
+    "owner": "elie222",
+    "html_url": "https://github.com/elie222/rakazo",
+    "description": "Open-source Grok Bot alternative. Choose your own model and sandbox.",
+    "language": "TypeScript",
+    "stars": 9664,
+    "forks": 1741,
     "topics": [
-      "cd",
-      "ci",
-      "continuous-integration",
+      "ai-agents",
+      "ai-assistant",
+      "chatgpt",
       "docker",
-      "feature-flag",
-      "feature-flaggers"
+      "electron",
+      "expo"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "Flagsmith/flagsmith is an active Python open-source project with 9,281 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "elie222/rakazo is an active TypeScript open-source project with 9,664 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on Python-based self-hosted infrastructure",
+        "Teams standardizing on TypeScript-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -986,92 +917,28 @@
     }
   },
   {
-    "full_name": "OneUptime/oneuptime",
-    "slug": "oneuptime-oneuptime",
-    "name": "oneuptime",
-    "owner": "OneUptime",
-    "html_url": "https://github.com/OneUptime/oneuptime",
-    "description": "Complete open-source monitoring and observability platform.",
-    "language": "TypeScript",
-    "stars": 7845,
-    "forks": 498,
-    "topics": [
-      "devops",
-      "incident-management",
-      "incident-response",
-      "monitoring",
-      "observability",
-      "on-call"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "OneUptime/oneuptime is an active TypeScript open-source project with 7,845 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "ArcReel/ArcReel",
-    "slug": "arcreel-arcreel",
-    "name": "ArcReel",
-    "owner": "ArcReel",
-    "html_url": "https://github.com/ArcReel/ArcReel",
-    "description": "AI Agent 驱动的开源可自部署视频工作台：将小说与剧本转为角色、场景、道具资产、分镜、视频和剪映草稿，支持跨镜头一致性、多供应商与费用追踪 | Self-hosted AI video workspace for stories, storyboards and short-form video production",
-    "language": "Python",
-    "stars": 6743,
-    "forks": 1346,
-    "topics": [
-      "agentic-workflow",
-      "ai-agent",
-      "ai-animation",
-      "ai-video-generator",
-      "capcut",
-      "claude-agent-sdk"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "ArcReel/ArcReel is an active Python open-source project with 6,743 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on Python-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "docker/cli",
-    "slug": "docker-cli",
-    "name": "cli",
-    "owner": "docker",
-    "html_url": "https://github.com/docker/cli",
-    "description": "The Docker CLI",
+    "full_name": "rorkai/App-Store-Connect-CLI",
+    "slug": "rorkai-app-store-connect-cli",
+    "name": "App-Store-Connect-CLI",
+    "owner": "rorkai",
+    "html_url": "https://github.com/rorkai/App-Store-Connect-CLI",
+    "description": "Fast, scriptable CLI for the App Store Connect API. Automate TestFlight, builds, submissions, signing, analytics, screenshots, subscriptions, and more",
     "language": "Go",
-    "stars": 6146,
-    "forks": 2233,
+    "stars": 8511,
+    "forks": 743,
     "topics": [
+      "app-store-connect",
+      "apple",
+      "automation",
+      "cicd",
       "cli",
-      "docker"
+      "command-line-tool"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "docker/cli is an active Go open-source project with 6,146 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "rorkai/App-Store-Connect-CLI is an active Go open-source project with 8,511 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
         "Teams standardizing on Go-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
@@ -1084,30 +951,30 @@
     }
   },
   {
-    "full_name": "apache/maka",
-    "slug": "apache-maka",
-    "name": "maka",
-    "owner": "apache",
-    "html_url": "https://github.com/apache/maka",
-    "description": "Apache Maka (Incubating) is a high-performance agent workspace that keeps a complete record of everything it did.",
-    "language": "Rust",
-    "stars": 6003,
-    "forks": 581,
+    "full_name": "beenuar/AiSOC",
+    "slug": "beenuar-aisoc",
+    "name": "AiSOC",
+    "owner": "beenuar",
+    "html_url": "https://github.com/beenuar/AiSOC",
+    "description": "Open-source AI Security Operations Center: alert fusion, LLM-agent triage, MITRE ATT&CK investigation, and a replayable decision ledger for every agent step. Self-hostable, runs with no API keys, MIT licensed. Ships an MCP server for Claude, Cursor and Continue.",
+    "language": "Python",
+    "stars": 7707,
+    "forks": 852,
     "topics": [
-      "agent-runtime",
-      "ai",
-      "ai-agent",
-      "apache",
-      "cli",
-      "desktop"
+      "agentic-ai",
+      "ai-security",
+      "alert-triage",
+      "blue-team",
+      "cybersecurity",
+      "detection-engineering"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "apache/maka is an active Rust open-source project with 6,003 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "beenuar/AiSOC is an active Python open-source project with 7,707 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on Rust-based self-hosted infrastructure",
+        "Teams standardizing on Python-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -1118,30 +985,166 @@
     }
   },
   {
-    "full_name": "metalbear-co/mirrord",
-    "slug": "metalbear-co-mirrord",
-    "name": "mirrord",
-    "owner": "metalbear-co",
-    "html_url": "https://github.com/metalbear-co/mirrord",
-    "description": "Run any process, on your machine or in an AI agent's environment, as if it were a pod in your Kubernetes cluster: real env vars, DNS, network, traffic.",
-    "language": "Rust",
-    "stars": 5428,
-    "forks": 229,
+    "full_name": "kunkundi/crossdesk",
+    "slug": "kunkundi-crossdesk",
+    "name": "crossdesk",
+    "owner": "kunkundi",
+    "html_url": "https://github.com/kunkundi/crossdesk",
+    "description": "A lightweight, cross-platform remote desktop software with support for Web Client access | 一款支持 Web 客户端访问的轻量级跨平台远程桌面软件。",
+    "language": "C++",
+    "stars": 7215,
+    "forks": 761,
     "topics": [
-      "agent-skills",
-      "ai-agents",
-      "ai-coding",
-      "api",
-      "backend",
-      "claude-code"
+      "cli",
+      "cplusplus",
+      "dsh-plugin",
+      "libdatachannel",
+      "mcp",
+      "remote-control"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "metalbear-co/mirrord is an active Rust open-source project with 5,428 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "kunkundi/crossdesk is an active C++ open-source project with 7,215 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on Rust-based self-hosted infrastructure",
+        "Teams standardizing on C++-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "heilcheng/awesome-agent-skills",
+    "slug": "heilcheng-awesome-agent-skills",
+    "name": "awesome-agent-skills",
+    "owner": "heilcheng",
+    "html_url": "https://github.com/heilcheng/awesome-agent-skills",
+    "description": "Tutorials, Guides and Agent Skills Directories",
+    "language": "TypeScript",
+    "stars": 6430,
+    "forks": 869,
+    "topics": [
+      "agent-skills",
+      "ai-agents",
+      "ai-development",
+      "anthropic",
+      "automation",
+      "awesome"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "heilcheng/awesome-agent-skills is an active TypeScript open-source project with 6,430 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on TypeScript-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "lemonade-sdk/lemonade",
+    "slug": "lemonade-sdk-lemonade",
+    "name": "lemonade",
+    "owner": "lemonade-sdk",
+    "html_url": "https://github.com/lemonade-sdk/lemonade",
+    "description": "Lemonade helps users discover and run local AI apps by serving optimized LLMs right from their own GPUs and NPUs. Join our discord: https://discord.gg/5xXzkMu8Zk",
+    "language": "C++",
+    "stars": 6271,
+    "forks": 574,
+    "topics": [
+      "ai",
+      "amd",
+      "genai",
+      "gpu",
+      "llama",
+      "llm"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "lemonade-sdk/lemonade is an active C++ open-source project with 6,271 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on C++-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "lightdash/lightdash",
+    "slug": "lightdash-lightdash",
+    "name": "lightdash",
+    "owner": "lightdash",
+    "html_url": "https://github.com/lightdash/lightdash",
+    "description": "Agentic BI. Analytics at the speed of code ⚡️",
+    "language": "TypeScript",
+    "stars": 6250,
+    "forks": 812,
+    "topics": [
+      "analytics-engineering",
+      "business-intelligence",
+      "chat-with-your-data",
+      "data-analysis",
+      "data-analyst",
+      "data-analytics"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "lightdash/lightdash is an active TypeScript open-source project with 6,250 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on TypeScript-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "vAPI-Network/vapi-network",
+    "slug": "vapi-network-vapi-network",
+    "name": "vapi-network",
+    "owner": "vAPI-Network",
+    "html_url": "https://github.com/vAPI-Network/vapi-network",
+    "description": "Buyer-controlled client for x402 API payments in USDC on Base.",
+    "language": "TypeScript",
+    "stars": 5787,
+    "forks": 195,
+    "topics": [
+      "agent-payments",
+      "agentic-payments",
+      "ai-agents",
+      "base",
+      "cli",
+      "mcp"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "vAPI-Network/vapi-network is an active TypeScript open-source project with 5,787 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on TypeScript-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -1159,8 +1162,8 @@
     "html_url": "https://github.com/kirodotdev/KiroCrew",
     "description": "A persistent workspace for development work that self-improves and continues beyond one session.",
     "language": "Python",
-    "stars": 5065,
-    "forks": 1094,
+    "stars": 5066,
+    "forks": 1095,
     "topics": [
       "agent",
       "agentic-ai",
@@ -1220,130 +1223,28 @@
     }
   },
   {
-    "full_name": "werf/werf",
-    "slug": "werf-werf",
-    "name": "werf",
-    "owner": "werf",
-    "html_url": "https://github.com/werf/werf",
-    "description": "A solution for implementing efficient and consistent software delivery to Kubernetes facilitating best practices.",
-    "language": "Go",
-    "stars": 4738,
-    "forks": 242,
-    "topics": [
-      "buildah",
-      "ci-cd",
-      "continuous-delivery",
-      "continuous-integration",
-      "devops",
-      "docker"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "werf/werf is an active Go open-source project with 4,738 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on Go-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "dagucloud/dagu",
-    "slug": "dagucloud-dagu",
-    "name": "dagu",
-    "owner": "dagucloud",
-    "html_url": "https://github.com/dagucloud/dagu",
-    "description": "Self-hostable workflow orchestrator for teams whose main work isn't orchestration. Declarative YAML over your scripts, SSH commands, containers, etc; keep workflows separate from business logic. One binary, no database, runs on limited H/W resources. Alternative to Airflow / Cron / Job Scheduler.",
-    "language": "Go",
-    "stars": 4660,
-    "forks": 415,
-    "topics": [
-      "agentic-workflows",
-      "ai-agents",
-      "ai-workflows",
-      "airflow-alternative",
-      "cron",
-      "dag"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "dagucloud/dagu is an active Go open-source project with 4,660 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on Go-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "zvec-ai/zvec-grep",
-    "slug": "zvec-ai-zvec-grep",
-    "name": "zvec-grep",
-    "owner": "zvec-ai",
-    "html_url": "https://github.com/zvec-ai/zvec-grep",
-    "description": "Local-first search across your workspace, built for humans and AI agents.",
-    "language": "Rust",
-    "stars": 4379,
-    "forks": 271,
-    "topics": [
-      "ai-agents",
-      "bm25",
-      "cli",
-      "code-search",
-      "full-text-search",
-      "local-first"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "zvec-ai/zvec-grep is an active Rust open-source project with 4,379 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on Rust-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "n8n-io/nod",
-    "slug": "n8n-io-nod",
-    "name": "nod",
-    "owner": "n8n-io",
-    "html_url": "https://github.com/n8n-io/nod",
-    "description": "Open source personal agent with its own computer. It chases invoices, preps your calls and cancels trials on real websites, and asks before it acts. Runs on your machine with the model you choose. By n8n.",
+    "full_name": "TNTcraftHIM/Piik",
+    "slug": "tntcrafthim-piik",
+    "name": "Piik",
+    "owner": "TNTcraftHIM",
+    "html_url": "https://github.com/TNTcraftHIM/Piik",
+    "description": "Free, open-source screen sharing for private live streams with friends. Watch together in a browser or self-host Piik. 免费开源的私密屏幕共享，支持游戏直播、一起看电影与自部署。",
     "language": "TypeScript",
-    "stars": 3338,
-    "forks": 534,
+    "stars": 4838,
+    "forks": 300,
     "topics": [
-      "agents",
-      "ai-agent",
-      "ai-assistant",
-      "anthropic",
-      "automation",
-      "browser-automation"
+      "live-streaming",
+      "p2p",
+      "private-streaming",
+      "screen-sharing",
+      "self-hosted",
+      "watch-together"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "n8n-io/nod is an active TypeScript open-source project with 3,338 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "TNTcraftHIM/Piik is an active TypeScript open-source project with 4,838 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
         "Teams standardizing on TypeScript-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
@@ -1356,28 +1257,131 @@
     }
   },
   {
-    "full_name": "dotnet/sdk",
-    "slug": "dotnet-sdk",
-    "name": "sdk",
-    "owner": "dotnet",
-    "html_url": "https://github.com/dotnet/sdk",
-    "description": "Core functionality needed to create .NET projects, that is shared between Visual Studio and CLI",
-    "language": "C#",
-    "stars": 3251,
-    "forks": 1311,
+    "full_name": "agent-of-empires/agent-of-empires",
+    "slug": "agent-of-empires-agent-of-empires",
+    "name": "agent-of-empires",
+    "owner": "agent-of-empires",
+    "html_url": "https://github.com/agent-of-empires/agent-of-empires",
+    "description": "Manage multiple Claude Code, OpenCode agents from either TUI or Web for easy access on mobile. Also supports Mistral Vibe, Codex CLI, Gemini CLI, Pi.dev, Copilot CLI, Factory Droid Coding.",
+    "language": "Rust",
+    "stars": 4813,
+    "forks": 421,
     "topics": [
+      "ai-coding",
+      "claude",
+      "claude-code",
       "cli",
-      "dotnet",
-      "sdk",
-      "visual-studio"
+      "codex",
+      "cursor"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "dotnet/sdk is an active C# open-source project with 3,251 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "agent-of-empires/agent-of-empires is an active Rust open-source project with 4,813 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
-        "Teams standardizing on C#-based self-hosted infrastructure",
+        "Teams standardizing on Rust-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "sandbox-quantum/switch",
+    "slug": "sandbox-quantum-switch",
+    "name": "switch",
+    "owner": "sandbox-quantum",
+    "html_url": "https://github.com/sandbox-quantum/switch",
+    "description": "Open-source AI teammates in Slack, Teams, Discord, Telegram and Mattermost. Bring Claude Code, Codex, Gemini (Antigravity), Cursor, GitHub Copilot or your own agent on any model, and connect them to GitHub, Jira, Notion, Linear, Google Workspace and more. Self-hosted multi-agent orchestration with MCP.",
+    "language": "Python",
+    "stars": 4739,
+    "forks": 371,
+    "topics": [
+      "agent-orchestration",
+      "ai-agents",
+      "anthropic",
+      "chatops",
+      "claude-code",
+      "codex"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "sandbox-quantum/switch is an active Python open-source project with 4,739 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on Python-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "kagent-dev/kagent",
+    "slug": "kagent-dev-kagent",
+    "name": "kagent",
+    "owner": "kagent-dev",
+    "html_url": "https://github.com/kagent-dev/kagent",
+    "description": "Cloud Native Agentic AI | Discord: https://bit.ly/kagentdiscord",
+    "language": "Go",
+    "stars": 4517,
+    "forks": 940,
+    "topics": [
+      "agents",
+      "ai",
+      "cncf",
+      "devops",
+      "mcp"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "kagent-dev/kagent is an active Go open-source project with 4,517 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on Go-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "chrisryugj/kordoc",
+    "slug": "chrisryugj-kordoc",
+    "name": "kordoc",
+    "owner": "chrisryugj",
+    "html_url": "https://github.com/chrisryugj/kordoc",
+    "description": "📄 한국 공문서를 AI가 읽고 쓰게 합니다. HWP·HWPX·PDF·오피스·스캔 이미지를 Markdown으로, Markdown을 HWPX 공문서로 바꾸고 양식 채우기·신구대조·서식 보존 편집까지. 라이브러리·CLI·MCP 서버 | Korean documents for AI: HWP, HWPX, PDF, Office and scans to Markdown, and Markdown back to HWPX. Library, CLI and MCP server.",
+    "language": "TypeScript",
+    "stars": 3123,
+    "forks": 543,
+    "topics": [
+      "cli",
+      "document-conversion",
+      "document-parser",
+      "docx",
+      "hancom",
+      "hwp"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "chrisryugj/kordoc is an active TypeScript open-source project with 3,123 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on TypeScript-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -1422,60 +1426,28 @@
     }
   },
   {
-    "full_name": "IrosTheBeggar/mStream",
-    "slug": "irosthebeggar-mstream",
-    "name": "mStream",
-    "owner": "IrosTheBeggar",
-    "html_url": "https://github.com/IrosTheBeggar/mStream",
-    "description": "The easiest music streaming server available",
-    "language": "JavaScript",
-    "stars": 2435,
-    "forks": 213,
-    "topics": [
-      "iroh",
-      "javascript",
-      "mstream",
-      "music",
-      "music-streaming",
-      "rust"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "IrosTheBeggar/mStream is an active JavaScript open-source project with 2,435 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on JavaScript-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "0x2E/fusion",
-    "slug": "0x2e-fusion",
-    "name": "fusion",
-    "owner": "0x2E",
-    "html_url": "https://github.com/0x2E/fusion",
-    "description": "A lightweight, self-hosted friendly RSS reader",
+    "full_name": "Gentleman-Programming/gentle-shell",
+    "slug": "gentleman-programming-gentle-shell",
+    "name": "gentle-shell",
+    "owner": "Gentleman-Programming",
+    "html_url": "https://github.com/Gentleman-Programming/gentle-shell",
+    "description": "Gentle Shell is a Pi-native workspace for AI-assisted development, bringing parallel coding agents, live tasks, Git diffs, persistent memory, and permission controls into one terminal interface. Powered by Gentle AI and Organic Driven Development (ODD).",
     "language": "TypeScript",
-    "stars": 2432,
-    "forks": 96,
+    "stars": 2940,
+    "forks": 303,
     "topics": [
-      "rss",
-      "rss-aggregator",
-      "rss-reader",
-      "self-hosted"
+      "agent-harness",
+      "agent-skills",
+      "ai-agents",
+      "ai-coding",
+      "ai-coding-agent",
+      "code-review"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "0x2E/fusion is an active TypeScript open-source project with 2,432 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "Gentleman-Programming/gentle-shell is an active TypeScript open-source project with 2,940 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
         "Teams standardizing on TypeScript-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
@@ -1488,28 +1460,28 @@
     }
   },
   {
-    "full_name": "can4hou6joeng4/boss-agent-cli",
-    "slug": "can4hou6joeng4-boss-agent-cli",
-    "name": "boss-agent-cli",
-    "owner": "can4hou6joeng4",
-    "html_url": "https://github.com/can4hou6joeng4/boss-agent-cli",
-    "description": "🤖 Local-assist BOSS Zhipin CLI for AI agents — search, welfare filtering, shortlist, JSON-envelope output; low-risk & compliant by default.",
+    "full_name": "TNT-Likely/PanWatch",
+    "slug": "tnt-likely-panwatch",
+    "name": "PanWatch",
+    "owner": "TNT-Likely",
+    "html_url": "https://github.com/TNT-Likely/PanWatch",
+    "description": "PanWatch — AI stock monitoring for A-shares, HK & US markets, powered by TradingAgents. Portfolio insights, real-time alerts & automated reports.｜盯盘侠：覆盖 A股/港股/美股的 AI 盯盘、持仓分析、实时提醒与自动报告。",
     "language": "Python",
-    "stars": 2301,
-    "forks": 200,
+    "stars": 2568,
+    "forks": 460,
     "topics": [
-      "agent-skill",
-      "agent-tools",
+      "a-share",
+      "agent",
+      "ai",
       "ai-agent",
-      "boss-zhipin",
-      "claude",
-      "cli"
+      "akshare",
+      "deepseek"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "can4hou6joeng4/boss-agent-cli is an active Python open-source project with 2,301 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "TNT-Likely/PanWatch is an active Python open-source project with 2,568 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
         "Teams standardizing on Python-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
@@ -1522,98 +1494,132 @@
     }
   },
   {
-    "full_name": "zereight/gitlab-mcp",
-    "slug": "zereight-gitlab-mcp",
-    "name": "gitlab-mcp",
-    "owner": "zereight",
-    "html_url": "https://github.com/zereight/gitlab-mcp",
-    "description": "MCP server for GitLab: 288 tools for projects, MRs, issues, pipelines, wikis and more via the GitLab REST/GraphQL API",
+    "full_name": "google/adk-java",
+    "slug": "google-adk-java",
+    "name": "adk-java",
+    "owner": "google",
+    "html_url": "https://github.com/google/adk-java",
+    "description": "An open-source, code-first Java toolkit for building, evaluating, and deploying sophisticated AI agents with flexibility and control.",
+    "language": "Java",
+    "stars": 1780,
+    "forks": 455,
+    "topics": [
+      "agent",
+      "agentic",
+      "agentic-ai",
+      "agentic-workflow",
+      "agents",
+      "agents-sdk"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "google/adk-java is an active Java open-source project with 1,780 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on Java-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "shanliuling/dsh-image-gen",
+    "slug": "shanliuling-dsh-image-gen",
+    "name": "dsh-image-gen",
+    "owner": "shanliuling",
+    "html_url": "https://github.com/shanliuling/dsh-image-gen",
+    "description": "可在对话内生成、编辑、对比图像；内置 500 + 提示词、图库、多模型工作流，支持 ComfyUI。AI image studio for DeepSeek Harness — generate, edit & compare images in chat, with 500+ prompts, gallery, multi-model workflows and ComfyUI.",
     "language": "TypeScript",
-    "stars": 2124,
-    "forks": 374,
+    "stars": 1720,
+    "forks": 143,
+    "topics": [
+      "ai-agent",
+      "ai-image-generation-api",
+      "comfyui",
+      "deepseek",
+      "deepseek-harness",
+      "dsh-plugin"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "shanliuling/dsh-image-gen is an active TypeScript open-source project with 1,720 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on TypeScript-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "kubeshop/testkube",
+    "slug": "kubeshop-testkube",
+    "name": "testkube",
+    "owner": "kubeshop",
+    "html_url": "https://github.com/kubeshop/testkube",
+    "description": "☸️ The Testing Platform for the agentic SDLC",
+    "language": "Go",
+    "stars": 1683,
+    "forks": 183,
     "topics": [
       "ai",
-      "claude",
-      "cursor",
-      "devtools",
-      "gitlab",
-      "gitlab-api"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "zereight/gitlab-mcp is an active TypeScript open-source project with 2,124 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "getnao/nao",
-    "slug": "getnao-nao",
-    "name": "nao",
-    "owner": "getnao",
-    "html_url": "https://github.com/getnao/nao",
-    "description": "👾 nao is the #1 open source agentic BI. (1) Create context with nao-core cli, (2) deploy nao chat interface for everyone",
-    "language": "TypeScript",
-    "stars": 2041,
-    "forks": 307,
-    "topics": [
-      "agentic-analytics",
-      "analytics",
-      "analytics-engineering",
-      "bigquery",
-      "business-intelligence",
-      "chat-with-your-data"
-    ],
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "getnao/nao is an active TypeScript open-source project with 2,041 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
-      "best_for": [
-        "Teams standardizing on TypeScript-based self-hosted infrastructure",
-        "Reducing recurring SaaS bills through open-source deployment",
-        "Integrating into automated CI/CD or AI data pipelines"
-      ],
-      "watch_outs": [
-        "Verify the repository license before embedding into commercial hosted products",
-        "Pin release versions in production to avoid breaking upgrades"
-      ]
-    }
-  },
-  {
-    "full_name": "tomasz-tomczyk/crit",
-    "slug": "tomasz-tomczyk-crit",
-    "name": "crit",
-    "owner": "tomasz-tomczyk",
-    "html_url": "https://github.com/tomasz-tomczyk/crit",
-    "description": "Review AI coding agents' plans, diffs and running apps in the browser. Local-first, works with any agent.",
-    "language": "Go",
-    "stars": 1355,
-    "forks": 134,
-    "topics": [
-      "agentic-coding",
       "ai-agents",
-      "ai-tools",
-      "cli",
-      "code-review",
-      "developer-tools"
+      "cicd",
+      "devops",
+      "gitops",
+      "kubernetes"
     ],
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
       "enriched_at": "2026-11-24",
-      "summary": "tomasz-tomczyk/crit is an active Go open-source project with 1,355 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "summary": "kubeshop/testkube is an active Go open-source project with 1,683 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
       "best_for": [
         "Teams standardizing on Go-based self-hosted infrastructure",
+        "Reducing recurring SaaS bills through open-source deployment",
+        "Integrating into automated CI/CD or AI data pipelines"
+      ],
+      "watch_outs": [
+        "Verify the repository license before embedding into commercial hosted products",
+        "Pin release versions in production to avoid breaking upgrades"
+      ]
+    }
+  },
+  {
+    "full_name": "okou-ai/okou",
+    "slug": "okou-ai-okou",
+    "name": "okou",
+    "owner": "okou-ai",
+    "html_url": "https://github.com/okou-ai/okou",
+    "description": "Okou connects to the tools your team already uses and does the work — across marketing, sales, engineering, and operations, under your control.",
+    "language": "TypeScript",
+    "stars": 1161,
+    "forks": 74,
+    "topics": [
+      "agentic-workflow",
+      "ai-agent",
+      "ai-runtime",
+      "ai-sandbox",
+      "dev-tools",
+      "sandbox"
+    ],
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "okou-ai/okou is an active TypeScript open-source project with 1,161 GitHub stars, focused on practical developer infrastructure and self-hosted automation.",
+      "best_for": [
+        "Teams standardizing on TypeScript-based self-hosted infrastructure",
         "Reducing recurring SaaS bills through open-source deployment",
         "Integrating into automated CI/CD or AI data pipelines"
       ],
@@ -1665,7 +1671,7 @@
     "html_url": "https://github.com/BotHarness/DeepSeekBot",
     "description": "Open-source GrokBot alternative built on DeepSeek Harness. Build your personal bot team: multiple personal agents with persistent memory, identities and permissions, extensible through DSH plugins.｜基于 DeepSeek Harness 的开源 GrokBot 平替：有长期记忆的个人 AI Bot 团队，支持多 Bot 协作、身份权限与插件生态扩展。MIT.",
     "language": "TypeScript",
-    "stars": 1020,
+    "stars": 1021,
     "forks": 76,
     "topics": [
       "agent-memory",

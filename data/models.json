@@ -393,28 +393,28 @@
     "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "NVIDIA: Nemotron 3.5 Lightning (free) is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "NVIDIA Nemotron 3.5 Lightning is a free, text-to-text mixture-of-experts model from NVIDIA with 3B active parameters out of 30B total and a 1M-token context window. It is positioned for high-throughput agentic workloads and specialized tasks.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "High-throughput agentic workloads",
+        "Long-context text processing up to 1M tokens",
+        "Cost-free experimentation and prototyping"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Text-only modality; no image or audio input",
+        "Limited public detail on specialized task performance"
       ],
       "faq": [
         {
-          "q": "Is NVIDIA: Nemotron 3.5 Lightning (free) free to use via API?",
-          "a": "Yes, NVIDIA: Nemotron 3.5 Lightning (free) is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "How much does it cost?",
+          "a": "It is listed at $0.00 per 1M input and output tokens with a free tier, so usage is free under the stated pricing."
         },
         {
-          "q": "What is the context window of NVIDIA: Nemotron 3.5 Lightning (free)?",
-          "a": "NVIDIA: Nemotron 3.5 Lightning (free) supports up to 1,000,000 tokens (1000K) with modality text->text."
+          "q": "What is its context length and architecture?",
+          "a": "It supports up to 1,000,000 tokens of context and uses a mixture-of-experts design with 3B active parameters out of 30B total."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -431,28 +431,28 @@
     "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total. It takes text, images, documents, GUI screenshots, and video...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "NVIDIA: Nemotron 3.5 Super VL (free) is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "NVIDIA Nemotron 3.5 Super VL is a free, open multimodal mixture-of-experts model from NVIDIA with 12B active parameters out of 120B total. It accepts text, images, documents, GUI screenshots, and video as input and returns text, with a 1,000,000-token context window.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "Multimodal tasks involving images, documents, GUI screenshots, or video",
+        "Long-context workloads up to 1M tokens",
+        "Cost-sensitive or experimental projects, since input and output are free"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Free tier availability and rate limits may change; verify current terms",
+        "No published benchmark scores in the provided metadata, so validate quality on your own tasks"
       ],
       "faq": [
         {
-          "q": "Is NVIDIA: Nemotron 3.5 Super VL (free) free to use via API?",
-          "a": "Yes, NVIDIA: Nemotron 3.5 Super VL (free) is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "How much does this endpoint cost?",
+          "a": "Input and output are both listed at $0.0 per 1M tokens, and a free tier is available."
         },
         {
-          "q": "What is the context window of NVIDIA: Nemotron 3.5 Super VL (free)?",
-          "a": "NVIDIA: Nemotron 3.5 Super VL (free) supports up to 1,000,000 tokens (1000K) with modality text+image+video->text."
+          "q": "What input modalities and context length does it support?",
+          "a": "It accepts text, images, documents, GUI screenshots, and video, returning text, with a context length of 1,000,000 tokens."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -469,28 +469,28 @@
     "description": "Switchyard is an open-source model routing system that switches between multiple models to optimize the cost of requests. By default it will use OpenRouter market data to select the most...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "NVIDIA: Switchyard is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "NVIDIA: Switchyard is an open-source model routing system that switches between multiple models to optimize request cost, using OpenRouter market data by default for model selection. It is offered by Nvidia as a text-to-text endpoint with a 1,000,000-token context length and no listed input or output pricing.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "Cost-optimized routing across multiple models",
+        "Long-context text-to-text workloads",
+        "Experimentation via a free tier"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Routing behavior depends on external market data, so model selection may vary",
+        "No benchmark or quality metrics are provided in the metadata"
       ],
       "faq": [
         {
-          "q": "Is NVIDIA: Switchyard free to use via API?",
-          "a": "Yes, NVIDIA: Switchyard is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "What is Switchyard?",
+          "a": "It is an open-source model routing system that switches between multiple models to optimize request cost, using OpenRouter market data by default."
         },
         {
-          "q": "What is the context window of NVIDIA: Switchyard?",
-          "a": "NVIDIA: Switchyard supports up to 1,000,000 tokens (1000K) with modality text->text."
+          "q": "How much does it cost?",
+          "a": "The metadata lists input and output prices at $0.0 per 1M tokens and indicates a free tier is available."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -507,28 +507,28 @@
     "description": "Fusion turns your prompt into a small multi-model deliberation. A panel of expert models (see below) analyzes your prompt in parallel with web search and web fetch enabled, then a...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "OpenRouter: Fusion is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "OpenRouter: Fusion is a free text-to-text endpoint from OpenRouter with a 1,000,000-token context window. It routes prompts through a small multi-model deliberation panel that analyzes prompts in parallel with web search and web fetch enabled.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "Long-context text prompts up to 1M tokens",
+        "Free experimentation and prototyping",
+        "Tasks benefiting from multi-model deliberation with web access"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Description is truncated, so full deliberation and synthesis behavior is not fully documented",
+        "Free pricing and availability may change; no benchmark data is provided to gauge quality"
       ],
       "faq": [
         {
-          "q": "Is OpenRouter: Fusion free to use via API?",
-          "a": "Yes, OpenRouter: Fusion is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "How much does OpenRouter: Fusion cost?",
+          "a": "According to the metadata, input and output are both priced at $0.0 per 1M tokens, and a free tier is available."
         },
         {
-          "q": "What is the context window of OpenRouter: Fusion?",
-          "a": "OpenRouter: Fusion supports up to 1,000,000 tokens (1000K) with modality text->text."
+          "q": "What is the context length and modality?",
+          "a": "It supports up to 1,000,000 tokens of context and is a text-to-text model."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -545,28 +545,28 @@
     "description": "Jev Router picks the best model and reasoning effort for each request, balancing quality, speed, and cost. It runs on [Jev](https://openrouter.ai/~typesafe/jev-latest), TypeSafe's first System One model, and adapts as your...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "TypeSafe: Jev Router is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "TypeSafe: Jev Router is a free, text-output endpoint from Typesafe that accepts text, image, file, audio, and video inputs with a 1,000,000-token context window. It routes each request to the best model and reasoning effort to balance quality, speed, and cost, running on TypeSafe's Jev System One model.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "Free multimodal requests combining text, image, audio, video, or file inputs",
+        "Very long-context tasks up to 1M tokens",
+        "Workloads wanting automatic model and reasoning-effort selection"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Output is text-only despite multimodal inputs",
+        "Routing behavior is adaptive and may vary per request, so results can be less predictable"
       ],
       "faq": [
         {
-          "q": "Is TypeSafe: Jev Router free to use via API?",
-          "a": "Yes, TypeSafe: Jev Router is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "What input modalities does Jev Router support?",
+          "a": "It accepts text, image, file, audio, and video inputs and returns text output."
         },
         {
-          "q": "What is the context window of TypeSafe: Jev Router?",
-          "a": "TypeSafe: Jev Router supports up to 1,000,000 tokens (1000K) with modality text+image+file+audio+video->text."
+          "q": "How much does it cost?",
+          "a": "Input and output are priced at $0.0 per 1M tokens, and a free tier is available."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -583,28 +583,28 @@
     "description": "Dots3-Note Preview is an open-weight mixture-of-experts model from Dots Studio, with 16B active parameters out of 280B total. It is the lightest model in the Dots 3 family and is...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "Dots Studio: Dots3-Note Preview (free) is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "Dots3-Note Preview is a free, open-weight mixture-of-experts model from Dots Studio with 16B active parameters out of 280B total, supporting text and image inputs with a 512K token context window. It is positioned as the lightest model in the Dots 3 family.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "Long-context tasks up to 512K tokens",
+        "Multimodal text-and-image inputs",
+        "Cost-free experimentation and prototyping"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Preview release may change or lack stability guarantees",
+        "No published benchmark scores to gauge quality"
       ],
       "faq": [
         {
-          "q": "Is Dots Studio: Dots3-Note Preview (free) free to use via API?",
-          "a": "Yes, Dots Studio: Dots3-Note Preview (free) is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "How much does Dots3-Note Preview cost?",
+          "a": "It is free: input and output are both priced at $0.0 per 1M tokens, and a free tier is available."
         },
         {
-          "q": "What is the context window of Dots Studio: Dots3-Note Preview (free)?",
-          "a": "Dots Studio: Dots3-Note Preview (free) supports up to 512,000 tokens (512K) with modality text+image->text."
+          "q": "What modalities and context length does it support?",
+          "a": "It accepts text and image inputs and returns text, with a context length of 512,000 tokens."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -621,28 +621,28 @@
     "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference — delivering near-31B quality at...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "Google: Gemma 4 26B A4B  (free) is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "Gemma 4 26B A4B is an instruction-tuned Mixture-of-Experts model from Google DeepMind with 25.2B total parameters and only 3.8B active per token, offered free of charge. It supports text, image, and video inputs with a 262,144-token context window.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "Long-context tasks up to 262K tokens",
+        "Multimodal analysis of text, images, and video",
+        "Cost-free prototyping and experimentation"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Free tier availability and rate limits may change",
+        "MoE routing means only 3.8B parameters activate per token, which may affect consistency on some tasks"
       ],
       "faq": [
         {
-          "q": "Is Google: Gemma 4 26B A4B  (free) free to use via API?",
-          "a": "Yes, Google: Gemma 4 26B A4B  (free) is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "How much does it cost?",
+          "a": "Input and output are both priced at $0.0 per 1M tokens, and a free tier is available."
         },
         {
-          "q": "What is the context window of Google: Gemma 4 26B A4B  (free)?",
-          "a": "Google: Gemma 4 26B A4B  (free) supports up to 262,144 tokens (262K) with modality text+image+video->text."
+          "q": "What input modalities does it support?",
+          "a": "It accepts text, image, and video inputs and produces text output, with a context length of 262,144 tokens."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -659,28 +659,28 @@
     "description": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output. Features a 256K token context window, configurable thinking/reasoning mode, native function...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "Google: Gemma 4 31B (free) is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "Gemma 4 31B (free) is a Google DeepMind 30.7B dense multimodal model offered at zero cost for both input and output tokens. It accepts text, image, and video input with text output and supports a 262,144-token context window along with configurable thinking/reasoning mode and native function calling.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "Long-context tasks leveraging the 256K token window",
+        "Multimodal analysis of text, images, and video",
+        "Cost-free prototyping and experimentation via the free tier"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Free tier availability and rate limits may change without notice",
+        "Dense 31B model may be slower than smaller models for latency-sensitive use"
       ],
       "faq": [
         {
-          "q": "Is Google: Gemma 4 31B (free) free to use via API?",
-          "a": "Yes, Google: Gemma 4 31B (free) is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "How much does Gemma 4 31B cost?",
+          "a": "Both input and output are priced at $0.0 per 1M tokens, and a free tier is available."
         },
         {
-          "q": "What is the context window of Google: Gemma 4 31B (free)?",
-          "a": "Google: Gemma 4 31B (free) supports up to 262,144 tokens (262K) with modality text+image+video->text."
+          "q": "What input modalities does it support?",
+          "a": "It accepts text, image, and video input and produces text output, with a 262,144-token context length."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -697,28 +697,28 @@
     "description": "A compact 1.7B-parameter text model with a 256K-token context, post-trained for agents, tool calling, and structured outputs. It reasons before it answers. Prompts and outputs may be retained and used...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "LiquidAI: LFM3-1.7B (free) is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "LiquidAI's LFM3-1.7B is a free, compact 1.7B-parameter text-to-text model offering a 262,144-token context window. It is post-trained for agents, tool calling, and structured outputs, and reasons before answering.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "Long-context text tasks up to 256K tokens",
+        "Agent workflows and tool calling",
+        "Structured output generation"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Prompts and outputs may be retained and used, per the description",
+        "Small 1.7B parameter size may limit complex reasoning depth"
       ],
       "faq": [
         {
-          "q": "Is LiquidAI: LFM3-1.7B (free) free to use via API?",
-          "a": "Yes, LiquidAI: LFM3-1.7B (free) is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "How much does LFM3-1.7B cost?",
+          "a": "It is free: input and output are priced at $0.0 per 1M tokens, and a free tier is available."
         },
         {
-          "q": "What is the context window of LiquidAI: LFM3-1.7B (free)?",
-          "a": "LiquidAI: LFM3-1.7B (free) supports up to 262,144 tokens (262K) with modality text->text."
+          "q": "What is the context length and modality?",
+          "a": "It supports 262,144 tokens of context and is text-to-text only."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -735,28 +735,28 @@
     "description": "Flint is an open-weight mixture-of-experts model from Recursive, with about 2.5B active parameters out of 40B total, built by Recursive's autoresearch system Eureka Machine for coding agents. It is suited...",
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "Recursive: Flint (free) is currently listed at $0 per million tokens, making it practical for scheduled cron pipelines, prototyping, and low-budget batch processing.",
+      "summary": "Recursive: Flint (free) is an open-weight mixture-of-experts text-to-text model with roughly 2.5B active parameters out of 40B total, built by Recursive's Eureka Machine autoresearch system for coding agents. It offers a 262,144-token context window at zero input and output cost under a free tier.",
       "best_for": [
-        "Zero-budget batch summarization and scheduled automation jobs",
-        "Rapid API prototyping before committing to paid token quotas",
-        "Fallback endpoint inside multi-provider LLM routers"
+        "Coding agent workflows",
+        "Long-context tasks up to 262K tokens",
+        "Cost-free experimentation and prototyping"
       ],
       "watch_outs": [
-        "Free endpoints typically enforce strict requests-per-minute (RPM) and daily caps",
-        "Latency and availability can fluctuate compared to paid SLA tiers"
+        "Only text-to-text modality; no image or audio support",
+        "Sparse MoE design with ~2.5B active parameters may limit capability on demanding tasks"
       ],
       "faq": [
         {
-          "q": "Is Recursive: Flint (free) free to use via API?",
-          "a": "Yes, Recursive: Flint (free) is currently tracked with $0/1M input and output pricing, subject to upstream rate limits."
+          "q": "How much does Flint cost?",
+          "a": "Input and output are both priced at $0.0 per 1M tokens, and a free tier is available."
         },
         {
-          "q": "What is the context window of Recursive: Flint (free)?",
-          "a": "Recursive: Flint (free) supports up to 262,144 tokens (262K) with modality text->text."
+          "q": "What is Flint's context length and architecture?",
+          "a": "It supports 262,144 tokens of context and is an open-weight mixture-of-experts model with about 2.5B active parameters out of 40B total."
         }
-      ]
+      ],
+      "source": "deepseek",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -3154,6 +3154,44 @@
     }
   },
   {
+    "id": "minimax/minimax-m3.1-flash",
+    "slug": "minimax-minimax-m3-1-flash",
+    "name": "MiniMax: MiniMax M3.1 Flash",
+    "provider": "Minimax",
+    "context_length": 1048576,
+    "prompt_price_per_m": 0.075,
+    "completion_price_per_m": 0.3,
+    "is_free": false,
+    "has_free_tier_note": false,
+    "modality": "text+image+video->text",
+    "description": "MiniMax-M3.1-Flash is a multimodal model from MiniMax. Compared with M3, it delivers significant improvements across multiple benchmarks, particularly in complex agentic tasks, coding, and cybersecurity. It is built for complex,...",
+    "updated_at": "2026-11-24",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "enriched_at": "2026-11-24",
+      "summary": "MiniMax: MiniMax M3.1 Flash is priced at $0.075/1M input tokens and $0.3/1M output tokens (~$1.2 for a typical 8M input + 2M output monthly workload) with a 1048K context window.",
+      "best_for": [
+        "Production API workloads requiring predictable rate limits",
+        "Long-context extraction tasks up to 1048K tokens",
+        "Cost-controlled developer tooling and backend automation"
+      ],
+      "watch_outs": [
+        "Always monitor output token ratios since completion tokens cost more than prompt tokens",
+        "Cache repeated system prompts and static extractions to prevent runaway monthly spend"
+      ],
+      "faq": [
+        {
+          "q": "Is MiniMax: MiniMax M3.1 Flash free to use via API?",
+          "a": "No, MiniMax: MiniMax M3.1 Flash is a paid endpoint billed at $0.075 per 1M input tokens and $0.3 per 1M output tokens."
+        },
+        {
+          "q": "What is the context window of MiniMax: MiniMax M3.1 Flash?",
+          "a": "MiniMax: MiniMax M3.1 Flash supports up to 1,048,576 tokens (1048K) with modality text+image+video->text."
+        }
+      ]
+    }
+  },
+  {
     "id": "openai/gpt-oss-safeguard-20b",
     "slug": "openai-gpt-oss-safeguard-20b",
     "name": "OpenAI: gpt-oss-safeguard-20b",
@@ -4517,44 +4555,6 @@
         {
           "q": "What is the context window of DeepSeek: DeepSeek V3.2 Exp?",
           "a": "DeepSeek: DeepSeek V3.2 Exp supports up to 163,840 tokens (163K) with modality text->text."
-        }
-      ]
-    }
-  },
-  {
-    "id": "openai/gpt-5.6-luna-pro:batch",
-    "slug": "openai-gpt-5-6-luna-pro-batch",
-    "name": "OpenAI: GPT-5.6 Luna Pro (batch)",
-    "provider": "Openai",
-    "context_length": 1050000,
-    "prompt_price_per_m": 0.1,
-    "completion_price_per_m": 0.6,
-    "is_free": false,
-    "has_free_tier_note": false,
-    "modality": "text+image+file->text",
-    "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "enriched_at": "2026-11-24",
-      "summary": "OpenAI: GPT-5.6 Luna Pro (batch) is priced at $0.1/1M input tokens and $0.6/1M output tokens (~$2.0 for a typical 8M input + 2M output monthly workload) with a 1050K context window.",
-      "best_for": [
-        "Production API workloads requiring predictable rate limits",
-        "Long-context extraction tasks up to 1050K tokens",
-        "Cost-controlled developer tooling and backend automation"
-      ],
-      "watch_outs": [
-        "Always monitor output token ratios since completion tokens cost more than prompt tokens",
-        "Cache repeated system prompts and static extractions to prevent runaway monthly spend"
-      ],
-      "faq": [
-        {
-          "q": "Is OpenAI: GPT-5.6 Luna Pro (batch) free to use via API?",
-          "a": "No, OpenAI: GPT-5.6 Luna Pro (batch) is a paid endpoint billed at $0.1 per 1M input tokens and $0.6 per 1M output tokens."
-        },
-        {
-          "q": "What is the context window of OpenAI: GPT-5.6 Luna Pro (batch)?",
-          "a": "OpenAI: GPT-5.6 Luna Pro (batch) supports up to 1,050,000 tokens (1050K) with modality text+image+file->text."
         }
       ]
     }
