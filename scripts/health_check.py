@@ -1,12 +1,4 @@
-"""Automated Quality Gate & Anomaly Detector (runs before every publish).
-
-Prevents broken/misclassified data from ever reaching production:
-1. Verifies zero variable/router/media/unknown models are mislabeled as free ($0).
-2. Verifies zero broken internal links across all built HTML files.
-3. Verifies sitemap.xml & feed.xml are valid XML and required trust/SEO files exist.
-4. Verifies model/page counts exceed minimum safety floors.
-5. Sends optional PushPlus / Webhook alert ONLY on failure.
-"""
+"""V2.1 Automated Quality Gate & Semantic Anomaly Detector (runs before every publish)."""
 
 import json
 import os
@@ -49,44 +41,59 @@ def send_alert(title: str, content: str) -> None:
             print(f"[health_check] Webhook alert failed: {err}")
 
 
-def main() -> None:
-    cfg = load_config()
+def run_quality_gate(data_dir: Path = DATA_DIR, dist_dir: Path = DIST_DIR, repo_root: Path | None = None) -> list[str]:
+    """Return list of quality gate error strings. Empty list means PASS."""
     errors: list[str] = []
+    repo_root = repo_root or data_dir.parent
 
-    models = load_json(DATA_DIR / "models.json", default=[])
-    repos = load_json(DATA_DIR / "repos.json", default=[])
+    models = load_json(data_dir / "models.json", default=[])
+    repos = load_json(data_dir / "repos.json", default=[])
 
-    # 1. Data integrity & P0 anti-misclassification assertions
+    # 1. Data integrity & P0 semantic classification assertions
     if len(models) < 10:
         errors.append(f"Too few models in data/models.json: {len(models)}")
     if len(repos) < 4:
         errors.append(f"Too few repos in data/repos.json: {len(repos)}")
 
+    valid_ptypes = {"limited_free", "free", "free_router", "variable", "batch", "paid", "media", "unknown"}
     for m in models:
         ptype = m.get("pricing_type")
         mid = str(m.get("id", "")).lower()
-        if m.get("is_free") and ptype != "free":
+        if ptype not in valid_ptypes:
+            errors.append(f"Unknown pricing_type '{ptype}' on {mid}")
+        if m.get("is_free") and ptype not in ("limited_free", "free"):
             errors.append(f"Misclassification: {mid} has is_free=True but pricing_type={ptype}")
-        if ptype == "free" and any(k in mid for k in ("auto", "router", "lyria", "pareto", "fusion")):
-            errors.append(f"P0 violation: router/media model '{mid}' classified as free!")
+        if ptype in ("limited_free", "free") and any(k in mid for k in ("auto", "router", "lyria", "pareto", "fusion", ":batch")):
+            errors.append(f"P0 violation: router/media/batch model '{mid}' classified as {ptype}!")
         if ptype == "variable" and (m.get("prompt_price_per_m") == 0 or m.get("completion_price_per_m") == 0):
             errors.append(f"P0 violation: variable router '{mid}' has $0 price!")
+        if ptype == "batch" and m.get("is_realtime") is True:
+            errors.append(f"P0 violation: batch endpoint '{mid}' marked as real-time interactive!")
 
-    # 2. Required production files & valid XML
-    for req_file in ["index.html", "sitemap.xml", "robots.txt", "feed.xml", "favicon.svg", "404.html", "CNAME"]:
-        if not (DIST_DIR / req_file).exists():
+    # 2. Required production files & valid XML/JSON
+    for req_file in ["index.html", "sitemap.xml", "robots.txt", "feed.xml", "favicon.svg", "404.html", "CNAME", "version.json"]:
+        if not (dist_dir / req_file).exists():
             errors.append(f"Missing required dist file: {req_file}")
 
     for xml_file in ["sitemap.xml", "feed.xml"]:
-        p = DIST_DIR / xml_file
+        p = dist_dir / xml_file
         if p.exists():
             try:
                 ET.parse(p)
             except ET.ParseError as err:
                 errors.append(f"Invalid XML in {xml_file}: {err}")
 
-    # 3. Link integrity across ALL generated HTML pages
-    html_files = list(DIST_DIR.rglob("*.html"))
+    ver_path = dist_dir / "version.json"
+    if ver_path.exists():
+        try:
+            ver = json.loads(ver_path.read_text(encoding="utf-8"))
+            if not ver.get("built_at_utc") or not ver.get("git_commit"):
+                errors.append("version.json missing required fields (git_commit / built_at_utc)")
+        except Exception as err:
+            errors.append(f"Invalid version.json: {err}")
+
+    # 3. Link integrity across ALL generated HTML pages (ignoring JS template strings inside <script>)
+    html_files = list(dist_dir.rglob("*.html")) if dist_dir.exists() else []
     if len(html_files) < 20:
         errors.append(f"Suspiciously few HTML pages built: {len(html_files)}")
 
@@ -94,21 +101,29 @@ def main() -> None:
     for f in html_files:
         txt = re.sub(r"<script\b[^>]*>.*?</script>", "", f.read_text(encoding="utf-8"), flags=re.DOTALL | re.IGNORECASE)
         for href in re.findall(r'href="(/[^"#?]*)"', txt):
-            target = DIST_DIR / href.lstrip("/")
+            target = dist_dir / href.lstrip("/")
             if target.is_dir():
                 target = target / "index.html"
             if not target.exists():
-                broken_links.append((str(f.relative_to(DIST_DIR)), href))
+                broken_links.append((str(f.relative_to(dist_dir)), href))
     if broken_links:
         errors.append(f"Found {len(broken_links)} broken internal links: {broken_links[:5]}")
 
     # 4. Zero secret leak check
-    for p in Path(".").rglob("*"):
-        if ".git" in p.parts or "dist" in p.parts or not p.is_file():
-            continue
-        content = p.read_text(encoding="utf-8", errors="ignore")
-        if re.search(r"sk-[0-9a-f]{32}", content):
-            errors.append(f"Potential API key leaked in file: {p}")
+    if repo_root.exists():
+        for p in repo_root.rglob("*"):
+            if ".git" in p.parts or "dist" in p.parts or "__pycache__" in p.parts or not p.is_file():
+                continue
+            content = p.read_text(encoding="utf-8", errors="ignore")
+            if re.search(r"sk-[0-9a-f]{32}", content) or re.search(r"ghp_[A-Za-z0-9]{20,}", content):
+                errors.append(f"Potential secret leaked in file: {p}")
+
+    return errors
+
+
+def main() -> None:
+    cfg = load_config()
+    errors = run_quality_gate(DATA_DIR, DIST_DIR, DATA_DIR.parent)
 
     if errors:
         msg = "\n".join(f"- {e}" for e in errors)
@@ -116,11 +131,15 @@ def main() -> None:
         send_alert(f"[SysV Radar] Quality Gate FAILED ({cfg['domain']})", msg)
         sys.exit(1)
 
-    free_n = sum(1 for m in models if m.get("pricing_type") == "free")
-    var_n = sum(1 for m in models if m.get("pricing_type") == "variable")
+    models = load_json(DATA_DIR / "models.json", default=[])
+    repos = load_json(DATA_DIR / "repos.json", default=[])
+    html_count = len(list(DIST_DIR.rglob("*.html")))
+    lf = sum(1 for m in models if m.get("pricing_type") == "limited_free")
+    bt = sum(1 for m in models if m.get("pricing_type") == "batch")
+    vr = sum(1 for m in models if m.get("pricing_type") == "variable")
     print(
-        f"[health_check] PASSED: html_pages={len(html_files)}, models={len(models)} "
-        f"(free={free_n}, variable_routers={var_n}), repos={len(repos)}, broken_links=0, leaks=0."
+        f"[health_check] PASSED: html_pages={html_count}, models={len(models)} "
+        f"(limited_free={lf}, batch={bt}, variable={vr}), repos={len(repos)}, broken_links=0, leaks=0."
     )
 
 

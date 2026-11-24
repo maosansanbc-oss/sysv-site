@@ -1,6 +1,6 @@
 {
   "date": "2026-11-24",
-  "total_endpoints": 473,
+  "total_endpoints": 470,
   "models": {
     "thinkingmachines/inkling-2-mini": {
       "name": "Thinking Machines: Inkling 2 Mini",
@@ -33,18 +33,18 @@
       "name": "Google: Gemini 4 Neon",
       "slug": "google-gemini-4-neon",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 15.0,
       "context_length": 1048576
     },
     "google/gemini-4-neon:batch": {
       "name": "Google: Gemini 4 Neon (batch)",
       "slug": "google-gemini-4-neon-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 7.5,
       "context_length": 1048576
     },
     "openai/gpt-6.2-astra-pro": {
@@ -60,7 +60,7 @@
       "name": "OpenAI: GPT-6.2 Astra Pro (batch)",
       "slug": "openai-gpt-6-2-astra-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 4.0,
       "completion_price_per_m": 20.0,
       "context_length": 1050000
@@ -78,7 +78,7 @@
       "name": "OpenAI: GPT-6.2 Astra (batch)",
       "slug": "openai-gpt-6-2-astra-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 4.0,
       "completion_price_per_m": 20.0,
       "context_length": 1050000
@@ -96,7 +96,7 @@
       "name": "OpenAI: GPT-6.2 Sol Pro (batch)",
       "slug": "openai-gpt-6-2-sol-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 5.0,
       "context_length": 1050000
@@ -114,7 +114,7 @@
       "name": "OpenAI: GPT-6.2 Sol (batch)",
       "slug": "openai-gpt-6-2-sol-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 5.0,
       "context_length": 1050000
@@ -141,7 +141,7 @@
       "name": "inclusionAI: Ling 3.2 Flash (free)",
       "slug": "inclusionai-ling-3-2-flash-free",
       "provider": "Inclusionai",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 1048576
@@ -150,25 +150,25 @@
       "name": "Google: Gemini 4 Hydrogen",
       "slug": "google-gemini-4-hydrogen",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 7.5,
       "context_length": 1048576
     },
     "google/gemini-4-hydrogen:batch": {
       "name": "Google: Gemini 4 Hydrogen (batch)",
       "slug": "google-gemini-4-hydrogen-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 3.75,
       "context_length": 1048576
     },
     "baidu/ernie-5.5-flash-preview:free": {
       "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
       "slug": "baidu-ernie-5-5-flash-preview-free",
       "provider": "Baidu",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 1024000
@@ -186,18 +186,18 @@
       "name": "Google: Gemini 4 Carbon",
       "slug": "google-gemini-4-carbon",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
       "context_length": 1048576
     },
     "google/gemini-4-carbon:batch": {
       "name": "Google: Gemini 4 Carbon (batch)",
       "slug": "google-gemini-4-carbon-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
       "context_length": 1048576
     },
     "nex-agi/nex-n2.6": {
@@ -231,7 +231,7 @@
       "name": "Anthropic: Claude Fable 5.2 (batch)",
       "slug": "anthropic-claude-fable-5-2-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 4.0,
       "completion_price_per_m": 20.0,
       "context_length": 1000000
@@ -258,7 +258,7 @@
       "name": "LiquidAI: LFM3-1.7B (free)",
       "slug": "liquid-lfm-3-1-7b-free",
       "provider": "Liquid",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 262144
@@ -339,7 +339,7 @@
       "name": "Particle AI: Particle-1 (free)",
       "slug": "particle-ai-particle-1-free",
       "provider": "Particle Ai",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 1048576
@@ -357,7 +357,7 @@
       "name": "OpenAI: GPT-6.1 Terra Pro (batch)",
       "slug": "openai-gpt-6-1-terra-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.5,
       "completion_price_per_m": 2.5,
       "context_length": 1050000
@@ -375,7 +375,7 @@
       "name": "OpenAI: GPT-6.1 Terra (batch)",
       "slug": "openai-gpt-6-1-terra-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.5,
       "completion_price_per_m": 2.5,
       "context_length": 1050000
@@ -393,7 +393,7 @@
       "name": "MoonshotAI: Kimi K3.1 Pro (batch)",
       "slug": "moonshotai-kimi-k3-1-pro-batch",
       "provider": "Moonshotai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.372,
       "completion_price_per_m": 5.583,
       "context_length": 1048576
@@ -402,7 +402,7 @@
       "name": "Recursive: Flint (free)",
       "slug": "recursive-flint-v1-0-free",
       "provider": "Recursive",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 262144
@@ -429,7 +429,7 @@
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
       "slug": "deepseek-deepseek-v4-1-flash-1017-batch",
       "provider": "Deepseek",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.035,
       "completion_price_per_m": 0.149,
       "context_length": 1048576
@@ -501,7 +501,7 @@
       "name": "NVIDIA: Nemotron 3.5 Super VL (free)",
       "slug": "nvidia-nemotron-3-5-super-vl-free",
       "provider": "Nvidia",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 1000000
@@ -546,18 +546,18 @@
       "name": "Google: Gemini 4 Argon",
       "slug": "google-gemini-4-argon",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
       "context_length": 1048576
     },
     "google/gemini-4-argon:batch": {
       "name": "Google: Gemini 4 Argon (batch)",
       "slug": "google-gemini-4-argon-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
       "context_length": 1048576
     },
     "scaledown/summarize": {
@@ -609,7 +609,7 @@
       "name": "Anthropic: Claude Haiku 5.5 (batch)",
       "slug": "anthropic-claude-haiku-5-5-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.05,
       "completion_price_per_m": 0.25,
       "context_length": 1000000
@@ -663,7 +663,7 @@
       "name": "OpenAI: GPT-6.1 Sol Pro (batch)",
       "slug": "openai-gpt-6-1-sol-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 5.0,
       "context_length": 1050000
@@ -681,7 +681,7 @@
       "name": "OpenAI: GPT-6.1 Sol (batch)",
       "slug": "openai-gpt-6-1-sol-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 5.0,
       "context_length": 1050000
@@ -699,7 +699,7 @@
       "name": "Anthropic: Claude Sonnet 5.5 (batch)",
       "slug": "anthropic-claude-sonnet-5-5-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 5.0,
       "context_length": 1000000
@@ -789,7 +789,7 @@
       "name": "OpenAI: GPT-6 Luna Pro (batch)",
       "slug": "openai-gpt-6-luna-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.05,
       "completion_price_per_m": 0.25,
       "context_length": 1050000
@@ -807,7 +807,7 @@
       "name": "OpenAI: GPT-6 Luna (batch)",
       "slug": "openai-gpt-6-luna-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.05,
       "completion_price_per_m": 0.25,
       "context_length": 1050000
@@ -825,7 +825,7 @@
       "name": "OpenAI: GPT-6 Sol Pro (batch)",
       "slug": "openai-gpt-6-sol-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 5.0,
       "context_length": 1050000
@@ -843,7 +843,7 @@
       "name": "OpenAI: GPT-6 Sol (batch)",
       "slug": "openai-gpt-6-sol-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 5.0,
       "context_length": 1050000
@@ -861,7 +861,7 @@
       "name": "Anthropic: Claude Opus 5.5 (batch)",
       "slug": "anthropic-claude-opus-5-5-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.0,
       "completion_price_per_m": 10.0,
       "context_length": 1000000
@@ -906,7 +906,7 @@
       "name": "SpaceXSI: Grok 4.7 (batch)",
       "slug": "x-ai-grok-4-7-batch",
       "provider": "X Ai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.6,
       "completion_price_per_m": 4.8,
       "context_length": 500000
@@ -1050,7 +1050,7 @@
       "name": "DeepSeek: DeepSeek V4.1 Flash (batch)",
       "slug": "deepseek-deepseek-v4-1-flash-batch",
       "provider": "Deepseek",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.05,
       "completion_price_per_m": 0.15,
       "context_length": 1048576
@@ -1086,7 +1086,7 @@
       "name": "OpenAI: GPT-6 Astra (batch)",
       "slug": "openai-gpt-6-astra-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 5.0,
       "completion_price_per_m": 25.0,
       "context_length": 1050000
@@ -1104,7 +1104,7 @@
       "name": "OpenAI: GPT-6 Astra Pro (batch)",
       "slug": "openai-gpt-6-astra-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 5.0,
       "completion_price_per_m": 25.0,
       "context_length": 1050000
@@ -1122,7 +1122,7 @@
       "name": "Qwen: Qwen3.8 Max (0902) (batch)",
       "slug": "qwen-qwen3-8-max-0902-batch",
       "provider": "Qwen",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.15,
       "completion_price_per_m": 3.45,
       "context_length": 262144
@@ -1149,18 +1149,18 @@
       "name": "Google: Gemini 3.8 Flash",
       "slug": "google-gemini-3-8-flash",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.825,
+      "completion_price_per_m": 4.125,
       "context_length": 1048576
     },
     "google/gemini-3.8-flash:batch": {
       "name": "Google: Gemini 3.8 Flash (batch)",
       "slug": "google-gemini-3-8-flash-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.375,
+      "completion_price_per_m": 1.875,
       "context_length": 1048576
     },
     "anthropic/claude-fable-5.1": {
@@ -1176,7 +1176,7 @@
       "name": "Anthropic: Claude Fable 5.1 (batch)",
       "slug": "anthropic-claude-fable-5-1-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 5.0,
       "completion_price_per_m": 25.0,
       "context_length": 1000000
@@ -1195,8 +1195,8 @@
       "slug": "tencent-hy4-preview",
       "provider": "Tencent",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.834,
-      "completion_price_per_m": 2.501,
+      "prompt_price_per_m": 0.7506,
+      "completion_price_per_m": 2.2509,
       "context_length": 1048576
     },
     "~z-ai/glm-flash-latest": {
@@ -1230,7 +1230,7 @@
       "name": "Z.ai: GLM 5.3 Flash (batch)",
       "slug": "z-ai-glm-5-3-flash-batch",
       "provider": "Z Ai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.023,
       "completion_price_per_m": 0.068,
       "context_length": 1048576
@@ -1302,7 +1302,7 @@
       "name": "Z.ai: GLM 5.3 (batch)",
       "slug": "z-ai-glm-5-3-batch",
       "provider": "Z Ai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.28,
       "completion_price_per_m": 1.249,
       "context_length": 1048576
@@ -1320,36 +1320,27 @@
       "name": "Qwen: Qwen3.8 27B (batch)",
       "slug": "qwen-qwen3-8-27b-batch",
       "provider": "Qwen",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.16,
       "completion_price_per_m": 2.0,
       "context_length": 262144
-    },
-    "dots-studio/dots-3-note-preview:free": {
-      "name": "Dots Studio: Dots3-Note Preview (free)",
-      "slug": "dots-studio-dots-3-note-preview-free",
-      "provider": "Dots Studio",
-      "pricing_type": "free",
-      "prompt_price_per_m": 0.0,
-      "completion_price_per_m": 0.0,
-      "context_length": 512000
     },
     "google/gemini-3.7-flash": {
       "name": "Google: Gemini 3.7 Flash",
       "slug": "google-gemini-3-7-flash",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 3.75,
       "context_length": 1048576
     },
     "google/gemini-3.7-flash:batch": {
       "name": "Google: Gemini 3.7 Flash (batch)",
       "slug": "google-gemini-3-7-flash-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.375,
+      "completion_price_per_m": 1.875,
       "context_length": 1048576
     },
     "bytedance-seed/seed-2-1-turbo": {
@@ -1392,7 +1383,7 @@
       "name": "SpaceXSI: Grok 4.6 (batch)",
       "slug": "x-ai-grok-4-6-batch",
       "provider": "X Ai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.6,
       "completion_price_per_m": 4.8,
       "context_length": 500000
@@ -1410,7 +1401,7 @@
       "name": "NVIDIA: Nemotron 3.5 Lightning (free)",
       "slug": "nvidia-nemotron-3-5-lightning-free",
       "provider": "Nvidia",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 1000000
@@ -1446,7 +1437,7 @@
       "name": "Meta: Muse Glimmer 30B (batch)",
       "slug": "meta-muse-glimmer-30b-batch",
       "provider": "Meta",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.24,
       "completion_price_per_m": 0.96,
       "context_length": 131072
@@ -1491,7 +1482,7 @@
       "name": "DeepSeek: DeepSeek V4 Flash 0731 (batch)",
       "slug": "deepseek-deepseek-v4-flash-0731-batch",
       "provider": "Deepseek",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.048,
       "completion_price_per_m": 0.144,
       "context_length": 1048576
@@ -1509,7 +1500,7 @@
       "name": "Thinking Machines: Inkling Small (batch)",
       "slug": "thinkingmachines-inkling-small-batch",
       "provider": "Thinkingmachines",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.36,
       "completion_price_per_m": 0.96,
       "context_length": 524288
@@ -1536,7 +1527,7 @@
       "name": "Anthropic: Claude Opus 5 (batch)",
       "slug": "anthropic-claude-opus-5-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.5,
       "completion_price_per_m": 12.5,
       "context_length": 1000000
@@ -1554,36 +1545,36 @@
       "name": "Google: Gemini 3.6 Flash",
       "slug": "google-gemini-3-6-flash",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 3.75,
       "context_length": 1048576
     },
     "google/gemini-3.6-flash:batch": {
       "name": "Google: Gemini 3.6 Flash (batch)",
       "slug": "google-gemini-3-6-flash-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.375,
+      "completion_price_per_m": 1.875,
       "context_length": 1048576
     },
     "google/gemini-3.5-flash-lite": {
       "name": "Google: Gemini 3.5 Flash Lite",
       "slug": "google-gemini-3-5-flash-lite",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 2.5,
       "context_length": 1048576
     },
     "google/gemini-3.5-flash-lite:batch": {
       "name": "Google: Gemini 3.5 Flash Lite (batch)",
       "slug": "google-gemini-3-5-flash-lite-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 1.25,
       "context_length": 1048576
     },
     "thinkingmachines/inkling": {
@@ -1608,7 +1599,7 @@
       "name": "MoonshotAI: Kimi K3 (batch)",
       "slug": "moonshotai-kimi-k3-batch",
       "provider": "Moonshotai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.28,
       "completion_price_per_m": 11.4,
       "context_length": 1048576
@@ -1635,7 +1626,7 @@
       "name": "OpenAI: GPT-5.6 Luna Pro (batch)",
       "slug": "openai-gpt-5-6-luna-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.1,
       "completion_price_per_m": 0.6,
       "context_length": 1050000
@@ -1653,7 +1644,7 @@
       "name": "OpenAI: GPT-5.6 Luna (batch)",
       "slug": "openai-gpt-5-6-luna-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.1,
       "completion_price_per_m": 0.6,
       "context_length": 1050000
@@ -1671,7 +1662,7 @@
       "name": "OpenAI: GPT-5.6 Terra Pro (batch)",
       "slug": "openai-gpt-5-6-terra-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 6.0,
       "context_length": 1050000
@@ -1689,7 +1680,7 @@
       "name": "OpenAI: GPT-5.6 Terra (batch)",
       "slug": "openai-gpt-5-6-terra-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 6.0,
       "context_length": 1050000
@@ -1707,7 +1698,7 @@
       "name": "OpenAI: GPT-5.6 Sol Pro (batch)",
       "slug": "openai-gpt-5-6-sol-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.0,
       "completion_price_per_m": 10.0,
       "context_length": 1050000
@@ -1725,7 +1716,7 @@
       "name": "OpenAI: GPT-5.6 Sol (batch)",
       "slug": "openai-gpt-5-6-sol-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.0,
       "completion_price_per_m": 10.0,
       "context_length": 1050000
@@ -1771,8 +1762,8 @@
       "slug": "tencent-hy3",
       "provider": "Tencent",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.132,
-      "completion_price_per_m": 0.528,
+      "prompt_price_per_m": 0.0825,
+      "completion_price_per_m": 0.33,
       "context_length": 262144
     },
     "anthropic/claude-sonnet-5": {
@@ -1788,7 +1779,7 @@
       "name": "Anthropic: Claude Sonnet 5 (batch)",
       "slug": "anthropic-claude-sonnet-5-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 5.0,
       "context_length": 1000000
@@ -1842,7 +1833,7 @@
       "name": "Z.ai: GLM 5.2 (batch)",
       "slug": "z-ai-glm-5-2-batch",
       "provider": "Z Ai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.322,
       "completion_price_per_m": 0.989,
       "context_length": 1048576
@@ -1878,7 +1869,7 @@
       "name": "Anthropic: Claude Fable 5 (batch)",
       "slug": "anthropic-claude-fable-5-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 5.0,
       "completion_price_per_m": 25.0,
       "context_length": 1000000
@@ -1905,7 +1896,7 @@
       "name": "NVIDIA: Nemotron 3 Ultra (free)",
       "slug": "nvidia-nemotron-3-ultra-550b-a55b-free",
       "provider": "Nvidia",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 1000000
@@ -1923,7 +1914,7 @@
       "name": "Qwen: Qwen3.7 Plus (batch)",
       "slug": "qwen-qwen3-7-plus-batch",
       "provider": "Qwen",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.23,
       "completion_price_per_m": 0.92,
       "context_length": 262144
@@ -1941,7 +1932,7 @@
       "name": "MiniMax: MiniMax M3 (batch)",
       "slug": "minimax-minimax-m3-batch",
       "provider": "Minimax",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.224,
       "completion_price_per_m": 0.88,
       "context_length": 524288
@@ -1968,7 +1959,7 @@
       "name": "Anthropic: Claude Opus 4.8 (batch)",
       "slug": "anthropic-claude-opus-4-8-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.5,
       "completion_price_per_m": 12.5,
       "context_length": 1000000
@@ -1986,18 +1977,18 @@
       "name": "Google: Gemini 3.5 Flash",
       "slug": "google-gemini-3-5-flash",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 9.0,
       "context_length": 1048576
     },
     "google/gemini-3.5-flash:batch": {
       "name": "Google: Gemini 3.5 Flash (batch)",
       "slug": "google-gemini-3-5-flash-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 4.5,
       "context_length": 1048576
     },
     "perceptron/perceptron-mk1": {
@@ -2013,18 +2004,18 @@
       "name": "Google: Gemini 3.1 Flash Lite",
       "slug": "google-gemini-3-1-flash-lite",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 1.5,
       "context_length": 1048576
     },
     "google/gemini-3.1-flash-lite:batch": {
       "name": "Google: Gemini 3.1 Flash Lite (batch)",
       "slug": "google-gemini-3-1-flash-lite-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.125,
+      "completion_price_per_m": 0.75,
       "context_length": 1048576
     },
     "openai/gpt-chat-latest": {
@@ -2049,7 +2040,7 @@
       "name": "SpaceXSI: Grok 4.3 (batch)",
       "slug": "x-ai-grok-4-3-batch",
       "provider": "X Ai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 2.0,
       "context_length": 1000000
@@ -2067,7 +2058,7 @@
       "name": "Mistral: Mistral Medium 3.5 (batch)",
       "slug": "mistralai-mistral-medium-3-5-batch",
       "provider": "Mistralai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.75,
       "completion_price_per_m": 3.75,
       "context_length": 262144
@@ -2076,7 +2067,7 @@
       "name": "NVIDIA: Nemotron 3 Nano Omni (free)",
       "slug": "nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-free",
       "provider": "Nvidia",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 256000
@@ -2103,9 +2094,9 @@
       "name": "Google: Gemini Pro Latest",
       "slug": "google-gemini-pro-latest",
       "provider": "~Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
       "context_length": 1048576
     },
     "~moonshotai/kimi-latest": {
@@ -2121,9 +2112,9 @@
       "name": "Google: Gemini Flash Latest",
       "slug": "google-gemini-flash-latest",
       "provider": "~Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 7.5,
       "context_length": 1048576
     },
     "~anthropic/claude-sonnet-latest": {
@@ -2184,7 +2175,7 @@
       "name": "OpenAI: GPT-5.5 Pro (batch)",
       "slug": "openai-gpt-5-5-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 15.0,
       "completion_price_per_m": 90.0,
       "context_length": 1050000
@@ -2202,7 +2193,7 @@
       "name": "OpenAI: GPT-5.5 (batch)",
       "slug": "openai-gpt-5-5-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.5,
       "completion_price_per_m": 15.0,
       "context_length": 1050000
@@ -2274,7 +2265,7 @@
       "name": "Anthropic: Claude Opus 4.7 (batch)",
       "slug": "anthropic-claude-opus-4-7-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.5,
       "completion_price_per_m": 12.5,
       "context_length": 1000000
@@ -2301,7 +2292,7 @@
       "name": "Google: Gemma 4 26B A4B  (free)",
       "slug": "google-gemma-4-26b-a4b-it-free",
       "provider": "Google",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 262144
@@ -2319,7 +2310,7 @@
       "name": "Google: Gemma 4 31B (free)",
       "slug": "google-gemma-4-31b-it-free",
       "provider": "Google",
-      "pricing_type": "free",
+      "pricing_type": "limited_free",
       "prompt_price_per_m": 0.0,
       "completion_price_per_m": 0.0,
       "context_length": 262144
@@ -2409,7 +2400,7 @@
       "name": "OpenAI: GPT-5.4 Nano (batch)",
       "slug": "openai-gpt-5-4-nano-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.1,
       "completion_price_per_m": 0.625,
       "context_length": 400000
@@ -2427,7 +2418,7 @@
       "name": "OpenAI: GPT-5.4 Mini (batch)",
       "slug": "openai-gpt-5-4-mini-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.375,
       "completion_price_per_m": 2.25,
       "context_length": 400000
@@ -2490,7 +2481,7 @@
       "name": "OpenAI: GPT-5.4 Pro (batch)",
       "slug": "openai-gpt-5-4-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 15.0,
       "completion_price_per_m": 90.0,
       "context_length": 1050000
@@ -2508,7 +2499,7 @@
       "name": "OpenAI: GPT-5.4 (batch)",
       "slug": "openai-gpt-5-4-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.25,
       "completion_price_per_m": 7.5,
       "context_length": 1050000
@@ -2517,9 +2508,9 @@
       "name": "Google: Gemini 3.1 Flash Lite Preview",
       "slug": "google-gemini-3-1-flash-lite-preview",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 1.5,
       "context_length": 1048576
     },
     "bytedance-seed/seed-2.0-mini": {
@@ -2580,9 +2571,9 @@
       "name": "Google: Gemini 3.1 Pro Preview Custom Tools",
       "slug": "google-gemini-3-1-pro-preview-customtools",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 12.0,
       "context_length": 1048576
     },
     "openai/gpt-5.3-codex": {
@@ -2607,18 +2598,18 @@
       "name": "Google: Gemini 3.1 Pro Preview",
       "slug": "google-gemini-3-1-pro-preview",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 12.0,
       "context_length": 1048576
     },
     "google/gemini-3.1-pro-preview:batch": {
       "name": "Google: Gemini 3.1 Pro Preview (batch)",
       "slug": "google-gemini-3-1-pro-preview-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 6.0,
       "context_length": 1048576
     },
     "anthropic/claude-sonnet-4.6": {
@@ -2634,7 +2625,7 @@
       "name": "Anthropic: Claude Sonnet 4.6 (batch)",
       "slug": "anthropic-claude-sonnet-4-6-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.5,
       "completion_price_per_m": 7.5,
       "context_length": 1000000
@@ -2688,7 +2679,7 @@
       "name": "Anthropic: Claude Opus 4.6 (batch)",
       "slug": "anthropic-claude-opus-4-6-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.5,
       "completion_price_per_m": 12.5,
       "context_length": 1000000
@@ -2769,18 +2760,18 @@
       "name": "Google: Gemini 3 Flash Preview",
       "slug": "google-gemini-3-flash-preview",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 3.0,
       "context_length": 1048576
     },
     "google/gemini-3-flash-preview:batch": {
       "name": "Google: Gemini 3 Flash Preview (batch)",
       "slug": "google-gemini-3-flash-preview-batch",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 1.5,
       "context_length": 1048576
     },
     "nvidia/nemotron-3-nano-30b-a3b": {
@@ -2814,7 +2805,7 @@
       "name": "OpenAI: GPT-5.2 Pro (batch)",
       "slug": "openai-gpt-5-2-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 10.5,
       "completion_price_per_m": 84.0,
       "context_length": 400000
@@ -2832,7 +2823,7 @@
       "name": "OpenAI: GPT-5.2 (batch)",
       "slug": "openai-gpt-5-2-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.875,
       "completion_price_per_m": 7.0,
       "context_length": 400000
@@ -2940,7 +2931,7 @@
       "name": "Anthropic: Claude Opus 4.5 (batch)",
       "slug": "anthropic-claude-opus-4-5-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 2.5,
       "completion_price_per_m": 12.5,
       "context_length": 200000
@@ -2967,7 +2958,7 @@
       "name": "OpenAI: GPT-5.1 (batch)",
       "slug": "openai-gpt-5-1-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.625,
       "completion_price_per_m": 5.0,
       "context_length": 400000
@@ -3048,7 +3039,7 @@
       "name": "Anthropic: Claude Haiku 4.5 (batch)",
       "slug": "anthropic-claude-haiku-4-5-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.5,
       "completion_price_per_m": 2.5,
       "context_length": 200000
@@ -3102,7 +3093,7 @@
       "name": "OpenAI: GPT-5 Pro (batch)",
       "slug": "openai-gpt-5-pro-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 7.5,
       "completion_price_per_m": 60.0,
       "context_length": 400000
@@ -3129,7 +3120,7 @@
       "name": "Anthropic: Claude Sonnet 4.5 (batch)",
       "slug": "anthropic-claude-sonnet-4-5-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.5,
       "completion_price_per_m": 7.5,
       "context_length": 1000000
@@ -3215,15 +3206,6 @@
       "completion_price_per_m": 0.95,
       "context_length": 163840
     },
-    "mistralai/mistral-medium-3.1": {
-      "name": "Mistral: Mistral Medium 3.1",
-      "slug": "mistralai-mistral-medium-3-1",
-      "provider": "Mistralai",
-      "pricing_type": "paid",
-      "prompt_price_per_m": 0.44,
-      "completion_price_per_m": 2.2,
-      "context_length": 131072
-    },
     "z-ai/glm-4.5v": {
       "name": "Z.ai: GLM 4.5V",
       "slug": "z-ai-glm-4-5v",
@@ -3246,7 +3228,7 @@
       "name": "OpenAI: GPT-5 (batch)",
       "slug": "openai-gpt-5-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.625,
       "completion_price_per_m": 5.0,
       "context_length": 400000
@@ -3264,7 +3246,7 @@
       "name": "OpenAI: GPT-5 Mini (batch)",
       "slug": "openai-gpt-5-mini-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.125,
       "completion_price_per_m": 1.0,
       "context_length": 400000
@@ -3282,7 +3264,7 @@
       "name": "OpenAI: GPT-5 Nano (batch)",
       "slug": "openai-gpt-5-nano-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.025,
       "completion_price_per_m": 0.2,
       "context_length": 400000
@@ -3300,7 +3282,7 @@
       "name": "OpenAI: gpt-oss-120b (batch)",
       "slug": "openai-gpt-oss-120b-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.0296,
       "completion_price_per_m": 0.136,
       "context_length": 131072
@@ -3318,7 +3300,7 @@
       "name": "OpenAI: gpt-oss-20b (batch)",
       "slug": "openai-gpt-oss-20b-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.024,
       "completion_price_per_m": 0.112,
       "context_length": 131072
@@ -3336,7 +3318,7 @@
       "name": "Anthropic: Claude Opus 4.1 (batch)",
       "slug": "anthropic-claude-opus-4-1-batch",
       "provider": "Anthropic",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 7.5,
       "completion_price_per_m": 37.5,
       "context_length": 200000
@@ -3417,9 +3399,9 @@
       "name": "Google: Gemini 2.5 Flash Lite",
       "slug": "google-gemini-2-5-flash-lite",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.4,
       "context_length": 1048576
     },
     "qwen/qwen3-235b-a22b-2507": {
@@ -3453,7 +3435,7 @@
       "name": "Morph: Morph V3 Large (batch)",
       "slug": "morph-morph-v3-large-batch",
       "provider": "Morph",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.45,
       "completion_price_per_m": 0.95,
       "context_length": 262144
@@ -3471,7 +3453,7 @@
       "name": "Morph: Morph V3 Fast (batch)",
       "slug": "morph-morph-v3-fast-batch",
       "provider": "Morph",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.4,
       "completion_price_per_m": 0.6,
       "context_length": 81920
@@ -3489,18 +3471,18 @@
       "name": "Google: Gemini 2.5 Flash",
       "slug": "google-gemini-2-5-flash",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 2.5,
       "context_length": 1048576
     },
     "google/gemini-2.5-pro": {
       "name": "Google: Gemini 2.5 Pro",
       "slug": "google-gemini-2-5-pro",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 10.0,
       "context_length": 1048576
     },
     "openai/o3-pro": {
@@ -3516,9 +3498,9 @@
       "name": "Google: Gemini 2.5 Pro Preview 06-05",
       "slug": "google-gemini-2-5-pro-preview",
       "provider": "Google",
-      "pricing_type": "media",
-      "prompt_price_per_m": null,
-      "completion_price_per_m": null,
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 10.0,
       "context_length": 1048576
     },
     "deepseek/deepseek-r1-0528": {
@@ -3529,15 +3511,6 @@
       "prompt_price_per_m": 0.571,
       "completion_price_per_m": 2.286,
       "context_length": 163840
-    },
-    "mistralai/mistral-medium-3": {
-      "name": "Mistral: Mistral Medium 3",
-      "slug": "mistralai-mistral-medium-3",
-      "provider": "Mistralai",
-      "pricing_type": "paid",
-      "prompt_price_per_m": 0.44,
-      "completion_price_per_m": 2.2,
-      "context_length": 131072
     },
     "meta-llama/llama-guard-4-12b": {
       "name": "Meta: Llama Guard 4 12B",
@@ -3588,7 +3561,7 @@
       "name": "OpenAI: o3 (batch)",
       "slug": "openai-o3-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 4.0,
       "context_length": 200000
@@ -3597,7 +3570,7 @@
       "name": "OpenAI: o4 Mini (batch)",
       "slug": "openai-o4-mini-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.55,
       "completion_price_per_m": 2.2,
       "context_length": 200000
@@ -3615,7 +3588,7 @@
       "name": "OpenAI: GPT-4.1 (batch)",
       "slug": "openai-gpt-4-1-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.0,
       "completion_price_per_m": 4.0,
       "context_length": 1047576
@@ -3633,7 +3606,7 @@
       "name": "OpenAI: GPT-4.1 Mini (batch)",
       "slug": "openai-gpt-4-1-mini-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.2,
       "completion_price_per_m": 0.8,
       "context_length": 1047576
@@ -3651,7 +3624,7 @@
       "name": "OpenAI: GPT-4.1 Nano (batch)",
       "slug": "openai-gpt-4-1-nano-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.05,
       "completion_price_per_m": 0.2,
       "context_length": 1047576
@@ -3813,7 +3786,7 @@
       "name": "OpenAI: o3 Mini (batch)",
       "slug": "openai-o3-mini-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.55,
       "completion_price_per_m": 2.2,
       "context_length": 200000
@@ -4056,7 +4029,7 @@
       "name": "OpenAI: GPT-4o-mini (batch)",
       "slug": "openai-gpt-4o-mini-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 0.075,
       "completion_price_per_m": 0.3,
       "context_length": 128000
@@ -4092,7 +4065,7 @@
       "name": "OpenAI: GPT-4o (batch)",
       "slug": "openai-gpt-4o-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 1.25,
       "completion_price_per_m": 5.0,
       "context_length": 128000
@@ -4110,7 +4083,7 @@
       "name": "OpenAI: GPT-4 Turbo (batch)",
       "slug": "openai-gpt-4-turbo-batch",
       "provider": "Openai",
-      "pricing_type": "paid",
+      "pricing_type": "batch",
       "prompt_price_per_m": 5.0,
       "completion_price_per_m": 15.0,
       "context_length": 128000

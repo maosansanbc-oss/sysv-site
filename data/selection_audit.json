@@ -1,0 +1,15 @@
+{
+  "updated_at": "2026-11-24",
+  "total_raw_endpoints": 470,
+  "raw_breakdown_by_pricing_type": {
+    "paid": 342,
+    "batch": 92,
+    "limited_free": 11,
+    "media": 16,
+    "variable": 8,
+    "free_router": 1
+  },
+  "displayed_active_cap": 140,
+  "selected_for_display": 140,
+  "selection_rationale": "All 473+ raw OpenRouter endpoints are archived daily in data/history/. Published model detail pages are curated to ~140 active endpoints (all verified :free models, major/affordable real-time paid models with >=32K context, top async :batch endpoints, and flagship routers) to respect search engine crawl budget and avoid indexing hundreds of near-duplicate legacy snapshots on day 1."
+}

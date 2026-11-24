@@ -1,0 +1,1050 @@
+{
+  "/": {
+    "hash": "4d3c2548391fbde6",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/about/": {
+    "hash": "640616c75579009a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/": {
+    "hash": "a52e2800f081cba6",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-2-exp/": {
+    "hash": "d65236dea59dea7a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-2/": {
+    "hash": "fffe3c7278fc572a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/anthropic-claude-haiku-5-5-vs-mistralai-codestral-2508/": {
+    "hash": "1ac6ad038de7da42",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-flash/": {
+    "hash": "9d5dc7c50579ab54",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-next/": {
+    "hash": "69fbfaa97a5770f1",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-14b-2512/": {
+    "hash": "85d0f8c884de4bbd",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-3b-2512/": {
+    "hash": "812af9d93585a174",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512/": {
+    "hash": "54e82d2f19a96d2a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-24b-instruct-2501/": {
+    "hash": "63d133347dfe5fa9",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-3-2-24b-instruct/": {
+    "hash": "ffbfcfaf80cd1fb5",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507/": {
+    "hash": "b03ea409f6fbdac1",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/inclusionai-ling-3-2-flash-free-vs-baidu-ernie-5-5-flash-preview-free/": {
+    "hash": "7314eb2268681cb9",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/mistralai-mistral-large-2512-vs-openai-gpt-4-1/": {
+    "hash": "65e5481320018115",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/mistralai-mistral-large-2512-vs-qwen-qwen3-8-27b-batch/": {
+    "hash": "8183a77e19ab0f55",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/mistralai-mistral-large-2512-vs-qwen-qwen3-vl-235b-a22b-instruct/": {
+    "hash": "2c66e8a5f9ea6480",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/mistralai-mistral-nemo-vs-google-gemma-3-12b-it/": {
+    "hash": "154140b7d47d8726",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/mistralai-mistral-nemo-vs-google-gemma-3-27b-it/": {
+    "hash": "5744a46078dc1e18",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/mistralai-mistral-nemo-vs-google-gemma-3-4b-it/": {
+    "hash": "94b4ffb10ffb85cf",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/mistralai-mistral-nemo-vs-qwen-qwen3-30b-a3b-instruct-2507/": {
+    "hash": "15cae1fb86efeb05",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/particle-ai-particle-1-free-vs-baidu-ernie-5-5-flash-preview-free/": {
+    "hash": "a50274eb0e197288",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/particle-ai-particle-1-free-vs-google-gemma-4-26b-a4b-it-free/": {
+    "hash": "9a9082c18cbb2391",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/particle-ai-particle-1-free-vs-google-gemma-4-31b-it-free/": {
+    "hash": "7bf200b0f18aa526",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/particle-ai-particle-1-free-vs-inclusionai-ling-3-2-flash-free/": {
+    "hash": "edf8a290b6faa3c2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/particle-ai-particle-1-free-vs-liquid-lfm-3-1-7b-free/": {
+    "hash": "b00efa15d63c9c3c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/particle-ai-particle-1-free-vs-nvidia-nemotron-3-5-lightning-free/": {
+    "hash": "79ac7c32d2085c66",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/particle-ai-particle-1-free-vs-nvidia-nemotron-3-5-super-vl-free/": {
+    "hash": "b6ca136a159b795b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/particle-ai-particle-1-free-vs-nvidia-nemotron-3-ultra-550b-a55b-free/": {
+    "hash": "979c870ffc9f68d4",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/particle-ai-particle-1-free-vs-recursive-flint-v1-0-free/": {
+    "hash": "75b44340e7c552aa",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen2-5-vl-72b-instruct-vs-mistralai-mistral-large-2407/": {
+    "hash": "2223ee656abd27af",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen2-5-vl-72b-instruct-vs-mistralai-mistral-large-2512/": {
+    "hash": "58a4ce19a22d0ccf",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen2-5-vl-72b-instruct-vs-mistralai-mistral-large/": {
+    "hash": "2acefff82b569d9c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen2-5-vl-72b-instruct-vs-mistralai-mixtral-8x22b-instruct/": {
+    "hash": "19f82b1c73031e1b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen2-5-vl-72b-instruct-vs-mistralai-pixtral-large-2502/": {
+    "hash": "c4f89167836ba5ab",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen2-5-vl-72b-instruct-vs-openai-gpt-4-1/": {
+    "hash": "511d391e4fbc93fa",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen2-5-vl-72b-instruct-vs-openai-gpt-5-4-mini-batch/": {
+    "hash": "9e3b39dba7daac12",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen3-coder-30b-a3b-instruct-vs-anthropic-claude-haiku-5-5/": {
+    "hash": "2e0677abb3a5a60c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen3-coder-30b-a3b-instruct-vs-deepseek-deepseek-v3-1-terminus/": {
+    "hash": "5078420629a1f5ad",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen3-coder-30b-a3b-instruct-vs-deepseek-deepseek-v3-2-exp/": {
+    "hash": "e764a8603f70533e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen3-coder-30b-a3b-instruct-vs-deepseek-deepseek-v3-2/": {
+    "hash": "b28e01846de22826",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/compare/qwen-qwen3-coder-30b-a3b-instruct-vs-mistralai-codestral-2508/": {
+    "hash": "61186ad055b3415c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/contact/": {
+    "hash": "31ff59457642e045",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/free-llm-apis/": {
+    "hash": "d7116852b3969db5",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/anthropic-claude-haiku-4-5-batch/": {
+    "hash": "4efa4e01e855bcf4",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/anthropic-claude-haiku-4-5/": {
+    "hash": "42015875c6c35558",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/anthropic-claude-haiku-5-5-batch/": {
+    "hash": "d934bc3448bec195",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/anthropic-claude-haiku-5-5/": {
+    "hash": "4eb8b7070b357184",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/baidu-ernie-5-5-flash-preview-free/": {
+    "hash": "085e7dde48ecb3d7",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-chat-v3-0324/": {
+    "hash": "e7e8421c40daecc2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-chat-v3-1/": {
+    "hash": "7f9412999d8b768e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-chat/": {
+    "hash": "6f54405fd6ec5969",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-r1-0528/": {
+    "hash": "be689d6ba951dc2b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v3-1-terminus/": {
+    "hash": "c825368bf65d5ae1",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v3-2-exp/": {
+    "hash": "0c151e6ad7d25cb8",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v3-2/": {
+    "hash": "3e1e4e48fe4de301",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-1-flash-1017-batch/": {
+    "hash": "cb32cd55a7447ccc",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-1-flash-1017/": {
+    "hash": "af8fe3072e67b6d6",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-1-flash-batch/": {
+    "hash": "9520570c6578bf69",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-1-flash/": {
+    "hash": "dfde0e26466d7c92",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-flash-0731-batch/": {
+    "hash": "b897baa9ec9ae11a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-flash-0731/": {
+    "hash": "f0bc0e1afc8ce99c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-flash-vision-exp/": {
+    "hash": "d553954884c6ea7c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-flash/": {
+    "hash": "aa31d64e7ec28cfe",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-pro-0813/": {
+    "hash": "1a3f84b66ad79e55",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/deepseek-deepseek-v4-pro/": {
+    "hash": "b56c12463e989303",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/dots-studio-dots-3-note-preview-free/": {
+    "hash": "3b1f54641ef674e0",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-2-5-flash-lite/": {
+    "hash": "b8d62710e7989606",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-2-5-flash/": {
+    "hash": "55a59fc9b321874d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-3-1-flash-lite-preview/": {
+    "hash": "9007f38e0bd0ff72",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-3-1-flash-lite/": {
+    "hash": "bc680916931a2e93",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-3-5-flash-lite/": {
+    "hash": "4e714da6714dcb2c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-3-6-flash/": {
+    "hash": "21b27f013ab35eff",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-3-7-flash/": {
+    "hash": "f2fb8d621c0780bc",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-3-8-flash/": {
+    "hash": "6bddaeb6e397988e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-3-flash-preview/": {
+    "hash": "b42a119691ad74f5",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemini-4-hydrogen/": {
+    "hash": "b62a08db9304206b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemma-3-12b-it/": {
+    "hash": "7e6d8122d18aabed",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemma-3-27b-it/": {
+    "hash": "d4d673eccb17646a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemma-3-4b-it/": {
+    "hash": "647979b5695f463a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemma-4-26b-a4b-it-free/": {
+    "hash": "30316bba99782274",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemma-4-26b-a4b-it/": {
+    "hash": "bfbcbdfb97ce03c9",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemma-4-31b-it-free/": {
+    "hash": "f383fd25b93d7ad8",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/google-gemma-4-31b-it/": {
+    "hash": "058b4940b019f55e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/inclusionai-ling-3-2-flash-free/": {
+    "hash": "4bf2c86edf232c68",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/liquid-lfm-3-1-7b-free/": {
+    "hash": "a8b435d25af1f6ff",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/meta-muse-ember/": {
+    "hash": "93e8f984fd92a2a8",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/meta-muse-glimmer-30b-batch/": {
+    "hash": "c6a261dc614a2209",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/meta-muse-glimmer-30b/": {
+    "hash": "a4553f22fdaa8100",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/meta-muse-spark-1-1/": {
+    "hash": "47c5fd0932bb1ff2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/meta-muse-spark-1-2-contributor/": {
+    "hash": "a75e9681039823f5",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/meta-muse-spark-1-2/": {
+    "hash": "c844a813641488d9",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/meta-muse-spark-1-3-contributor/": {
+    "hash": "bf30ed929f0512fe",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/meta-muse-spark-1-3/": {
+    "hash": "1724321512356fbc",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/meta-muse-spark-open/": {
+    "hash": "03303b9e60b34ed6",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-codestral-2508/": {
+    "hash": "4181c13b9c5a2446",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-devstral-2512/": {
+    "hash": "4b851855aa739942",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-ministral-14b-2512/": {
+    "hash": "efd8f7723816828d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-ministral-3b-2512/": {
+    "hash": "844119186ef1053e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-ministral-8b-2512/": {
+    "hash": "f5e977ee2122b98d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-large-2407/": {
+    "hash": "1680549cf81f6456",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-large-2512/": {
+    "hash": "c65a4faaced4fe88",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-large-4-0/": {
+    "hash": "3e7cedce0917e5e3",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-large/": {
+    "hash": "15fb41064aa6f202",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-medium-3-1/": {
+    "hash": "2f67b3b2aa4fc660",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-medium-3-5-batch/": {
+    "hash": "bdcb782c556cb4d1",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-medium-3-5/": {
+    "hash": "77905a8fedde0c36",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-medium-3/": {
+    "hash": "c7370c299ac2bfc5",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-nemo/": {
+    "hash": "775f3166cc36af3c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-saba/": {
+    "hash": "4e1ff8ca5857047d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-small-24b-instruct-2501/": {
+    "hash": "db52aa4219dbd9da",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-small-2603/": {
+    "hash": "6c854e08e2f23c4d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-small-3-1-24b-instruct/": {
+    "hash": "7c9090b2e9f39452",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mistral-small-3-2-24b-instruct/": {
+    "hash": "8cb3aed60c4e9b6b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-mixtral-8x22b-instruct/": {
+    "hash": "1ee542df5b6794a4",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-pixtral-large-2502/": {
+    "hash": "a15b6be3899e0cc1",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/mistralai-voxtral-small-24b-2507/": {
+    "hash": "182486b013c13846",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/nvidia-nemotron-3-5-lightning-free/": {
+    "hash": "bc74a84b9226d429",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/nvidia-nemotron-3-5-super-vl-free/": {
+    "hash": "e155b6e6916fe4d0",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-free/": {
+    "hash": "b0b2f455db66bdaa",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/nvidia-nemotron-3-ultra-550b-a55b-free/": {
+    "hash": "0f2152464e327355",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/nvidia-switchyard/": {
+    "hash": "190ee39a58069b24",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-4-1-batch/": {
+    "hash": "1ccce88f838c6f8d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-4-1-mini-batch/": {
+    "hash": "7d1e6bacd5794ca5",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-4-1-mini/": {
+    "hash": "e826fe489f8d5ed2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-4-1-nano-batch/": {
+    "hash": "ccb42fae18e4e26f",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-4-1-nano/": {
+    "hash": "9ac0b61825d44041",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-4-1/": {
+    "hash": "41b48779c40073ca",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-4o-mini-2024-07-18/": {
+    "hash": "9ac72edf15273b2b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-4o-mini-batch/": {
+    "hash": "f08910af50d045e1",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-4o-mini/": {
+    "hash": "e20bec36777aca68",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-1-codex-mini/": {
+    "hash": "699c54f4d0815c12",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-4-mini-batch/": {
+    "hash": "4cf36cbca8ccb235",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-4-mini/": {
+    "hash": "fb23c2f75e7a7d77",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-4-nano-batch/": {
+    "hash": "c38a3c6bff284592",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-4-nano/": {
+    "hash": "c41eaf66b0d71d41",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-6-luna-batch/": {
+    "hash": "babedbefc92c3be3",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-6-luna-pro-batch/": {
+    "hash": "d41ae1ffdd8bac9f",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-6-luna-pro/": {
+    "hash": "33a7aec1f008fbd5",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-6-luna/": {
+    "hash": "343c17d925c3b041",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-mini-batch/": {
+    "hash": "28e08b31d8808753",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-mini/": {
+    "hash": "42a5800f51b4dbec",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-nano-batch/": {
+    "hash": "5601d4cae8fa54ef",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-5-nano/": {
+    "hash": "cfe04a51c48815bf",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-6-1-terra-batch/": {
+    "hash": "cf2eccf8148e4cc3",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-6-1-terra-pro-batch/": {
+    "hash": "c5464edd1e4275a4",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-6-1-terra-pro/": {
+    "hash": "4bc3fdbf36e8e0de",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-6-1-terra/": {
+    "hash": "f1bb59fffb26c4d7",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-6-luna-batch/": {
+    "hash": "cf9143a2258328a6",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-6-luna-pro-batch/": {
+    "hash": "5c4c1e3bc4256ce7",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-6-luna-pro/": {
+    "hash": "b3c627b35959c68a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-6-luna/": {
+    "hash": "63cb0ef356aee4fd",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-oss-120b-batch/": {
+    "hash": "0a84fe8b311288ba",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-oss-120b/": {
+    "hash": "96158d645faee189",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-oss-20b-batch/": {
+    "hash": "e73d9e5650077c10",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-oss-20b/": {
+    "hash": "aff6832dba8816ec",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-gpt-oss-safeguard-20b/": {
+    "hash": "878e37acd4971f84",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-o3-batch/": {
+    "hash": "c49916511ed32861",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-o3-mini-batch/": {
+    "hash": "db93403ad615e671",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openai-o4-mini-batch/": {
+    "hash": "6e1936b8c3ec48b7",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openrouter-auto-code/": {
+    "hash": "914795abdfeae77e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openrouter-auto/": {
+    "hash": "ae7a3d345988d29d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/openrouter-free/": {
+    "hash": "22a11ca824e5d62d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/particle-ai-particle-1-free/": {
+    "hash": "91b5f839e8377605",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen-2-5-72b-instruct/": {
+    "hash": "58fd2522b9dc4e25",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen-2-5-coder-32b-instruct/": {
+    "hash": "b54565eb139b667e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen-plus/": {
+    "hash": "80f6fd79d87acbeb",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen2-5-vl-72b-instruct/": {
+    "hash": "39569418c555538f",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-14b/": {
+    "hash": "34c499aa8c71ee21",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-235b-a22b-2507/": {
+    "hash": "d8a4fff22b172bcf",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-235b-a22b-thinking-2507/": {
+    "hash": "9b205bdbb67cd26a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-30b-a3b-instruct-2507/": {
+    "hash": "a7139ff50e9fc05d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-30b-a3b/": {
+    "hash": "d1ed8f47c5b727e7",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-32b/": {
+    "hash": "d514b36b2f0f138e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-5-122b-a10b/": {
+    "hash": "cb0c4f09d367d482",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-5-27b/": {
+    "hash": "c3be2902722872b0",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-5-35b-a3b/": {
+    "hash": "ff73e8be1d25f93b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-5-397b-a17b/": {
+    "hash": "02f5c040af2fbaa6",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-5-9b/": {
+    "hash": "09cab4e161799753",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-5-flash-02-23/": {
+    "hash": "fb81499a44a3051b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-5-plus-02-15/": {
+    "hash": "e1cb58f1c20b4046",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-5-plus-20260420/": {
+    "hash": "6f5031d1b34bd00d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-6-27b/": {
+    "hash": "5c221780a4b7f278",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-6-35b-a3b/": {
+    "hash": "1d4a5dbcd532e69e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-6-flash/": {
+    "hash": "3e79beecb410b515",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-6-plus/": {
+    "hash": "6d6fdeb6a5c11029",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-7-flash/": {
+    "hash": "d94dcab59422d11e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-7-max/": {
+    "hash": "c74609d942621039",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-7-plus-batch/": {
+    "hash": "1d8145f23a70e834",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-7-plus/": {
+    "hash": "7073eed6fc2f34d2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-8-2-4t-a95b/": {
+    "hash": "66432e015b869f54",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-8-27b-batch/": {
+    "hash": "d764b99d4ca449e6",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-8-27b/": {
+    "hash": "91e739e6b67e8302",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-8-flash/": {
+    "hash": "70ad1f63f6b349db",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-8-max-0902-batch/": {
+    "hash": "e0d919a69dc514ca",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-8-max-0902/": {
+    "hash": "5d23b92c33550d52",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-8-omni-flash/": {
+    "hash": "04fdcc4cac32dce7",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-coder-30b-a3b-instruct/": {
+    "hash": "437d2fc45663ce99",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-coder-flash/": {
+    "hash": "6635ba98e47f1d34",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-coder-next/": {
+    "hash": "9c8c7ac3784948c2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-coder/": {
+    "hash": "462a5125a708dc7a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-next-80b-a3b-instruct/": {
+    "hash": "ff1dac88159660ef",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-vl-235b-a22b-instruct/": {
+    "hash": "08cee07a4156e977",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-vl-30b-a3b-instruct/": {
+    "hash": "cdf14932c068fbd1",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen3-vl-8b-instruct/": {
+    "hash": "825f7e36dd3bb4ce",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/qwen-qwen4-max/": {
+    "hash": "51e2e349f88b4399",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/recursive-flint-v1-0-free/": {
+    "hash": "6e9d4bd518c2ff96",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/typesafe-jev-router/": {
+    "hash": "d4d0b2744e490bec",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/models/z-ai-glm-5-3-flash-batch/": {
+    "hash": "a9bddf8e720a472a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/price-changes/": {
+    "hash": "63efe062f20d1c12",
+    "lastmod": "2026-11-24T16:19:21Z"
+  },
+  "/privacy/": {
+    "hash": "dfb8b88e5ce4d8c3",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/": {
+    "hash": "51655cf83ce5b5b6",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/agentscope-ai-qwenpaw/": {
+    "hash": "0f63dd6115c8c4f5",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/appwrite-appwrite/": {
+    "hash": "d441a6dbe568f450",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/berriai-litellm/": {
+    "hash": "04612e64e3c38d05",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/chatboxai-chatbox/": {
+    "hash": "83ee54c6b6896255",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/chatgptnextweb-nextchat/": {
+    "hash": "9c1a7e091d8c12b9",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/cheaper-inference-omniroute/": {
+    "hash": "f06ebb01e3a89661",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/cherryhq-cherry-studio/": {
+    "hash": "bf3d6438b0b989f1",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/codewhale-hq-codewhale/": {
+    "hash": "7a75f51174c62d6d",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/composiohq-awesome-claude-skills/": {
+    "hash": "0bc9c471f0949a0e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/conductor-oss-conductor/": {
+    "hash": "6a16459e8ef4a246",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/coollabsio-coolify/": {
+    "hash": "d456034f82682439",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/decolua-9router/": {
+    "hash": "de4dbdbf2d27484b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/dograh-hq-dograh/": {
+    "hash": "9626bd00b6cc8321",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/enescingoz-awesome-n8n-templates/": {
+    "hash": "7e399c9817cf154e",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/freestylefly-awesome-gpt-image-2/": {
+    "hash": "313bb4be347b9774",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/gogs-gogs/": {
+    "hash": "a543d689b78aef23",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/harry0703-moneyprinterturbo/": {
+    "hash": "872dc88117676ad7",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/hkuds-nanobot/": {
+    "hash": "d3a1d3a310694981",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/kong-kong/": {
+    "hash": "640ce4cca53f482c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/kortix-ai-companyos/": {
+    "hash": "086477f2b911e1f2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/langfuse-langfuse/": {
+    "hash": "b1abdf3a2457a607",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/learningcircuit-local-deep-research/": {
+    "hash": "7730dba621c1cdfa",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/louislam-uptime-kuma/": {
+    "hash": "96f6f627ae0132c8",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/makazhanalpamys-soup/": {
+    "hash": "62fe09e7bfaa75b0",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/milind-soni-openmausbot/": {
+    "hash": "e565f9f479d59b48",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/modsetter-surfsense/": {
+    "hash": "f52375621b0dffa2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/mozilla-ai-llamafile/": {
+    "hash": "7428a9d72a18e739",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/n8n-io-n8n/": {
+    "hash": "f1b1e4feb9f4614c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/nanocoai-nanoclaw/": {
+    "hash": "a69964ebbe2e2ab2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/netdata-netdata/": {
+    "hash": "d868fe98ed62f6a2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/nocobase-nocobase/": {
+    "hash": "f33b42a65d16f64f",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/nya-foundation-nyaproxy/": {
+    "hash": "0f761db12c8fb3ae",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/ollama-ollama/": {
+    "hash": "cd2cfb242112444c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/open-multi-agent-open-multi-agent/": {
+    "hash": "42bfcba38fe86bdc",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/open-webui-open-webui/": {
+    "hash": "48f2b0d945de3b5c",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/paperclipai-paperclip/": {
+    "hash": "a48d61b7fe36badb",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/portkey-ai-gateway/": {
+    "hash": "c3bfc74e06aecff9",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/quantumnous-new-api/": {
+    "hash": "70d93b2192384f6a",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/respanai-respan-gateway/": {
+    "hash": "92138f678204773f",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/stirling-tools-stirling-pdf/": {
+    "hash": "a075cbf4161a6e00",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/tencent-weknora/": {
+    "hash": "55cbe468c31cfc84",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/thinkwatchproject-thinkwatch/": {
+    "hash": "6c182d00cf3275f2",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/tooljet-tooljet/": {
+    "hash": "976dac8ad9a379ff",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/tyktechnologies-tyk/": {
+    "hash": "8d687dfac6b45036",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/usememos-memos/": {
+    "hash": "a96536b0bdfef108",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/vxcontrol-pentagi/": {
+    "hash": "2ec7c29ef3ca48a1",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/repos/xing61-zzz-api/": {
+    "hash": "67caaa16ea82724b",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/terms/": {
+    "hash": "dd1bf28a2f32f204",
+    "lastmod": "2026-11-24T16:18:40Z"
+  },
+  "/zero-cost-stack/": {
+    "hash": "ecef49faab657d10",
+    "lastmod": "2026-11-24T16:18:40Z"
+  }
+}

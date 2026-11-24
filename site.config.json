@@ -3,14 +3,15 @@
   "domain": "sysv.cn",
   "base_url": "https://sysv.cn",
   "tagline": "Zero-Cost Infrastructure & AI Automation Radar",
-  "description": "Task-oriented LLM API cost calculator, verified free-tier directory (excluding dynamic routers), daily price-change history, and self-hosted AI infrastructure benchmarks.",
+  "description": "Capability-gated LLM estimated token cost calculator, verified rate-limited free-tier directory, daily price-change archive, and self-hosted AI infrastructure benchmarks.",
   "contact_email": "hello@sysv.cn",
   "language": "en",
   "pipeline": {
     "max_models_tracked": 140,
     "min_models_health_floor": 40,
     "max_daily_llm_enrich": 10,
-    "prompt_version": "v2.0",
+    "max_daily_cost_usd": 0.05,
+    "prompt_version": "v2.1",
     "max_compare_pages": 40,
     "max_repos_tracked": 48
   },

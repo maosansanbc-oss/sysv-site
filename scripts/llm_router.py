@@ -1,13 +1,4 @@
-"""Multi-provider free-tier LLM router with automatic fallback.
-
-Supported environment variables (configure 1 or more in GitHub Secrets):
-- DEEPSEEK_API_KEY     (DeepSeek official API, OpenAI-compatible)
-- GEMINI_API_KEY       (Google AI Studio free tier)
-- GROQ_API_KEY         (Groq free tier, OpenAI-compatible)
-- OPENROUTER_API_KEY   (OpenRouter :free models, OpenAI-compatible)
-- SILICONFLOW_API_KEY  (SiliconFlow free/low-cost models, OpenAI-compatible)
-- CUSTOM_LLM_BASE_URL + CUSTOM_LLM_API_KEY + CUSTOM_LLM_MODEL (any OpenAI-compatible endpoint)
-"""
+"""Multi-provider LLM router with automatic fallback and token usage accounting."""
 
 import json
 import os
@@ -33,25 +24,29 @@ def _extract_json_object(text: str) -> dict[str, Any]:
     return data
 
 
-def _call_gemini(prompt: str, api_key: str) -> str:
+def _call_gemini(prompt: str, api_key: str) -> tuple[str, dict[str, int]]:
     model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.3,
-            "responseMimeType": "application/json",
-        },
+        "generationConfig": {"temperature": 0.3, "responseMimeType": "application/json"},
     }
     resp = http_post_json(url, payload, timeout=40)
     candidates = resp.get("candidates", [])
     if not candidates:
         raise RuntimeError(f"Gemini returned no candidates: {resp}")
     parts = candidates[0].get("content", {}).get("parts", [])
-    return "".join(p.get("text", "") for p in parts)
+    meta = resp.get("usageMetadata") or {}
+    usage = {
+        "prompt_tokens": int(meta.get("promptTokenCount") or 0),
+        "completion_tokens": int(meta.get("candidatesTokenCount") or 0),
+    }
+    return "".join(p.get("text", "") for p in parts), usage
 
 
-def _call_openai_compat(base_url: str, api_key: str, model: str, prompt: str, extra_headers: dict[str, str] | None = None) -> str:
+def _call_openai_compat(
+    base_url: str, api_key: str, model: str, prompt: str, extra_headers: dict[str, str] | None = None
+) -> tuple[str, dict[str, int]]:
     url = base_url.rstrip("/") + "/chat/completions"
     headers = {"Authorization": f"Bearer {api_key}"}
     if extra_headers:
@@ -71,7 +66,12 @@ def _call_openai_compat(base_url: str, api_key: str, model: str, prompt: str, ex
     choices = resp.get("choices", [])
     if not choices:
         raise RuntimeError(f"OpenAI-compatible endpoint returned no choices: {resp}")
-    return choices[0].get("message", {}).get("content", "")
+    u = resp.get("usage") or {}
+    usage = {
+        "prompt_tokens": int(u.get("prompt_tokens") or 0),
+        "completion_tokens": int(u.get("completion_tokens") or 0),
+    }
+    return choices[0].get("message", {}).get("content", ""), usage
 
 
 def get_available_providers() -> list[dict[str, str]]:
@@ -86,10 +86,11 @@ def get_available_providers() -> list[dict[str, str]]:
                         "key": k,
                         "base_url": "https://api.deepseek.com/v1",
                         "model": os.getenv("DEEPSEEK_MODEL", "deepseek-chat"),
+                        "is_paid": "1",
                     }
                 )
     if os.getenv("GEMINI_API_KEY"):
-        providers.append({"name": "gemini", "key": os.environ["GEMINI_API_KEY"]})
+        providers.append({"name": "gemini", "key": os.environ["GEMINI_API_KEY"], "is_paid": "0"})
     if os.getenv("GROQ_API_KEY"):
         providers.append(
             {
@@ -97,6 +98,7 @@ def get_available_providers() -> list[dict[str, str]]:
                 "key": os.environ["GROQ_API_KEY"],
                 "base_url": "https://api.groq.com/openai/v1",
                 "model": os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile"),
+                "is_paid": "0",
             }
         )
     if os.getenv("OPENROUTER_API_KEY"):
@@ -106,6 +108,7 @@ def get_available_providers() -> list[dict[str, str]]:
                 "key": os.environ["OPENROUTER_API_KEY"],
                 "base_url": "https://openrouter.ai/api/v1",
                 "model": os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.3-70b-instruct:free"),
+                "is_paid": "0",
             }
         )
     if os.getenv("SILICONFLOW_API_KEY"):
@@ -115,41 +118,40 @@ def get_available_providers() -> list[dict[str, str]]:
                 "key": os.environ["SILICONFLOW_API_KEY"],
                 "base_url": "https://api.siliconflow.cn/v1",
                 "model": os.getenv("SILICONFLOW_MODEL", "Qwen/Qwen2.5-7B-Instruct"),
-            }
-        )
-    if os.getenv("CUSTOM_LLM_BASE_URL") and os.getenv("CUSTOM_LLM_API_KEY"):
-        providers.append(
-            {
-                "name": "custom",
-                "key": os.environ["CUSTOM_LLM_API_KEY"],
-                "base_url": os.environ["CUSTOM_LLM_BASE_URL"],
-                "model": os.getenv("CUSTOM_LLM_MODEL", "gpt-4o-mini"),
+                "is_paid": "0",
             }
         )
     return providers
 
 
-def generate_json_with_fallback(prompt: str) -> tuple[dict[str, Any] | None, str]:
-    """Try each configured free LLM provider in order. Returns (parsed_json, provider_name)."""
+def estimate_call_cost_usd(provider_name: str, usage: dict[str, int]) -> float:
+    if provider_name.startswith("deepseek"):
+        # Conservative upper-bound estimate for deepseek-chat: $0.28/1M in, $0.42/1M out
+        return round((usage.get("prompt_tokens", 0) * 0.28 + usage.get("completion_tokens", 0) * 0.42) / 1_000_000, 6)
+    return 0.0
+
+
+def generate_json_with_fallback(prompt: str) -> tuple[dict[str, Any] | None, str, dict[str, int]]:
+    """Try configured LLM providers in order. Returns (parsed_json, provider_name, usage)."""
     providers = get_available_providers()
     if not providers:
-        return None, "deterministic-fallback"
+        return None, "deterministic-fallback", {"prompt_tokens": 0, "completion_tokens": 0}
 
     errors: list[str] = []
     for p in providers:
         name = p["name"]
         try:
             if name == "gemini":
-                raw = _call_gemini(prompt, p["key"])
+                raw, usage = _call_gemini(prompt, p["key"])
             else:
                 extra = {"HTTP-Referer": "https://sysv.cn", "X-Title": "SysV Radar"} if name == "openrouter" else None
-                raw = _call_openai_compat(p["base_url"], p["key"], p["model"], prompt, extra_headers=extra)
+                raw, usage = _call_openai_compat(p["base_url"], p["key"], p["model"], prompt, extra_headers=extra)
             parsed = _extract_json_object(raw)
-            return parsed, name
+            return parsed, name, usage
         except Exception as err:
             errors.append(f"{name}: {err}")
 
     print("[llm_router] All configured providers failed, falling back to deterministic generator:")
     for e in errors:
         print(f"  - {e}")
-    return None, "deterministic-fallback"
+    return None, "deterministic-fallback", {"prompt_tokens": 0, "completion_tokens": 0}

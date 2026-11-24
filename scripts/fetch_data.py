@@ -1,17 +1,28 @@
-"""V2 Data Pipeline for SysV Radar (sysv.cn).
+"""V2.1 Data Pipeline for SysV Radar (sysv.cn).
 
-Fixes V1 P0/P1 audit findings:
-1. Strict 7-state pricing taxonomy (free, free_router, variable, paid, media, unknown)
-   — NEVER coerces OpenRouter '-1' dynamic routers or audio/media endpoints into FREE ($0).
-2. Daily historical price snapshots (`data/history/YYYY-MM-DD.json`) + automated changelog
-   (`data/price_changes.json`) for long-term proprietary data moat.
-3. Curated Zero-Cost Infrastructure & AI Automation GitHub repo directory with real
-   deployment metadata (License/Commercial status, Maintenance Health, Docker signal, Category).
-4. Fail-safe retention: keeps last valid dataset if upstream API returns empty/degraded data.
+V2.1 Audit Hardening:
+1. Full 8-state pricing taxonomy:
+   - limited_free : rate-limited $0 free tier (:free models, e.g. OpenRouter ~20 RPM / 50 RPD)
+   - free         : non-suffixed $0/$0 text endpoints (if any)
+   - free_router  : $0 free-only auto router (openrouter/free)
+   - variable     : dynamic routers (-1 pricing, e.g. openrouter/auto, auto-code)
+   - batch        : async batch-only endpoints (:batch suffix, NOT real-time interactive)
+   - paid         : standard real-time per-token paid endpoints (tracks tiered overrides)
+   - media        : non-text output (audio/image/video) or per-request media endpoints
+   - unknown      : missing, null, non-numeric, or malformed pricing
+2. Real capability flags extracted directly from OpenRouter `supported_parameters`:
+   `supports_tools`, `supports_structured_outputs`, `supports_response_format`, `supports_reasoning`, `is_realtime`.
+3. SEO page lifecycle & delisting preservation:
+   - Distinguishes temporary API absence (`missing_days < 3`) from true delisting (`missing_days >= 3` on healthy fetch).
+   - NEVER deletes delisted model URLs; preserves historical pricing & delisted_at date.
+4. Append-only intraday changelog (`data/price_changes.json`) — never overwrites intraday changes.
+5. Transparent 473 -> display selection audit (`data/selection_audit.json`).
+6. Honest 3-tier open-source license classification (never equates permissive with "no restrictions").
 """
 
 import os
 import urllib.parse
+from collections import Counter
 from datetime import datetime, timezone
 from typing import Any
 
@@ -21,12 +32,11 @@ OPENROUTER_MODELS_URL = "https://openrouter.ai/api/v1/models"
 GITHUB_SEARCH_URL = "https://api.github.com/search/repositories"
 HISTORY_DIR = DATA_DIR / "history"
 
-ROUTER_KEYWORDS = ("auto", "router", "fusion", "pareto", "bodybuilder", "switchpoint")
+ROUTER_KEYWORDS = ("auto", "router", "fusion", "pareto", "bodybuilder", "switchyard", "switchpoint")
 MEDIA_KEYWORDS = ("lyria", "dall-e", "imagen", "flux", "stable-diffusion", "midjourney", "whisper", "tts", "music")
-CODING_KEYWORDS = ("coder", "codestral", "code", "devstral", "starcoder", "qwen3-coder", "deepseek-v3", "claude", "sonnet")
+CODING_KEYWORDS = ("coder", "codestral", "code", "devstral", "starcoder", "deepseek-v3", "claude", "sonnet")
 REASONING_KEYWORDS = ("r1", "reason", "thinking", "o1", "o3", "o4", "qwq", "think")
 
-# Focused single-topic queries for Zero-Cost Infra & AI Automation (GitHub Search API safe)
 CURATED_REPO_QUERIES = [
     ("AI Gateway & Proxy", "topic:llm-gateway stars:>300 archived:false"),
     ("AI Gateway & Proxy", "topic:openai-proxy stars:>300 archived:false"),
@@ -37,16 +47,27 @@ CURATED_REPO_QUERIES = [
     ("Self-Hosted Infra", "topic:self-hosted topic:docker stars:>8000 archived:false"),
 ]
 
-COMMERCIAL_FRIENDLY_LICENSES = {"MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "MPL-2.0", "Unlicense", "0BSD"}
+PERMISSIVE_LICENSES = {"MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "MPL-2.0", "Unlicense", "0BSD"}
+COPYLEFT_OR_SOURCE_AVAIL = {"GPL-2.0", "GPL-3.0", "AGPL-3.0", "LGPL-2.1", "LGPL-3.0", "SSPL-1.0", "NOASSERTION"}
 
 
 def _parse_raw_float(raw: Any) -> float | None:
-    if raw is None or raw == "":
+    if raw is None or isinstance(raw, bool):
         return None
-    try:
+    if isinstance(raw, (int, float)):
         return float(raw)
-    except (TypeError, ValueError):
-        return None
+    if isinstance(raw, str):
+        s = raw.strip()
+        if not s:
+            return None
+        try:
+            val = float(s)
+            if val != val or val in (float("inf"), float("-inf")):
+                return None
+            return val
+        except ValueError:
+            return None
+    return None
 
 
 def _per_m(val: float | None) -> float | None:
@@ -55,28 +76,38 @@ def _per_m(val: float | None) -> float | None:
     return round(val * 1_000_000, 6)
 
 
-def classify_model(item: dict[str, Any]) -> dict[str, Any]:
-    """Classify an OpenRouter model with strict 7-state pricing & task cohort rules."""
+def classify_model(item: dict[str, Any], today: str | None = None) -> dict[str, Any]:
+    """Classify an OpenRouter endpoint into strict 8-state pricing & verified capability flags."""
+    today = today or utc_today()
     model_id = str(item.get("id", "")).strip()
     name = str(item.get("name") or model_id).strip()
     lower_id = model_id.lower()
     lower_name = name.lower()
-    pricing = item.get("pricing") or {}
+    pricing = item.get("pricing") if isinstance(item.get("pricing"), dict) else {}
 
     raw_prompt = _parse_raw_float(pricing.get("prompt"))
     raw_completion = _parse_raw_float(pricing.get("completion"))
     raw_request = _parse_raw_float(pricing.get("request"))
     raw_image = _parse_raw_float(pricing.get("image"))
     raw_cache_read = _parse_raw_float(pricing.get("input_cache_read"))
+    raw_cache_write = _parse_raw_float(pricing.get("input_cache_write"))
+    has_tiered_overrides = bool(pricing.get("overrides"))
 
-    arch = item.get("architecture") or {}
+    arch = item.get("architecture") if isinstance(item.get("architecture"), dict) else {}
     modality = str(arch.get("modality") or "text->text").strip()
     output_mod = modality.split("->")[-1].lower() if "->" in modality else "text"
     context_len = int(item.get("context_length") or 0)
-    provider = model_id.split("/", 1)[0].replace("-", " ").title()
+    provider = model_id.split("/", 1)[0].replace("-", " ").title() if "/" in model_id else "Unknown"
     desc = " ".join(str(item.get("description") or "").split())[:380]
 
-    # 1. Strict 7-state pricing taxonomy
+    params = set(str(p).lower() for p in (item.get("supported_parameters") or []))
+    supports_tools = "tools" in params
+    supports_structured = "structured_outputs" in params
+    supports_response_format = "response_format" in params
+    supports_reasoning = ("reasoning" in params) or ("include_reasoning" in params)
+
+    is_batch_endpoint = lower_id.endswith(":batch") or ":batch" in lower_id
+    is_free_suffix = lower_id.endswith(":free")
     is_router_name = (
         lower_id.startswith("openrouter/")
         or any(k in lower_id for k in ROUTER_KEYWORDS)
@@ -85,44 +116,76 @@ def classify_model(item: dict[str, Any]) -> dict[str, Any]:
     is_non_text_output = ("audio" in output_mod) or ("image" in output_mod) or ("video" in output_mod)
     is_media_name = any(k in lower_id for k in MEDIA_KEYWORDS)
 
+    # Strict 8-state pricing taxonomy (priority-ordered)
     if lower_id == "openrouter/free":
         pricing_type = "free_router"
-        pricing_label = "Free Router"
+        pricing_label = "Free Router (Rate-Limited)"
+        rate_limit_note = "Routes across active $0 endpoints; subject to shared OpenRouter free RPM/RPD caps."
     elif (raw_prompt is not None and raw_prompt < 0) or (raw_completion is not None and raw_completion < 0):
         pricing_type = "variable"
         pricing_label = "Variable (Routed)"
+        rate_limit_note = "Dynamic routing: billed at whichever downstream paid model handles the request."
     elif is_router_name and (raw_prompt == 0.0 and raw_completion == 0.0):
         pricing_type = "variable"
         pricing_label = "Variable (Routed)"
-    elif is_non_text_output or is_media_name or (raw_image is not None and raw_image > 0) or (raw_request is not None and raw_request > 0 and (raw_prompt or 0) == 0):
+        rate_limit_note = "Dynamic routing endpoint; verify downstream billing."
+    elif is_non_text_output or is_media_name or (raw_image is not None and raw_image > 0 and not is_batch_endpoint and (raw_prompt or 0) == 0) or (raw_request is not None and raw_request > 0 and (raw_prompt or 0) == 0):
         pricing_type = "media"
         pricing_label = "Media / Per-Request"
+        rate_limit_note = "Non-text output or per-request media billing; standard text token calculators do not apply."
     elif raw_prompt is None or raw_completion is None:
         pricing_type = "unknown"
         pricing_label = "Unknown"
+        rate_limit_note = "Upstream pricing metadata missing or malformed."
+    elif is_batch_endpoint:
+        pricing_type = "batch"
+        pricing_label = "Batch (Async Only)"
+        rate_limit_note = "Asynchronous batch pricing only; NOT suitable for real-time interactive API calls or live agents."
     elif raw_prompt == 0.0 and raw_completion == 0.0:
-        pricing_type = "free"
-        pricing_label = "Free ($0)"
+        if is_free_suffix:
+            pricing_type = "limited_free"
+            pricing_label = "Limited Free Tier ($0)"
+            rate_limit_note = "OpenRouter :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits); NOT unlimited."
+        else:
+            pricing_type = "free"
+            pricing_label = "Free ($0)"
+            rate_limit_note = "$0 listed token rate; still subject to upstream concurrency and fair-use caps."
+    elif raw_prompt > 0.005 or raw_completion > 0.02:
+        # Guard against implausible corrupted prices (>$5,000/1M input or >$20,000/1M output)
+        pricing_type = "unknown"
+        pricing_label = "Unknown (Anomalous)"
+        rate_limit_note = "Upstream price value exceeded sanity ceiling and was quarantined as unknown."
     else:
         pricing_type = "paid"
-        pricing_label = "Paid"
+        pricing_label = "Paid (Tiered)" if has_tiered_overrides else "Paid"
+        rate_limit_note = (
+            "Includes tiered long-context price surcharges above threshold prompt length."
+            if has_tiered_overrides
+            else "Standard real-time per-token API pricing."
+        )
 
-    prompt_m = _per_m(raw_prompt) if pricing_type in ("free", "free_router", "paid") else None
-    completion_m = _per_m(raw_completion) if pricing_type in ("free", "free_router", "paid") else None
+    billable_token_types = ("limited_free", "free", "free_router", "paid", "batch")
+    prompt_m = _per_m(raw_prompt) if pricing_type in billable_token_types else None
+    completion_m = _per_m(raw_completion) if pricing_type in billable_token_types else None
     cache_read_m = _per_m(raw_cache_read) if raw_cache_read is not None and raw_cache_read >= 0 else None
+    cache_write_m = _per_m(raw_cache_write) if raw_cache_write is not None and raw_cache_write >= 0 else None
 
-    # 2. Task cohort classification (for meaningful same-cohort comparisons)
-    if pricing_type == "variable" or pricing_type == "free_router":
+    is_realtime = pricing_type not in ("batch", "media", "unknown")
+
+    # Task cohort classification
+    if pricing_type in ("variable", "free_router"):
         task_category = "router"
+    elif pricing_type == "batch":
+        task_category = "batch"
     elif pricing_type == "media":
         task_category = "media"
     elif pricing_type == "unknown":
         task_category = "unknown"
     elif any(k in lower_id or k in lower_name for k in CODING_KEYWORDS):
         task_category = "coding"
-    elif any(k in lower_id or k in lower_name for k in REASONING_KEYWORDS):
+    elif supports_reasoning or any(k in lower_id or k in lower_name for k in REASONING_KEYWORDS):
         task_category = "reasoning"
-    elif pricing_type == "free":
+    elif pricing_type in ("limited_free", "free"):
         task_category = "free_general"
     elif (prompt_m or 0) <= 0.40 and (completion_m or 0) <= 1.60:
         task_category = "budget_general"
@@ -139,70 +202,104 @@ def classify_model(item: dict[str, Any]) -> dict[str, Any]:
         "context_length": context_len,
         "pricing_type": pricing_type,
         "pricing_label": pricing_label,
-        "is_free": pricing_type == "free",
+        "is_free": pricing_type in ("limited_free", "free"),
+        "is_realtime": is_realtime,
+        "has_tiered_overrides": has_tiered_overrides,
+        "rate_limit_note": rate_limit_note,
         "prompt_price_per_m": prompt_m,
         "completion_price_per_m": completion_m,
         "cache_read_price_per_m": cache_read_m,
+        "cache_write_price_per_m": cache_write_m,
+        "capabilities": {
+            "tools": supports_tools,
+            "structured_outputs": supports_structured,
+            "response_format": supports_response_format,
+            "reasoning": supports_reasoning,
+        },
         "raw_pricing": {
             "prompt": pricing.get("prompt"),
             "completion": pricing.get("completion"),
             "request": pricing.get("request"),
             "image": pricing.get("image"),
+            "input_cache_read": pricing.get("input_cache_read"),
+            "has_overrides": has_tiered_overrides,
             "unit": "USD per token (displayed per 1M tokens)",
             "source": "OpenRouter Public Models API",
         },
         "modality": modality,
         "task_category": task_category,
         "description": desc or f"{provider} model endpoint tracked via OpenRouter registry.",
-        "updated_at": utc_today(),
+        "status": "active",
+        "missing_days": 0,
+        "first_seen": today,
+        "last_seen": today,
+        "delisted_at": None,
+        "updated_at": today,
     }
 
 
-def save_daily_history_and_changelog(all_classified: list[dict[str, Any]]) -> dict[str, Any]:
-    """Archive full daily snapshot of ALL tracked endpoints & compute price/free-tier diffs."""
-    today = utc_today()
-    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
-    today_file = HISTORY_DIR / f"{today}.json"
+def save_daily_history_and_changelog(
+    all_classified: list[dict[str, Any]],
+    history_dir=HISTORY_DIR,
+    changelog_path=DATA_DIR / "price_changes.json",
+    today: str | None = None,
+) -> dict[str, Any]:
+    """Archive full daily snapshot & append-only intraday changelog (never wipes same-day diffs)."""
+    today = today or utc_today()
+    history_dir.mkdir(parents=True, exist_ok=True)
+    today_file = history_dir / f"{today}.json"
+
+    curr_models_map = {
+        m["id"]: {
+            "name": m["name"],
+            "slug": m["slug"],
+            "provider": m["provider"],
+            "pricing_type": m["pricing_type"],
+            "prompt_price_per_m": m["prompt_price_per_m"],
+            "completion_price_per_m": m["completion_price_per_m"],
+            "context_length": m["context_length"],
+        }
+        for m in all_classified
+    }
+
+    # Compare against today's earlier snapshot if re-run intraday, else latest prior day snapshot
+    if today_file.exists():
+        baseline_snapshot = load_json(today_file, default=None)
+    else:
+        prev_files = sorted(p for p in history_dir.glob("*.json") if p.stem < today)
+        baseline_snapshot = load_json(prev_files[-1], default=None) if prev_files else None
 
     snapshot = {
         "date": today,
         "total_endpoints": len(all_classified),
-        "models": {
-            m["id"]: {
-                "name": m["name"],
-                "slug": m["slug"],
-                "provider": m["provider"],
-                "pricing_type": m["pricing_type"],
-                "prompt_price_per_m": m["prompt_price_per_m"],
-                "completion_price_per_m": m["completion_price_per_m"],
-                "context_length": m["context_length"],
-            }
-            for m in all_classified
-        },
+        "models": curr_models_map,
     }
-
-    # Find latest previous snapshot strictly before today
-    prev_files = sorted(p for p in HISTORY_DIR.glob("*.json") if p.stem < today)
-    prev_snapshot = load_json(prev_files[-1], default=None) if prev_files else None
-
     save_json(today_file, snapshot)
 
-    changelog = load_json(DATA_DIR / "price_changes.json", default={"events": [], "snapshot_days": 0})
-    events: list[dict[str, Any]] = [ev for ev in changelog.get("events", []) if ev.get("date") != today]
+    changelog = load_json(changelog_path, default={"events": [], "snapshot_days": 0})
+    existing_events: list[dict[str, Any]] = list(changelog.get("events", []))
+    seen_keys = {
+        (ev.get("date"), ev.get("model_id"), ev.get("type"), ev.get("detail")) for ev in existing_events
+    }
 
-    if prev_snapshot and isinstance(prev_snapshot.get("models"), dict):
-        prev_models = prev_snapshot["models"]
-        curr_models = snapshot["models"]
-        prev_date = prev_snapshot.get("date", "previous")
+    def add_event(ev: dict[str, Any]) -> None:
+        key = (ev["date"], ev["model_id"], ev["type"], ev["detail"])
+        if key not in seen_keys:
+            seen_keys.add(key)
+            existing_events.append(ev)
 
-        for mid, curr in curr_models.items():
+    if baseline_snapshot and isinstance(baseline_snapshot.get("models"), dict):
+        prev_models = baseline_snapshot["models"]
+        prev_date = baseline_snapshot.get("date", "previous")
+
+        for mid, curr in curr_models_map.items():
             if mid not in prev_models:
-                if curr["pricing_type"] in ("free", "paid"):
-                    events.append(
+                if curr["pricing_type"] in ("limited_free", "free", "paid", "batch"):
+                    add_event(
                         {
                             "date": today,
                             "compared_to": prev_date,
-                            "type": "new_free" if curr["pricing_type"] == "free" else "new_model",
+                            "type": "new_free" if curr["pricing_type"] in ("limited_free", "free") else "new_model",
                             "model_id": mid,
                             "name": curr["name"],
                             "slug": curr["slug"],
@@ -213,7 +310,7 @@ def save_daily_history_and_changelog(all_classified: list[dict[str, Any]]) -> di
 
             old = prev_models[mid]
             if old["pricing_type"] != curr["pricing_type"]:
-                events.append(
+                add_event(
                     {
                         "date": today,
                         "compared_to": prev_date,
@@ -224,12 +321,12 @@ def save_daily_history_and_changelog(all_classified: list[dict[str, Any]]) -> di
                         "detail": f"Pricing tier changed: {old['pricing_type']} -> {curr['pricing_type']}",
                     }
                 )
-            elif curr["pricing_type"] == "paid" and old["pricing_type"] == "paid":
+            elif curr["pricing_type"] in ("paid", "batch") and old["pricing_type"] == curr["pricing_type"]:
                 old_in, new_in = old.get("prompt_price_per_m"), curr.get("prompt_price_per_m")
                 old_out, new_out = old.get("completion_price_per_m"), curr.get("completion_price_per_m")
                 if old_in is not None and new_in is not None and (old_in != new_in or old_out != new_out):
                     direction = "price_drop" if (new_in + (new_out or 0)) < (old_in + (old_out or 0)) else "price_hike"
-                    events.append(
+                    add_event(
                         {
                             "date": today,
                             "compared_to": prev_date,
@@ -241,63 +338,150 @@ def save_daily_history_and_changelog(all_classified: list[dict[str, Any]]) -> di
                         }
                     )
 
-        for mid, old in prev_models.items():
-            if mid not in curr_models and old.get("pricing_type") == "free":
-                events.append(
-                    {
-                        "date": today,
-                        "compared_to": prev_date,
-                        "type": "free_removed",
-                        "model_id": mid,
-                        "name": old["name"],
-                        "slug": old["slug"],
-                        "detail": "Removed from OpenRouter active free registry",
-                    }
-                )
+        # Only record removal if current snapshot is a healthy full fetch (>= 250 endpoints)
+        if len(curr_models_map) >= 250:
+            for mid, old in prev_models.items():
+                if mid not in curr_models_map and old.get("pricing_type") in ("limited_free", "free"):
+                    add_event(
+                        {
+                            "date": today,
+                            "compared_to": prev_date,
+                            "type": "free_removed",
+                            "model_id": mid,
+                            "name": old["name"],
+                            "slug": old["slug"],
+                            "detail": "Absent from OpenRouter active free registry",
+                        }
+                    )
 
-    all_snapshot_files = sorted(HISTORY_DIR.glob("*.json"))
+    all_snapshot_files = sorted(history_dir.glob("*.json"))
     changelog_out = {
         "updated_at": today,
         "snapshot_days": len(all_snapshot_files),
         "first_snapshot_date": all_snapshot_files[0].stem if all_snapshot_files else today,
         "latest_total_endpoints": len(all_classified),
-        "events": sorted(events, key=lambda x: x["date"], reverse=True)[:300],
+        "events": sorted(existing_events, key=lambda x: x["date"], reverse=True)[:500],
     }
-    save_json(DATA_DIR / "price_changes.json", changelog_out)
+    save_json(changelog_path, changelog_out)
     return changelog_out
 
 
-def fetch_openrouter_models(max_models: int, min_floor: int) -> list[dict[str, Any]]:
+def reconcile_model_lifecycle(
+    selected_active: list[dict[str, Any]],
+    all_live_ids: set[str],
+    existing_models: list[dict[str, Any]],
+    *,
+    is_full_healthy_fetch: bool,
+    today: str | None = None,
+) -> list[dict[str, Any]]:
+    """Merge live models with existing records while preserving SEO URLs for delisted models."""
+    today = today or utc_today()
+    existing_map = {m["id"]: m for m in existing_models if "id" in m}
+    merged: list[dict[str, Any]] = []
+    seen_ids: set[str] = set()
+
+    for m in selected_active:
+        prev = existing_map.get(m["id"])
+        if prev:
+            m["first_seen"] = prev.get("first_seen") or today
+            if "enrichment" in prev:
+                m["enrichment"] = prev["enrichment"]
+        m["status"] = "active"
+        m["missing_days"] = 0
+        m["last_seen"] = today
+        m["delisted_at"] = None
+        merged.append(m)
+        seen_ids.add(m["id"])
+
+    # Preserve previously published models that disappeared (SEO URL lifecycle!)
+    for prev_id, prev in existing_map.items():
+        if prev_id in seen_ids:
+            continue
+        if prev_id in all_live_ids:
+            # Still alive upstream (just rotated out of top-140 selection) -> keep as active so URL stays valid
+            prev["status"] = "active"
+            prev["missing_days"] = 0
+            prev["last_seen"] = today
+            merged.append(prev)
+            continue
+
+        if is_full_healthy_fetch:
+            prev_last = prev.get("last_seen", today)
+            miss = int(prev.get("missing_days", 0))
+            if prev_last != today:
+                miss += 1
+            elif miss == 0:
+                miss = 1
+            prev["missing_days"] = miss
+            if miss >= 3:
+                prev["status"] = "delisted"
+                prev["delisted_at"] = prev.get("delisted_at") or today
+            else:
+                prev["status"] = "temporarily_missing"
+        merged.append(prev)
+
+    return merged
+
+
+def fetch_openrouter_models(max_models: int, min_floor: int, existing_models: list[dict[str, Any]]) -> list[dict[str, Any]]:
     payload = http_get_json(OPENROUTER_MODELS_URL, timeout=25)
     raw_items = payload.get("data", [])
     if len(raw_items) < min_floor:
-        raise RuntimeError(f"OpenRouter returned suspiciously few models ({len(raw_items)} < {min_floor})")
+        raise RuntimeError(f"OpenRouter returned too few models ({len(raw_items)} < {min_floor})")
 
-    all_classified = [classify_model(item) for item in raw_items if item.get("id") and "/" in str(item.get("id"))]
-    save_daily_history_and_changelog(all_classified)
+    today = utc_today()
+    all_classified = [classify_model(item, today=today) for item in raw_items if item.get("id") and "/" in str(item.get("id"))]
+    save_daily_history_and_changelog(all_classified, today=today)
 
-    # Select balanced high-value set for site pages (exclude 'unknown' noise)
-    free_models = [m for m in all_classified if m["pricing_type"] == "free"]
+    type_counts = Counter(m["pricing_type"] for m in all_classified)
+    limited_free = [m for m in all_classified if m["pricing_type"] in ("limited_free", "free")]
     free_routers = [m for m in all_classified if m["pricing_type"] == "free_router"]
     paid_models = [m for m in all_classified if m["pricing_type"] == "paid" and m["context_length"] >= 32000]
+    batch_models = [m for m in all_classified if m["pricing_type"] == "batch"]
     var_routers = [m for m in all_classified if m["pricing_type"] == "variable"]
 
-    free_models.sort(key=lambda m: (-m["context_length"], m["name"]))
-    # Prefer widely searched flagship & budget paid models
+    limited_free.sort(key=lambda m: (-m["context_length"], m["name"]))
+    major_providers = ("openai", "anthropic", "google", "deepseek", "qwen", "meta", "mistralai", "x-ai")
     paid_models.sort(
         key=lambda m: (
-            0 if m["provider"].lower() in ("openai", "anthropic", "google", "deepseek", "qwen", "meta", "mistralai", "x-ai") else 1,
+            0 if m["provider"].lower() in major_providers else 1,
             (m["prompt_price_per_m"] or 999) + (m["completion_price_per_m"] or 999),
             -m["context_length"],
         )
     )
+    batch_models.sort(key=lambda m: ((m["prompt_price_per_m"] or 999) + (m["completion_price_per_m"] or 999), m["name"]))
 
     selected: list[dict[str, Any]] = []
-    selected.extend(free_models[:45])
-    selected.extend(free_routers[:3])
-    selected.extend(paid_models[: max(60, max_models - len(selected) - 4)])
-    selected.extend(var_routers[:4])
-    return selected[:max_models]
+    selected.extend(limited_free)  # Include ALL verified free models
+    selected.extend(free_routers)
+    selected.extend(paid_models[: max(90, max_models - len(selected) - 12)])
+    selected.extend(batch_models[:8])  # Track top async batch endpoints explicitly labeled Batch
+    selected.extend(var_routers[:4])   # Track top dynamic routers explicitly labeled Variable (Routed)
+    selected = selected[:max_models]
+
+    audit_info = {
+        "updated_at": today,
+        "total_raw_endpoints": len(all_classified),
+        "raw_breakdown_by_pricing_type": dict(type_counts),
+        "displayed_active_cap": max_models,
+        "selected_for_display": len(selected),
+        "selection_rationale": (
+            "All 473+ raw OpenRouter endpoints are archived daily in data/history/. "
+            "Published model detail pages are curated to ~140 active endpoints (all verified :free models, "
+            "major/affordable real-time paid models with >=32K context, top async :batch endpoints, and flagship routers) "
+            "to respect search engine crawl budget and avoid indexing hundreds of near-duplicate legacy snapshots on day 1."
+        ),
+    }
+    save_json(DATA_DIR / "selection_audit.json", audit_info)
+
+    all_live_ids = {m["id"] for m in all_classified}
+    return reconcile_model_lifecycle(
+        selected,
+        all_live_ids,
+        existing_models,
+        is_full_healthy_fetch=(len(all_classified) >= 250),
+        today=today,
+    )
 
 
 def _maintenance_status(pushed_at: str) -> tuple[str, int]:
@@ -313,6 +497,14 @@ def _maintenance_status(pushed_at: str) -> tuple[str, int]:
         return f"Stale ({days}d)", days
     except Exception:
         return "Unknown", 999
+
+
+def _classify_license(spdx: str) -> tuple[str, str]:
+    if spdx in PERMISSIVE_LICENSES:
+        return "permissive", f"Permissive ({spdx} — attribution required)"
+    if spdx in COPYLEFT_OR_SOURCE_AVAIL:
+        return "restricted", f"Copyleft / Source-Available ({spdx} — review hosted/SaaS terms)"
+    return "unknown", f"Verify LICENSE ({spdx})"
 
 
 def _infer_deployment_tier(topics: list[str], desc: str, lang: str) -> tuple[bool, str]:
@@ -358,13 +550,12 @@ def fetch_github_repos(max_repos: int, prev_repos: list[dict[str, Any]]) -> list
             stars = int(repo.get("stargazers_count") or 0)
             pushed_at = str(repo.get("pushed_at") or "")
             maint_label, days_since_push = _maintenance_status(pushed_at)
-            # Exclude abandoned repos (> 365 days without push)
             if days_since_push > 365:
                 continue
 
             lic_obj = repo.get("license") or {}
             spdx = str(lic_obj.get("spdx_id") or "Unknown")
-            commercial_friendly = spdx in COMMERCIAL_FRIENDLY_LICENSES
+            lic_tier, lic_note = _classify_license(spdx)
             has_docker, deploy_tier = _infer_deployment_tier(topics, desc, lang)
             prev_stars = prev_stars_map.get(full_name)
             star_delta = (stars - prev_stars) if prev_stars is not None else 0
@@ -383,7 +574,8 @@ def fetch_github_repos(max_repos: int, prev_repos: list[dict[str, Any]]) -> list
                 "forks": int(repo.get("forks_count") or 0),
                 "open_issues": int(repo.get("open_issues_count") or 0),
                 "license": spdx,
-                "commercial_friendly": commercial_friendly,
+                "license_tier": lic_tier,
+                "license_note": lic_note,
                 "has_docker": has_docker,
                 "deployment_tier": deploy_tier,
                 "pushed_at": pushed_at[:10] if pushed_at else today,
@@ -396,13 +588,11 @@ def fetch_github_repos(max_repos: int, prev_repos: list[dict[str, Any]]) -> list
     return repos[:max_repos]
 
 
-def merge_preserving_enrichment(
-    incoming: list[dict[str, Any]], existing: list[dict[str, Any]], key_field: str
-) -> list[dict[str, Any]]:
-    existing_map = {item[key_field]: item for item in existing if key_field in item}
+def merge_repo_enrichment(incoming: list[dict[str, Any]], existing: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    existing_map = {item["full_name"]: item for item in existing if "full_name" in item}
     merged: list[dict[str, Any]] = []
     for item in incoming:
-        prev = existing_map.get(item[key_field])
+        prev = existing_map.get(item["full_name"])
         if prev and "enrichment" in prev:
             item["enrichment"] = prev["enrichment"]
         merged.append(item)
@@ -418,23 +608,30 @@ def main() -> None:
     existing_models = load_json(models_path, default=load_json(DATA_DIR / "seed_models.json", default=[]))
     existing_repos = load_json(repos_path, default=load_json(DATA_DIR / "seed_repos.json", default=[]))
 
+    fetch_models_ok = False
     try:
-        fresh_models = fetch_openrouter_models(pipe["max_models_tracked"], pipe.get("min_models_health_floor", 40))
-        merged_models = merge_preserving_enrichment(fresh_models, existing_models, "id")
+        merged_models = fetch_openrouter_models(
+            pipe["max_models_tracked"], pipe.get("min_models_health_floor", 40), existing_models
+        )
         save_json(models_path, merged_models)
-        free_n = sum(1 for m in merged_models if m["pricing_type"] == "free")
-        var_n = sum(1 for m in merged_models if m["pricing_type"] == "variable")
-        print(f"[fetch_data] Updated {len(merged_models)} models (verified free={free_n}, variable_routers={var_n}).")
+        fetch_models_ok = True
+        lf = sum(1 for m in merged_models if m["pricing_type"] == "limited_free" and m["status"] == "active")
+        bt = sum(1 for m in merged_models if m["pricing_type"] == "batch" and m["status"] == "active")
+        vr = sum(1 for m in merged_models if m["pricing_type"] == "variable" and m["status"] == "active")
+        dl = sum(1 for m in merged_models if m["status"] == "delisted")
+        print(f"[fetch_data] Updated {len(merged_models)} models (limited_free={lf}, batch={bt}, variable={vr}, delisted={dl}).")
     except Exception as err:
         print(f"[fetch_data] OpenRouter fetch skipped ({err}); preserving {len(existing_models)} last-known-good models.")
         if not models_path.exists():
             save_json(models_path, existing_models)
 
+    fetch_repos_ok = False
     try:
         fresh_repos = fetch_github_repos(pipe["max_repos_tracked"], existing_repos)
         if len(fresh_repos) >= 10:
-            merged_repos = merge_preserving_enrichment(fresh_repos, existing_repos, "full_name")
+            merged_repos = merge_repo_enrichment(fresh_repos, existing_repos)
             save_json(repos_path, merged_repos)
+            fetch_repos_ok = True
             print(f"[fetch_data] Updated {len(merged_repos)} curated infra repos from GitHub API.")
         else:
             print(f"[fetch_data] Too few repos ({len(fresh_repos)}); preserving last-known-good repos.")
@@ -442,6 +639,41 @@ def main() -> None:
         print(f"[fetch_data] GitHub fetch skipped ({err}); preserving {len(existing_repos)} last-known-good repos.")
         if not repos_path.exists():
             save_json(repos_path, existing_repos)
+
+    # Record automated fetch outcome in ops ledger
+    ops_path = DATA_DIR / "ops_metrics.json"
+    ops = load_json(ops_path, default={"daily": []})
+    today = utc_today()
+    entry = next((d for d in ops["daily"] if d.get("date") == today), None)
+    if entry is None:
+        entry = {
+            "date": today,
+            "fetch_success": fetch_models_ok,
+            "fetch_repos_success": fetch_repos_ok,
+            "publish_success": None,
+            "llm_calls": 0,
+            "llm_tokens_in": 0,
+            "llm_tokens_out": 0,
+            "llm_cost_usd": 0.0,
+            "visits": None,
+            "gsc_impressions": None,
+            "gsc_clicks": None,
+            "indexed_pages": None,
+            "affiliate_clicks": None,
+            "affiliate_conversions": None,
+            "estimated_revenue_usd": 0.0,
+            "confirmed_payable_usd": 0.0,
+            "bank_settled_usd": 0.0,
+            "net_profit_usd": 0.0,
+            "manual_interventions": 0,
+            "manual_minutes": 0,
+        }
+        ops["daily"].append(entry)
+    else:
+        entry["fetch_success"] = fetch_models_ok
+        entry["fetch_repos_success"] = fetch_repos_ok
+    ops["daily"] = sorted(ops["daily"], key=lambda x: x["date"], reverse=True)[:365]
+    save_json(ops_path, ops)
 
 
 if __name__ == "__main__":
