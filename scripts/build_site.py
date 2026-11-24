@@ -240,7 +240,8 @@ def render_layout(
     canonical = base + canonical_path
     client_id = str(cfg.get("monetization", {}).get("adsense_client_id") or "").strip()
     adsense_head = (
-        f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={e(client_id)}" '
+        f'<meta name="google-adsense-account" content="{e(client_id)}" />\n'
+        f'  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={e(client_id)}" '
         f'crossorigin="anonymous"></script>'
         if client_id
         else ""
