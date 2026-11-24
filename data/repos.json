@@ -30,17 +30,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "d2d93cafbe2eae56",
+      "cache_hash": "30ce31d9658e0e4f",
       "enriched_at": "2026-11-24",
-      "summary": "n8n-io/n8n is a Workflow Automation project in TypeScript with 211,976 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "n8n-io/n8n is a Workflow Automation repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Workflow Automation workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Workflow Automation",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -75,17 +75,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "84ca1a18af748ee2",
+      "cache_hash": "51db58d78795320c",
       "enriched_at": "2026-11-24",
-      "summary": "ollama/ollama is a Local LLM Runtime project in Go with 187,972 stars (Active (<30d)), suited for Lightweight Binary / VPS Ready deployments.",
+      "summary": "ollama/ollama is a Local LLM Runtime repository in Go (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Lightweight Binary / VPS Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -120,17 +120,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "e3452a7652795812",
+      "cache_hash": "c5c07fa8bd48a012",
       "enriched_at": "2026-11-24",
-      "summary": "open-webui/open-webui is a Local LLM Runtime project in Svelte with 159,426 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "open-webui/open-webui is a Local LLM Runtime repository in Svelte (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -165,17 +165,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "024086ebda2beac9",
+      "cache_hash": "44e2fc69ef85bc7d",
       "enriched_at": "2026-11-24",
-      "summary": "harry0703/MoneyPrinterTurbo is a Workflow Automation project in Python with 145,422 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "harry0703/MoneyPrinterTurbo is a Workflow Automation repository in Python (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Workflow Automation workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Workflow Automation",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -210,17 +210,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "dafd34bf72981960",
+      "cache_hash": "62cf9e9db7739f65",
       "enriched_at": "2026-11-24",
-      "summary": "paperclipai/paperclip is a Workflow Automation project in TypeScript with 116,623 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "paperclipai/paperclip is a Workflow Automation repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Workflow Automation workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Workflow Automation",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -255,17 +255,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "1c39e2a39213703e",
+      "cache_hash": "bd789821955774a1",
       "enriched_at": "2026-11-24",
-      "summary": "Stirling-Tools/Stirling-PDF is a Self-Hosted Infra project in TypeScript with 97,373 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "Stirling-Tools/Stirling-PDF is a Self-Hosted Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Self-Hosted Infra workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -300,17 +300,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "043a48b87bfdf9e7",
+      "cache_hash": "817f75e288d7c463",
       "enriched_at": "2026-11-24",
-      "summary": "louislam/uptime-kuma is a Self-Hosted Infra project in JavaScript with 94,829 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "louislam/uptime-kuma is a Self-Hosted Infra repository in JavaScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Self-Hosted Infra workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -345,17 +345,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "dfd300a05e8d7da4",
+      "cache_hash": "dc5ffd8556ef453f",
       "enriched_at": "2026-11-24",
-      "summary": "cheaper-inference/OmniRoute is a AI Gateway & Proxy project in TypeScript with 90,036 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "cheaper-inference/OmniRoute is a AI Gateway & Proxy repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -390,17 +390,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "3c8dd8f6eaa8730e",
+      "cache_hash": "f40819d694be4bca",
       "enriched_at": "2026-11-24",
-      "summary": "ChatGPTNextWeb/NextChat is a Local LLM Runtime project in TypeScript with 88,989 stars (Maintained (<6m)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "ChatGPTNextWeb/NextChat is a Local LLM Runtime repository in TypeScript (Maintained (<6m), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -435,17 +435,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "e8c43b6999c37436",
+      "cache_hash": "d39d171e001e86b5",
       "enriched_at": "2026-11-24",
-      "summary": "netdata/netdata is a Self-Hosted Infra project in Go with 81,609 stars (Active (<30d)), suited for Lightweight Binary / VPS Ready deployments.",
+      "summary": "netdata/netdata is a Self-Hosted Infra repository in Go (Active (<30d), License: GPL-3.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Self-Hosted Infra workflows",
-        "Deploying on Lightweight Binary / VPS Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -480,17 +480,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "d957e9d2958b33c2",
+      "cache_hash": "cebd3dfe0f0c1fb3",
       "enriched_at": "2026-11-24",
-      "summary": "ComposioHQ/awesome-claude-skills is a Workflow Automation project in Python with 80,230 stars (Maintained (<6m)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "ComposioHQ/awesome-claude-skills is a Workflow Automation repository in Python (Maintained (<6m), License: Unknown). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Workflow Automation workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Workflow Automation",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Verify LICENSE (Unknown)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -525,17 +525,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "623c6912c31b9c52",
+      "cache_hash": "8abee4fd6848273a",
       "enriched_at": "2026-11-24",
-      "summary": "coollabsio/coolify is a Self-Hosted Infra project in PHP with 66,419 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "coollabsio/coolify is a Self-Hosted Infra repository in PHP (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Self-Hosted Infra workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (Apache-2.0 — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -570,17 +570,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "0a74537eab375ca7",
+      "cache_hash": "a72c17192b4440c3",
       "enriched_at": "2026-11-24",
-      "summary": "usememos/memos is a Self-Hosted Infra project in Go with 64,670 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "usememos/memos is a Self-Hosted Infra repository in Go (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Self-Hosted Infra workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -615,17 +615,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "299dfce8e1b031c8",
+      "cache_hash": "9b3f2b2d54669d6c",
       "enriched_at": "2026-11-24",
-      "summary": "BerriAI/litellm is a AI Gateway & Proxy project in Python with 63,818 stars (Active (<30d)), suited for GPU / Local Hardware deployments.",
+      "summary": "BerriAI/litellm is a AI Gateway & Proxy repository in Python (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on GPU / Local Hardware setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -660,17 +660,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "e1e4ba5113975194",
+      "cache_hash": "5343b33999ed3db8",
       "enriched_at": "2026-11-24",
-      "summary": "appwrite/appwrite is a Self-Hosted Infra project in TypeScript with 58,560 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "appwrite/appwrite is a Self-Hosted Infra repository in TypeScript (Active (<30d), License: BSD-3-Clause). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Self-Hosted Infra workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (BSD-3-Clause — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -705,17 +705,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "4c80aecfe44fe4aa",
+      "cache_hash": "0dea7acdb5bdcb48",
       "enriched_at": "2026-11-24",
-      "summary": "CherryHQ/cherry-studio is a Local LLM Runtime project in TypeScript with 53,827 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "CherryHQ/cherry-studio is a Local LLM Runtime repository in TypeScript (Active (<30d), License: AGPL-3.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -750,17 +750,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "68d6c887ce33afdb",
+      "cache_hash": "a523eea7a2f27f9a",
       "enriched_at": "2026-11-24",
-      "summary": "QuantumNous/new-api is a AI Gateway & Proxy project in Go with 52,474 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "QuantumNous/new-api is a AI Gateway & Proxy repository in Go (Active (<30d), License: AGPL-3.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -795,17 +795,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "ff34e812645bf76f",
+      "cache_hash": "d178411a40cc4618",
       "enriched_at": "2026-11-24",
-      "summary": "HKUDS/nanobot is a Local LLM Runtime project in Python with 50,298 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "HKUDS/nanobot is a Local LLM Runtime repository in Python (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -840,17 +840,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "aa1c90eedf904af1",
+      "cache_hash": "37a90181665fd17e",
       "enriched_at": "2026-11-24",
-      "summary": "gogs/gogs is a Self-Hosted Infra project in Go with 47,991 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "gogs/gogs is a Self-Hosted Infra repository in Go (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Self-Hosted Infra workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -885,17 +885,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "dc222c13113f5cae",
+      "cache_hash": "ba23f93b782e36de",
       "enriched_at": "2026-11-24",
-      "summary": "Kong/kong is a AI Gateway & Proxy project in Lua with 44,411 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "Kong/kong is a AI Gateway & Proxy repository in Lua (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (Apache-2.0 — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -930,17 +930,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "6299b76b2492e9f5",
+      "cache_hash": "98e4ec7031fe8012",
       "enriched_at": "2026-11-24",
-      "summary": "chatboxai/chatbox is a Local LLM Runtime project in TypeScript with 42,520 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "chatboxai/chatbox is a Local LLM Runtime repository in TypeScript (Active (<30d), License: GPL-3.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -975,17 +975,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "f04fa73995619d23",
+      "cache_hash": "b4da1a560c90e7e8",
       "enriched_at": "2026-11-24",
-      "summary": "ToolJet/ToolJet is a Workflow Automation project in HTML with 41,294 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "ToolJet/ToolJet is a Workflow Automation repository in HTML (Active (<30d), License: AGPL-3.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Workflow Automation workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Workflow Automation",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1020,17 +1020,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "505e1eb06c13a074",
+      "cache_hash": "0536425199633f86",
       "enriched_at": "2026-11-24",
-      "summary": "codewhale-hq/Codewhale is a Local LLM Runtime project in Rust with 41,197 stars (Active (<30d)), suited for Lightweight Binary / VPS Ready deployments.",
+      "summary": "codewhale-hq/Codewhale is a Local LLM Runtime repository in Rust (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Lightweight Binary / VPS Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1065,17 +1065,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "6ea517a3faca7d2e",
+      "cache_hash": "e292a4a8b35eaaea",
       "enriched_at": "2026-11-24",
-      "summary": "agentscope-ai/QwenPaw is a AI Agent Infra project in Python with 38,173 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "agentscope-ai/QwenPaw is a AI Agent Infra repository in Python (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Agent Infra workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Agent Infra",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (Apache-2.0 — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1110,17 +1110,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "60be764b0e14526f",
+      "cache_hash": "cb79f2814ccdefc2",
       "enriched_at": "2026-11-24",
-      "summary": "Tencent/WeKnora is a Local LLM Runtime project in Go with 38,136 stars (Active (<30d)), suited for Lightweight Binary / VPS Ready deployments.",
+      "summary": "Tencent/WeKnora is a Local LLM Runtime repository in Go (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Lightweight Binary / VPS Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1155,17 +1155,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "edd8942be1bb1526",
+      "cache_hash": "0d305f83ed7a665c",
       "enriched_at": "2026-11-24",
-      "summary": "langfuse/langfuse is a AI Gateway & Proxy project in TypeScript with 37,793 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "langfuse/langfuse is a AI Gateway & Proxy repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1200,17 +1200,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "9daa39cbb37fe6b8",
+      "cache_hash": "2a447a53c1d7fba0",
       "enriched_at": "2026-11-24",
-      "summary": "freestylefly/awesome-gpt-image-2 is a Workflow Automation project in JavaScript with 36,102 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "freestylefly/awesome-gpt-image-2 is a Workflow Automation repository in JavaScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Workflow Automation workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Workflow Automation",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1245,17 +1245,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "064d7f866ab9fdc5",
+      "cache_hash": "1769499ff14bf7aa",
       "enriched_at": "2026-11-24",
-      "summary": "vxcontrol/pentagi is a AI Agent Infra project in Go with 34,935 stars (Active (<30d)), suited for Lightweight Binary / VPS Ready deployments.",
+      "summary": "vxcontrol/pentagi is a AI Agent Infra repository in Go (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Agent Infra workflows",
-        "Deploying on Lightweight Binary / VPS Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Agent Infra",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1290,17 +1290,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "dee83718e2de7619",
+      "cache_hash": "5c179755bf4551a8",
       "enriched_at": "2026-11-24",
-      "summary": "decolua/9router is a AI Gateway & Proxy project in JavaScript with 32,813 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "decolua/9router is a AI Gateway & Proxy repository in JavaScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1335,17 +1335,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "98f6720cb7a74c23",
+      "cache_hash": "8ef6711abdfb334e",
       "enriched_at": "2026-11-24",
-      "summary": "conductor-oss/conductor is a Workflow Automation project in Java with 32,495 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "conductor-oss/conductor is a Workflow Automation repository in Java (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Workflow Automation workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Workflow Automation",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (Apache-2.0 — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1380,17 +1380,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "118098988e61895e",
+      "cache_hash": "10b328fda81e8892",
       "enriched_at": "2026-11-24",
-      "summary": "nanocoai/nanoclaw is a AI Agent Infra project in TypeScript with 31,152 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "nanocoai/nanoclaw is a AI Agent Infra repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Agent Infra workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Agent Infra",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1425,17 +1425,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "39cec48c6f2559d1",
+      "cache_hash": "b0ea1fbbaf3e258f",
       "enriched_at": "2026-11-24",
-      "summary": "milind-soni/OpenMausBot is a AI Agent Infra project in TypeScript with 27,428 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "milind-soni/OpenMausBot is a AI Agent Infra repository in TypeScript (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Agent Infra workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Agent Infra",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (Apache-2.0 — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1470,17 +1470,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "7195865578669ece",
+      "cache_hash": "e2c6da06aa33c6de",
       "enriched_at": "2026-11-24",
-      "summary": "mozilla-ai/llamafile is a Local LLM Runtime project in C++ with 26,711 stars (Active (<30d)), suited for GPU / Local Hardware deployments.",
+      "summary": "mozilla-ai/llamafile is a Local LLM Runtime repository in C++ (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on GPU / Local Hardware setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1515,17 +1515,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "1dae77da75e3cc61",
+      "cache_hash": "4a03123b416a9419",
       "enriched_at": "2026-11-24",
-      "summary": "enescingoz/awesome-n8n-templates is a AI Agent Infra project in Multi with 26,554 stars (Maintained (<6m)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "enescingoz/awesome-n8n-templates is a AI Agent Infra repository in Multi (Maintained (<6m), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Agent Infra workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Agent Infra",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1560,17 +1560,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "0737319c70dda3e8",
+      "cache_hash": "c753276677dbdf46",
       "enriched_at": "2026-11-24",
-      "summary": "nocobase/nocobase is a AI Agent Infra project in TypeScript with 24,998 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "nocobase/nocobase is a AI Agent Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Agent Infra workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Agent Infra",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1605,17 +1605,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "f604e4001cf4477f",
+      "cache_hash": "8a8c1f8d11797469",
       "enriched_at": "2026-11-24",
-      "summary": "kortix-ai/CompanyOS is a AI Agent Infra project in TypeScript with 20,792 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "kortix-ai/CompanyOS is a AI Agent Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Agent Infra workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Agent Infra",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1650,17 +1650,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "34399cfb19dfdb2b",
+      "cache_hash": "7f472a8df7f451e8",
       "enriched_at": "2026-11-24",
-      "summary": "MODSetter/SurfSense is a Local LLM Runtime project in Python with 16,937 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "MODSetter/SurfSense is a Local LLM Runtime repository in Python (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (Apache-2.0 — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1695,17 +1695,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "b1b9f0df3119572f",
+      "cache_hash": "07ba8ac182aaf175",
       "enriched_at": "2026-11-24",
-      "summary": "Portkey-AI/gateway is a AI Gateway & Proxy project in TypeScript with 13,437 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "Portkey-AI/gateway is a AI Gateway & Proxy repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1740,17 +1740,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "c5de49e45c3b448b",
+      "cache_hash": "b951ceeaf78a7eae",
       "enriched_at": "2026-11-24",
-      "summary": "TykTechnologies/tyk is a AI Gateway & Proxy project in Go with 10,897 stars (Active (<30d)), suited for Lightweight Binary / VPS Ready deployments.",
+      "summary": "TykTechnologies/tyk is a AI Gateway & Proxy repository in Go (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Lightweight Binary / VPS Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1785,17 +1785,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "8d9d33bbdc4bf34a",
+      "cache_hash": "ab518c92294a636f",
       "enriched_at": "2026-11-24",
-      "summary": "MakazhanAlpamys/Soup is a Local LLM Runtime project in Python with 10,765 stars (Active (<30d)), suited for GPU / Local Hardware deployments.",
+      "summary": "MakazhanAlpamys/Soup is a Local LLM Runtime repository in Python (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on GPU / Local Hardware setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (Apache-2.0 — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1830,17 +1830,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "df750ba1a462e7fa",
+      "cache_hash": "98a633116280616b",
       "enriched_at": "2026-11-24",
-      "summary": "LearningCircuit/local-deep-research is a Local LLM Runtime project in Python with 9,645 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "LearningCircuit/local-deep-research is a Local LLM Runtime repository in Python (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1875,17 +1875,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "2082c52aec225f2a",
+      "cache_hash": "9978af99ee741a31",
       "enriched_at": "2026-11-24",
-      "summary": "open-multi-agent/open-multi-agent is a Local LLM Runtime project in TypeScript with 7,076 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "open-multi-agent/open-multi-agent is a Local LLM Runtime repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1920,17 +1920,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "4631f7def995c84a",
+      "cache_hash": "4190c0b3e2e2d16b",
       "enriched_at": "2026-11-24",
-      "summary": "dograh-hq/dograh is a Local LLM Runtime project in Python with 6,255 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "dograh-hq/dograh is a Local LLM Runtime repository in Python (Active (<30d), License: BSD-2-Clause). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in Local LLM Runtime workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in Local LLM Runtime",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (BSD-2-Clause — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -1965,17 +1965,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "5479b5b7c2eeac46",
+      "cache_hash": "fd1dbaa36acc3d91",
       "enriched_at": "2026-11-24",
-      "summary": "respanai/respan-gateway is a AI Gateway & Proxy project in Rust with 1,035 stars (Active (<30d)), suited for Lightweight Binary / VPS Ready deployments.",
+      "summary": "respanai/respan-gateway is a AI Gateway & Proxy repository in Rust (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Lightweight Binary / VPS Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (Apache-2.0 — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -2010,17 +2010,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "c23fab8d17673a3f",
+      "cache_hash": "0761016c2e15eb28",
       "enriched_at": "2026-11-24",
-      "summary": "xing61/zzz-api is a AI Gateway & Proxy project in Multi with 992 stars (Active (<30d)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "xing61/zzz-api is a AI Gateway & Proxy repository in Multi (Active (<30d), License: Unknown). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Verify LICENSE (Unknown)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -2055,17 +2055,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "0af4e644f5ff8728",
+      "cache_hash": "776cd7ad5929b9a5",
       "enriched_at": "2026-11-24",
-      "summary": "Nya-Foundation/NyaProxy is a AI Gateway & Proxy project in Python with 981 stars (Maintained (<6m)), suited for Standard VPS / Self-Hosted deployments.",
+      "summary": "Nya-Foundation/NyaProxy is a AI Gateway & Proxy repository in Python (Maintained (<6m), License: MIT). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Standard VPS / Self-Hosted setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Permissive (MIT — attribution required)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   },
@@ -2100,17 +2100,17 @@
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "d3899067f2892ec2",
+      "cache_hash": "25dfec2a908e97d3",
       "enriched_at": "2026-11-24",
-      "summary": "ThinkWatchProject/ThinkWatch is a AI Gateway & Proxy project in Rust with 818 stars (Active (<30d)), suited for Low-RAM VPS / Docker Ready deployments.",
+      "summary": "ThinkWatchProject/ThinkWatch is a AI Gateway & Proxy repository in Rust (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
       "best_for": [
-        "Reducing recurring SaaS costs in AI Gateway & Proxy workflows",
-        "Deploying on Low-RAM VPS / Docker Ready setups",
-        "Integrating into low-marginal-cost automated pipelines"
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
         "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-        "Pin release/image versions before running unattended production automation"
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
   }

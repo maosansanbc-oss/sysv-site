@@ -11,5 +11,5 @@
   },
   "displayed_active_cap": 140,
   "selected_for_display": 140,
-  "selection_rationale": "All 473+ raw OpenRouter endpoints are archived daily in data/history/. Published model detail pages are curated to ~140 active endpoints (all verified :free models, major/affordable real-time paid models with >=32K context, top async :batch endpoints, and flagship routers) to respect search engine crawl budget and avoid indexing hundreds of near-duplicate legacy snapshots on day 1."
+  "selection_rationale": "All active OpenRouter endpoints are archived daily in data/history/. Published model detail pages are curated to ~140 active endpoints (all verified :free models, major/affordable real-time paid models with >=32K context, top async :batch endpoints, and flagship routers) to respect search engine crawl budget and prevent duplicate legacy bloat."
 }

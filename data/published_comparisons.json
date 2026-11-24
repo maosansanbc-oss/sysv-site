@@ -1,0 +1,362 @@
+{
+  "anthropic-claude-haiku-5-5::qwen-qwen3-coder-30b-a3b-instruct": {
+    "pair_key": "anthropic-claude-haiku-5-5::qwen-qwen3-coder-30b-a3b-instruct",
+    "slug": "anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-30b-a3b-instruct",
+    "model_a_id": "anthropic/claude-haiku-5.5",
+    "model_b_id": "qwen/qwen3-coder-30b-a3b-instruct",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "deepseek-deepseek-v3-2::qwen-qwen3-coder-30b-a3b-instruct": {
+    "pair_key": "deepseek-deepseek-v3-2::qwen-qwen3-coder-30b-a3b-instruct",
+    "slug": "deepseek-deepseek-v3-2-vs-qwen-qwen3-coder-30b-a3b-instruct",
+    "model_a_id": "deepseek/deepseek-v3.2",
+    "model_b_id": "qwen/qwen3-coder-30b-a3b-instruct",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "deepseek-deepseek-v3-2-exp::qwen-qwen3-coder-30b-a3b-instruct": {
+    "pair_key": "deepseek-deepseek-v3-2-exp::qwen-qwen3-coder-30b-a3b-instruct",
+    "slug": "deepseek-deepseek-v3-2-exp-vs-qwen-qwen3-coder-30b-a3b-instruct",
+    "model_a_id": "deepseek/deepseek-v3.2-exp",
+    "model_b_id": "qwen/qwen3-coder-30b-a3b-instruct",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-codestral-2508::qwen-qwen3-coder-30b-a3b-instruct": {
+    "pair_key": "mistralai-codestral-2508::qwen-qwen3-coder-30b-a3b-instruct",
+    "slug": "mistralai-codestral-2508-vs-qwen-qwen3-coder-30b-a3b-instruct",
+    "model_a_id": "mistralai/codestral-2508",
+    "model_b_id": "qwen/qwen3-coder-30b-a3b-instruct",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "deepseek-deepseek-v3-1-terminus::qwen-qwen3-coder-30b-a3b-instruct": {
+    "pair_key": "deepseek-deepseek-v3-1-terminus::qwen-qwen3-coder-30b-a3b-instruct",
+    "slug": "deepseek-deepseek-v3-1-terminus-vs-qwen-qwen3-coder-30b-a3b-instruct",
+    "model_a_id": "deepseek/deepseek-v3.1-terminus",
+    "model_b_id": "qwen/qwen3-coder-30b-a3b-instruct",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "anthropic-claude-haiku-5-5::deepseek-deepseek-v3-2": {
+    "pair_key": "anthropic-claude-haiku-5-5::deepseek-deepseek-v3-2",
+    "slug": "anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-2",
+    "model_a_id": "anthropic/claude-haiku-5.5",
+    "model_b_id": "deepseek/deepseek-v3.2",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "anthropic-claude-haiku-5-5::deepseek-deepseek-v3-2-exp": {
+    "pair_key": "anthropic-claude-haiku-5-5::deepseek-deepseek-v3-2-exp",
+    "slug": "anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-2-exp",
+    "model_a_id": "anthropic/claude-haiku-5.5",
+    "model_b_id": "deepseek/deepseek-v3.2-exp",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "anthropic-claude-haiku-5-5::qwen-qwen3-coder-next": {
+    "pair_key": "anthropic-claude-haiku-5-5::qwen-qwen3-coder-next",
+    "slug": "anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-next",
+    "model_a_id": "anthropic/claude-haiku-5.5",
+    "model_b_id": "qwen/qwen3-coder-next",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "anthropic-claude-haiku-5-5::qwen-qwen3-coder-flash": {
+    "pair_key": "anthropic-claude-haiku-5-5::qwen-qwen3-coder-flash",
+    "slug": "anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-flash",
+    "model_a_id": "anthropic/claude-haiku-5.5",
+    "model_b_id": "qwen/qwen3-coder-flash",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "anthropic-claude-haiku-5-5::mistralai-codestral-2508": {
+    "pair_key": "anthropic-claude-haiku-5-5::mistralai-codestral-2508",
+    "slug": "anthropic-claude-haiku-5-5-vs-mistralai-codestral-2508",
+    "model_a_id": "anthropic/claude-haiku-5.5",
+    "model_b_id": "mistralai/codestral-2508",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "inclusionai-ling-3-2-flash-free::particle-ai-particle-1-free": {
+    "pair_key": "inclusionai-ling-3-2-flash-free::particle-ai-particle-1-free",
+    "slug": "inclusionai-ling-3-2-flash-free-vs-particle-ai-particle-1-free",
+    "model_a_id": "inclusionai/ling-3.2-flash:free",
+    "model_b_id": "particle-ai/particle-1:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "baidu-ernie-5-5-flash-preview-free::particle-ai-particle-1-free": {
+    "pair_key": "baidu-ernie-5-5-flash-preview-free::particle-ai-particle-1-free",
+    "slug": "baidu-ernie-5-5-flash-preview-free-vs-particle-ai-particle-1-free",
+    "model_a_id": "baidu/ernie-5.5-flash-preview:free",
+    "model_b_id": "particle-ai/particle-1:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "nvidia-nemotron-3-ultra-550b-a55b-free::particle-ai-particle-1-free": {
+    "pair_key": "nvidia-nemotron-3-ultra-550b-a55b-free::particle-ai-particle-1-free",
+    "slug": "nvidia-nemotron-3-ultra-550b-a55b-free-vs-particle-ai-particle-1-free",
+    "model_a_id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "model_b_id": "particle-ai/particle-1:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "nvidia-nemotron-3-5-lightning-free::particle-ai-particle-1-free": {
+    "pair_key": "nvidia-nemotron-3-5-lightning-free::particle-ai-particle-1-free",
+    "slug": "nvidia-nemotron-3-5-lightning-free-vs-particle-ai-particle-1-free",
+    "model_a_id": "nvidia/nemotron-3.5-lightning:free",
+    "model_b_id": "particle-ai/particle-1:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "nvidia-nemotron-3-5-super-vl-free::particle-ai-particle-1-free": {
+    "pair_key": "nvidia-nemotron-3-5-super-vl-free::particle-ai-particle-1-free",
+    "slug": "nvidia-nemotron-3-5-super-vl-free-vs-particle-ai-particle-1-free",
+    "model_a_id": "nvidia/nemotron-3.5-super-vl:free",
+    "model_b_id": "particle-ai/particle-1:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-4-26b-a4b-it-free::particle-ai-particle-1-free": {
+    "pair_key": "google-gemma-4-26b-a4b-it-free::particle-ai-particle-1-free",
+    "slug": "google-gemma-4-26b-a4b-it-free-vs-particle-ai-particle-1-free",
+    "model_a_id": "google/gemma-4-26b-a4b-it:free",
+    "model_b_id": "particle-ai/particle-1:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-4-31b-it-free::particle-ai-particle-1-free": {
+    "pair_key": "google-gemma-4-31b-it-free::particle-ai-particle-1-free",
+    "slug": "google-gemma-4-31b-it-free-vs-particle-ai-particle-1-free",
+    "model_a_id": "google/gemma-4-31b-it:free",
+    "model_b_id": "particle-ai/particle-1:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "liquid-lfm-3-1-7b-free::particle-ai-particle-1-free": {
+    "pair_key": "liquid-lfm-3-1-7b-free::particle-ai-particle-1-free",
+    "slug": "liquid-lfm-3-1-7b-free-vs-particle-ai-particle-1-free",
+    "model_a_id": "liquid/lfm-3-1.7b:free",
+    "model_b_id": "particle-ai/particle-1:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "particle-ai-particle-1-free::recursive-flint-v1-0-free": {
+    "pair_key": "particle-ai-particle-1-free::recursive-flint-v1-0-free",
+    "slug": "particle-ai-particle-1-free-vs-recursive-flint-v1-0-free",
+    "model_a_id": "particle-ai/particle-1:free",
+    "model_b_id": "recursive/flint-v1.0:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "baidu-ernie-5-5-flash-preview-free::inclusionai-ling-3-2-flash-free": {
+    "pair_key": "baidu-ernie-5-5-flash-preview-free::inclusionai-ling-3-2-flash-free",
+    "slug": "baidu-ernie-5-5-flash-preview-free-vs-inclusionai-ling-3-2-flash-free",
+    "model_a_id": "baidu/ernie-5.5-flash-preview:free",
+    "model_b_id": "inclusionai/ling-3.2-flash:free",
+    "cohort": "Reasoning & Thinking Models",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-3-4b-it::mistralai-mistral-nemo": {
+    "pair_key": "google-gemma-3-4b-it::mistralai-mistral-nemo",
+    "slug": "google-gemma-3-4b-it-vs-mistralai-mistral-nemo",
+    "model_a_id": "google/gemma-3-4b-it",
+    "model_b_id": "mistralai/mistral-nemo",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-3-12b-it::mistralai-mistral-nemo": {
+    "pair_key": "google-gemma-3-12b-it::mistralai-mistral-nemo",
+    "slug": "google-gemma-3-12b-it-vs-mistralai-mistral-nemo",
+    "model_a_id": "google/gemma-3-12b-it",
+    "model_b_id": "mistralai/mistral-nemo",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-3-27b-it::mistralai-mistral-nemo": {
+    "pair_key": "google-gemma-3-27b-it::mistralai-mistral-nemo",
+    "slug": "google-gemma-3-27b-it-vs-mistralai-mistral-nemo",
+    "model_a_id": "google/gemma-3-27b-it",
+    "model_b_id": "mistralai/mistral-nemo",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-mistral-nemo::qwen-qwen3-30b-a3b-instruct-2507": {
+    "pair_key": "mistralai-mistral-nemo::qwen-qwen3-30b-a3b-instruct-2507",
+    "slug": "mistralai-mistral-nemo-vs-qwen-qwen3-30b-a3b-instruct-2507",
+    "model_a_id": "mistralai/mistral-nemo",
+    "model_b_id": "qwen/qwen3-30b-a3b-instruct-2507",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-3-4b-it::mistralai-mistral-small-24b-instruct-2501": {
+    "pair_key": "google-gemma-3-4b-it::mistralai-mistral-small-24b-instruct-2501",
+    "slug": "google-gemma-3-4b-it-vs-mistralai-mistral-small-24b-instruct-2501",
+    "model_a_id": "google/gemma-3-4b-it",
+    "model_b_id": "mistralai/mistral-small-24b-instruct-2501",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-3-4b-it::mistralai-ministral-3b-2512": {
+    "pair_key": "google-gemma-3-4b-it::mistralai-ministral-3b-2512",
+    "slug": "google-gemma-3-4b-it-vs-mistralai-ministral-3b-2512",
+    "model_a_id": "google/gemma-3-4b-it",
+    "model_b_id": "mistralai/ministral-3b-2512",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-3-4b-it::mistralai-mistral-small-3-2-24b-instruct": {
+    "pair_key": "google-gemma-3-4b-it::mistralai-mistral-small-3-2-24b-instruct",
+    "slug": "google-gemma-3-4b-it-vs-mistralai-mistral-small-3-2-24b-instruct",
+    "model_a_id": "google/gemma-3-4b-it",
+    "model_b_id": "mistralai/mistral-small-3.2-24b-instruct",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-3-4b-it::mistralai-ministral-8b-2512": {
+    "pair_key": "google-gemma-3-4b-it::mistralai-ministral-8b-2512",
+    "slug": "google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512",
+    "model_a_id": "google/gemma-3-4b-it",
+    "model_b_id": "mistralai/ministral-8b-2512",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-3-4b-it::mistralai-ministral-14b-2512": {
+    "pair_key": "google-gemma-3-4b-it::mistralai-ministral-14b-2512",
+    "slug": "google-gemma-3-4b-it-vs-mistralai-ministral-14b-2512",
+    "model_a_id": "google/gemma-3-4b-it",
+    "model_b_id": "mistralai/ministral-14b-2512",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "google-gemma-3-4b-it::qwen-qwen3-30b-a3b-instruct-2507": {
+    "pair_key": "google-gemma-3-4b-it::qwen-qwen3-30b-a3b-instruct-2507",
+    "slug": "google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507",
+    "model_a_id": "google/gemma-3-4b-it",
+    "model_b_id": "qwen/qwen3-30b-a3b-instruct-2507",
+    "cohort": "Low-Cost Real-Time Production APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-mistral-large-2512::qwen-qwen2-5-vl-72b-instruct": {
+    "pair_key": "mistralai-mistral-large-2512::qwen-qwen2-5-vl-72b-instruct",
+    "slug": "mistralai-mistral-large-2512-vs-qwen-qwen2-5-vl-72b-instruct",
+    "model_a_id": "mistralai/mistral-large-2512",
+    "model_b_id": "qwen/qwen2.5-vl-72b-instruct",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-mistral-large-2407::qwen-qwen2-5-vl-72b-instruct": {
+    "pair_key": "mistralai-mistral-large-2407::qwen-qwen2-5-vl-72b-instruct",
+    "slug": "mistralai-mistral-large-2407-vs-qwen-qwen2-5-vl-72b-instruct",
+    "model_a_id": "mistralai/mistral-large-2407",
+    "model_b_id": "qwen/qwen2.5-vl-72b-instruct",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-pixtral-large-2502::qwen-qwen2-5-vl-72b-instruct": {
+    "pair_key": "mistralai-pixtral-large-2502::qwen-qwen2-5-vl-72b-instruct",
+    "slug": "mistralai-pixtral-large-2502-vs-qwen-qwen2-5-vl-72b-instruct",
+    "model_a_id": "mistralai/pixtral-large-2502",
+    "model_b_id": "qwen/qwen2.5-vl-72b-instruct",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-mistral-large::qwen-qwen2-5-vl-72b-instruct": {
+    "pair_key": "mistralai-mistral-large::qwen-qwen2-5-vl-72b-instruct",
+    "slug": "mistralai-mistral-large-vs-qwen-qwen2-5-vl-72b-instruct",
+    "model_a_id": "mistralai/mistral-large",
+    "model_b_id": "qwen/qwen2.5-vl-72b-instruct",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-mixtral-8x22b-instruct::qwen-qwen2-5-vl-72b-instruct": {
+    "pair_key": "mistralai-mixtral-8x22b-instruct::qwen-qwen2-5-vl-72b-instruct",
+    "slug": "mistralai-mixtral-8x22b-instruct-vs-qwen-qwen2-5-vl-72b-instruct",
+    "model_a_id": "mistralai/mixtral-8x22b-instruct",
+    "model_b_id": "qwen/qwen2.5-vl-72b-instruct",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "openai-gpt-4-1::qwen-qwen2-5-vl-72b-instruct": {
+    "pair_key": "openai-gpt-4-1::qwen-qwen2-5-vl-72b-instruct",
+    "slug": "openai-gpt-4-1-vs-qwen-qwen2-5-vl-72b-instruct",
+    "model_a_id": "openai/gpt-4.1",
+    "model_b_id": "qwen/qwen2.5-vl-72b-instruct",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "openai-gpt-5-4-mini-batch::qwen-qwen2-5-vl-72b-instruct": {
+    "pair_key": "openai-gpt-5-4-mini-batch::qwen-qwen2-5-vl-72b-instruct",
+    "slug": "openai-gpt-5-4-mini-batch-vs-qwen-qwen2-5-vl-72b-instruct",
+    "model_a_id": "openai/gpt-5.4-mini:batch",
+    "model_b_id": "qwen/qwen2.5-vl-72b-instruct",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-mistral-large-2512::qwen-qwen3-vl-235b-a22b-instruct": {
+    "pair_key": "mistralai-mistral-large-2512::qwen-qwen3-vl-235b-a22b-instruct",
+    "slug": "mistralai-mistral-large-2512-vs-qwen-qwen3-vl-235b-a22b-instruct",
+    "model_a_id": "mistralai/mistral-large-2512",
+    "model_b_id": "qwen/qwen3-vl-235b-a22b-instruct",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-mistral-large-2512::openai-gpt-4-1": {
+    "pair_key": "mistralai-mistral-large-2512::openai-gpt-4-1",
+    "slug": "mistralai-mistral-large-2512-vs-openai-gpt-4-1",
+    "model_a_id": "mistralai/mistral-large-2512",
+    "model_b_id": "openai/gpt-4.1",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  },
+  "mistralai-mistral-large-2512::qwen-qwen3-8-27b-batch": {
+    "pair_key": "mistralai-mistral-large-2512::qwen-qwen3-8-27b-batch",
+    "slug": "mistralai-mistral-large-2512-vs-qwen-qwen3-8-27b-batch",
+    "model_a_id": "mistralai/mistral-large-2512",
+    "model_b_id": "qwen/qwen3.8-27b:batch",
+    "cohort": "Flagship & Long-Context APIs",
+    "first_published": "2026-11-24",
+    "status": "active"
+  }
+}

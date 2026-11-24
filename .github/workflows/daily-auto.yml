@@ -37,10 +37,10 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run V2.1 adversarial unit & fault-injection test suite
+      - name: Run V2.2 adversarial, cross-day lastmod & fault-injection test suite
         run: python3 -m unittest discover -s tests -v
 
-      - name: Fetch latest public LLM pricing, history snapshots & curated infra repos
+      - name: Fetch latest public LLM pricing, history snapshots & Repository-Verified repos
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 -m scripts.fetch_data
@@ -54,22 +54,27 @@ jobs:
           SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
         run: python3 -m scripts.enrich_llm
 
-      - name: Build static site into dist/
+      - name: Build static site, tools & linkable data assets into dist/
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: python3 -m scripts.build_site
 
-      - name: Run automated Quality Gate (blocks broken/misclassified publishes)
+      - name: Run Technical Quality Gate (health_check)
         env:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
           ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
         run: python3 -m scripts.health_check
 
-      - name: Commit data snapshots, price history, page state & ops ledger
+      - name: Run Independent SEO Indexing Quality Gate (seo_gate)
+        run: python3 -m scripts.seo_gate
+
+      - name: Commit data snapshots, permanent registries & ops ledger
         run: |
           git config user.name "sysv-bot"
           git config user.email "bot@sysv.cn"
-          git add data/models.json data/repos.json data/price_changes.json data/page_state.json data/selection_audit.json data/ops_metrics.json data/history/
+          git add data/models.json data/repos.json data/price_changes.json data/published_comparisons.json data/published_pages.json data/selection_audit.json data/ops_metrics.json data/history/
           if ! git diff --cached --quiet; then
-            git commit -m "chore(data): daily snapshot & archive $(date -u +%Y-%m-%d)"
+            git commit -m "chore(data): daily snapshot & registry $(date -u +%Y-%m-%d)"
             git push
           else
             echo "No data changes to commit."
@@ -107,6 +112,12 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      - name: Ping IndexNow for changed URLs only (optional)
+        if: success()
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: python3 -m scripts.indexnow_ping
+
       - name: Notify anomaly via PushPlus or Webhook (failure only)
         if: failure()
         env:
@@ -115,10 +126,10 @@ jobs:
         run: |
           python3 -c '
           import json, os, urllib.request
-          msg = "SysV Radar (sysv.cn) daily pipeline FAILED. Please inspect GitHub Actions logs."
+          msg = "SysV (sysv.cn) daily pipeline FAILED. Please inspect GitHub Actions logs."
           pp = os.getenv("PUSHPLUS_TOKEN", "").strip()
           if pp:
-              payload = json.dumps({"token": pp, "title": "[SysV Radar] Pipeline Alert", "content": msg, "template": "txt"}).encode()
+              payload = json.dumps({"token": pp, "title": "[SysV] Pipeline Alert", "content": msg, "template": "txt"}).encode()
               req = urllib.request.Request("https://www.pushplus.plus/send", data=payload, headers={"Content-Type": "application/json"})
               urllib.request.urlopen(req, timeout=12)
           wh = os.getenv("ALERT_WEBHOOK_URL", "").strip()

@@ -1,23 +1,14 @@
-"""V2.1 Data Pipeline for SysV Radar (sysv.cn).
+"""V2.2 Data Pipeline for SysV (sysv.cn).
 
-V2.1 Audit Hardening:
-1. Full 8-state pricing taxonomy:
-   - limited_free : rate-limited $0 free tier (:free models, e.g. OpenRouter ~20 RPM / 50 RPD)
-   - free         : non-suffixed $0/$0 text endpoints (if any)
-   - free_router  : $0 free-only auto router (openrouter/free)
-   - variable     : dynamic routers (-1 pricing, e.g. openrouter/auto, auto-code)
-   - batch        : async batch-only endpoints (:batch suffix, NOT real-time interactive)
-   - paid         : standard real-time per-token paid endpoints (tracks tiered overrides)
-   - media        : non-text output (audio/image/video) or per-request media endpoints
-   - unknown      : missing, null, non-numeric, or malformed pricing
-2. Real capability flags extracted directly from OpenRouter `supported_parameters`:
-   `supports_tools`, `supports_structured_outputs`, `supports_response_format`, `supports_reasoning`, `is_realtime`.
-3. SEO page lifecycle & delisting preservation:
-   - Distinguishes temporary API absence (`missing_days < 3`) from true delisting (`missing_days >= 3` on healthy fetch).
-   - NEVER deletes delisted model URLs; preserves historical pricing & delisted_at date.
-4. Append-only intraday changelog (`data/price_changes.json`) — never overwrites intraday changes.
-5. Transparent 473 -> display selection audit (`data/selection_audit.json`).
-6. Honest 3-tier open-source license classification (never equates permissive with "no restrictions").
+V2.2 P0 Hardening:
+- Strict Evidence Typing on every record:
+  `Source Verified` (official API metadata), `Repository Verified` (confirmed root files),
+  `Runtime Tested` (reserved for real runtime runs — never claimed without execution), `Inferred`.
+- Stops inferring Docker support from 'self-hosted' description keywords; inspects actual
+  repository root files (`Dockerfile`, `docker-compose.yml`, `compose.yml`, etc.) via GitHub API.
+- Stops guessing RAM/VPS specs from programming language; honestly reports `Not Verified (Check Repo Docs)`.
+- Preserves full 8-state pricing taxonomy, capability flags, 3-day delisting lifecycle,
+  append-only intraday price history, and daily ops ledger.
 """
 
 import os
@@ -36,6 +27,14 @@ ROUTER_KEYWORDS = ("auto", "router", "fusion", "pareto", "bodybuilder", "switchy
 MEDIA_KEYWORDS = ("lyria", "dall-e", "imagen", "flux", "stable-diffusion", "midjourney", "whisper", "tts", "music")
 CODING_KEYWORDS = ("coder", "codestral", "code", "devstral", "starcoder", "deepseek-v3", "claude", "sonnet")
 REASONING_KEYWORDS = ("r1", "reason", "thinking", "o1", "o3", "o4", "qwq", "think")
+
+DOCKER_ROOT_FILENAMES = {
+    "dockerfile",
+    "docker-compose.yml",
+    "docker-compose.yaml",
+    "compose.yml",
+    "compose.yaml",
+}
 
 CURATED_REPO_QUERIES = [
     ("AI Gateway & Proxy", "topic:llm-gateway stars:>300 archived:false"),
@@ -77,7 +76,7 @@ def _per_m(val: float | None) -> float | None:
 
 
 def classify_model(item: dict[str, Any], today: str | None = None) -> dict[str, Any]:
-    """Classify an OpenRouter endpoint into strict 8-state pricing & verified capability flags."""
+    """Classify an OpenRouter endpoint into strict 8-state pricing & Source Verified capabilities."""
     today = today or utc_today()
     model_id = str(item.get("id", "")).strip()
     name = str(item.get("name") or model_id).strip()
@@ -116,15 +115,14 @@ def classify_model(item: dict[str, Any], today: str | None = None) -> dict[str, 
     is_non_text_output = ("audio" in output_mod) or ("image" in output_mod) or ("video" in output_mod)
     is_media_name = any(k in lower_id for k in MEDIA_KEYWORDS)
 
-    # Strict 8-state pricing taxonomy (priority-ordered)
     if lower_id == "openrouter/free":
         pricing_type = "free_router"
         pricing_label = "Free Router (Rate-Limited)"
-        rate_limit_note = "Routes across active $0 endpoints; subject to shared OpenRouter free RPM/RPD caps."
+        rate_limit_note = "Routes across active $0 endpoints; subject to OpenRouter 20 RPM and 50 RPD (or 1,000 RPD with >=$10 lifetime credits)."
     elif (raw_prompt is not None and raw_prompt < 0) or (raw_completion is not None and raw_completion < 0):
         pricing_type = "variable"
         pricing_label = "Variable (Routed)"
-        rate_limit_note = "Dynamic routing: billed at whichever downstream paid model handles the request."
+        rate_limit_note = "Dynamic routing (raw price -1): billed at whichever downstream paid model handles the request."
     elif is_router_name and (raw_prompt == 0.0 and raw_completion == 0.0):
         pricing_type = "variable"
         pricing_label = "Variable (Routed)"
@@ -140,28 +138,27 @@ def classify_model(item: dict[str, Any], today: str | None = None) -> dict[str, 
     elif is_batch_endpoint:
         pricing_type = "batch"
         pricing_label = "Batch (Async Only)"
-        rate_limit_note = "Asynchronous batch pricing only; NOT suitable for real-time interactive API calls or live agents."
+        rate_limit_note = "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents."
     elif raw_prompt == 0.0 and raw_completion == 0.0:
         if is_free_suffix:
             pricing_type = "limited_free"
             pricing_label = "Limited Free Tier ($0)"
-            rate_limit_note = "OpenRouter :free tier is strictly rate-limited (typically ~20 RPM and 50 RPD without purchased credits); NOT unlimited."
+            rate_limit_note = "OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited."
         else:
             pricing_type = "free"
             pricing_label = "Free ($0)"
             rate_limit_note = "$0 listed token rate; still subject to upstream concurrency and fair-use caps."
     elif raw_prompt > 0.005 or raw_completion > 0.02:
-        # Guard against implausible corrupted prices (>$5,000/1M input or >$20,000/1M output)
         pricing_type = "unknown"
         pricing_label = "Unknown (Anomalous)"
-        rate_limit_note = "Upstream price value exceeded sanity ceiling and was quarantined as unknown."
+        rate_limit_note = "Upstream price exceeded sanity ceiling and was quarantined as unknown."
     else:
         pricing_type = "paid"
         pricing_label = "Paid (Tiered)" if has_tiered_overrides else "Paid"
         rate_limit_note = (
             "Includes tiered long-context price surcharges above threshold prompt length."
             if has_tiered_overrides
-            else "Standard real-time per-token API pricing."
+            else "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK)."
         )
 
     billable_token_types = ("limited_free", "free", "free_router", "paid", "batch")
@@ -172,7 +169,6 @@ def classify_model(item: dict[str, Any], today: str | None = None) -> dict[str, 
 
     is_realtime = pricing_type not in ("batch", "media", "unknown")
 
-    # Task cohort classification
     if pricing_type in ("variable", "free_router"):
         task_category = "router"
     elif pricing_type == "batch":
@@ -216,6 +212,12 @@ def classify_model(item: dict[str, Any], today: str | None = None) -> dict[str, 
             "response_format": supports_response_format,
             "reasoning": supports_reasoning,
         },
+        "evidence": {
+            "pricing": "Source Verified",
+            "capabilities": "Source Verified",
+            "source_url": OPENROUTER_MODELS_URL,
+            "verified_at": today,
+        },
         "raw_pricing": {
             "prompt": pricing.get("prompt"),
             "completion": pricing.get("completion"),
@@ -244,7 +246,7 @@ def save_daily_history_and_changelog(
     changelog_path=DATA_DIR / "price_changes.json",
     today: str | None = None,
 ) -> dict[str, Any]:
-    """Archive full daily snapshot & append-only intraday changelog (never wipes same-day diffs)."""
+    """Archive full daily snapshot & append-only intraday changelog."""
     today = today or utc_today()
     history_dir.mkdir(parents=True, exist_ok=True)
     today_file = history_dir / f"{today}.json"
@@ -262,25 +264,18 @@ def save_daily_history_and_changelog(
         for m in all_classified
     }
 
-    # Compare against today's earlier snapshot if re-run intraday, else latest prior day snapshot
     if today_file.exists():
         baseline_snapshot = load_json(today_file, default=None)
     else:
         prev_files = sorted(p for p in history_dir.glob("*.json") if p.stem < today)
         baseline_snapshot = load_json(prev_files[-1], default=None) if prev_files else None
 
-    snapshot = {
-        "date": today,
-        "total_endpoints": len(all_classified),
-        "models": curr_models_map,
-    }
+    snapshot = {"date": today, "total_endpoints": len(all_classified), "models": curr_models_map}
     save_json(today_file, snapshot)
 
     changelog = load_json(changelog_path, default={"events": [], "snapshot_days": 0})
     existing_events: list[dict[str, Any]] = list(changelog.get("events", []))
-    seen_keys = {
-        (ev.get("date"), ev.get("model_id"), ev.get("type"), ev.get("detail")) for ev in existing_events
-    }
+    seen_keys = {(ev.get("date"), ev.get("model_id"), ev.get("type"), ev.get("detail")) for ev in existing_events}
 
     def add_event(ev: dict[str, Any]) -> None:
         key = (ev["date"], ev["model_id"], ev["type"], ev["detail"])
@@ -338,7 +333,6 @@ def save_daily_history_and_changelog(
                         }
                     )
 
-        # Only record removal if current snapshot is a healthy full fetch (>= 250 endpoints)
         if len(curr_models_map) >= 250:
             for mid, old in prev_models.items():
                 if mid not in curr_models_map and old.get("pricing_type") in ("limited_free", "free"):
@@ -374,7 +368,7 @@ def reconcile_model_lifecycle(
     is_full_healthy_fetch: bool,
     today: str | None = None,
 ) -> list[dict[str, Any]]:
-    """Merge live models with existing records while preserving SEO URLs for delisted models."""
+    """Merge live models with existing records while preserving permanent SEO URLs."""
     today = today or utc_today()
     existing_map = {m["id"]: m for m in existing_models if "id" in m}
     merged: list[dict[str, Any]] = []
@@ -393,12 +387,10 @@ def reconcile_model_lifecycle(
         merged.append(m)
         seen_ids.add(m["id"])
 
-    # Preserve previously published models that disappeared (SEO URL lifecycle!)
     for prev_id, prev in existing_map.items():
         if prev_id in seen_ids:
             continue
         if prev_id in all_live_ids:
-            # Still alive upstream (just rotated out of top-140 selection) -> keep as active so URL stays valid
             prev["status"] = "active"
             prev["missing_days"] = 0
             prev["last_seen"] = today
@@ -452,11 +444,11 @@ def fetch_openrouter_models(max_models: int, min_floor: int, existing_models: li
     batch_models.sort(key=lambda m: ((m["prompt_price_per_m"] or 999) + (m["completion_price_per_m"] or 999), m["name"]))
 
     selected: list[dict[str, Any]] = []
-    selected.extend(limited_free)  # Include ALL verified free models
+    selected.extend(limited_free)
     selected.extend(free_routers)
     selected.extend(paid_models[: max(90, max_models - len(selected) - 12)])
-    selected.extend(batch_models[:8])  # Track top async batch endpoints explicitly labeled Batch
-    selected.extend(var_routers[:4])   # Track top dynamic routers explicitly labeled Variable (Routed)
+    selected.extend(batch_models[:8])
+    selected.extend(var_routers[:4])
     selected = selected[:max_models]
 
     audit_info = {
@@ -466,10 +458,10 @@ def fetch_openrouter_models(max_models: int, min_floor: int, existing_models: li
         "displayed_active_cap": max_models,
         "selected_for_display": len(selected),
         "selection_rationale": (
-            "All 473+ raw OpenRouter endpoints are archived daily in data/history/. "
+            "All active OpenRouter endpoints are archived daily in data/history/. "
             "Published model detail pages are curated to ~140 active endpoints (all verified :free models, "
             "major/affordable real-time paid models with >=32K context, top async :batch endpoints, and flagship routers) "
-            "to respect search engine crawl budget and avoid indexing hundreds of near-duplicate legacy snapshots on day 1."
+            "to respect search engine crawl budget and prevent duplicate legacy bloat."
         ),
     }
     save_json(DATA_DIR / "selection_audit.json", audit_info)
@@ -501,36 +493,64 @@ def _maintenance_status(pushed_at: str) -> tuple[str, int]:
 
 def _classify_license(spdx: str) -> tuple[str, str]:
     if spdx in PERMISSIVE_LICENSES:
-        return "permissive", f"Permissive ({spdx} — attribution required)"
+        return "permissive", f"Permissive ({spdx} — attribution/notice required; Source Verified via GitHub API)"
     if spdx in COPYLEFT_OR_SOURCE_AVAIL:
-        return "restricted", f"Copyleft / Source-Available ({spdx} — review hosted/SaaS terms)"
-    return "unknown", f"Verify LICENSE ({spdx})"
+        return "restricted", f"Copyleft / Source-Available ({spdx} — review hosted/SaaS obligations; Source Verified)"
+    return "unknown", f"Verify LICENSE file directly ({spdx})"
 
 
-def _infer_deployment_tier(topics: list[str], desc: str, lang: str) -> tuple[bool, str]:
-    blob = (" ".join(topics) + " " + desc).lower()
-    has_docker = "docker" in blob or "compose" in blob or "container" in blob or "self-hosted" in blob
-    if any(k in blob for k in ("cuda", "vllm", "gpu", "tensorrt", "inference engine", "gguf")):
-        tier = "GPU / Local Hardware"
-    elif has_docker and lang.lower() in ("go", "rust", "python", "typescript", "javascript"):
-        tier = "Low-RAM VPS / Docker Ready"
-    elif lang.lower() in ("go", "rust", "c", "c++"):
-        tier = "Lightweight Binary / VPS Ready"
+def verify_repo_docker_files(full_name: str, headers: dict[str, str], root_files: list[str] | None = None) -> dict[str, Any]:
+    """Verify actual Dockerfile / Compose files in repo root. Never infers Docker from 'self-hosted'."""
+    names: list[str] = []
+    verified_repo = False
+    if root_files is not None:
+        names = [str(n) for n in root_files]
+        verified_repo = True
     else:
-        tier = "Standard VPS / Self-Hosted"
-    return has_docker, tier
+        try:
+            url = f"https://api.github.com/repos/{full_name}/contents"
+            items = http_get_json(url, headers=headers, timeout=12, retries=0)
+            if isinstance(items, list):
+                names = [str(it.get("name", "")) for it in items if isinstance(it, dict)]
+                verified_repo = True
+        except Exception:
+            verified_repo = False
+
+    matched = sorted([n for n in names if n.lower() in DOCKER_ROOT_FILENAMES])
+    if verified_repo and matched:
+        return {
+            "has_docker": True,
+            "docker_files": matched,
+            "docker_evidence": "Repository Verified",
+            "docker_status": f"Verified ({', '.join(matched[:2])})",
+        }
+    if verified_repo and not matched:
+        return {
+            "has_docker": False,
+            "docker_files": [],
+            "docker_evidence": "Repository Verified",
+            "docker_status": "No Root Dockerfile / Compose Found",
+        }
+    return {
+        "has_docker": False,
+        "docker_files": [],
+        "docker_evidence": "Not Verified",
+        "docker_status": "Not Verified (Check Repo Docs)",
+    }
 
 
-def fetch_github_repos(max_repos: int, prev_repos: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def fetch_github_repos(max_repos: int, prev_repos: list[dict[str, Any]], verify_docker: bool = True) -> list[dict[str, Any]]:
     headers: dict[str, str] = {"Accept": "application/vnd.github+json"}
     gh_token = os.getenv("GITHUB_TOKEN")
     if gh_token:
         headers["Authorization"] = f"Bearer {gh_token}"
 
-    prev_stars_map = {r["full_name"]: int(r.get("stars", 0)) for r in prev_repos if "full_name" in r}
+    prev_map = {r["full_name"]: r for r in prev_repos if "full_name" in r}
     today = utc_today()
     seen: dict[str, dict[str, Any]] = {}
     per_cat = max(8, max_repos // len(CURATED_REPO_QUERIES) + 2)
+    docker_checks_done = 0
+    docker_rate_limited = False
 
     for category, raw_query in CURATED_REPO_QUERIES:
         query = urllib.parse.quote(raw_query)
@@ -556,9 +576,33 @@ def fetch_github_repos(max_repos: int, prev_repos: list[dict[str, Any]]) -> list
             lic_obj = repo.get("license") or {}
             spdx = str(lic_obj.get("spdx_id") or "Unknown")
             lic_tier, lic_note = _classify_license(spdx)
-            has_docker, deploy_tier = _infer_deployment_tier(topics, desc, lang)
-            prev_stars = prev_stars_map.get(full_name)
+
+            prev = prev_map.get(full_name)
+            prev_stars = int(prev.get("stars", 0)) if prev else None
             star_delta = (stars - prev_stars) if prev_stars is not None else 0
+
+            # Reuse Repository Verified Docker check unless missing or push date changed.
+            # When unauthenticated (60 req/hr GitHub cap), limit /contents checks to avoid rate-limit storms.
+            can_check_docker = verify_docker and (bool(gh_token) or docker_checks_done < 8) and not docker_rate_limited
+            if prev and prev.get("docker_evidence") == "Repository Verified" and prev.get("pushed_at") == pushed_at[:10]:
+                docker_info = {
+                    "has_docker": bool(prev.get("has_docker")),
+                    "docker_files": list(prev.get("docker_files") or []),
+                    "docker_evidence": "Repository Verified",
+                    "docker_status": str(prev.get("docker_status") or "Repository Verified"),
+                }
+            elif can_check_docker and len(seen) < max_repos:
+                docker_info = verify_repo_docker_files(full_name, headers)
+                docker_checks_done += 1
+                if docker_info["docker_evidence"] == "Not Verified":
+                    docker_rate_limited = True
+            else:
+                docker_info = {
+                    "has_docker": False,
+                    "docker_files": [],
+                    "docker_evidence": "Not Verified",
+                    "docker_status": "Not Verified (Check Repo Docs)",
+                }
 
             seen[full_name] = {
                 "full_name": full_name,
@@ -576,11 +620,22 @@ def fetch_github_repos(max_repos: int, prev_repos: list[dict[str, Any]]) -> list
                 "license": spdx,
                 "license_tier": lic_tier,
                 "license_note": lic_note,
-                "has_docker": has_docker,
-                "deployment_tier": deploy_tier,
+                "has_docker": docker_info["has_docker"],
+                "docker_files": docker_info["docker_files"],
+                "docker_evidence": docker_info["docker_evidence"],
+                "docker_status": docker_info["docker_status"],
+                "hardware_requirements": "Not Verified (Check Repo Docs)",
+                "hardware_evidence": "Not Verified",
                 "pushed_at": pushed_at[:10] if pushed_at else today,
                 "maintenance_status": maint_label,
                 "topics": topics,
+                "evidence": {
+                    "metadata": "Source Verified",
+                    "docker": docker_info["docker_evidence"],
+                    "hardware": "Not Verified",
+                    "source_url": str(repo.get("html_url") or f"https://github.com/{full_name}"),
+                    "verified_at": today,
+                },
                 "updated_at": today,
             }
 
@@ -627,12 +682,15 @@ def main() -> None:
 
     fetch_repos_ok = False
     try:
-        fresh_repos = fetch_github_repos(pipe["max_repos_tracked"], existing_repos)
+        fresh_repos = fetch_github_repos(
+            pipe["max_repos_tracked"], existing_repos, verify_docker=bool(pipe.get("verify_repo_docker_files", True))
+        )
         if len(fresh_repos) >= 10:
             merged_repos = merge_repo_enrichment(fresh_repos, existing_repos)
             save_json(repos_path, merged_repos)
             fetch_repos_ok = True
-            print(f"[fetch_data] Updated {len(merged_repos)} curated infra repos from GitHub API.")
+            dv = sum(1 for r in merged_repos if r.get("docker_evidence") == "Repository Verified" and r.get("has_docker"))
+            print(f"[fetch_data] Updated {len(merged_repos)} curated infra repos (Repository Verified Docker={dv}).")
         else:
             print(f"[fetch_data] Too few repos ({len(fresh_repos)}); preserving last-known-good repos.")
     except Exception as err:
@@ -640,7 +698,6 @@ def main() -> None:
         if not repos_path.exists():
             save_json(repos_path, existing_repos)
 
-    # Record automated fetch outcome in ops ledger
     ops_path = DATA_DIR / "ops_metrics.json"
     ops = load_json(ops_path, default={"daily": []})
     today = utc_today()

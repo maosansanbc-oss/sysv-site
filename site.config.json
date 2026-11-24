@@ -1,9 +1,9 @@
 {
-  "site_name": "SysV Radar",
+  "site_name": "SysV",
   "domain": "sysv.cn",
   "base_url": "https://sysv.cn",
   "tagline": "Zero-Cost Infrastructure & AI Automation Radar",
-  "description": "Capability-gated LLM estimated token cost calculator, verified rate-limited free-tier directory, daily price-change archive, and self-hosted AI infrastructure benchmarks.",
+  "description": "Compare live LLM API pricing across providers, estimate real workload token costs with capability gates, track daily price history, and explore verified self-hosted AI infrastructure.",
   "contact_email": "hello@sysv.cn",
   "language": "en",
   "pipeline": {
@@ -11,9 +11,10 @@
     "min_models_health_floor": 40,
     "max_daily_llm_enrich": 10,
     "max_daily_cost_usd": 0.05,
-    "prompt_version": "v2.1",
+    "prompt_version": "v2.2",
     "max_compare_pages": 40,
-    "max_repos_tracked": 48
+    "max_repos_tracked": 48,
+    "verify_repo_docker_files": true
   },
   "monetization": {
     "adsense_client_id": "ca-pub-6947462103210199",

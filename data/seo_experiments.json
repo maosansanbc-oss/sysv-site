@@ -1,0 +1,15 @@
+{
+  "policy": "Record every SEO Title, H1, internal linking, or page-type change before deployment. Never alter pages on tiny sample sizes (<100 impressions over 14+ days).",
+  "experiments": [
+    {
+      "id": "EXP-001",
+      "date": "2026-11-24",
+      "scope": "Homepage Title & H1 + Breadcrumb Fix + Dedicated Tool Pages",
+      "change": "Changed Homepage Title to 'LLM API Pricing & Token Cost Calculator | SysV' and H1 to 'LLM API Pricing & Token Cost Calculator'; fixed paid model breadcrumbs from /free-llm-apis/ to /models/; added 4 intent-specific standalone calculators under /tools/ and public data exports under /data/.",
+      "hypothesis": "Aligning Title/H1 with high-intent English search phrasing and fixing internal link topology improves Google indexation rate and CTR on long-tail calculator queries.",
+      "evaluation_window_days": 28,
+      "status": "active",
+      "measured_outcome": null
+    }
+  ]
+}

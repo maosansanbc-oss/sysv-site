@@ -41,7 +41,7 @@ def compute_repo_hash(r: dict[str, Any], prompt_version: str) -> str:
         "language": r.get("language"),
         "license": r.get("license"),
         "license_tier": r.get("license_tier"),
-        "deployment_tier": r.get("deployment_tier"),
+        "docker_status": r.get("docker_status"),
         "description": r.get("description"),
         "prompt_version": prompt_version,
     }
@@ -179,17 +179,18 @@ def _deterministic_repo_enrichment(r: dict[str, Any], cache_hash: str) -> dict[s
         "cache_hash": cache_hash,
         "enriched_at": utc_today(),
         "summary": (
-            f"{r['full_name']} is a {r.get('category', 'Self-Hosted Infra')} project in {r.get('language', 'Multi')} "
-            f"with {r.get('stars', 0):,} stars ({r.get('maintenance_status', 'Active')}), suited for {r.get('deployment_tier', 'VPS')} deployments."
+            f"{r['full_name']} is a {r.get('category', 'Self-Hosted Infra')} repository in {r.get('language', 'Multi')} "
+            f"({r.get('maintenance_status', 'Active')}, License: {r.get('license', 'Unknown')}). "
+            f"Docker root check: {r.get('docker_status', 'Not Verified')}."
         ),
         "best_for": [
-            f"Reducing recurring SaaS costs in {r.get('category', 'developer infrastructure')} workflows",
-            f"Deploying on {r.get('deployment_tier', 'self-hosted VPS')} setups",
-            "Integrating into low-marginal-cost automated pipelines",
+            f"Evaluating open-source self-hosted tooling in {r.get('category', 'developer infrastructure')}",
+            "Deploying with repository Docker files" if r.get("has_docker") else "Reviewing upstream installation docs for runtime requirements",
+            "Tracking active maintenance status and license terms before adoption",
         ],
         "watch_outs": [
             r.get("license_note", f"Verify repository LICENSE ({r.get('license', 'Unknown')}) before commercial deployment"),
-            "Pin release/image versions before running unattended production automation",
+            "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers",
         ],
     }
 

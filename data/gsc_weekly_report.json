@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-11-24",
+  "total_rows": 0,
+  "total_clicks": 0,
+  "total_impressions": 0,
+  "by_page_type": {},
+  "diagnostic_buckets": {
+    "not_discovered": 263,
+    "discovered_not_indexed": 0,
+    "crawled_not_indexed": 0,
+    "indexed_zero_impressions": 0,
+    "impressions_zero_clicks": 0,
+    "clicks_zero_revenue": 0
+  },
+  "note": "Do NOT modify page titles/structures on tiny sample sizes (<100 impressions over 14+ days)."
+}

@@ -1312,8 +1312,8 @@
       "slug": "qwen-qwen3-8-27b",
       "provider": "Qwen",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.035,
-      "completion_price_per_m": 1.5,
+      "prompt_price_per_m": 0.06,
+      "completion_price_per_m": 1.96,
       "context_length": 1024000
     },
     "qwen/qwen3.8-27b:batch": {

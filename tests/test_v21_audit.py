@@ -152,7 +152,10 @@ class TestCapabilityGatingAndComparisons(unittest.TestCase):
         batch = fetch_data.classify_model({"id": "openai/sol:batch", "pricing": {"prompt": "0.000001", "completion": "0.000002"}, "context_length": 200000})
         m1 = fetch_data.classify_model({"id": "vendor-a/coder-1", "pricing": {"prompt": "0.0000002", "completion": "0.0000006"}, "context_length": 128000})
         m2 = fetch_data.classify_model({"id": "vendor-b/coder-2", "pricing": {"prompt": "0.0000003", "completion": "0.0000008"}, "context_length": 128000})
-        pairs = build_site.select_comparison_pairs([router, media, batch, m1, m2], max_pairs=20)
+        with tempfile.TemporaryDirectory() as td:
+            pairs = build_site.reconcile_comparison_registry(
+                [router, media, batch, m1, m2], max_new_pairs=20, registry_path=Path(td) / "comps.json", today="2026-11-24"
+            )
         self.assertEqual(len(pairs), 1)
         self.assertEqual({pairs[0][0]["id"], pairs[0][1]["id"]}, {"vendor-a/coder-1", "vendor-b/coder-2"})
 

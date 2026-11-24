@@ -1137,6 +1137,15 @@
       "name": "Dots Studio: Dots3-Note Preview (free)",
       "slug": "dots-studio-dots-3-note-preview-free",
       "detail": "Absent from OpenRouter active free registry"
+    },
+    {
+      "date": "2026-11-24",
+      "compared_to": "2026-11-24",
+      "type": "price_hike",
+      "model_id": "qwen/qwen3.8-27b",
+      "name": "Qwen: Qwen3.8 27B",
+      "slug": "qwen-qwen3-8-27b",
+      "detail": "Input $0.035 -> $0.06, Output $1.5 -> $1.96 per 1M"
     }
   ]
 }
