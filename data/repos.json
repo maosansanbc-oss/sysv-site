@@ -8,15 +8,19 @@
     "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
     "category": "Workflow Automation",
     "language": "TypeScript",
-    "stars": 211976,
-    "star_delta": 2,
-    "forks": 61642,
-    "open_issues": 1273,
+    "stars": 211991,
+    "star_delta": 15,
+    "forks": 61644,
+    "open_issues": 1270,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -27,19 +31,26 @@
       "data-flow",
       "development"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/n8n-io/n8n",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "30ce31d9658e0e4f",
+      "cache_hash": "27403f912efcd554",
       "enriched_at": "2026-11-24",
-      "summary": "n8n-io/n8n is a Workflow Automation repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "n8n-io/n8n is a Workflow Automation repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Workflow Automation",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -53,15 +64,21 @@
     "description": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
     "category": "Local LLM Runtime",
     "language": "Go",
-    "stars": 187972,
-    "star_delta": 2,
-    "forks": 19171,
+    "stars": 187982,
+    "star_delta": 10,
+    "forks": 19172,
     "open_issues": 4748,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Lightweight Binary / VPS Ready",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -72,19 +89,26 @@
       "golang",
       "gpt-oss"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/ollama/ollama",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "51db58d78795320c",
+      "cache_hash": "d23be6efffd565a4",
       "enriched_at": "2026-11-24",
-      "summary": "ollama/ollama is a Local LLM Runtime repository in Go (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "ollama/ollama is a Local LLM Runtime repository in Go (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -98,15 +122,22 @@
     "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
     "category": "Local LLM Runtime",
     "language": "Svelte",
-    "stars": 159426,
-    "star_delta": 1,
-    "forks": 23138,
-    "open_issues": 263,
+    "stars": 159432,
+    "star_delta": 6,
+    "forks": 23139,
+    "open_issues": 250,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yaml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yaml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -117,19 +148,26 @@
       "llms",
       "mcp"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/open-webui/open-webui",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "c5c07fa8bd48a012",
+      "cache_hash": "02bcc2e685b650c3",
       "enriched_at": "2026-11-24",
-      "summary": "open-webui/open-webui is a Local LLM Runtime repository in Svelte (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "open-webui/open-webui is a Local LLM Runtime repository in Svelte (Active (<30d), License: NOASSERTION). Docker root check: Verified (Dockerfile, docker-compose.yaml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -143,15 +181,22 @@
     "description": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.",
     "category": "Workflow Automation",
     "language": "Python",
-    "stars": 145422,
-    "star_delta": 3,
-    "forks": 23398,
+    "stars": 145433,
+    "star_delta": 11,
+    "forks": 23401,
     "open_issues": 90,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -162,19 +207,26 @@
       "llm",
       "python"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "44e2fc69ef85bc7d",
+      "cache_hash": "7d6b5b8931c82ea2",
       "enriched_at": "2026-11-24",
-      "summary": "harry0703/MoneyPrinterTurbo is a Workflow Automation repository in Python (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "harry0703/MoneyPrinterTurbo is a Workflow Automation repository in Python (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Workflow Automation",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -188,15 +240,21 @@
     "description": "The open-source app everyone uses to manage agents at work",
     "category": "Workflow Automation",
     "language": "TypeScript",
-    "stars": 116623,
-    "star_delta": 5,
-    "forks": 19354,
-    "open_issues": 6898,
+    "stars": 116637,
+    "star_delta": 14,
+    "forks": 19358,
+    "open_issues": 6908,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -207,19 +265,26 @@
       "ai-agents",
       "ai-engineering"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/paperclipai/paperclip",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "62cf9e9db7739f65",
+      "cache_hash": "faeac62192fb912a",
       "enriched_at": "2026-11-24",
-      "summary": "paperclipai/paperclip is a Workflow Automation repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "paperclipai/paperclip is a Workflow Automation repository in TypeScript (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Workflow Automation",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -233,15 +298,19 @@
     "description": "#1 PDF Application on GitHub that lets you edit PDFs on any device anywhere",
     "category": "Self-Hosted Infra",
     "language": "TypeScript",
-    "stars": 97373,
-    "star_delta": 0,
-    "forks": 9375,
+    "stars": 97379,
+    "star_delta": 6,
+    "forks": 9367,
     "open_issues": 472,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-    "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
+    "has_docker": false,
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -252,19 +321,26 @@
       "pdf-converter",
       "pdf-editor"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/Stirling-Tools/Stirling-PDF",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "bd789821955774a1",
+      "cache_hash": "e6bab3ecb40716d7",
       "enriched_at": "2026-11-24",
-      "summary": "Stirling-Tools/Stirling-PDF is a Self-Hosted Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "Stirling-Tools/Stirling-PDF is a Self-Hosted Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
-        "Deploying with repository Docker files",
+        "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -278,15 +354,21 @@
     "description": "A fancy self-hosted monitoring tool",
     "category": "Self-Hosted Infra",
     "language": "JavaScript",
-    "stars": 94829,
-    "star_delta": 0,
-    "forks": 8872,
-    "open_issues": 866,
+    "stars": 94832,
+    "star_delta": 3,
+    "forks": 8873,
+    "open_issues": 868,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "docker_files": [
+      "compose.yaml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (compose.yaml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -297,19 +379,26 @@
       "self-hosted",
       "selfhosted"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/louislam/uptime-kuma",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "817f75e288d7c463",
+      "cache_hash": "f112f9407819bffb",
       "enriched_at": "2026-11-24",
-      "summary": "louislam/uptime-kuma is a Self-Hosted Infra repository in JavaScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "louislam/uptime-kuma is a Self-Hosted Infra repository in JavaScript (Active (<30d), License: MIT). Docker root check: Verified (compose.yaml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
         "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -323,15 +412,22 @@
     "description": "Never stop coding. Free MIT AI gateway: one endpoint, 375 providers (150+ free), 1,400+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 900+ ",
     "category": "AI Gateway & Proxy",
     "language": "TypeScript",
-    "stars": 90036,
-    "star_delta": 2,
-    "forks": 13985,
-    "open_issues": 861,
+    "stars": 90052,
+    "star_delta": 16,
+    "forks": 13986,
+    "open_issues": 859,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -342,19 +438,26 @@
       "claude",
       "claude-code"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/cheaper-inference/OmniRoute",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "dc5ffd8556ef453f",
+      "cache_hash": "764aa232495ed57c",
       "enriched_at": "2026-11-24",
-      "summary": "cheaper-inference/OmniRoute is a AI Gateway & Proxy repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "cheaper-inference/OmniRoute is a AI Gateway & Proxy repository in TypeScript (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -370,13 +473,20 @@
     "language": "TypeScript",
     "stars": 88989,
     "star_delta": 0,
-    "forks": 58438,
+    "forks": 58437,
     "open_issues": 869,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-10-20",
     "maintenance_status": "Maintained (<6m)",
     "topics": [
@@ -387,19 +497,26 @@
       "fe",
       "gemini"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/ChatGPTNextWeb/NextChat",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "f40819d694be4bca",
+      "cache_hash": "a232d63811b388a0",
       "enriched_at": "2026-11-24",
-      "summary": "ChatGPTNextWeb/NextChat is a Local LLM Runtime repository in TypeScript (Maintained (<6m), License: MIT). Docker root check: Not Verified.",
+      "summary": "ChatGPTNextWeb/NextChat is a Local LLM Runtime repository in TypeScript (Maintained (<6m), License: MIT). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -413,15 +530,21 @@
     "description": "Full-stack observability · Metrics · Logs · Traces · Flows · Topology · Infrastructure · APM · NPM · DBM · RUM · Synthetics · Cloud · AI SRE · OpenTelemetry · SNMP · NetFlow/IPFIX/sFlow · IPMI · Redfish · 2000+ integrations",
     "category": "Self-Hosted Infra",
     "language": "Go",
-    "stars": 81609,
-    "star_delta": 0,
+    "stars": 81610,
+    "star_delta": 1,
     "forks": 6739,
     "open_issues": 470,
     "license": "GPL-3.0",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS terms)",
-    "has_docker": false,
-    "deployment_tier": "Lightweight Binary / VPS Ready",
+    "license_note": "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS obligations; Source Verified)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -432,19 +555,26 @@
       "database",
       "devops"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/netdata/netdata",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "d39d171e001e86b5",
+      "cache_hash": "ddf556fef030b4b7",
       "enriched_at": "2026-11-24",
-      "summary": "netdata/netdata is a Self-Hosted Infra repository in Go (Active (<30d), License: GPL-3.0). Docker root check: Not Verified.",
+      "summary": "netdata/netdata is a Self-Hosted Infra repository in Go (Active (<30d), License: GPL-3.0). Docker root check: Verified (Dockerfile).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -458,15 +588,19 @@
     "description": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
     "category": "Workflow Automation",
     "language": "Python",
-    "stars": 80230,
-    "star_delta": 1,
-    "forks": 9849,
+    "stars": 80233,
+    "star_delta": 3,
+    "forks": 9851,
     "open_issues": 1922,
     "license": "Unknown",
     "license_tier": "unknown",
-    "license_note": "Verify LICENSE (Unknown)",
+    "license_note": "Verify LICENSE file directly (Unknown)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-09-18",
     "maintenance_status": "Maintained (<6m)",
     "topics": [
@@ -477,19 +611,26 @@
       "claude",
       "claude-code"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "cebd3dfe0f0c1fb3",
+      "cache_hash": "4159c4dcfd0e14f6",
       "enriched_at": "2026-11-24",
-      "summary": "ComposioHQ/awesome-claude-skills is a Workflow Automation repository in Python (Maintained (<6m), License: Unknown). Docker root check: Not Verified.",
+      "summary": "ComposioHQ/awesome-claude-skills is a Workflow Automation repository in Python (Maintained (<6m), License: Unknown). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Workflow Automation",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Verify LICENSE (Unknown)",
+        "Verify LICENSE file directly (Unknown)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -503,15 +644,21 @@
     "description": "An open-source, self-hostable PaaS alternative to Vercel, Heroku & Netlify that lets you easily deploy static sites, databases, full-stack applications and 360+ one-click services on your own servers.",
     "category": "Self-Hosted Infra",
     "language": "PHP",
-    "stars": 66419,
-    "star_delta": 0,
+    "stars": 66423,
+    "star_delta": 4,
     "forks": 6013,
     "open_issues": 71,
     "license": "Apache-2.0",
     "license_tier": "permissive",
-    "license_note": "Permissive (Apache-2.0 — attribution required)",
+    "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": true,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -522,19 +669,26 @@
       "docker-compose",
       "inertiajs"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/coollabsio/coolify",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "8abee4fd6848273a",
+      "cache_hash": "3a3741d9c5018278",
       "enriched_at": "2026-11-24",
-      "summary": "coollabsio/coolify is a Self-Hosted Infra repository in PHP (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
+      "summary": "coollabsio/coolify is a Self-Hosted Infra repository in PHP (Active (<30d), License: Apache-2.0). Docker root check: Verified (docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
         "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (Apache-2.0 — attribution required)",
+        "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -548,15 +702,19 @@
     "description": "Memos is an open-source, self-hosted note-taking app that brings your everyday thoughts together in a personal timeline. Your data stays yours, and you choose what to keep private or share.",
     "category": "Self-Hosted Infra",
     "language": "Go",
-    "stars": 64670,
-    "star_delta": 0,
-    "forks": 4979,
-    "open_issues": 70,
+    "stars": 64672,
+    "star_delta": 2,
+    "forks": 4980,
+    "open_issues": 75,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": false,
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -567,19 +725,26 @@
       "memo",
       "microblog"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/usememos/memos",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "a72c17192b4440c3",
+      "cache_hash": "d00ff0226d50166a",
       "enriched_at": "2026-11-24",
-      "summary": "usememos/memos is a Self-Hosted Infra repository in Go (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "usememos/memos is a Self-Hosted Infra repository in Go (Active (<30d), License: MIT). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
-        "Deploying with repository Docker files",
+        "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -593,15 +758,19 @@
     "description": "The fastest, litest AI Gateway. Rust core with Python SDK. Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging [Bedrock, Azure, OpenAI, Anthropic, OpenAI, VertexAI, vLLM, Nvidia NIM]",
     "category": "AI Gateway & Proxy",
     "language": "Python",
-    "stars": 63818,
-    "star_delta": 2,
-    "forks": 13525,
-    "open_issues": 5530,
+    "stars": 63824,
+    "star_delta": 6,
+    "forks": 13528,
+    "open_issues": 5523,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
     "has_docker": false,
-    "deployment_tier": "GPU / Local Hardware",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -612,19 +781,26 @@
       "gateway",
       "langchain"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/BerriAI/litellm",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "9b3f2b2d54669d6c",
+      "cache_hash": "2b491cf05ccebbe4",
       "enriched_at": "2026-11-24",
-      "summary": "BerriAI/litellm is a AI Gateway & Proxy repository in Python (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "BerriAI/litellm is a AI Gateway & Proxy repository in Python (Active (<30d), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -638,15 +814,22 @@
     "description": "The open-source cloud for agents & devs. Including Auth, Databases, Storage, Functions, Messaging, Hosting, Realtime, WAF and more",
     "category": "Self-Hosted Infra",
     "language": "TypeScript",
-    "stars": 58560,
-    "star_delta": 0,
+    "stars": 58562,
+    "star_delta": 2,
     "forks": 5913,
-    "open_issues": 594,
+    "open_issues": 596,
     "license": "BSD-3-Clause",
     "license_tier": "permissive",
-    "license_note": "Permissive (BSD-3-Clause — attribution required)",
+    "license_note": "Permissive (BSD-3-Clause — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -657,19 +840,26 @@
       "docker",
       "firebase"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/appwrite/appwrite",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "5343b33999ed3db8",
+      "cache_hash": "ff1fe6fe2010161c",
       "enriched_at": "2026-11-24",
-      "summary": "appwrite/appwrite is a Self-Hosted Infra repository in TypeScript (Active (<30d), License: BSD-3-Clause). Docker root check: Not Verified.",
+      "summary": "appwrite/appwrite is a Self-Hosted Infra repository in TypeScript (Active (<30d), License: BSD-3-Clause). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
         "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (BSD-3-Clause — attribution required)",
+        "Permissive (BSD-3-Clause — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -683,15 +873,19 @@
     "description": "Your AI workspace for models, agents, and productivity.",
     "category": "Local LLM Runtime",
     "language": "TypeScript",
-    "stars": 53827,
-    "star_delta": 0,
+    "stars": 53828,
+    "star_delta": 1,
     "forks": 5265,
     "open_issues": 3013,
     "license": "AGPL-3.0",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS obligations; Source Verified)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -702,19 +896,26 @@
       "ai-models",
       "ai-productivity"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/CherryHQ/cherry-studio",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "0dea7acdb5bdcb48",
+      "cache_hash": "d7f2e1e562438eef",
       "enriched_at": "2026-11-24",
-      "summary": "CherryHQ/cherry-studio is a Local LLM Runtime repository in TypeScript (Active (<30d), License: AGPL-3.0). Docker root check: Not Verified.",
+      "summary": "CherryHQ/cherry-studio is a Local LLM Runtime repository in TypeScript (Active (<30d), License: AGPL-3.0). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -728,15 +929,22 @@
     "description": "Open-source AI gateway. Self-hosted LLM gateway with OpenAI-, Claude- and Gemini-compatible APIs, model routing, access control, usage tracking and cost accounting.",
     "category": "AI Gateway & Proxy",
     "language": "Go",
-    "stars": 52474,
+    "stars": 52475,
     "star_delta": 1,
-    "forks": 12832,
+    "forks": 12833,
     "open_issues": 1493,
     "license": "AGPL-3.0",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS obligations; Source Verified)",
     "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -747,19 +955,26 @@
       "gemini",
       "llm-gateway"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/QuantumNous/new-api",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "a523eea7a2f27f9a",
+      "cache_hash": "b7a6326439e2ae1b",
       "enriched_at": "2026-11-24",
-      "summary": "QuantumNous/new-api is a AI Gateway & Proxy repository in Go (Active (<30d), License: AGPL-3.0). Docker root check: Not Verified.",
+      "summary": "QuantumNous/new-api is a AI Gateway & Proxy repository in Go (Active (<30d), License: AGPL-3.0). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
         "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -773,15 +988,22 @@
     "description": "Your lightweight open-source personal agent.",
     "category": "Local LLM Runtime",
     "language": "Python",
-    "stars": 50298,
-    "star_delta": 1,
+    "stars": 50297,
+    "star_delta": -1,
     "forks": 8764,
-    "open_issues": 859,
+    "open_issues": 860,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -792,19 +1014,26 @@
       "chatops",
       "discord-bot"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/HKUDS/nanobot",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "d178411a40cc4618",
+      "cache_hash": "3a6c9a6c0ef56a18",
       "enriched_at": "2026-11-24",
-      "summary": "HKUDS/nanobot is a Local LLM Runtime repository in Python (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "HKUDS/nanobot is a Local LLM Runtime repository in Python (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -824,9 +1053,15 @@
     "open_issues": 759,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "docker_files": [
+      "Dockerfile"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -837,19 +1072,26 @@
       "git",
       "go"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/gogs/gogs",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "37a90181665fd17e",
+      "cache_hash": "65c3c7ee21b3a9f3",
       "enriched_at": "2026-11-24",
-      "summary": "gogs/gogs is a Self-Hosted Infra repository in Go (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "gogs/gogs is a Self-Hosted Infra repository in Go (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Self-Hosted Infra",
         "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -863,15 +1105,19 @@
     "description": "🦍 The API and AI Gateway",
     "category": "AI Gateway & Proxy",
     "language": "Lua",
-    "stars": 44411,
-    "star_delta": 0,
-    "forks": 5248,
+    "stars": 44412,
+    "star_delta": 1,
+    "forks": 5249,
     "open_issues": 237,
     "license": "Apache-2.0",
     "license_tier": "permissive",
-    "license_note": "Permissive (Apache-2.0 — attribution required)",
+    "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-23",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -882,19 +1128,26 @@
       "apis",
       "artificial-intelligence"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/Kong/kong",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "ba23f93b782e36de",
+      "cache_hash": "c5b2cc1c40a08279",
       "enriched_at": "2026-11-24",
-      "summary": "Kong/kong is a AI Gateway & Proxy repository in Lua (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
+      "summary": "Kong/kong is a AI Gateway & Proxy repository in Lua (Active (<30d), License: Apache-2.0). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (Apache-2.0 — attribution required)",
+        "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -908,15 +1161,19 @@
     "description": "Powerful AI Client",
     "category": "Local LLM Runtime",
     "language": "TypeScript",
-    "stars": 42520,
-    "star_delta": 0,
+    "stars": 42524,
+    "star_delta": 4,
     "forks": 4364,
     "open_issues": 1382,
     "license": "GPL-3.0",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS obligations; Source Verified)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-18",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -927,19 +1184,26 @@
       "claude-code",
       "copilot"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/chatboxai/chatbox",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "98e4ec7031fe8012",
+      "cache_hash": "d4a0e3beb6f3928d",
       "enriched_at": "2026-11-24",
-      "summary": "chatboxai/chatbox is a Local LLM Runtime repository in TypeScript (Active (<30d), License: GPL-3.0). Docker root check: Not Verified.",
+      "summary": "chatboxai/chatbox is a Local LLM Runtime repository in TypeScript (Active (<30d), License: GPL-3.0). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -956,12 +1220,18 @@
     "stars": 41294,
     "star_delta": 0,
     "forks": 5523,
-    "open_issues": 971,
+    "open_issues": 968,
     "license": "AGPL-3.0",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS obligations; Source Verified)",
     "has_docker": true,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [
+      "docker-compose.yaml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (docker-compose.yaml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -972,19 +1242,26 @@
       "internal-tool",
       "internal-tools"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/ToolJet/ToolJet",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "b4da1a560c90e7e8",
+      "cache_hash": "65e20587173833ee",
       "enriched_at": "2026-11-24",
-      "summary": "ToolJet/ToolJet is a Workflow Automation repository in HTML (Active (<30d), License: AGPL-3.0). Docker root check: Not Verified.",
+      "summary": "ToolJet/ToolJet is a Workflow Automation repository in HTML (Active (<30d), License: AGPL-3.0). Docker root check: Verified (docker-compose.yaml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Workflow Automation",
         "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -998,15 +1275,21 @@
     "description": "Open-source Rust coding agent for terminal, web, and desktop. Any model, multi-agent fleets, MCP & plugins, OS sandboxing, and session receipts.",
     "category": "Local LLM Runtime",
     "language": "Rust",
-    "stars": 41197,
-    "star_delta": 0,
+    "stars": 41196,
+    "star_delta": -1,
     "forks": 3578,
-    "open_issues": 73,
+    "open_issues": 81,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Lightweight Binary / VPS Ready",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1017,19 +1300,26 @@
       "cli",
       "coding-agent"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/codewhale-hq/Codewhale",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "0536425199633f86",
+      "cache_hash": "6bc7f11148940bd2",
       "enriched_at": "2026-11-24",
-      "summary": "codewhale-hq/Codewhale is a Local LLM Runtime repository in Rust (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "codewhale-hq/Codewhale is a Local LLM Runtime repository in Rust (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1043,15 +1333,21 @@
     "description": "Your Personal AI Assistant; easy to install, deploy on your own machine or on the cloud; supports multiple chat apps with easily extensible capabilities.",
     "category": "AI Agent Infra",
     "language": "Python",
-    "stars": 38173,
-    "star_delta": 0,
+    "stars": 38175,
+    "star_delta": 2,
     "forks": 3309,
     "open_issues": 1173,
     "license": "Apache-2.0",
     "license_tier": "permissive",
-    "license_note": "Permissive (Apache-2.0 — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1062,19 +1358,26 @@
       "ai-agents",
       "chatbot"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/agentscope-ai/QwenPaw",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "e292a4a8b35eaaea",
+      "cache_hash": "900d379d9a4c19ca",
       "enriched_at": "2026-11-24",
-      "summary": "agentscope-ai/QwenPaw is a AI Agent Infra repository in Python (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
+      "summary": "agentscope-ai/QwenPaw is a AI Agent Infra repository in Python (Active (<30d), License: Apache-2.0). Docker root check: Verified (docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Agent Infra",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (Apache-2.0 — attribution required)",
+        "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1088,15 +1391,21 @@
     "description": "Open-source LLM knowledge platform: turn raw documents into a queryable RAG, an autonomous reasoning agent, and a self-maintaining Wiki.",
     "category": "Local LLM Runtime",
     "language": "Go",
-    "stars": 38136,
-    "star_delta": 0,
+    "stars": 38137,
+    "star_delta": 1,
     "forks": 5343,
     "open_issues": 1191,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-    "has_docker": false,
-    "deployment_tier": "Lightweight Binary / VPS Ready",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
+    "has_docker": true,
+    "docker_files": [
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1107,19 +1416,26 @@
       "dsh-plugin",
       "embeddings"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/Tencent/WeKnora",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "cb79f2814ccdefc2",
+      "cache_hash": "f2d7040f69f701bf",
       "enriched_at": "2026-11-24",
-      "summary": "Tencent/WeKnora is a Local LLM Runtime repository in Go (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "Tencent/WeKnora is a Local LLM Runtime repository in Go (Active (<30d), License: NOASSERTION). Docker root check: Verified (docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1133,15 +1449,21 @@
     "description": "🪢 Open source AI engineering platform: AI Gateway, agent observability, evals, and prompt/skill management, built on OpenTelemetry. One open platform for every AI call and every agent. Self-host or use Langfuse Cloud.",
     "category": "AI Gateway & Proxy",
     "language": "TypeScript",
-    "stars": 37793,
-    "star_delta": 1,
-    "forks": 4305,
-    "open_issues": 1209,
+    "stars": 37796,
+    "star_delta": 3,
+    "forks": 4307,
+    "open_issues": 1212,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
+    "has_docker": true,
+    "docker_files": [
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1152,19 +1474,26 @@
       "langchain",
       "large-language-models"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/langfuse/langfuse",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "0d305f83ed7a665c",
+      "cache_hash": "a1e0a1b09dd279db",
       "enriched_at": "2026-11-24",
-      "summary": "langfuse/langfuse is a AI Gateway & Proxy repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "langfuse/langfuse is a AI Gateway & Proxy repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Verified (docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1184,9 +1513,13 @@
     "open_issues": 11,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-23",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1197,19 +1530,26 @@
       "gpt-image-2",
       "image-prompts"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/freestylefly/awesome-gpt-image-2",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "2a447a53c1d7fba0",
+      "cache_hash": "839638607b856a1b",
       "enriched_at": "2026-11-24",
-      "summary": "freestylefly/awesome-gpt-image-2 is a Workflow Automation repository in JavaScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "freestylefly/awesome-gpt-image-2 is a Workflow Automation repository in JavaScript (Active (<30d), License: MIT). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Workflow Automation",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1223,15 +1563,22 @@
     "description": "Fully autonomous AI Agents system capable of performing complex penetration testing tasks",
     "category": "AI Agent Infra",
     "language": "Go",
-    "stars": 34935,
-    "star_delta": 1,
-    "forks": 5587,
+    "stars": 34941,
+    "star_delta": 6,
+    "forks": 5588,
     "open_issues": 78,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Lightweight Binary / VPS Ready",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-13",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1242,19 +1589,26 @@
       "golang",
       "gpt"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/vxcontrol/pentagi",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "1769499ff14bf7aa",
+      "cache_hash": "29ba58363ce80dcd",
       "enriched_at": "2026-11-24",
-      "summary": "vxcontrol/pentagi is a AI Agent Infra repository in Go (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "vxcontrol/pentagi is a AI Agent Infra repository in Go (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Agent Infra",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1268,15 +1622,22 @@
     "description": "Unlimited FREE AI coding. Connect Claude Code, Codex, Cursor, Cline, Copilot, Antigravity to FREE Claude/GPT/Gemini via 40+ providers. Auto-fallback, RTK -40% tokens, never hit limits.",
     "category": "AI Gateway & Proxy",
     "language": "JavaScript",
-    "stars": 32813,
-    "star_delta": 0,
+    "stars": 32814,
+    "star_delta": 1,
     "forks": 6422,
     "open_issues": 2880,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-23",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1287,19 +1648,26 @@
       "claude",
       "claude-code"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/decolua/9router",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "5c179755bf4551a8",
+      "cache_hash": "a1201719dc24de66",
       "enriched_at": "2026-11-24",
-      "summary": "decolua/9router is a AI Gateway & Proxy repository in JavaScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "decolua/9router is a AI Gateway & Proxy repository in JavaScript (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1319,9 +1687,13 @@
     "open_issues": 306,
     "license": "Apache-2.0",
     "license_tier": "permissive",
-    "license_note": "Permissive (Apache-2.0 — attribution required)",
+    "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1332,19 +1704,26 @@
       "javascript",
       "microservice-orchestration"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/conductor-oss/conductor",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "8ef6711abdfb334e",
+      "cache_hash": "e3ccbbbd52d1595b",
       "enriched_at": "2026-11-24",
-      "summary": "conductor-oss/conductor is a Workflow Automation repository in Java (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
+      "summary": "conductor-oss/conductor is a Workflow Automation repository in Java (Active (<30d), License: Apache-2.0). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Workflow Automation",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (Apache-2.0 — attribution required)",
+        "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1361,12 +1740,16 @@
     "stars": 31152,
     "star_delta": 0,
     "forks": 12630,
-    "open_issues": 1065,
+    "open_issues": 1063,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": false,
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1377,19 +1760,26 @@
       "codex",
       "cursor"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/nanocoai/nanoclaw",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "10b328fda81e8892",
+      "cache_hash": "e7d26ab23254d93e",
       "enriched_at": "2026-11-24",
-      "summary": "nanocoai/nanoclaw is a AI Agent Infra repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "nanocoai/nanoclaw is a AI Agent Infra repository in TypeScript (Active (<30d), License: MIT). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Agent Infra",
-        "Deploying with repository Docker files",
+        "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1403,15 +1793,22 @@
     "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
     "category": "AI Agent Infra",
     "language": "TypeScript",
-    "stars": 27428,
-    "star_delta": 7,
-    "forks": 3917,
-    "open_issues": 1320,
+    "stars": 27444,
+    "star_delta": 16,
+    "forks": 3919,
+    "open_issues": 1331,
     "license": "Apache-2.0",
     "license_tier": "permissive",
-    "license_note": "Permissive (Apache-2.0 — attribution required)",
+    "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "docker_files": [
+      "Dockerfile",
+      "compose.yaml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, compose.yaml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1422,19 +1819,26 @@
       "docker",
       "electron"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "b0ea1fbbaf3e258f",
+      "cache_hash": "581ce8d126bb46ab",
       "enriched_at": "2026-11-24",
-      "summary": "milind-soni/OpenMausBot is a AI Agent Infra repository in TypeScript (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
+      "summary": "milind-soni/OpenMausBot is a AI Agent Infra repository in TypeScript (Active (<30d), License: Apache-2.0). Docker root check: Verified (Dockerfile, compose.yaml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Agent Infra",
         "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (Apache-2.0 — attribution required)",
+        "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1454,9 +1858,13 @@
     "open_issues": 209,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
     "has_docker": false,
-    "deployment_tier": "GPU / Local Hardware",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-09",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1467,19 +1875,26 @@
       "local-inference",
       "local-llm"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/mozilla-ai/llamafile",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "e2c6da06aa33c6de",
+      "cache_hash": "d9f879c32004631a",
       "enriched_at": "2026-11-24",
-      "summary": "mozilla-ai/llamafile is a Local LLM Runtime repository in C++ (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "mozilla-ai/llamafile is a Local LLM Runtime repository in C++ (Active (<30d), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1494,14 +1909,18 @@
     "category": "AI Agent Infra",
     "language": "Multi",
     "stars": 26554,
-    "star_delta": 1,
+    "star_delta": 0,
     "forks": 6647,
-    "open_issues": 116,
+    "open_issues": 117,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-09-12",
     "maintenance_status": "Maintained (<6m)",
     "topics": [
@@ -1512,19 +1931,26 @@
       "awesome",
       "awesome-list"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "4a03123b416a9419",
+      "cache_hash": "111ecaa9b97a1389",
       "enriched_at": "2026-11-24",
-      "summary": "enescingoz/awesome-n8n-templates is a AI Agent Infra repository in Multi (Maintained (<6m), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "enescingoz/awesome-n8n-templates is a AI Agent Infra repository in Multi (Maintained (<6m), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Agent Infra",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1544,9 +1970,13 @@
     "open_issues": 305,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1557,19 +1987,26 @@
       "ai-agents",
       "ai-governance"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/nocobase/nocobase",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "c753276677dbdf46",
+      "cache_hash": "dafe3348ccd45528",
       "enriched_at": "2026-11-24",
-      "summary": "nocobase/nocobase is a AI Agent Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "nocobase/nocobase is a AI Agent Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Agent Infra",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1586,12 +2023,16 @@
     "stars": 20792,
     "star_delta": 0,
     "forks": 3475,
-    "open_issues": 82,
+    "open_issues": 79,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1602,19 +2043,26 @@
       "company-os",
       "companyos"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/kortix-ai/CompanyOS",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "8a8c1f8d11797469",
+      "cache_hash": "15c2db7368381ab7",
       "enriched_at": "2026-11-24",
-      "summary": "kortix-ai/CompanyOS is a AI Agent Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "kortix-ai/CompanyOS is a AI Agent Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Agent Infra",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1628,15 +2076,19 @@
     "description": "Air-gapped, private AI for confidential documents. Open-source NotebookLM alternative that runs on your computer. Join our Discord: https://discord.gg/ejRNvftDp9",
     "category": "Local LLM Runtime",
     "language": "Python",
-    "stars": 16937,
-    "star_delta": 0,
+    "stars": 16938,
+    "star_delta": 1,
     "forks": 1616,
     "open_issues": 66,
     "license": "Apache-2.0",
     "license_tier": "permissive",
-    "license_note": "Permissive (Apache-2.0 — attribution required)",
+    "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1647,19 +2099,26 @@
       "legal-ai",
       "local-ai"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/MODSetter/SurfSense",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "7f472a8df7f451e8",
+      "cache_hash": "90eb6e57f8a1023c",
       "enriched_at": "2026-11-24",
-      "summary": "MODSetter/SurfSense is a Local LLM Runtime repository in Python (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
+      "summary": "MODSetter/SurfSense is a Local LLM Runtime repository in Python (Active (<30d), License: Apache-2.0). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (Apache-2.0 — attribution required)",
+        "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1679,9 +2138,16 @@
     "open_issues": 350,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yaml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yaml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-20",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1692,19 +2158,26 @@
       "langchain",
       "llm"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/Portkey-AI/gateway",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "07ba8ac182aaf175",
+      "cache_hash": "9376828023323937",
       "enriched_at": "2026-11-24",
-      "summary": "Portkey-AI/gateway is a AI Gateway & Proxy repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "Portkey-AI/gateway is a AI Gateway & Proxy repository in TypeScript (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile, docker-compose.yaml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1724,9 +2197,16 @@
     "open_issues": 547,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-    "has_docker": false,
-    "deployment_tier": "Lightweight Binary / VPS Ready",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1737,19 +2217,26 @@
       "api-management",
       "cloudnative"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/TykTechnologies/tyk",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "b951ceeaf78a7eae",
+      "cache_hash": "d84138aef5909b14",
       "enriched_at": "2026-11-24",
-      "summary": "TykTechnologies/tyk is a AI Gateway & Proxy repository in Go (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "TykTechnologies/tyk is a AI Gateway & Proxy repository in Go (Active (<30d), License: NOASSERTION). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1763,15 +2250,22 @@
     "description": "Fine-tune LLMs from one YAML. Layer streaming trains an 8B model on a 4 GB laptop GPU.",
     "category": "Local LLM Runtime",
     "language": "Python",
-    "stars": 10765,
-    "star_delta": -1,
+    "stars": 10766,
+    "star_delta": 1,
     "forks": 1792,
-    "open_issues": 284,
+    "open_issues": 275,
     "license": "Apache-2.0",
     "license_tier": "permissive",
-    "license_note": "Permissive (Apache-2.0 — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "GPU / Local Hardware",
+    "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1782,19 +2276,26 @@
       "gguf",
       "huggingface"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/MakazhanAlpamys/Soup",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "ab518c92294a636f",
+      "cache_hash": "d17348c99b81cc1d",
       "enriched_at": "2026-11-24",
-      "summary": "MakazhanAlpamys/Soup is a Local LLM Runtime repository in Python (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
+      "summary": "MakazhanAlpamys/Soup is a Local LLM Runtime repository in Python (Active (<30d), License: Apache-2.0). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (Apache-2.0 — attribution required)",
+        "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1814,9 +2315,16 @@
     "open_issues": 1695,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1827,19 +2335,26 @@
       "deep-research",
       "encryption"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/LearningCircuit/local-deep-research",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "98a633116280616b",
+      "cache_hash": "85ac69e6a7c898b9",
       "enriched_at": "2026-11-24",
-      "summary": "LearningCircuit/local-deep-research is a Local LLM Runtime repository in Python (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "LearningCircuit/local-deep-research is a Local LLM Runtime repository in Python (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1859,9 +2374,13 @@
     "open_issues": 8,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": false,
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1872,19 +2391,26 @@
       "ai-governance",
       "anthropic"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/open-multi-agent/open-multi-agent",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "9978af99ee741a31",
+      "cache_hash": "026e7b25f0a86e40",
       "enriched_at": "2026-11-24",
-      "summary": "open-multi-agent/open-multi-agent is a Local LLM Runtime repository in TypeScript (Active (<30d), License: MIT). Docker root check: Not Verified.",
+      "summary": "open-multi-agent/open-multi-agent is a Local LLM Runtime repository in TypeScript (Active (<30d), License: MIT). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
-        "Deploying with repository Docker files",
+        "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1904,9 +2430,15 @@
     "open_issues": 125,
     "license": "BSD-2-Clause",
     "license_tier": "permissive",
-    "license_note": "Permissive (BSD-2-Clause — attribution required)",
+    "license_note": "Permissive (BSD-2-Clause — attribution/notice required; Source Verified via GitHub API)",
     "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "docker_files": [
+      "docker-compose.yaml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (docker-compose.yaml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-16",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1917,19 +2449,26 @@
       "local-llm",
       "no-code"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/dograh-hq/dograh",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "4190c0b3e2e2d16b",
+      "cache_hash": "ac7d7512124de672",
       "enriched_at": "2026-11-24",
-      "summary": "dograh-hq/dograh is a Local LLM Runtime repository in Python (Active (<30d), License: BSD-2-Clause). Docker root check: Not Verified.",
+      "summary": "dograh-hq/dograh is a Local LLM Runtime repository in Python (Active (<30d), License: BSD-2-Clause). Docker root check: Verified (docker-compose.yaml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in Local LLM Runtime",
         "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (BSD-2-Clause — attribution required)",
+        "Permissive (BSD-2-Clause — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1946,12 +2485,18 @@
     "stars": 1035,
     "star_delta": 0,
     "forks": 158,
-    "open_issues": 80,
+    "open_issues": 79,
     "license": "Apache-2.0",
     "license_tier": "permissive",
-    "license_note": "Permissive (Apache-2.0 — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Lightweight Binary / VPS Ready",
+    "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-24",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -1962,19 +2507,26 @@
       "claude-code",
       "gemini"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/respanai/respan-gateway",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "fd1dbaa36acc3d91",
+      "cache_hash": "bf65c229c96f4156",
       "enriched_at": "2026-11-24",
-      "summary": "respanai/respan-gateway is a AI Gateway & Proxy repository in Rust (Active (<30d), License: Apache-2.0). Docker root check: Not Verified.",
+      "summary": "respanai/respan-gateway is a AI Gateway & Proxy repository in Rust (Active (<30d), License: Apache-2.0). Docker root check: Verified (Dockerfile).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (Apache-2.0 — attribution required)",
+        "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -1994,9 +2546,13 @@
     "open_issues": 1,
     "license": "Unknown",
     "license_tier": "unknown",
-    "license_note": "Verify LICENSE (Unknown)",
+    "license_note": "Verify LICENSE file directly (Unknown)",
     "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-17",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -2007,19 +2563,26 @@
       "finetune",
       "finetuning"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/xing61/zzz-api",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "0761016c2e15eb28",
+      "cache_hash": "4230273389ed2f14",
       "enriched_at": "2026-11-24",
-      "summary": "xing61/zzz-api is a AI Gateway & Proxy repository in Multi (Active (<30d), License: Unknown). Docker root check: Not Verified.",
+      "summary": "xing61/zzz-api is a AI Gateway & Proxy repository in Multi (Active (<30d), License: Unknown). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
         "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Verify LICENSE (Unknown)",
+        "Verify LICENSE file directly (Unknown)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -2039,9 +2602,16 @@
     "open_issues": 3,
     "license": "MIT",
     "license_tier": "permissive",
-    "license_note": "Permissive (MIT — attribution required)",
-    "has_docker": false,
-    "deployment_tier": "Standard VPS / Self-Hosted",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-07-20",
     "maintenance_status": "Maintained (<6m)",
     "topics": [
@@ -2052,19 +2622,26 @@
       "gemini-proxy",
       "llm-tools"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/Nya-Foundation/NyaProxy",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "776cd7ad5929b9a5",
+      "cache_hash": "7bc5bb80d734be95",
       "enriched_at": "2026-11-24",
-      "summary": "Nya-Foundation/NyaProxy is a AI Gateway & Proxy repository in Python (Maintained (<6m), License: MIT). Docker root check: Not Verified.",
+      "summary": "Nya-Foundation/NyaProxy is a AI Gateway & Proxy repository in Python (Maintained (<6m), License: MIT). Docker root check: Verified (Dockerfile, docker-compose.yml).",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
-        "Reviewing upstream installation docs for runtime requirements",
+        "Deploying with repository Docker files",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Permissive (MIT — attribution required)",
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }
@@ -2084,9 +2661,13 @@
     "open_issues": 9,
     "license": "NOASSERTION",
     "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
-    "has_docker": true,
-    "deployment_tier": "Low-RAM VPS / Docker Ready",
+    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
+    "has_docker": false,
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
     "pushed_at": "2026-11-23",
     "maintenance_status": "Active (<30d)",
     "topics": [
@@ -2097,19 +2678,26 @@
       "audit-logging",
       "bastion-host"
     ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/ThinkWatchProject/ThinkWatch",
+      "verified_at": "2026-11-24"
+    },
     "updated_at": "2026-11-24",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "25dfec2a908e97d3",
+      "cache_hash": "eedc0ce38bbb85dd",
       "enriched_at": "2026-11-24",
-      "summary": "ThinkWatchProject/ThinkWatch is a AI Gateway & Proxy repository in Rust (Active (<30d), License: NOASSERTION). Docker root check: Not Verified.",
+      "summary": "ThinkWatchProject/ThinkWatch is a AI Gateway & Proxy repository in Rust (Active (<30d), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
-        "Deploying with repository Docker files",
+        "Reviewing upstream installation docs for runtime requirements",
         "Tracking active maintenance status and license terms before adoption"
       ],
       "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS terms)",
+        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
         "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
       ]
     }

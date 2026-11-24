@@ -47,19 +47,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "0cba742c1e8fe27e",
-      "enriched_at": "2026-11-24",
-      "summary": "Particle AI: Particle-1 (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1048K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "Particle-1 is a limited free tier model on OpenRouter with $0 listed input/output pricing, a 1,048,576-token context, and text+image-to-text support. It is a token-efficient agentic coding model post-trained on DeepSeek V4.1 Flash, with tools, structured outputs, and reasoning enabled.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Agentic coding and terminal workflows",
+        "Large-context codebase changes",
+        "Structured, tool-using engineering tasks"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is rate-limited to 20 RPM and 50 RPD without credits, not unlimited",
+        "Higher daily limits (1,000 RPD) require a lifetime credit purchase of at least $10"
+      ],
+      "source": "deepseek",
+      "cache_hash": "0cba742c1e8fe27e",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -173,19 +173,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "100d368ba77be855",
-      "enriched_at": "2026-11-24",
-      "summary": "Baidu: ERNIE-5.5-Flash-Preview (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1024K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "ERNIE-5.5-Flash-Preview is a limited free tier text-to-text model on OpenRouter with a 1,024,000-token context window and support for tools, structured outputs, and reasoning. It is priced at $0 per 1M input/output tokens but is subject to OpenRouter :free tier rate limits of 20 RPM and 50 RPD without credits.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Long-context text tasks up to ~1M tokens",
+        "Agentic and tool-calling workflows",
+        "Structured output and reasoning experiments"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Not unlimited: :free tier capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit)",
+        "Preview model; behavior and availability may change"
+      ],
+      "source": "deepseek",
+      "cache_hash": "100d368ba77be855",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -299,19 +299,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "c06382df6101b935",
-      "enriched_at": "2026-11-24",
-      "summary": "NVIDIA: Nemotron 3.5 Lightning (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1000K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "NVIDIA Nemotron 3.5 Lightning is a limited free tier ($0 input/output) text-to-text MoE model with 3B active of 30B total parameters and a 1M-token context. It supports tool use and reasoning in real-time interactive mode, but structured outputs are not available.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "High-throughput agentic workloads with tool calling",
+        "Long-context text tasks up to 1M tokens",
+        "Cost-sensitive prototyping on the free tier"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); it is not unlimited",
+        "Structured outputs are not supported, so schema-constrained generation needs workarounds"
+      ],
+      "source": "deepseek",
+      "cache_hash": "c06382df6101b935",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -362,19 +362,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "f1d80c3ab258ece3",
-      "enriched_at": "2026-11-24",
-      "summary": "NVIDIA: Nemotron 3.5 Super VL (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1000K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model (12B active of 120B total) available on a limited free tier at $0 per 1M tokens. It supports text, image, and video inputs to text output with a 1M context, plus tools, structured outputs, and reasoning.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Multimodal tasks involving images, documents, GUI screenshots, or video",
+        "Long-context workloads up to 1M tokens",
+        "Prototyping with tool use, structured outputs, and reasoning"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is rate-limited (20 RPM, 50 RPD without credits; 1,000 RPD after >=$10 lifetime credit) and is not unlimited",
+        "Free-tier caps may not suit high-throughput or production traffic"
+      ],
+      "source": "deepseek",
+      "cache_hash": "f1d80c3ab258ece3",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -425,19 +425,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "d35003ed3ebd85e4",
-      "enriched_at": "2026-11-24",
-      "summary": "Google: Gemma 4 26B A4B  (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 262K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "Gemma 4 26B A4B IT is an instruction-tuned MoE model on OpenRouter's limited free tier at $0 per 1M tokens, with a 262,144-token context and text+image+video input. It supports tools and reasoning but not structured outputs, and the free tier is rate-limited to 20 RPM and 50 RPD without credits (1,000 RPD after a $10+ lifetime credit purchase).",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Multimodal tasks involving text, image, and video input",
+        "Long-context reasoning with a 262K-token window",
+        "Low-cost prototyping on a rate-capped free tier"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is capped at 20 RPM and 50 RPD without credits, not unlimited",
+        "Structured outputs are not supported"
+      ],
+      "source": "deepseek",
+      "cache_hash": "d35003ed3ebd85e4",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -488,19 +488,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "fc2f2f3006a0cd2b",
-      "enriched_at": "2026-11-24",
-      "summary": "Google: Gemma 4 31B (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 262K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "Gemma 4 31B Instruct is a 30.7B dense multimodal model from Google DeepMind with a 262K context window and text, image, and video input support. It is offered on a limited free tier at $0 per 1M tokens, with rate limits of 20 RPM and 50 RPD without credits.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Long-context multimodal analysis up to 262K tokens",
+        "Tool-augmented and reasoning-enabled interactive tasks",
+        "Cost-free prototyping and experimentation"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is rate-limited (20 RPM, 50 RPD without credits), not unlimited",
+        "Structured outputs are not supported"
+      ],
+      "source": "deepseek",
+      "cache_hash": "fc2f2f3006a0cd2b",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -551,19 +551,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "627c77a1afacc048",
-      "enriched_at": "2026-11-24",
-      "summary": "LiquidAI: LFM3-1.7B (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 262K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "LiquidAI LFM3-1.7B is a compact 1.7B-parameter text-to-text model with a 262K-token context, post-trained for agents, tool calling, structured outputs, and reasoning. It is offered on a limited free tier at $0 per 1M input/output tokens, subject to OpenRouter :free rate caps.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Agentic workflows with tool calling",
+        "Long-context text tasks up to 262K tokens",
+        "Structured output and reasoning-heavy prompts"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after a $10+ lifetime credit purchase), not unlimited",
+        "Prompts and outputs may be retained and used, so avoid sensitive data"
+      ],
+      "source": "deepseek",
+      "cache_hash": "627c77a1afacc048",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -614,19 +614,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "ea8150db445e351d",
-      "enriched_at": "2026-11-24",
-      "summary": "Recursive: Flint (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 262K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "Flint is a limited free tier text-to-text model on OpenRouter with a 262,144-token context window and $0 listed input/output pricing. It supports tools and reasoning but not structured outputs, and the :free tier is rate-capped at 20 RPM and 50 RPD without credits (1,000 RPD after a $10+ lifetime credit purchase).",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Coding agent workflows given its agent-oriented design",
+        "Long-context tasks up to 262K tokens",
+        "Tool-augmented and reasoning-heavy prompts"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is rate-limited, not unlimited (20 RPM / 50 RPD without credits)",
+        "No structured outputs support, so schema-constrained generation is unavailable"
+      ],
+      "source": "deepseek",
+      "cache_hash": "ea8150db445e351d",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -677,19 +677,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "726d2a84c27e2e79",
-      "enriched_at": "2026-11-24",
-      "summary": "NVIDIA: Nemotron 3 Nano Omni (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 256K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "NVIDIA Nemotron 3 Nano Omni is a 30B-A3B open multimodal model offered on a limited free tier ($0 per 1M input/output tokens) with a 256K context window. It accepts text, image, audio, and video inputs and outputs text, supporting tools and reasoning but not structured outputs.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Multimodal perception and context sub-agent tasks in enterprise agent systems",
+        "Long-context reasoning over combined text, image, audio, and video inputs",
+        "Low-cost prototyping on the free tier with tool use and reasoning enabled"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is rate-limited to 20 RPM and 50 RPD without credits (1,000 RPD after a $10+ lifetime credit purchase), not unlimited",
+        "Structured outputs are not supported, so schema-constrained generation must be handled another way"
+      ],
+      "source": "deepseek",
+      "cache_hash": "726d2a84c27e2e79",
+      "enriched_at": "2026-11-24"
     }
   },
   {
@@ -740,19 +740,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-24",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "fbbeb5be606b087a",
-      "enriched_at": "2026-11-24",
-      "summary": "Free Models Router routes prompts strictly across active $0 rate-limited models to reduce manual model switching.",
+      "summary": "The Free Models Router (openrouter/free) is a rate-limited free router that randomly selects among active $0 endpoints on OpenRouter, with $0.00 per 1M input/output pricing and a 200K context window. It supports text+image input to text output with tools, structured outputs, and reasoning capabilities.",
       "best_for": [
-        "Hands-off fallback when individual :free endpoints return HTTP 429",
-        "Non-critical background summarization where exact model identity can vary",
-        "Testing OpenAI-compatible clients at zero token cost"
+        "Free interactive inference with no per-token cost",
+        "Multimodal text+image tasks",
+        "Tool use and structured output prototyping"
       ],
       "watch_outs": [
-        "Output consistency varies because the underlying model changes dynamically",
-        "Still subject to shared OpenRouter free-tier RPM/RPD limits"
-      ]
+        "Subject to OpenRouter limits of 20 RPM and 50 RPD (1,000 RPD only with >=$10 lifetime credits)",
+        "Random model selection means inconsistent behavior and capabilities across requests"
+      ],
+      "source": "deepseek",
+      "cache_hash": "fbbeb5be606b087a",
+      "enriched_at": "2026-11-24"
     }
   },
   {

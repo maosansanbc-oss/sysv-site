@@ -5,8 +5,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "707e381b0ddf2493",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "4d596d3a695ce89d",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/about/": {
     "url": "/about/",
@@ -86,8 +86,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "1885493c818be193",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "ca8d89a22dd06981",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/compare/baidu-ernie-5-5-flash-preview-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/baidu-ernie-5-5-flash-preview-free-vs-particle-ai-particle-1-free/",
@@ -95,8 +95,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "b07e7e7948b4c1ea",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "6b37ffab94ced867",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/compare/deepseek-deepseek-v3-1-terminus-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/deepseek-deepseek-v3-1-terminus-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -212,8 +212,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a929824c3d56bef0",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "54df0a1049ee913e",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/compare/google-gemma-4-31b-it-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/google-gemma-4-31b-it-free-vs-particle-ai-particle-1-free/",
@@ -221,8 +221,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "2c0bb18f59c99668",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "0783ea0651947194",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/compare/inclusionai-ling-3-2-flash-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/inclusionai-ling-3-2-flash-free-vs-particle-ai-particle-1-free/",
@@ -230,8 +230,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "3c996be6e51af088",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "f1a22b77e2679297",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/compare/liquid-lfm-3-1-7b-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/liquid-lfm-3-1-7b-free-vs-particle-ai-particle-1-free/",
@@ -239,8 +239,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "0bc18d6b1668e12e",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "d1d6aaf9d9ba0bd0",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/compare/mistralai-codestral-2508-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/mistralai-codestral-2508-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -338,8 +338,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "fa0abd7158321f64",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "a113ce8570b8bc59",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/compare/nvidia-nemotron-3-5-super-vl-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/nvidia-nemotron-3-5-super-vl-free-vs-particle-ai-particle-1-free/",
@@ -347,8 +347,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "935667b09793c2e0",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "25dfc4cda7d879d1",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/compare/nvidia-nemotron-3-ultra-550b-a55b-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/nvidia-nemotron-3-ultra-550b-a55b-free-vs-particle-ai-particle-1-free/",
@@ -356,8 +356,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "6f2e7d44f00b6576",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "e4c16f2380b03013",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/compare/openai-gpt-4-1-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/openai-gpt-4-1-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -383,8 +383,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "3d1351b55a527e65",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "b87725fe16caf309",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/contact/": {
     "url": "/contact/",
@@ -410,8 +410,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "eb08db670217db91",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "33989ac136fd015f",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/": {
     "url": "/models/",
@@ -419,8 +419,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ee455d73730175a9",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "5ac823aaa92b8ae5",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/anthropic-claude-haiku-4-5-batch/": {
     "url": "/models/anthropic-claude-haiku-4-5-batch/",
@@ -464,8 +464,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "cad4af0c3fffd387",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "5a90fc63e0e0a49c",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/deepseek-deepseek-chat-v3-0324/": {
     "url": "/models/deepseek-deepseek-chat-v3-0324/",
@@ -752,8 +752,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ddd9c162cb87d4f9",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "b348680078a07222",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/google-gemma-4-26b-a4b-it/": {
     "url": "/models/google-gemma-4-26b-a4b-it/",
@@ -770,8 +770,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "1cea02f1b68c9a8d",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "584aeee6860b4481",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/google-gemma-4-31b-it/": {
     "url": "/models/google-gemma-4-31b-it/",
@@ -797,8 +797,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a60535b33e9cbd2b",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "c708c3d668f71cea",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/meta-muse-ember/": {
     "url": "/models/meta-muse-ember/",
@@ -1085,8 +1085,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "dc673534c24d1c01",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "8b0350e5984aaac7",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/nvidia-nemotron-3-5-super-vl-free/": {
     "url": "/models/nvidia-nemotron-3-5-super-vl-free/",
@@ -1094,8 +1094,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ada3c6d182222299",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "fb004bf67cd0d0f3",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-free/": {
     "url": "/models/nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-free/",
@@ -1103,8 +1103,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "910bb3908e8deeff",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "cd8446a0c9e03a30",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/nvidia-nemotron-3-ultra-550b-a55b-free/": {
     "url": "/models/nvidia-nemotron-3-ultra-550b-a55b-free/",
@@ -1490,8 +1490,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "492cc1b15e413b2b",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "74916d0414922493",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/particle-ai-particle-1-free/": {
     "url": "/models/particle-ai-particle-1-free/",
@@ -1499,8 +1499,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "6cc0f87e7c1975dd",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "82c2ace9fe17d54d",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/qwen-qwen-2-5-72b-instruct/": {
     "url": "/models/qwen-qwen-2-5-72b-instruct/",
@@ -1886,8 +1886,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "06ceca23758b2e62",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "d485aafb114a9cd3",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/models/typesafe-jev-router/": {
     "url": "/models/typesafe-jev-router/",
@@ -1940,8 +1940,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "84b441b0b25d0ddc",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "62795890a20b0441",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/appwrite-appwrite/": {
     "url": "/repos/appwrite-appwrite/",
@@ -1949,8 +1949,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "0d645c2548388daf",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "47bdae7d506d71fc",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/berriai-litellm/": {
     "url": "/repos/berriai-litellm/",
@@ -1958,8 +1958,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "011cc0b0d1aac2ee",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "66f7794e66864513",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/chatboxai-chatbox/": {
     "url": "/repos/chatboxai-chatbox/",
@@ -1967,8 +1967,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "62326c5e12c0c205",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "98eca5de35b9e62b",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/chatgptnextweb-nextchat/": {
     "url": "/repos/chatgptnextweb-nextchat/",
@@ -1976,8 +1976,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5a261899f6b1415b",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "bc4f7aa7d1888cac",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/cheaper-inference-omniroute/": {
     "url": "/repos/cheaper-inference-omniroute/",
@@ -1985,8 +1985,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d5706ab5e14ca1b8",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "34141cd394b9bebb",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/cherryhq-cherry-studio/": {
     "url": "/repos/cherryhq-cherry-studio/",
@@ -1994,8 +1994,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5f70446f7c876f6d",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "9c61d25dc73a7d24",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/codewhale-hq-codewhale/": {
     "url": "/repos/codewhale-hq-codewhale/",
@@ -2003,8 +2003,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d4e2d6b1bb9931a7",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "c8795974862e17a8",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/composiohq-awesome-claude-skills/": {
     "url": "/repos/composiohq-awesome-claude-skills/",
@@ -2012,8 +2012,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "02521686132511f0",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "e47e960f95f4b21d",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/conductor-oss-conductor/": {
     "url": "/repos/conductor-oss-conductor/",
@@ -2021,8 +2021,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5e6da93572a3d597",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "668f233edda83048",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/coollabsio-coolify/": {
     "url": "/repos/coollabsio-coolify/",
@@ -2030,8 +2030,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "7a35c1d79a248a46",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "e99686b8c2af7b22",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/decolua-9router/": {
     "url": "/repos/decolua-9router/",
@@ -2039,8 +2039,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "e4079b65c8282180",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "9a9523077b32b3c9",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/dograh-hq-dograh/": {
     "url": "/repos/dograh-hq-dograh/",
@@ -2048,8 +2048,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "660ff16ed2e2fe6e",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "568e1e12a3234dc2",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/enescingoz-awesome-n8n-templates/": {
     "url": "/repos/enescingoz-awesome-n8n-templates/",
@@ -2057,8 +2057,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "faabbc4de7c2c9eb",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "4eeb88f96ffaf4c0",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/freestylefly-awesome-gpt-image-2/": {
     "url": "/repos/freestylefly-awesome-gpt-image-2/",
@@ -2066,8 +2066,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "278929e2aabb3699",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "cd708bed6c78b43e",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/gogs-gogs/": {
     "url": "/repos/gogs-gogs/",
@@ -2075,8 +2075,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "4f10c5b327a7d91a",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "46621341b12b449d",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/harry0703-moneyprinterturbo/": {
     "url": "/repos/harry0703-moneyprinterturbo/",
@@ -2084,8 +2084,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "76ddc1a14f9d95d5",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "7baf8bb13eefa3bd",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/hkuds-nanobot/": {
     "url": "/repos/hkuds-nanobot/",
@@ -2093,8 +2093,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "cfe4469987209dc1",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "dfdf37e5228bafd9",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/kong-kong/": {
     "url": "/repos/kong-kong/",
@@ -2102,8 +2102,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "c0ace2bcdc044e2f",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "eeba7ffa5132c1f7",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/kortix-ai-companyos/": {
     "url": "/repos/kortix-ai-companyos/",
@@ -2111,8 +2111,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "4b55fd78be84440d",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "16c848235fcd0795",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/langfuse-langfuse/": {
     "url": "/repos/langfuse-langfuse/",
@@ -2120,8 +2120,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "19fe4cbc9756002d",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "aedddb498098dd9a",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/learningcircuit-local-deep-research/": {
     "url": "/repos/learningcircuit-local-deep-research/",
@@ -2129,8 +2129,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "8c489bb22fc7ccb4",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "2d0dd3017d2a241a",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/louislam-uptime-kuma/": {
     "url": "/repos/louislam-uptime-kuma/",
@@ -2138,8 +2138,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "c7fd3ca62e8b7967",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "b516014879c317a4",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/makazhanalpamys-soup/": {
     "url": "/repos/makazhanalpamys-soup/",
@@ -2147,8 +2147,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "55f48dfb053cbf28",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "59b8ff8f585c5daf",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/milind-soni-openmausbot/": {
     "url": "/repos/milind-soni-openmausbot/",
@@ -2156,8 +2156,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "0982d515d262ebb1",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "021291c69e6e8130",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/modsetter-surfsense/": {
     "url": "/repos/modsetter-surfsense/",
@@ -2165,8 +2165,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "575953db159c7156",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "02c247990e49d889",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/mozilla-ai-llamafile/": {
     "url": "/repos/mozilla-ai-llamafile/",
@@ -2174,8 +2174,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "712f3795945c20be",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "3e8f07bdfa352a3f",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/n8n-io-n8n/": {
     "url": "/repos/n8n-io-n8n/",
@@ -2183,8 +2183,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "777596f7e4c717c8",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "c28b6311f7ace60e",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/nanocoai-nanoclaw/": {
     "url": "/repos/nanocoai-nanoclaw/",
@@ -2192,8 +2192,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "8167c50d3fd54b3d",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "1af42e9311296c7a",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/netdata-netdata/": {
     "url": "/repos/netdata-netdata/",
@@ -2201,8 +2201,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "45c8851c7e20b6b8",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "c3acb25159dc2089",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/nocobase-nocobase/": {
     "url": "/repos/nocobase-nocobase/",
@@ -2210,8 +2210,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "71c08107dcfc7e11",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "57f56009ba567d0e",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/nya-foundation-nyaproxy/": {
     "url": "/repos/nya-foundation-nyaproxy/",
@@ -2219,8 +2219,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5a50a56e21f1024c",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "a9d365f201b716cf",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/ollama-ollama/": {
     "url": "/repos/ollama-ollama/",
@@ -2228,8 +2228,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "7af5eb841b4ae63b",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "22cfd6e24cf456a4",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/open-multi-agent-open-multi-agent/": {
     "url": "/repos/open-multi-agent-open-multi-agent/",
@@ -2237,8 +2237,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d01e3588ebe1e095",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "4ea1eeb95fd459e4",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/open-webui-open-webui/": {
     "url": "/repos/open-webui-open-webui/",
@@ -2246,8 +2246,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "58e21207ae032af9",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "ce21be0399790b0a",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/paperclipai-paperclip/": {
     "url": "/repos/paperclipai-paperclip/",
@@ -2255,8 +2255,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "6a0f2b59382c81ee",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "a9615dda3f166dc6",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/portkey-ai-gateway/": {
     "url": "/repos/portkey-ai-gateway/",
@@ -2264,8 +2264,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "0cbfc5733d8775eb",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "85381d46f632bf83",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/quantumnous-new-api/": {
     "url": "/repos/quantumnous-new-api/",
@@ -2273,8 +2273,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ec1166b35c705632",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "1f2a24660e789a3a",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/respanai-respan-gateway/": {
     "url": "/repos/respanai-respan-gateway/",
@@ -2282,8 +2282,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ad3ab59fed12e33e",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "85fa0f960d1844a3",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/stirling-tools-stirling-pdf/": {
     "url": "/repos/stirling-tools-stirling-pdf/",
@@ -2291,8 +2291,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "1fc2b9a96242fc40",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "0c2fd2741b28654a",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/tencent-weknora/": {
     "url": "/repos/tencent-weknora/",
@@ -2300,8 +2300,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a365ec187261c6d9",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "c4206c0ff7147695",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/thinkwatchproject-thinkwatch/": {
     "url": "/repos/thinkwatchproject-thinkwatch/",
@@ -2309,8 +2309,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "48f2b5ba3fa99e7e",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "ab61d5f4e94a7f24",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/tooljet-tooljet/": {
     "url": "/repos/tooljet-tooljet/",
@@ -2318,8 +2318,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "af339c13d07d1d0e",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "ca3e18219170278f",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/tyktechnologies-tyk/": {
     "url": "/repos/tyktechnologies-tyk/",
@@ -2327,8 +2327,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "881297d1b147ecc7",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "b044d42a997aa744",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/usememos-memos/": {
     "url": "/repos/usememos-memos/",
@@ -2336,8 +2336,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "2a7bb7daf5a654e2",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "392c343b3574bfa7",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/vxcontrol-pentagi/": {
     "url": "/repos/vxcontrol-pentagi/",
@@ -2345,8 +2345,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "09d93cbe4b1f99a6",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "9d057f54f1e86057",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/repos/xing61-zzz-api/": {
     "url": "/repos/xing61-zzz-api/",
@@ -2354,8 +2354,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "07e4503badbdae0c",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "e9def3f2db4d8bb0",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/self-hosting/": {
     "url": "/self-hosting/",
@@ -2363,8 +2363,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "b3de31b6ab06a9ff",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "3be735c64430284f",
+    "lastmod": "2026-11-24T17:33:14Z"
   },
   "/terms/": {
     "url": "/terms/",
