@@ -1,0 +1,47 @@
+name: Weekly GSC Search Analytics & URL Inspection (sysv.cn)
+
+on:
+  schedule:
+    # Every Monday at 03:00 UTC (11:00 Beijing Time)
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  gsc-weekly-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install cryptography for Service Account RS256 JWT signing
+        run: python3 -m pip install --quiet cryptography
+
+      - name: Run GSC Search Analytics & URL Inspection API collector
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL || 'sc-domain:sysv.cn' }}
+          GSC_INSPECT_LIMIT: "25"
+        run: python3 -m scripts.gsc_report
+
+      - name: Commit weekly GSC report & inspection states
+        run: |
+          git config user.name "sysv-bot"
+          git config user.email "bot@sysv.cn"
+          git add data/gsc_weekly_report.json data/published_pages.json data/gsc_history/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(gsc): weekly search analytics & URL inspection $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No GSC report changes to commit."
+          fi

@@ -25,7 +25,7 @@ from typing import Any
 from scripts import seo_gate, tools_builder
 from scripts.utils import DATA_DIR, DIST_DIR, ROOT_DIR, load_config, load_json, save_json, utc_now_iso, utc_today
 
-TEMPLATE_VERSION = "v2.2"
+TEMPLATE_VERSION = "v2.2.1"
 
 
 def e(text: Any) -> str:
@@ -244,6 +244,12 @@ footer {
   font-size: 0.86rem;
 }
 .footer-links { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+@media (max-width: 480px) {
+  .wrap { padding: 0 14px; }
+  h1 { font-size: 1.45rem; }
+  .hero, .card { padding: 16px; }
+  .controls input { min-width: 0 !important; width: 100%; }
+}
 """
 
 
@@ -369,6 +375,38 @@ def render_layout(
       <div>&copy; 2026 {e(cfg["site_name"])} ({e(cfg["domain"])}) &middot; {e(cfg["tagline"])} &middot; Commit <code>{e(git_commit)}</code> &middot; Source: OpenRouter &amp; GitHub Public APIs.</div>
     </div>
   </footer>
+</body>
+</html>
+"""
+
+
+def render_embed_layout(
+    cfg: dict[str, Any],
+    *,
+    title: str,
+    canonical_path: str,
+    body_html: str,
+) -> str:
+    """Strictly ad-free, tracker-free embed layout (`noindex, follow`, canonical -> /tools/...)."""
+    base = cfg["base_url"].rstrip("/")
+    canonical = base + canonical_path
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{e(title)}</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="{e(canonical)}" />
+  <style>{CSS}
+  body {{ padding: 14px; }}
+  </style>
+</head>
+<body>
+  <div style="max-width:860px;margin:0 auto">
+    {body_html}
+    <div class="muted small" style="text-align:right;margin-top:8px">Data &amp; calculator by <a href="{e(canonical)}" target="_blank" rel="noopener">SysV.cn</a> (ad-free embed)</div>
+  </div>
 </body>
 </html>
 """
@@ -1325,9 +1363,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         ),
     )
 
-    # --- 8. Standalone Tool Pages (/tools/*) & Linkable Data Assets (/data/*) ---
+    # --- 8. Standalone Tool Pages (/tools/*), Ad-Free Embeds (/embed/*) & Linkable Data Assets (/data/*) ---
     tools_builder.build_tools_and_data_assets(
-        cfg, models, calc_models, changelog, git_commit, write_page, render_layout, register_page, e
+        cfg, models, calc_models, changelog, git_commit, write_page, render_layout, render_embed_layout, register_page, e
     )
 
     # --- 9. Trust / Compliance Pages ---
@@ -1455,6 +1493,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
     version_manifest = {
         "site": cfg["domain"],
         "version": TEMPLATE_VERSION,
+        "deploy_target": os.getenv("DEPLOY_TARGET", "github-pages"),
         "git_commit": git_commit,
         "built_at_utc": now_iso,
         "sitemap_indexable_urls": len(sitemap_nodes),
