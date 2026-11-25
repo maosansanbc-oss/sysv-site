@@ -325,7 +325,7 @@ def build_tools_and_data_assets(
       <div style="margin-top:10px">
         <label class="muted small" style="cursor:pointer"><input id="or-batch" type="checkbox" checked /> Compare asynchronous <code>:batch</code> endpoints alongside real-time models</label>
       </div>
-      <div class="calc-result" id="or-out-box"></div>
+      <div class="calc-result" id="or-out-box" aria-live="polite"></div>
       <p class="muted small" style="margin-top:10px"><strong>Fee &amp; Scope Disclosure:</strong> Separates (1) upstream token inference cost, (2) OpenRouter payment/platform fee (card 5.5% with $0.80 min; crypto 5%; BYOK 0% up to $25,000/mo list inference on eligible plans, 5% overage), and (3) total cash outlay. Excludes prompt-cache discounts &amp; long-context tiered surcharges unless noted.</p>
     </div>
     <script src="/assets/calc-engine.js"></script>
@@ -449,7 +449,7 @@ def build_tools_and_data_assets(
           <input id="n8n-cloud" type="number" min="0" step="5" value="24" style="width:100%;margin-top:6px" />
         </div>
       </div>
-      <div class="calc-result" id="n8n-out-box"></div>
+      <div class="calc-result" id="n8n-out-box" aria-live="polite"></div>
       <p class="muted small" style="margin-top:10px"><strong>Capability Gate Applied:</strong> Ranks only real-time endpoints with Source Verified <code>tools</code> support; excludes async <code>:batch</code> endpoints and variable routers.</p>
     </div>
     <script src="/assets/calc-engine.js"></script>
@@ -550,7 +550,7 @@ def build_tools_and_data_assets(
       <div style="margin-top:10px">
         <label class="muted small" style="cursor:pointer"><input id="tr-batch" type="checkbox" checked /> Include asynchronous <code>:batch</code> endpoints (best fit for non-urgent bulk translation)</label>
       </div>
-      <div class="calc-result" id="tr-out-box"></div>
+      <div class="calc-result" id="tr-out-box" aria-live="polite"></div>
       <p class="muted small" style="margin-top:10px"><strong>Estimation Scope:</strong> Uses 1,000 words &approx; 1,333 tokens plus 200 system-prompt tokens per document. Excludes prompt-cache discounts and translation quality differences.</p>
     </div>
     <script src="/assets/calc-engine.js"></script>
@@ -665,7 +665,7 @@ def build_tools_and_data_assets(
           </div>
         </div>
       </div>
-      <div class="calc-result" id="loc-out-box"></div>
+      <div class="calc-result" id="loc-out-box" aria-live="polite"></div>
       <p class="muted small" style="margin-top:10px"><strong>Caveat:</strong> Assumes 24/7 power at the entered average Watt draw and excludes engineer maintenance hours unless added to hardware cost.</p>
     </div>
     <script>
@@ -830,7 +830,7 @@ def build_tools_and_data_assets(
           <tr><td><a href="/data/models.json"><code>/data/models.json</code></a></td><td>JSON (v2.2.1)</td><td>Daily 02:15 UTC</td><td>{len(active_models)} active models with 8-state pricing &amp; verified capability flags</td></tr>
           <tr><td><a href="/data/price-history.csv"><code>/data/price-history.csv</code></a></td><td>CSV</td><td>Daily 02:15 UTC</td><td>Up to 30 days of archived daily pricing snapshots ({changelog.get('snapshot_days', 1)} day(s) archived)</td></tr>
           <tr><td><a href="/data/free-models.xml"><code>/data/free-models.xml</code></a></td><td>RSS 2.0</td><td>Daily 02:15 UTC</td><td>Verified rate-limited $0 free text LLM endpoints ({len(free_models)} active)</td></tr>
-          <tr><td><a href="/data/badge-free-count.svg"><code>/data/badge-free-count.svg</code></a></td><td>SVG Badge</td><td>Daily 02:15 UTC</td><td>Voluntary GitHub README status badge <img src="/data/badge-free-count.svg" alt="SysV Free LLM APIs badge" style="vertical-align:middle;margin-left:6px" /></td></tr>
+          <tr><td><a href="/data/badge-free-count.svg"><code>/data/badge-free-count.svg</code></a></td><td>SVG Badge</td><td>Daily 02:15 UTC</td><td>Voluntary GitHub README status badge <img src="/data/badge-free-count.svg" width="210" height="24" alt="SysV Free LLM APIs badge" style="vertical-align:middle;margin-left:6px" /></td></tr>
         </tbody>
       </table>
     </div>

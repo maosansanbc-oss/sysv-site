@@ -129,7 +129,7 @@ def pricing_badge(m: dict[str, Any]) -> str:
 
 CSS = """
 :root {
-  --bg: #f5f5f7;
+  --bg: #ffffff;
   --surface: #ffffff;
   --surface-2: #f5f5f7;
   --border: rgba(0, 0, 0, 0.08);
@@ -142,9 +142,11 @@ CSS = """
   --warn: #9a5b00;
   --purple: #5e35b1;
   --danger: #c5221f;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.03);
 }
 * { box-sizing: border-box; }
+html {
+  -webkit-tap-highlight-color: rgba(0, 113, 227, 0.12);
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -155,12 +157,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+a, button, input, select, label { touch-action: manipulation; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  background: var(--text);
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 980px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  z-index: 100;
+}
+.skip-link:focus-visible { left: 16px; }
 code {
   font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.86em;
-  background: #f0f0f5;
+  font-size: 0.85em;
+  background: var(--surface-2);
   color: var(--text);
   padding: 2px 6px;
   border-radius: 6px;
@@ -169,64 +189,93 @@ pre {
   font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   color: var(--text);
 }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 header {
   border-bottom: 1px solid var(--border);
-  background: rgba(251, 251, 253, 0.82);
+  background: rgba(255, 255, 255, 0.84);
   position: sticky; top: 0; z-index: 20;
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 0; flex-wrap: wrap; }
-.brand { font-weight: 600; font-size: 1.12rem; color: var(--text); letter-spacing: -0.02em; }
-.brand span { color: var(--muted); font-weight: 500; }
+.brand { font-weight: 600; font-size: 1.08rem; color: var(--text); letter-spacing: -0.02em; }
+.brand span { color: var(--muted); font-weight: 400; }
 .brand:hover { text-decoration: none; }
-.nav-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.86rem; font-weight: 400; }
+.nav-links { display: flex; gap: 24px; flex-wrap: wrap; font-size: 0.86rem; font-weight: 400; }
 .nav-links a { color: #424245; transition: color 0.15s ease; }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
-main { padding: 34px 0 72px; }
+main { padding: 40px 0 80px; }
+main:focus { outline: none; }
+.hero-open {
+  padding: 6px 0 28px;
+}
 .hero {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 32px;
+  padding: 0 0 24px;
   margin-bottom: 24px;
-  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border);
 }
 h1 {
-  margin: 0 0 10px;
-  font-size: 2.15rem;
+  margin: 0 0 12px;
+  font-size: clamp(1.85rem, 3.4vw, 2.55rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
   color: var(--text);
+  text-wrap: balance;
 }
 h2 {
-  margin: 34px 0 12px;
-  font-size: 1.42rem;
+  margin: 44px 0 12px;
+  font-size: 1.45rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
+  letter-spacing: -0.022em;
+  line-height: 1.22;
   color: var(--text);
+  text-wrap: balance;
+  scroll-margin-top: 72px;
 }
 h3 {
-  margin: 14px 0 8px;
-  font-size: 1.05rem;
+  margin: 14px 0 6px;
+  font-size: 1.04rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.012em;
   color: var(--text);
+  scroll-margin-top: 72px;
+}
+[id] { scroll-margin-top: 72px; }
+p { max-width: 68ch; }
+.lead {
+  font-size: 1.06rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+  max-width: 62ch;
 }
 .muted { color: var(--muted); }
 .small { font-size: 0.84rem; }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 22px; }
+.metrics-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.metrics-strip strong {
+  color: var(--text);
+  font-weight: 600;
+  margin-right: 4px;
+}
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 20px; }
 .stat {
   background: var(--surface-2);
-  border: 1px solid rgba(0, 0, 0, 0.04);
   border-radius: 14px;
-  padding: 16px 18px;
+  padding: 15px 18px;
 }
 .stat .num {
-  font-size: 1.55rem;
+  font-size: 1.48rem;
   font-weight: 600;
   color: var(--text);
   letter-spacing: -0.025em;
@@ -234,17 +283,26 @@ h3 {
   line-height: 1.2;
 }
 .stat .lbl { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+.calc-panel {
+  background: var(--surface-2);
+  border-radius: 20px;
+  padding: 28px;
+  margin: 8px 0 28px;
+}
+.calc-panel h2 { margin-top: 0; }
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-sm);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 18px;
+  transition: border-color 0.15s ease;
 }
+.grid .card { margin-bottom: 0; }
+.grid .card:hover { border-color: var(--border-strong); }
 .callout-warn {
   background: #fff9ee;
-  border: 1px solid rgba(154, 91, 0, 0.22);
+  border: 1px solid rgba(154, 91, 0, 0.2);
   border-radius: 14px;
   padding: 14px 18px;
   margin-bottom: 18px;
@@ -252,7 +310,7 @@ h3 {
 }
 .callout-danger {
   background: #fff2f2;
-  border: 1px solid rgba(197, 34, 31, 0.22);
+  border: 1px solid rgba(197, 34, 31, 0.2);
   border-radius: 14px;
   padding: 14px 18px;
   margin-bottom: 18px;
@@ -260,7 +318,7 @@ h3 {
 }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 .badge {
-  display: inline-block; padding: 3px 10px; border-radius: 980px;
+  display: inline-block; padding: 2px 9px; border-radius: 980px;
   font-size: 0.74rem; font-weight: 500; letter-spacing: -0.005em;
   background: #f0f0f5; color: #424245;
 }
@@ -279,10 +337,10 @@ input, select {
   font-family: inherit;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
-input:focus, select:focus {
+input:focus-visible, select:focus-visible {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.16);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.18);
 }
 input[type="checkbox"] {
   accent-color: var(--accent);
@@ -295,7 +353,6 @@ input[type="checkbox"] {
   border: 1px solid var(--border);
   border-radius: 16px;
   background: var(--surface);
-  box-shadow: var(--shadow-sm);
 }
 table { width: 100%; border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
 th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid rgba(0, 0, 0, 0.06); vertical-align: top; }
@@ -303,20 +360,30 @@ th {
   background: #fbfbfd;
   color: var(--muted);
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.79rem;
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
+.num-col { text-align: right; white-space: nowrap; }
+tbody tr { content-visibility: auto; contain-intrinsic-size: 0 54px; }
 tr:last-child td { border-bottom: none; }
-tr:hover td { background: #f9f9fb; }
+tr:hover td { background: #fafafa; }
 .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 14px; }
 .calc-result {
   margin-top: 18px;
-  padding: 16px 18px;
+  padding: 18px 20px;
   border-radius: 14px;
-  background: #f5f9ff;
-  border: 1px solid rgba(0, 113, 227, 0.16);
+  background: #ffffff;
+  border: 1px solid var(--border);
   font-variant-numeric: tabular-nums;
+}
+.tool-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 .btn {
   display: inline-block;
@@ -331,34 +398,37 @@ tr:hover td { background: #f9f9fb; }
 }
 .btn:hover { background: var(--accent-hover); color: #ffffff; text-decoration: none; }
 .ad-slot {
-  margin: 24px 0; text-align: center; min-height: 90px;
+  margin: 26px 0; text-align: center; min-height: 90px;
   border: 1px dashed var(--border-strong); border-radius: 14px; padding: 10px;
   display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.84rem;
-  background: var(--surface);
+  background: var(--surface-2);
 }
-.breadcrumb { font-size: 0.84rem; color: var(--muted); margin-bottom: 14px; }
+.breadcrumb { font-size: 0.83rem; color: var(--muted); margin-bottom: 14px; }
 .breadcrumb a { color: var(--muted); }
 .breadcrumb a:hover { color: var(--text); }
 footer {
   border-top: 1px solid var(--border);
-  background: #f5f5f7;
-  padding: 28px 0 48px;
+  background: var(--surface-2);
+  padding: 32px 0 52px;
   color: var(--muted);
   font-size: 0.82rem;
 }
 .footer-links { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 10px; }
 .footer-links a { color: #424245; }
 .footer-links a:hover { color: var(--text); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
 @media (max-width: 480px) {
   .wrap { padding: 0 16px; }
-  main { padding: 22px 0 52px; }
-  h1 { font-size: 1.62rem; }
-  h2 { font-size: 1.24rem; }
-  .hero, .card { padding: 18px; border-radius: 16px; }
+  main { padding: 24px 0 56px; }
+  h2 { font-size: 1.24rem; margin-top: 32px; }
+  .calc-panel, .card { padding: 18px; border-radius: 16px; }
   .stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .stat { padding: 13px 14px; }
-  .stat .num { font-size: 1.32rem; }
-  .nav-links { gap: 12px; font-size: 0.83rem; }
+  .stat .num { font-size: 1.28rem; }
+  .nav-links { gap: 14px; font-size: 0.83rem; }
+  .metrics-strip { gap: 8px 18px; font-size: 0.82rem; }
   .controls input { min-width: 0 !important; width: 100%; }
 }
 """
@@ -439,6 +509,7 @@ def render_layout(
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
   <title>{e(title)}</title>
   <meta name="description" content="{e(description)}" />
   {robots_meta}
@@ -454,36 +525,36 @@ def render_layout(
   {"".join(ld_blocks)}
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="/">SysV<span>.cn</span></a>
-      <nav class="nav-links">
-        <a href="/">Pricing &amp; Calculator</a>
-        <a href="/tools/">Tools</a>
-        <a href="/models/">All Models</a>
+      <a class="brand" href="/" translate="no">SysV<span>.cn</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/">Pricing</a>
+        <a href="/tools/">Calculators</a>
         <a href="/free-llm-apis/">Free APIs</a>
         <a href="/compare/">Compare</a>
-        <a href="/price-changes/">Price History</a>
         <a href="/self-hosting/">Self-Hosting</a>
-        <a href="/data/">Open Data</a>
       </nav>
     </div>
   </header>
-  <main class="wrap">
+  <main id="main-content" class="wrap" tabindex="-1">
     {body_html}
   </main>
   <footer>
     <div class="wrap">
       <div class="footer-links">
-        <a href="/about/">About &amp; Methodology</a>
+        <a href="/models/">All Models</a>
+        <a href="/price-changes/">Price History</a>
         <a href="/data/">Open Data &amp; CSV</a>
+        <a href="/about/">About &amp; Methodology</a>
         <a href="/privacy/">Privacy Policy</a>
         <a href="/terms/">Terms of Use</a>
         <a href="/contact/">Contact</a>
         <a href="/sitemap.xml">Sitemap</a>
         <a href="/version.json">Build Info</a>
       </div>
-      <div>&copy; 2026 {e(cfg["site_name"])} ({e(cfg["domain"])}) &middot; {e(cfg["tagline"])} &middot; Commit <code>{e(git_commit)}</code> &middot; Source: OpenRouter &amp; GitHub Public APIs.</div>
+      <div>&copy; 2026 <span translate="no">{e(cfg["site_name"])} ({e(cfg["domain"])})</span> &mdash; {e(cfg["tagline"])} &middot; Commit <code translate="no">{e(git_commit)}</code> &middot; Source: OpenRouter &amp; GitHub Public APIs.</div>
     </div>
   </footer>
 </body>
@@ -804,74 +875,78 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         rows.append(
             f'<tr data-ptype="{e(ptype)}" data-price="{sort_price}" data-ctx="{m["context_length"]}" '
             f'data-search="{e((m["name"] + " " + m["provider"] + " " + m["id"] + " " + ptype).lower())}">'
-            f'<td><a href="/models/{e(m["slug"])}/"><strong>{e(m["name"])}</strong></a><br><span class="muted small">{e(m["id"])}</span></td>'
+            f'<td><a href="/models/{e(m["slug"])}/" translate="no"><strong>{e(m["name"])}</strong></a><br><span class="muted small" translate="no">{e(m["id"])}</span></td>'
             f'<td>{pricing_badge(m)}</td>'
-            f'<td class="muted small">{e(" · ".join(cap_tags) or "Text")}</td>'
-            f'<td>{e(fmt_ctx(m["context_length"]))}</td>'
-            f'<td>{e(fmt_price(m["prompt_price_per_m"], ptype))}</td>'
-            f'<td>{e(fmt_price(m["completion_price_per_m"], ptype))}</td>'
+            f'<td class="muted small">{e(" / ".join(cap_tags) or "Text")}</td>'
+            f'<td class="num-col">{e(fmt_ctx(m["context_length"]))}</td>'
+            f'<td class="num-col">{e(fmt_price(m["prompt_price_per_m"], ptype))}</td>'
+            f'<td class="num-col">{e(fmt_price(m["completion_price_per_m"], ptype))}</td>'
             f"</tr>"
         )
 
     compare_cards = "".join(
         f'<div class="card"><span class="badge">{e(lbl)}</span>'
-        f'<div style="margin-top:8px"><a href="/compare/{e(slug)}/"><strong>{e(a["name"])} vs {e(b["name"])}</strong></a></div>'
+        f'<div style="margin-top:8px"><a href="/compare/{e(slug)}/" translate="no"><strong>{e(a["name"])} vs {e(b["name"])}</strong></a></div>'
         f'<p class="muted small" style="margin:6px 0 0">Input: {e(fmt_price(a["prompt_price_per_m"], a["pricing_type"]))} vs {e(fmt_price(b["prompt_price_per_m"], b["pricing_type"]))} &middot; '
         f'Context: {fmt_ctx(a["context_length"])} vs {fmt_ctx(b["context_length"])}</p></div>'
         for a, b, slug, lbl, _ in active_pairs[:6]
     )
 
     home_body = f"""
-    <section class="hero">
-      <span class="badge badge-free">Source Verified Daily</span>
-      <span class="badge">{e(cfg["tagline"])}</span>
-      <h1 style="margin-top:10px">LLM API Pricing &amp; Token Cost Calculator</h1>
-      <p class="muted">Compare live AI API pricing per 1M tokens, run capability-gated workload estimates, and separate rate-limited free tiers, async batch endpoints, and variable routers.</p>
-      <div class="stats">
-        <div class="stat"><div class="num">{len(free_models)}</div><div class="lbl">Rate-Limited Free ($0) Models</div></div>
-        <div class="stat"><div class="num">{len(paid_models)}</div><div class="lbl">Real-Time Paid Models</div></div>
-        <div class="stat"><div class="num">{len(batch_models)}</div><div class="lbl">Async Batch Tracked</div></div>
-        <div class="stat"><div class="num">{changelog.get("latest_total_endpoints", len(active_models))}</div><div class="lbl">Endpoints in Daily Snapshot</div></div>
+    <section class="hero-open">
+      <h1>LLM API Pricing &amp; Token Cost Calculator</h1>
+      <p class="lead">Compare live AI API pricing per 1M tokens, run capability-gated workload estimates, and separate rate-limited free tiers, async batch endpoints, and variable routers.</p>
+      <div class="metrics-strip">
+        <span><strong>{len(free_models)}</strong> Rate-Limited Free ($0)</span>
+        <span><strong>{len(paid_models)}</strong> Real-Time Paid</span>
+        <span><strong>{len(batch_models)}</strong> Async Batch</span>
+        <span><strong>{changelog.get("latest_total_endpoints", len(active_models))}</strong> Endpoints in Daily Snapshot</span>
       </div>
     </section>
 
-    <section class="card" id="task-calculator">
-      <h2 style="margin-top:0">AI API Token Cost Calculator (Capability-Gated)</h2>
-      <p class="muted small"><strong>Estimation Scope:</strong> Computes base input/output token spend in USD per 1M tokens (Source Verified via OpenRouter API). Excludes tiered long-context surcharges, prompt-cache discounts, and retry variance unless noted. Dynamic routers (<code>-1</code>) are always excluded.</p>
+    <section class="calc-panel" id="task-calculator">
+      <h2>AI API Token Cost Calculator</h2>
+      <p class="muted small">Computes base input and output token spend in USD per 1M tokens from OpenRouter public pricing metadata. Excludes tiered long-context surcharges, prompt-cache discounts, and dynamic routers (<code translate="no">-1</code>).</p>
       <div class="calc-grid">
         <div>
           <label class="muted small" for="task-preset">Workload &amp; Capability Gate</label><br />
           <select id="task-preset" style="width:100%;margin-top:6px">
             <option value="coding" data-in="18.0" data-out="3.5">AI Coding Agent (Real-Time + Tools + &ge;64K ctx)</option>
             <option value="autosite" data-in="1.2" data-out="0.4">Structured Data Pipeline (Real-Time + JSON)</option>
-            <option value="translation" data-in="2.5" data-out="2.5">Bulk Translation (1M words / mo &middot; Optional Batch)</option>
+            <option value="translation" data-in="2.5" data-out="2.5">Bulk Translation (1M words / mo, Optional Batch)</option>
             <option value="rag" data-in="12.0" data-out="1.0">RAG Document QA (Real-Time + &ge;100K ctx)</option>
             <option value="custom" data-in="5.0" data-out="1.0">Custom Token Volume</option>
           </select>
         </div>
         <div>
           <label class="muted small" for="calc-in">Monthly Input Tokens (Millions)</label><br />
-          <input id="calc-in" type="number" min="0" step="0.1" value="18.0" style="width:100%;margin-top:6px" />
+          <input id="calc-in" type="number" min="0" step="0.1" value="18.0" autocomplete="off" style="width:100%;margin-top:6px" />
         </div>
         <div>
           <label class="muted small" for="calc-out">Monthly Output Tokens (Millions)</label><br />
-          <input id="calc-out" type="number" min="0" step="0.1" value="3.5" style="width:100%;margin-top:6px" />
+          <input id="calc-out" type="number" min="0" step="0.1" value="3.5" autocomplete="off" style="width:100%;margin-top:6px" />
         </div>
       </div>
-      <div style="margin-top:10px">
-        <label class="muted small" style="cursor:pointer"><input id="include-batch" type="checkbox" /> Include asynchronous <code>:batch</code> endpoints (bulk non-interactive tasks only)</label>
+      <div style="margin-top:12px">
+        <label class="muted small" style="cursor:pointer"><input id="include-batch" type="checkbox" /> Include asynchronous <code translate="no">:batch</code> endpoints (bulk non-interactive tasks only)</label>
       </div>
-      <div class="calc-result" id="task-ranking"></div>
-      <p class="small" style="margin-top:12px">Need specialized assumptions? Try dedicated tools: <a href="/tools/openrouter-cost-calculator/">OpenRouter Fee Calculator</a> &middot; <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Cost Calculator</a> &middot; <a href="/tools/llm-translation-cost-calculator/">1,000-Doc Translation Calculator</a> &middot; <a href="/tools/api-vs-local-llm-calculator/">API vs Local GPU Break-Even</a></p>
+      <div class="calc-result" id="task-ranking" aria-live="polite"></div>
+      <div class="tool-strip">
+        <span>Specialized calculators:</span>
+        <a href="/tools/openrouter-cost-calculator/">OpenRouter Fees</a>
+        <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Workflow</a>
+        <a href="/tools/llm-translation-cost-calculator/">1,000-Doc Translation</a>
+        <a href="/tools/api-vs-local-llm-calculator/">API vs Local GPU</a>
+      </div>
     </section>
 
     {render_ad_slot(cfg, "adsense_slot_top")}
 
     <section>
       <h2>Live LLM API Pricing Table (USD / 1M Tokens)</h2>
-      <p class="muted small">Showing {len(active_models)} curated active endpoints (<a href="/models/">full models hub</a> &middot; <a href="/data/">download JSON / CSV</a>).</p>
+      <p class="muted small">Showing {len(active_models)} curated active endpoints. Browse the <a href="/models/">full models directory</a>, track <a href="/price-changes/">daily price history</a>, or export <a href="/data/">open JSON and CSV</a>.</p>
       <div class="controls">
-        <input id="model-search" type="search" placeholder="Search model, provider, or type..." style="flex:1;min-width:220px" />
+        <input id="model-search" type="search" aria-label="Search models, providers, or pricing types" autocomplete="off" spellcheck="false" placeholder="Search model, provider, or type&hellip;" style="flex:1;min-width:220px" />
         <select id="tier-filter" aria-label="Filter by pricing type">
           <option value="all">All Pricing Types</option>
           <option value="limited_free">Limited Free Tier ($0)</option>
@@ -887,7 +962,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Model Endpoint</th><th>Pricing Type</th><th>Verified Capabilities</th><th>Context</th><th>Input / 1M</th><th>Output / 1M</th></tr></thead>
+          <thead><tr><th>Model Endpoint</th><th>Pricing Type</th><th>Capabilities</th><th class="num-col">Context</th><th class="num-col">Input / 1M</th><th class="num-col">Output / 1M</th></tr></thead>
           <tbody id="model-tbody">{"".join(rows)}</tbody>
         </table>
       </div>
@@ -996,17 +1071,17 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
 
     # --- 2. /models/ Hub Page (Fixes Paid Model Breadcrumb Architecture!) ---
     models_hub_rows = "".join(
-        f'<tr><td><a href="/models/{e(m["slug"])}/"><strong>{e(m["name"])}</strong></a></td>'
-        f'<td>{e(m["provider"])}</td><td>{pricing_badge(m)}</td><td>{e(fmt_ctx(m["context_length"]))}</td>'
-        f'<td>{e(fmt_price(m["prompt_price_per_m"], m["pricing_type"]))}</td>'
-        f'<td>{e(fmt_price(m["completion_price_per_m"], m["pricing_type"]))}</td></tr>'
+        f'<tr><td><a href="/models/{e(m["slug"])}/" translate="no"><strong>{e(m["name"])}</strong></a></td>'
+        f'<td translate="no">{e(m["provider"])}</td><td>{pricing_badge(m)}</td><td class="num-col">{e(fmt_ctx(m["context_length"]))}</td>'
+        f'<td class="num-col">{e(fmt_price(m["prompt_price_per_m"], m["pricing_type"]))}</td>'
+        f'<td class="num-col">{e(fmt_price(m["completion_price_per_m"], m["pricing_type"]))}</td></tr>'
         for m in active_models
     )
     models_hub_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / Models</div>
     <h1>All LLM API Models &amp; Pricing Directory ({len(active_models)} Active)</h1>
-    <p class="muted">Complete directory of Source Verified LLM endpoints tracked on SysV, spanning real-time paid models, rate-limited free models, async <code>:batch</code> endpoints, and flagged variable routers.</p>
-    <div class="table-wrap"><table><thead><tr><th>Model</th><th>Provider</th><th>Pricing Type</th><th>Context</th><th>Input / 1M</th><th>Output / 1M</th></tr></thead><tbody>{models_hub_rows}</tbody></table></div>
+    <p class="lead">Complete directory of Source Verified LLM endpoints tracked on SysV, spanning real-time paid models, rate-limited free models, async <code translate="no">:batch</code> endpoints, and flagged variable routers.</p>
+    <div class="table-wrap" style="margin-top:24px"><table><thead><tr><th>Model</th><th>Provider</th><th>Pricing Type</th><th class="num-col">Context</th><th class="num-col">Input / 1M</th><th class="num-col">Output / 1M</th></tr></thead><tbody>{models_hub_rows}</tbody></table></div>
     """
     register_page(
         "models/index.html",
@@ -1098,17 +1173,17 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
     <h1>Free LLM APIs With Tool Calling &amp; Real Rate Limits</h1>
     <p class="muted">Zero token cost is <strong>not</strong> unlimited. Compare free-tier quotas, credit-card rules, OpenAI SDK compatibility, and data-training policies across major providers, test whether free limits cover your daily automation workload, and filter {len(free_models)} live OpenRouter <code>:free</code> text endpoints below.</p>
 
-    <section class="card" style="margin:18px 0">
-      <h2 style="margin-top:0">Free LLM API Daily Quota Calculator</h2>
-      <p class="muted small">Estimate whether free-tier daily limits cover your scheduled jobs or automation workflows before hitting HTTP <code>429</code> rate limits.</p>
+    <section class="calc-panel" style="margin:24px 0 28px">
+      <h2>Free LLM API Daily Quota Calculator</h2>
+      <p class="muted small">Estimate whether free-tier daily limits cover your scheduled jobs or automation workflows before hitting HTTP <code translate="no">429</code> rate limits.</p>
       <div class="calc-grid">
         <div>
           <label class="muted small" for="fq-jobs">Daily Automation Jobs / Runs</label><br />
-          <input id="fq-jobs" type="number" min="0" step="5" value="30" style="width:100%;margin-top:6px" />
+          <input id="fq-jobs" type="number" min="0" step="5" value="30" autocomplete="off" style="width:100%;margin-top:6px" />
         </div>
         <div>
           <label class="muted small" for="fq-calls">AI Calls per Job</label><br />
-          <input id="fq-calls" type="number" min="0" step="1" value="3" style="width:100%;margin-top:6px" />
+          <input id="fq-calls" type="number" min="0" step="1" value="3" autocomplete="off" style="width:100%;margin-top:6px" />
         </div>
         <div>
           <label class="muted small" for="fq-retry">Retry / Error Overhead</label><br />
@@ -1120,7 +1195,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         </div>
         <div>
           <label class="muted small" for="fq-tok">Avg. Tokens / Call (In + Out)</label><br />
-          <input id="fq-tok" type="number" min="0" step="250" value="1500" style="width:100%;margin-top:6px" />
+          <input id="fq-tok" type="number" min="0" step="250" value="1500" autocomplete="off" style="width:100%;margin-top:6px" />
         </div>
         <div>
           <label class="muted small" for="fq-or-tier">OpenRouter Account Status</label><br />
@@ -1130,7 +1205,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
           </select>
         </div>
       </div>
-      <div class="calc-result" id="fq-out"></div>
+      <div class="calc-result" id="fq-out" aria-live="polite"></div>
       <p class="muted small" style="margin-top:10px"><strong>Caveat:</strong> OpenRouter <code>:free</code> models also enforce a global <strong>20 RPM</strong> ceiling, and retries/upstream errors can consume rate-limit headroom. Need paid fallback math? Try the <a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a> or <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Workflow Calculator</a>.</p>
     </section>
 
