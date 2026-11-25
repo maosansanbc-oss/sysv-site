@@ -275,6 +275,15 @@
       "detail": "Input $0.1 -> $0.17, Output $0.25 -> $0.25 per 1M"
     },
     {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro 0423",
+      "slug": "deepseek-deepseek-v4-pro",
+      "detail": "Input $0.799448 -> $0.78937, Output $1.5629 -> $1.5629 per 1M"
+    },
+    {
       "date": "2026-11-24",
       "compared_to": "2026-11-24",
       "type": "tier_change",

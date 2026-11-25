@@ -2230,7 +2230,7 @@
       "slug": "deepseek-deepseek-v4-pro",
       "provider": "Deepseek",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.799448,
+      "prompt_price_per_m": 0.78937,
       "completion_price_per_m": 1.5629,
       "context_length": 1048576
     },
