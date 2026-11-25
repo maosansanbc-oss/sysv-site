@@ -4,7 +4,7 @@
       "date": "2026-11-25",
       "fetch_success": true,
       "fetch_repos_success": true,
-      "publish_success": null,
+      "publish_success": true,
       "llm_calls": 70,
       "llm_tokens_in": 125916,
       "llm_tokens_out": 58264,
@@ -15,12 +15,15 @@
       "indexed_pages": null,
       "affiliate_clicks": null,
       "affiliate_conversions": null,
-      "estimated_revenue_usd": 0.0,
-      "confirmed_payable_usd": 0.0,
-      "bank_settled_usd": 0.0,
-      "net_profit_usd": -0.059716,
+      "estimated_revenue_usd": null,
+      "confirmed_payable_usd": null,
+      "bank_settled_usd": null,
+      "net_profit_usd": null,
       "manual_interventions": 0,
-      "manual_minutes": 0
+      "manual_minutes": 0,
+      "revenue_status": "REVENUE_UNKNOWN",
+      "last_deploy_utc": "2026-11-25T17:57:50Z",
+      "last_deploy_commit": "99cfd49"
     },
     {
       "date": "2026-11-24",
@@ -37,12 +40,13 @@
       "indexed_pages": null,
       "affiliate_clicks": null,
       "affiliate_conversions": null,
-      "estimated_revenue_usd": 0.0,
-      "confirmed_payable_usd": 0.0,
-      "bank_settled_usd": 0.0,
-      "net_profit_usd": -0.017313,
+      "estimated_revenue_usd": null,
+      "confirmed_payable_usd": null,
+      "bank_settled_usd": null,
+      "net_profit_usd": null,
       "manual_interventions": 0,
-      "manual_minutes": 0
+      "manual_minutes": 0,
+      "revenue_status": "REVENUE_UNKNOWN"
     }
   ]
 }
