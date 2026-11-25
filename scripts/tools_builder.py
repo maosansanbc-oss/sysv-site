@@ -95,32 +95,63 @@ window.SysVCalc = (function () {
     };
   }
 
-  /* Free LLM API daily quota estimator (v2.2.2):
-   * Evaluates daily automation call/token demand against verified free-tier limits.
+  /* Free LLM API daily & burst quota estimator (v2.2.2):
+   * Separates daily totals (RPD / TPD / Neurons) from peak minute throughput (RPM / TPM).
+   * Cloudflare Workers AI reference: @cf/meta/llama-3.2-1b-instruct (2,457 in / 18,252 out Neurons per 1M tokens).
+   * Cerebras: $5 / 30-day verified-payment trial only (no permanently free tier).
    */
-  function calculateFreeQuota(dailyJobs, callsPerJob, retryMult, avgTokensPerCall, openRouterTier) {
+  function calculateFreeQuota(dailyJobs, callsPerJob, peakRpm, retryMult, inputTokensPerCall, outputTokensPerCall, openRouterTier) {
     var jobs = Math.max(0, Number(dailyJobs) || 0);
     var perJob = Math.max(0, Number(callsPerJob) || 0);
+    var burstRpm = Math.max(0, Number(peakRpm) || 0);
     var mult = Math.max(1.0, Number(retryMult) || 1.0);
-    var tokPerCall = Math.max(0, Number(avgTokensPerCall) || 0);
+    var inTok = Math.max(0, Number(inputTokensPerCall) || 0);
+    var outTok = Math.max(0, Number(outputTokensPerCall) || 0);
+    var tokPerCall = inTok + outTok;
+
     var requiredCalls = Math.ceil(jobs * perJob * mult);
     var requiredTokens = Math.round(requiredCalls * tokPerCall);
+    var effectivePeakRpm = Math.ceil(burstRpm * mult);
+    var peakTpm = Math.round(effectivePeakRpm * tokPerCall);
+
     var orLimit = openRouterTier === 'paid_1000' ? 1000 : 50;
+    var orRpdCovered = requiredCalls <= orLimit;
+    var orRpmCovered = effectivePeakRpm <= 20;
     var orDeficit = Math.max(0, requiredCalls - orLimit);
-    var groqRpd = 1000;
-    var groqTpd = 200000;
-    var groqFits = requiredCalls <= groqRpd && requiredTokens <= groqTpd && tokPerCall <= 8000;
-    var cerebrasTpd = 1000000;
-    var cerebrasFits = requiredTokens <= cerebrasTpd;
+
+    // Groq verified model-specific free caps (GPT-OSS 120B, GPT-OSS 20B, Qwen 3.8 27B)
+    var groqRpdCovered = requiredCalls <= 1000;
+    var groqTpdCovered = requiredTokens <= 200000;
+    var groqRpmCovered = effectivePeakRpm <= 30;
+    var groqTpmCovered = peakTpm <= 8000 && tokPerCall <= 8000;
+    var groqFits = groqRpdCovered && groqTpdCovered && groqRpmCovered && groqTpmCovered;
+
+    // Cloudflare Workers AI (@cf/meta/llama-3.2-1b-instruct official Neuron coefficients)
+    var cfNeuronsPerCall = (inTok / 1e6) * 2457 + (outTok / 1e6) * 18252;
+    var cfDailyNeurons = requiredCalls * cfNeuronsPerCall;
+    var cfMaxFreeCalls = cfNeuronsPerCall > 0 ? Math.floor(10000 / cfNeuronsPerCall) : 0;
+    var cfCovered = cfDailyNeurons <= 10000;
+
     return {
       requiredCalls: requiredCalls,
       requiredTokens: requiredTokens,
+      effectivePeakRpm: effectivePeakRpm,
+      peakTpm: peakTpm,
       openRouterLimit: orLimit,
-      openRouterCovered: requiredCalls <= orLimit,
+      openRouterRpdCovered: orRpdCovered,
+      openRouterRpmCovered: orRpmCovered,
+      openRouterCovered: orRpdCovered && orRpmCovered,
       openRouterDeficit: orDeficit,
+      groqRpdCovered: groqRpdCovered,
+      groqTpdCovered: groqTpdCovered,
+      groqRpmCovered: groqRpmCovered,
+      groqTpmCovered: groqTpmCovered,
       groqFits: groqFits,
-      groqSinglePromptOverTpm: tokPerCall > 8000,
-      cerebrasFits: cerebrasFits
+      cfNeuronsPerCall: cfNeuronsPerCall,
+      cfDailyNeurons: cfDailyNeurons,
+      cfMaxFreeCalls: cfMaxFreeCalls,
+      cfCovered: cfCovered,
+      cerebrasPermanentlyFree: false
     };
   }
 
@@ -180,8 +211,10 @@ def calculate_openrouter_billing_py(inference_cost: float, billing_method: str, 
 def calculate_free_quota_py(
     daily_jobs: float,
     calls_per_job: float,
+    peak_rpm: float = 5.0,
     retry_mult: float = 1.0,
-    avg_tokens_per_call: float = 1500.0,
+    input_tokens_per_call: float = 1000.0,
+    output_tokens_per_call: float = 500.0,
     openrouter_tier: str = "free_50",
 ) -> dict[str, Any]:
     """Python parity mirror of window.SysVCalc.calculateFreeQuota for unit tests."""
@@ -189,20 +222,50 @@ def calculate_free_quota_py(
 
     jobs = max(0.0, float(daily_jobs or 0.0))
     per_job = max(0.0, float(calls_per_job or 0.0))
+    burst_rpm = max(0.0, float(peak_rpm or 0.0))
     mult = max(1.0, float(retry_mult or 1.0))
-    tok = max(0.0, float(avg_tokens_per_call or 0.0))
+    in_tok = max(0.0, float(input_tokens_per_call or 0.0))
+    out_tok = max(0.0, float(output_tokens_per_call or 0.0))
+    tok = in_tok + out_tok
+
     req_calls = int(math.ceil(jobs * per_job * mult))
     req_tokens = int(round(req_calls * tok))
+    eff_peak_rpm = int(math.ceil(burst_rpm * mult))
+    peak_tpm = int(round(eff_peak_rpm * tok))
+
     or_limit = 1000 if openrouter_tier == "paid_1000" else 50
+    or_rpd_ok = req_calls <= or_limit
+    or_rpm_ok = eff_peak_rpm <= 20
+
+    groq_rpd_ok = req_calls <= 1000
+    groq_tpd_ok = req_tokens <= 200000
+    groq_rpm_ok = eff_peak_rpm <= 30
+    groq_tpm_ok = peak_tpm <= 8000 and tok <= 8000
+
+    cf_neurons_per_call = (in_tok / 1e6) * 2457.0 + (out_tok / 1e6) * 18252.0
+    cf_daily_neurons = req_calls * cf_neurons_per_call
+    cf_max_calls = int(math.floor(10000.0 / cf_neurons_per_call)) if cf_neurons_per_call > 0 else 0
+
     return {
         "requiredCalls": req_calls,
         "requiredTokens": req_tokens,
+        "effectivePeakRpm": eff_peak_rpm,
+        "peakTpm": peak_tpm,
         "openRouterLimit": or_limit,
-        "openRouterCovered": req_calls <= or_limit,
+        "openRouterRpdCovered": or_rpd_ok,
+        "openRouterRpmCovered": or_rpm_ok,
+        "openRouterCovered": or_rpd_ok and or_rpm_ok,
         "openRouterDeficit": max(0, req_calls - or_limit),
-        "groqFits": req_calls <= 1000 and req_tokens <= 200000 and tok <= 8000,
-        "groqSinglePromptOverTpm": tok > 8000,
-        "cerebrasFits": req_tokens <= 1000000,
+        "groqRpdCovered": groq_rpd_ok,
+        "groqTpdCovered": groq_tpd_ok,
+        "groqRpmCovered": groq_rpm_ok,
+        "groqTpmCovered": groq_tpm_ok,
+        "groqFits": groq_rpd_ok and groq_tpd_ok and groq_rpm_ok and groq_tpm_ok,
+        "cfNeuronsPerCall": round(cf_neurons_per_call, 4),
+        "cfDailyNeurons": round(cf_daily_neurons, 4),
+        "cfMaxFreeCalls": cf_max_calls,
+        "cfCovered": cf_daily_neurons <= 10000.0,
+        "cerebrasPermanentlyFree": False,
     }
 
 
@@ -771,6 +834,10 @@ def build_tools_and_data_assets(
     }
     write_page_fn("data/models.json", json.dumps(public_json, indent=2) + "\n")
 
+    policies_src = DATA_DIR / "free_provider_policies.json"
+    if policies_src.exists():
+        write_page_fn("data/free-provider-policies.json", policies_src.read_text(encoding="utf-8"))
+
     buf = io.StringIO()
     writer = csv.writer(buf)
     writer.writerow(["date", "model_id", "provider", "pricing_type", "prompt_usd_per_1m", "completion_usd_per_1m", "context_length"])
@@ -828,6 +895,7 @@ def build_tools_and_data_assets(
         <thead><tr><th>Resource</th><th>Format</th><th>Update Cadence</th><th>Contents</th></tr></thead>
         <tbody>
           <tr><td><a href="/data/models.json"><code>/data/models.json</code></a></td><td>JSON (v2.2.1)</td><td>Daily 02:15 UTC</td><td>{len(active_models)} active models with 8-state pricing &amp; verified capability flags</td></tr>
+          <tr><td><a href="/data/free-provider-policies.json"><code>/data/free-provider-policies.json</code></a></td><td>JSON (v1.0)</td><td>Daily / On Change</td><td>Structured cross-provider free-tier policies, credit-card rules, Neuron pricing &amp; policy changelog</td></tr>
           <tr><td><a href="/data/price-history.csv"><code>/data/price-history.csv</code></a></td><td>CSV</td><td>Daily 02:15 UTC</td><td>Up to 30 days of archived daily pricing snapshots ({changelog.get('snapshot_days', 1)} day(s) archived)</td></tr>
           <tr><td><a href="/data/free-models.xml"><code>/data/free-models.xml</code></a></td><td>RSS 2.0</td><td>Daily 02:15 UTC</td><td>Verified rate-limited $0 free text LLM endpoints ({len(free_models)} active)</td></tr>
           <tr><td><a href="/data/badge-free-count.svg"><code>/data/badge-free-count.svg</code></a></td><td>SVG Badge</td><td>Daily 02:15 UTC</td><td>Voluntary GitHub README status badge <img src="/data/badge-free-count.svg" width="210" height="24" alt="SysV Free LLM APIs badge" style="vertical-align:middle;margin-left:6px" /></td></tr>

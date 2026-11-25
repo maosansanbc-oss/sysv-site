@@ -5,12 +5,19 @@ on:
     # Runs every day at 02:15 UTC (10:15 Beijing Time)
     - cron: "15 2 * * *"
   workflow_dispatch:
+    inputs:
+      refresh_data:
+        description: "Run upstream data fetch, policy monitor & capped AI enrichment (false = fast static-only rebuild)"
+        required: false
+        default: true
+        type: boolean
   push:
     branches: ["main"]
     paths:
       - "scripts/**"
       - "tests/**"
       - "site.config.json"
+      - "data/free_provider_policies.json"
       - ".github/workflows/daily-auto.yml"
 
 permissions:
@@ -28,6 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       deploy_target: ${{ steps.target.outputs.host }}
+      run_fetch: ${{ steps.mode.outputs.run_fetch }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -54,15 +62,38 @@ jobs:
             echo "Production deploy target: github-pages (Cloudflare Pages skipped)"
           fi
 
-      - name: Run Python adversarial, cross-day lastmod & GSC unit test suite
+      - name: Decide full data refresh vs static-only fast rebuild
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "run_fetch=true" >> "$GITHUB_OUTPUT"
+            echo "Mode: scheduled full refresh (fetch + policy check + cumulative-capped AI enrich)"
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.refresh_data }}" != "false" ]; then
+            echo "run_fetch=true" >> "$GITHUB_OUTPUT"
+            echo "Mode: manual full refresh"
+          elif [ ! -f data/models.json ] || [ ! -f data/repos.json ]; then
+            echo "run_fetch=true" >> "$GITHUB_OUTPUT"
+            echo "Mode: bootstrap fetch (missing cached data files)"
+          else
+            echo "run_fetch=false" >> "$GITHUB_OUTPUT"
+            echo "Mode: static-only fast rebuild using existing verified data (0 LLM calls, $0.00 AI cost)"
+          fi
+
+      - name: Run Python adversarial, cumulative budget, policy & GSC unit test suite
         run: python3 -m unittest discover -s tests -v
 
       - name: Fetch latest public LLM pricing, history snapshots & Repository-Verified repos
+        if: steps.mode.outputs.run_fetch == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 -m scripts.fetch_data
 
-      - name: Incremental enrichment with SHA-256 hash cache & hard daily cost cap
+      - name: Check official Free LLM API provider policy freshness & drift (0 LLM calls)
+        if: steps.mode.outputs.run_fetch == 'true'
+        run: python3 -m scripts.check_free_policies
+
+      - name: Incremental enrichment with SHA-256 hash cache & true cumulative daily cost cap
+        if: steps.mode.outputs.run_fetch == 'true'
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -107,7 +138,8 @@ jobs:
         with:
           path: dist
 
-      - name: Upload updated data snapshots for post-deploy commit
+      - name: Upload updated data snapshots & ops ledger (always, so LLM spend is never lost on failure)
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: sysv-data-snapshot
@@ -140,11 +172,14 @@ jobs:
           name: sysv-data-snapshot
           path: data/
 
-      - name: Commit data snapshots, permanent registries & ops ledger (after deploy)
+      - name: Record verified publish_success=true in ops ledger
+        run: python3 -m scripts.record_deploy_status --status success --commit "${GITHUB_SHA::7}"
+
+      - name: Commit data snapshots, policy database, permanent registries & ops ledger (after deploy)
         run: |
           git config user.name "sysv-bot"
           git config user.email "bot@sysv.cn"
-          git add data/models.json data/repos.json data/price_changes.json data/published_comparisons.json data/published_pages.json data/selection_audit.json data/ops_metrics.json data/history/
+          git add data/models.json data/repos.json data/price_changes.json data/published_comparisons.json data/published_pages.json data/selection_audit.json data/ops_metrics.json data/free_provider_policies.json data/history/
           if ! git diff --cached --quiet; then
             git commit -m "chore(data): daily snapshot & registry $(date -u +%Y-%m-%d)"
             git push
@@ -162,6 +197,28 @@ jobs:
     if: failure()
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download build ops ledger artifact if available (preserve AI spend on deploy failure)
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: sysv-data-snapshot
+          path: data/
+
+      - name: Persist ops_metrics.json & publish_success=false so AI spend is never lost
+        continue-on-error: true
+        run: |
+          python3 -m scripts.record_deploy_status --status failure --commit "${GITHUB_SHA::7}"
+          git config user.name "sysv-bot"
+          git config user.email "bot@sysv.cn"
+          git add data/ops_metrics.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(ops): record failed deploy & spend $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
       - name: Notify anomaly via PushPlus or Webhook (failure only)
         env:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}

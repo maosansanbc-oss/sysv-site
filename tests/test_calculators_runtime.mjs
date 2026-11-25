@@ -50,20 +50,26 @@ assert.equal(calc.isValidPrice({ in: NaN, out: 1 }), false);
 assert.equal(calc.isValidPrice({ in: -1, out: 1 }), false);
 assert.equal(calc.isValidPrice({ in: 0, out: 0 }), true);
 
-// Free LLM API Quota Calculator boundary checks
-const fqShort = calc.calculateFreeQuota(30, 3, 1.0, 1500, "free_50");
+// Free LLM API Quota & Burst Calculator boundary checks (RPM + RPD + TPM + Cloudflare Neurons + Cerebras trial)
+const fqShort = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "free_50");
 assert.equal(fqShort.requiredCalls, 90);
-assert.equal(fqShort.openRouterCovered, false);
+assert.equal(fqShort.openRouterRpdCovered, false);
+assert.equal(fqShort.openRouterRpmCovered, true);
 assert.equal(fqShort.openRouterDeficit, 40);
 assert.equal(fqShort.groqFits, true);
+assert.equal(fqShort.cfMaxFreeCalls, 863);
+assert.equal(fqShort.cfCovered, true);
+assert.equal(fqShort.cerebrasPermanentlyFree, false);
 
-const fqPaid = calc.calculateFreeQuota(30, 3, 1.0, 1500, "paid_1000");
+const fqBurst = calc.calculateFreeQuota(1, 40, 40, 1.0, 1000, 500, "free_50");
+assert.equal(fqBurst.openRouterRpdCovered, true);
+assert.equal(fqBurst.openRouterRpmCovered, false);
+assert.equal(fqBurst.openRouterCovered, false);
+assert.equal(fqBurst.groqRpmCovered, false);
+
+const fqPaid = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "paid_1000");
 assert.equal(fqPaid.openRouterCovered, true);
 assert.equal(fqPaid.openRouterDeficit, 0);
-
-const fqBigPrompt = calc.calculateFreeQuota(10, 2, 1.0, 9500, "free_50");
-assert.equal(fqBigPrompt.groqSinglePromptOverTpm, true);
-assert.equal(fqBigPrompt.groqFits, false);
 
 console.log("[runtime_js] calc-engine.js boundary assertions PASSED");
 
@@ -106,6 +112,8 @@ try {
   const targets = [
     ["/", "Lowest Estimated Token Cost"],
     ["/free-llm-apis/", "Short by 40 calls/day"],
+    ["/free-llm-apis/", "863 calls/day"],
+    ["/free-llm-apis/", "30-Day Trial Only"],
     ["/tools/openrouter-cost-calculator/", "Total Cash Outlay"],
     ["/tools/n8n-ai-workflow-cost-calculator/", "Self-Hosted Total:"],
     ["/tools/llm-translation-cost-calculator/", "per 1,000 docs"],

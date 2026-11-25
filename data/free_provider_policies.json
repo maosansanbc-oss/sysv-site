@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "updated_utc": "2026-11-25T17:56:32Z",
+  "note": "Structured cross-provider Free LLM API policy database. Distinguishes permanently free, credit-unlocked free tiers, and time-limited free trials. Never claim verified when stale or unverified.",
+  "providers": [
+    {
+      "id": "openrouter",
+      "name": "OpenRouter (:free)",
+      "tier_classification": "permanently_free_with_credit_unlock",
+      "tier_label": "Permanently Free (Credit-Unlocked Higher Cap)",
+      "credit_card_required": false,
+      "credit_card_note": "No card required for 50 RPD. Higher 1,000 RPD tier requires >=$10 lifetime credit purchase (triggers at $9 credited balance to buffer top-up fees and rounding).",
+      "trial_amount_usd": null,
+      "trial_expiry_days": null,
+      "quota_summary": "20 RPM global; 50 RPD (<$9/$10 lifetime credits) or 1,000 RPD (>=$9/$10 credits); upstream capacity may still return HTTP 429",
+      "reset_cycle": "Daily (rolling/UTC day per OpenRouter docs)",
+      "api_compatibility": "OpenAI SDK (https://openrouter.ai/api/v1)",
+      "privacy_policy": "Depends on upstream host; account-level privacy setting can opt out of training and block providers that train.",
+      "model_quotas": [
+        {
+          "model": "All :free text variants (shared account pool)",
+          "rpm": 20,
+          "rpd": 50,
+          "rpd_unlocked": 1000,
+          "unlock_rule": "$10 lifetime purchase ($9 net credit threshold buffer)",
+          "tpm": null,
+          "tpd": null
+        }
+      ],
+      "source_url": "https://openrouter.ai/docs/api-reference/limits",
+      "last_verified_date": "2026-11-25",
+      "max_freshness_days": 14,
+      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "runtime_availability": "NOT_LIVE_PROBED",
+      "source_content_hash": "1a893699c450fd53",
+      "last_checked_utc": "2026-11-25T17:56:32Z"
+    },
+    {
+      "id": "google_gemini",
+      "name": "Google Gemini API (AI Studio)",
+      "tier_classification": "permanently_free",
+      "tier_label": "Permanently Free (Data-Sharing Tradeoff)",
+      "credit_card_required": false,
+      "credit_card_note": "No credit card required. Linking a Google Cloud Billing account automatically switches the project to Paid Tier.",
+      "trial_amount_usd": null,
+      "trial_expiry_days": null,
+      "quota_summary": "Per-project RPM / TPM / RPD limits vary dynamically by model (check Google AI Studio Rate Limits console).",
+      "reset_cycle": "Daily at midnight Pacific Time (PT)",
+      "api_compatibility": "OpenAI SDK (https://generativelanguage.googleapis.com/v1beta/openai/) & Gemini SDK",
+      "privacy_policy": "Free tier prompts and outputs may be reviewed by human annotators and used to improve Google products (Paid tier opts out).",
+      "model_quotas": [
+        {
+          "model": "Gemini Flash / Pro free-tier models (dynamic per project)",
+          "rpm": null,
+          "rpd": null,
+          "tpm": null,
+          "tpd": null,
+          "note": "Exact numeric limits vary by model and project; verify live values in AI Studio console."
+        }
+      ],
+      "source_url": "https://ai.google.dev/gemini-api/docs/rate-limits",
+      "last_verified_date": "2026-11-25",
+      "max_freshness_days": 14,
+      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "runtime_availability": "NOT_LIVE_PROBED",
+      "source_content_hash": "f849843c103ea67e",
+      "last_checked_utc": "2026-11-25T17:56:32Z"
+    },
+    {
+      "id": "groq",
+      "name": "Groq (Free Plan)",
+      "tier_classification": "permanently_free",
+      "tier_label": "Permanently Free (Model-Specific Caps)",
+      "credit_card_required": false,
+      "credit_card_note": "No credit card required; standing free tier (no trial clock). Upgrading to Developer pay-as-you-go requires a card.",
+      "quota_summary": "Org-level, model-specific caps. Verified for GPT-OSS 120B, GPT-OSS 20B, and Qwen 3.8 27B: 30 RPM, 1,000 RPD, 8,000 TPM, 200,000 TPD.",
+      "reset_cycle": "Per-minute & daily rolling limits (see Groq Console > Limits)",
+      "api_compatibility": "OpenAI SDK (https://api.groq.com/openai/v1)",
+      "privacy_policy": "No training on customer inputs/outputs (Free & Paid); zero inference retention by default (up to 30-day abuse/reliability logs).",
+      "model_quotas": [
+        {
+          "model": "GPT-OSS 120B",
+          "rpm": 30,
+          "rpd": 1000,
+          "tpm": 8000,
+          "tpd": 200000
+        },
+        {
+          "model": "GPT-OSS 20B",
+          "rpm": 30,
+          "rpd": 1000,
+          "tpm": 8000,
+          "tpd": 200000
+        },
+        {
+          "model": "Qwen 3.8 27B",
+          "rpm": 30,
+          "rpd": 1000,
+          "tpm": 8000,
+          "tpd": 200000
+        }
+      ],
+      "source_url": "https://console.groq.com/docs/rate-limits",
+      "last_verified_date": "2026-11-25",
+      "max_freshness_days": 14,
+      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "runtime_availability": "NOT_LIVE_PROBED",
+      "source_content_hash": "3dd424f8a8fecd3d",
+      "last_checked_utc": "2026-11-25T17:56:32Z"
+    },
+    {
+      "id": "cloudflare_workers_ai",
+      "name": "Cloudflare Workers AI",
+      "tier_classification": "permanently_free",
+      "tier_label": "Permanently Free (10,000 Neurons/Day)",
+      "credit_card_required": false,
+      "credit_card_note": "No credit card required on Workers Free plan for eligible open-weights models. Larger frontier models or overage ($0.011 / 1k Neurons) require Workers Paid ($5/mo).",
+      "trial_amount_usd": null,
+      "trial_expiry_days": null,
+      "quota_summary": "10,000 Neurons/day free (resets 00:00 UTC). Example: @cf/meta/llama-3.2-1b-instruct uses 2,457 Neurons/1M input & 18,252 Neurons/1M output (~863 calls/day at 1,000 in / 500 out).",
+      "reset_cycle": "Daily at 00:00 UTC",
+      "api_compatibility": "OpenAI SDK (https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/ai/v1) & Workers AI binding",
+      "privacy_policy": "Inputs/outputs are not used to train models or shared with third-party model providers.",
+      "free_daily_neurons": 10000,
+      "paid_usd_per_1k_neurons": 0.011,
+      "model_quotas": [
+        {
+          "model": "@cf/meta/llama-3.2-1b-instruct",
+          "neurons_per_m_input": 2457,
+          "neurons_per_m_output": 18252,
+          "usd_per_m_input": 0.027,
+          "usd_per_m_output": 0.201,
+          "requires_paid_workers_plan": false
+        }
+      ],
+      "source_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+      "last_verified_date": "2026-11-25",
+      "max_freshness_days": 14,
+      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "runtime_availability": "NOT_LIVE_PROBED",
+      "source_content_hash": "f79e1a973a7bdf05",
+      "last_checked_utc": "2026-11-25T17:56:32Z"
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras Inference",
+      "tier_classification": "free_trial",
+      "tier_label": "Time-Limited Free Trial ($5 / 30 Days)",
+      "credit_card_required": true,
+      "credit_card_note": "Verified payment method required to activate API & Playground access (no upfront charge; no permanently free tier).",
+      "trial_amount_usd": 5.0,
+      "trial_expiry_days": 30,
+      "quota_summary": "One-time $5 trial credit valid for 30 days only (no auto-renewing free tier). Shared Free Trial caps include 5 RPM, 30,000 uncached input TPM, 90,000 total TPM, up to 1M tokens/hour or day (model-dependent).",
+      "reset_cycle": "Does NOT renew — $5 trial expires after 30 days",
+      "api_compatibility": "OpenAI SDK (https://api.cerebras.ai/v1)",
+      "privacy_policy": "Consult official Cerebras Inference Docs / Terms for current trial-tier data retention & training policy.",
+      "model_quotas": [
+        {
+          "model": "Shared Inference Free Trial Catalog",
+          "rpm": 5,
+          "rpd": null,
+          "tpm_uncached_input": 30000,
+          "tpm_total": 90000,
+          "tpd": 1000000,
+          "note": "Expires after $5 credit or 30 days; requires verified payment method."
+        }
+      ],
+      "source_url": "https://inference-docs.cerebras.ai/support/rate-limits",
+      "last_verified_date": "2026-11-25",
+      "max_freshness_days": 14,
+      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "runtime_availability": "NOT_LIVE_PROBED",
+      "source_content_hash": "e2e9a89c8becae41",
+      "last_checked_utc": "2026-11-25T17:56:32Z"
+    }
+  ],
+  "policy_history": [
+    {
+      "date": "2026-11-25",
+      "provider_id": "cerebras",
+      "provider_name": "Cerebras Inference",
+      "change_type": "policy_correction",
+      "summary": "Reclassified from permanently free to Time-Limited Free Trial: official docs confirm new accounts require a verified payment method to unlock $5 trial credits valid for 30 days, with no permanently free auto-renewing tier (shared trial caps include 5 RPM, 30k uncached input TPM).",
+      "source_url": "https://inference-docs.cerebras.ai/support/rate-limits"
+    },
+    {
+      "date": "2026-11-25",
+      "provider_id": "openrouter",
+      "provider_name": "OpenRouter (:free)",
+      "change_type": "clarification",
+      "summary": "Documented OpenRouter's $9 credited-balance buffer for the $10 lifetime purchase threshold unlocking 1,000 RPD (accounts for top-up fees and rounding); 20 RPM global cap unchanged.",
+      "source_url": "https://openrouter.ai/docs/api-reference/limits"
+    },
+    {
+      "date": "2026-11-25",
+      "provider_id": "cloudflare_workers_ai",
+      "provider_name": "Cloudflare Workers AI",
+      "change_type": "model_pricing_added",
+      "summary": "Added official Neuron pricing for @cf/meta/llama-3.2-1b-instruct (2,457 Neurons / 1M input, 18,252 Neurons / 1M output) against the 10,000 Neurons/day free allowance (~863 calls/day at 1,000 in / 500 out).",
+      "source_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+    }
+  ]
+}

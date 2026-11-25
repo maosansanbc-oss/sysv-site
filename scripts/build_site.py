@@ -416,14 +416,43 @@ footer {
 .footer-links { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 10px; }
 .footer-links a { color: #424245; }
 .footer-links a:hover { color: var(--text); }
+.provider-cards-mobile { display: none; }
+.provider-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.provider-card summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.provider-card summary::-webkit-details-marker { display: none; }
+.provider-card-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.provider-kv { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 0.84rem; }
+.provider-kv dt { color: var(--muted); font-size: 0.76rem; }
+.provider-kv dd { margin: 2px 0 0; color: var(--text); font-weight: 500; }
+.quota-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-top: 12px; }
+.quota-item { background: var(--surface-2); border-radius: 12px; padding: 12px 14px; font-size: 0.85rem; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+@media (max-width: 768px) {
+  .provider-table-desktop { display: none; }
+  .provider-cards-mobile { display: block; }
+}
 @media (max-width: 480px) {
   .wrap { padding: 0 16px; }
-  main { padding: 24px 0 56px; }
-  h2 { font-size: 1.24rem; margin-top: 32px; }
-  .calc-panel, .card { padding: 18px; border-radius: 16px; }
+  main { padding: 20px 0 52px; }
+  h2 { font-size: 1.22rem; margin-top: 28px; }
+  .calc-panel, .card { padding: 16px; border-radius: 16px; }
+  .calc-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .calc-grid .span-2 { grid-column: 1 / -1; }
+  .calc-result { padding: 14px; margin-top: 12px; }
   .stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .stat { padding: 13px 14px; }
   .stat .num { font-size: 1.28rem; }
@@ -1101,140 +1130,176 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         ),
     )
 
-    # --- 3. /free-llm-apis/ Hub Page (Cross-Provider Matrix + Free Quota Calculator + Live OpenRouter Directory) ---
+    # --- 3. /free-llm-apis/ Hub Page (Structured Provider Policy DB + RPM/RPD/Neurons Calculator + Mobile Expandable Cards) ---
     routers = [m for m in active_models if m["pricing_type"] in ("free_router", "variable")]
     free_rows = "".join(
         f'<tr data-tools="{"1" if (m.get("capabilities") or {}).get("tools") else "0"}" data-json="{"1" if (m.get("capabilities") or {}).get("structured_outputs") else "0"}">'
-        f'<td><a href="/models/{e(m["slug"])}/"><strong>{e(m["name"])}</strong></a><br><span class="muted small">{e(m["id"])}</span></td>'
-        f'<td>{e(m["provider"])}</td><td>{e(fmt_ctx(m["context_length"]))}</td>'
-        f'<td class="muted small">Tools: <strong>{"Yes" if (m.get("capabilities") or {}).get("tools") else "No"}</strong> &middot; JSON: <strong>{"Yes" if (m.get("capabilities") or {}).get("structured_outputs") else "No"}</strong></td>'
+        f'<td><a href="/models/{e(m["slug"])}/" translate="no"><strong>{e(m["name"])}</strong></a><br><span class="muted small" translate="no">{e(m["id"])}</span></td>'
+        f'<td translate="no">{e(m["provider"])}</td><td class="num-col">{e(fmt_ctx(m["context_length"]))}</td>'
+        f'<td class="muted small">Tools: <strong>{"Yes" if (m.get("capabilities") or {}).get("tools") else "No"}</strong> / JSON: <strong>{"Yes" if (m.get("capabilities") or {}).get("structured_outputs") else "No"}</strong></td>'
         f'<td>{pricing_badge(m)}</td></tr>'
         for m in free_models
     )
     router_rows = "".join(
-        f'<tr><td><a href="/models/{e(m["slug"])}/"><strong>{e(m["name"])}</strong></a></td><td>{pricing_badge(m)}</td><td>{e(fmt_ctx(m["context_length"]))}</td><td class="muted small">{e(m.get("rate_limit_note", ""))}</td></tr>'
+        f'<tr><td><a href="/models/{e(m["slug"])}/" translate="no"><strong>{e(m["name"])}</strong></a></td><td>{pricing_badge(m)}</td><td class="num-col">{e(fmt_ctx(m["context_length"]))}</td><td class="muted small">{e(m.get("rate_limit_note", ""))}</td></tr>'
         for m in routers
     )
-    provider_matrix = [
-        (
-            "OpenRouter (:free)",
-            "No ($10 lifetime credits unlocks 1,000 RPD)",
-            "20 RPM global; 50 RPD (<$10 credits) or 1,000 RPD (>=$10 credits); upstream capacity may still 429",
-            "OpenAI SDK (openrouter.ai/api/v1)",
-            "Varies by upstream host; account setting can opt out & block providers that train",
-            "Live API Verified (models) / Docs Verified (2026-11-25); Not Live-Probed",
-            "https://openrouter.ai/docs/api-reference/limits",
-        ),
-        (
-            "Google Gemini API (AI Studio)",
-            "No (linking Cloud Billing moves project to Paid Tier)",
-            "Per-project RPM / TPM / RPD limits vary dynamically by model (resets midnight PT; see AI Studio console)",
-            "OpenAI SDK (generativelanguage.googleapis.com/v1beta/openai/)",
-            "Free tier prompts/outputs may be reviewed and used to improve Google products (Paid tier opts out)",
-            "Official Docs Verified (2026-11-25); Not Live-Probed",
-            "https://ai.google.dev/gemini-api/docs/rate-limits",
-        ),
-        (
-            "Groq (Free Plan)",
-            "No (standing free tier, no trial clock)",
-            "Org-level, model-dependent; core text models typically ~30 RPM, ~1,000 RPD, ~8,000 TPM, ~200k TPD",
-            "OpenAI SDK (api.groq.com/openai/v1)",
-            "No training on customer data (Free & Paid); zero inference retention by default (up to 30d abuse logs)",
-            "Official Docs Verified (2026-11-25); Not Live-Probed",
-            "https://console.groq.com/docs/rate-limits",
-        ),
-        (
-            "Cloudflare Workers AI",
-            "No (Workers Free plan)",
-            "10,000 Neurons/day (resets 00:00 UTC; neuron burn varies by model size; paid overage $0.011 / 1k Neurons)",
-            "OpenAI SDK (api.cloudflare.com/.../ai/v1) & Workers AI binding",
-            "Inputs/outputs not used for model training or shared with third-party model providers",
-            "Official Docs Verified (2026-11-25); Not Live-Probed",
-            "https://developers.cloudflare.com/workers-ai/platform/pricing/",
-        ),
-        (
-            "Cerebras Inference",
-            "No (Free tier signup)",
-            "Model-dependent token bucket; typically ~30 RPM and up to ~1,000,000 tokens/day (minute TPM & shared context caps apply)",
-            "OpenAI SDK (api.cerebras.ai/v1)",
-            "Consult official Cerebras Inference Docs / Terms for current free-tier retention & training policy",
-            "Official Docs Verified (2026-11-25); Not Live-Probed",
-            "https://inference-docs.cerebras.ai/support/rate-limits",
-        ),
-    ]
-    provider_rows = "".join(
-        f'<tr><td><strong>{e(p[0])}</strong><br><a class="small" href="{e(p[6])}" target="_blank" rel="noopener noreferrer">Official Docs &rarr;</a></td>'
-        f'<td class="small">{e(p[1])}</td><td class="small">{e(p[2])}</td><td class="small">{e(p[3])}</td>'
-        f'<td class="small">{e(p[4])}</td><td class="muted small">{e(p[5])}</td></tr>'
-        for p in provider_matrix
+
+    policy_db = load_json(DATA_DIR / "free_provider_policies.json", default={"providers": [], "policy_history": []})
+    providers_list = policy_db.get("providers") or []
+    policy_history = policy_db.get("policy_history") or []
+
+    def _tier_badge(p: dict[str, Any]) -> str:
+        tc = p.get("tier_classification", "unknown")
+        lbl = p.get("tier_label", tc)
+        if tc == "permanently_free":
+            return f'<span class="badge badge-free">{e(lbl)}</span>'
+        if tc == "permanently_free_with_credit_unlock":
+            return f'<span class="badge badge-purple">{e(lbl)}</span>'
+        if tc == "free_trial":
+            return f'<span class="badge badge-warn">{e(lbl)}</span>'
+        return f'<span class="badge">{e(lbl)}</span>'
+
+    def _verify_badge(p: dict[str, Any]) -> str:
+        st = p.get("verification_status", "UNKNOWN")
+        dt = p.get("last_verified_date") or "Unknown"
+        if st == "OFFICIAL_DOCS_VERIFIED":
+            return f'<span class="badge badge-free">Docs Verified ({e(dt)})</span>'
+        if st == "CHANGED_NEEDS_REVIEW":
+            return f'<span class="badge badge-warn">Docs Changed — Review Pending ({e(dt)})</span>'
+        if st == "STALE":
+            return f'<span class="badge badge-warn">STALE ({e(dt)})</span>'
+        return '<span class="badge badge-danger">UNKNOWN</span>'
+
+    provider_rows = []
+    provider_mobile_cards = []
+    for p in providers_list:
+        card_req = "Yes (Payment method required)" if p.get("credit_card_required") else "No"
+        if p.get("credit_card_note"):
+            card_detail = f'{card_req} &mdash; {e(p["credit_card_note"])}'
+        else:
+            card_detail = card_req
+        provider_rows.append(
+            f'<tr>'
+            f'<td><strong translate="no">{e(p["name"])}</strong><br>{_tier_badge(p)}<br><a class="small" href="{e(p["source_url"])}" target="_blank" rel="noopener noreferrer">Official Docs</a></td>'
+            f'<td class="small">{card_detail}</td>'
+            f'<td class="small">{e(p.get("quota_summary", ""))}<br><span class="muted">Reset: {e(p.get("reset_cycle", "Unknown"))}</span></td>'
+            f'<td class="small" translate="no">{e(p.get("api_compatibility", ""))}</td>'
+            f'<td class="small">{e(p.get("privacy_policy", ""))}</td>'
+            f'<td class="small">{_verify_badge(p)}<br><span class="muted">Runtime: Not Live-Probed</span></td>'
+            f'</tr>'
+        )
+        provider_mobile_cards.append(
+            f'<details class="provider-card"{" open" if p.get("id") in ("openrouter", "cerebras") else ""}>'
+            f'<summary>'
+            f'<div class="provider-card-head"><strong translate="no">{e(p["name"])}</strong>{_tier_badge(p)}</div>'
+            f'<div class="small muted">Card required: <strong>{e(card_req)}</strong> &middot; Tap for full limits &amp; policy</div>'
+            f'</summary>'
+            f'<dl class="provider-kv">'
+            f'<div><dt>Credit Card Rule</dt><dd>{card_detail}</dd></div>'
+            f'<div><dt>Reset / Expiry</dt><dd>{e(p.get("reset_cycle", "Unknown"))}</dd></div>'
+            f'<div style="grid-column:1/-1"><dt>Verified Quota</dt><dd>{e(p.get("quota_summary", ""))}</dd></div>'
+            f'<div style="grid-column:1/-1"><dt>API Compatibility</dt><dd translate="no">{e(p.get("api_compatibility", ""))}</dd></div>'
+            f'<div style="grid-column:1/-1"><dt>Data &amp; Training Policy</dt><dd>{e(p.get("privacy_policy", ""))}</dd></div>'
+            f'<div><dt>Verification</dt><dd>{_verify_badge(p)}</dd></div>'
+            f'<div><dt>Official Source</dt><dd><a href="{e(p["source_url"])}" target="_blank" rel="noopener noreferrer">Open Docs</a></dd></div>'
+            f'</dl>'
+            f'</details>'
+        )
+
+    policy_history_rows = "".join(
+        f'<tr><td class="num-col">{e(h["date"])}</td><td translate="no"><strong>{e(h["provider_name"])}</strong></td>'
+        f'<td><span class="badge {"badge-warn" if h.get("change_type") == "policy_correction" else "badge-free"}">{e(h.get("change_type", "update").replace("_", " ").title())}</span></td>'
+        f'<td class="small">{e(h["summary"])} (<a href="{e(h["source_url"])}" target="_blank" rel="noopener noreferrer">Source</a>)</td></tr>'
+        for h in policy_history
     )
+
     free_hub_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / Free LLM APIs</div>
     <h1>Free LLM APIs With Tool Calling &amp; Real Rate Limits</h1>
-    <p class="muted">Zero token cost is <strong>not</strong> unlimited. Compare free-tier quotas, credit-card rules, OpenAI SDK compatibility, and data-training policies across major providers, test whether free limits cover your daily automation workload, and filter {len(free_models)} live OpenRouter <code>:free</code> text endpoints below.</p>
+    <p class="lead">Compare permanently free tiers vs. time-limited trials, credit-card rules, burst RPM/TPM ceilings, and Cloudflare Workers AI Neurons across providers.</p>
 
-    <section class="calc-panel" style="margin:24px 0 28px">
-      <h2>Free LLM API Daily Quota Calculator</h2>
-      <p class="muted small">Estimate whether free-tier daily limits cover your scheduled jobs or automation workflows before hitting HTTP <code translate="no">429</code> rate limits.</p>
+    <section class="calc-panel" style="margin:18px 0 24px">
+      <h2>Free LLM API Quota &amp; Burst Calculator</h2>
       <div class="calc-grid">
         <div>
-          <label class="muted small" for="fq-jobs">Daily Automation Jobs / Runs</label><br />
-          <input id="fq-jobs" type="number" min="0" step="5" value="30" autocomplete="off" style="width:100%;margin-top:6px" />
+          <label class="muted small" for="fq-jobs">Daily Jobs / Runs</label><br />
+          <input id="fq-jobs" type="number" min="0" step="5" value="30" autocomplete="off" style="width:100%;margin-top:4px" />
         </div>
         <div>
-          <label class="muted small" for="fq-calls">AI Calls per Job</label><br />
-          <input id="fq-calls" type="number" min="0" step="1" value="3" autocomplete="off" style="width:100%;margin-top:6px" />
+          <label class="muted small" for="fq-calls">AI Calls / Job</label><br />
+          <input id="fq-calls" type="number" min="0" step="1" value="3" autocomplete="off" style="width:100%;margin-top:4px" />
         </div>
         <div>
-          <label class="muted small" for="fq-retry">Retry / Error Overhead</label><br />
-          <select id="fq-retry" style="width:100%;margin-top:6px">
-            <option value="1.0" selected>1.0x (Clean single-shot calls)</option>
-            <option value="1.2">1.2x (Normal retries / JSON fixups)</option>
-            <option value="1.5">1.5x (Multi-step agent retries)</option>
+          <label class="muted small" for="fq-peak-rpm">Peak Calls / Min (RPM)</label><br />
+          <input id="fq-peak-rpm" type="number" min="0" step="1" value="5" autocomplete="off" style="width:100%;margin-top:4px" />
+        </div>
+        <div>
+          <label class="muted small" for="fq-retry">Retry Multiplier</label><br />
+          <select id="fq-retry" style="width:100%;margin-top:4px">
+            <option value="1.0" selected>1.0x (Clean single-shot)</option>
+            <option value="1.2">1.2x (Normal retries)</option>
+            <option value="1.5">1.5x (Multi-step agent)</option>
           </select>
         </div>
         <div>
-          <label class="muted small" for="fq-tok">Avg. Tokens / Call (In + Out)</label><br />
-          <input id="fq-tok" type="number" min="0" step="250" value="1500" autocomplete="off" style="width:100%;margin-top:6px" />
+          <label class="muted small" for="fq-in-tok">Input Tokens / Call</label><br />
+          <input id="fq-in-tok" type="number" min="0" step="200" value="1000" autocomplete="off" style="width:100%;margin-top:4px" />
         </div>
         <div>
+          <label class="muted small" for="fq-out-tok">Output Tokens / Call</label><br />
+          <input id="fq-out-tok" type="number" min="0" step="100" value="500" autocomplete="off" style="width:100%;margin-top:4px" />
+        </div>
+        <div class="span-2">
           <label class="muted small" for="fq-or-tier">OpenRouter Account Status</label><br />
-          <select id="fq-or-tier" style="width:100%;margin-top:6px">
-            <option value="free_50" selected>Standard Free Account (50 RPD)</option>
-            <option value="paid_1000">Lifetime Credits &ge;$10 (1,000 RPD)</option>
+          <select id="fq-or-tier" style="width:100%;margin-top:4px">
+            <option value="free_50" selected>Standard Free (&lt;$9/$10 credits &mdash; 50 RPD, 20 RPM)</option>
+            <option value="paid_1000">Credit-Unlocked (&ge;$10 purchase / $9 net buffer &mdash; 1,000 RPD, 20 RPM)</option>
           </select>
         </div>
       </div>
       <div class="calc-result" id="fq-out" aria-live="polite"></div>
-      <p class="muted small" style="margin-top:10px"><strong>Caveat:</strong> OpenRouter <code>:free</code> models also enforce a global <strong>20 RPM</strong> ceiling, and retries/upstream errors can consume rate-limit headroom. Need paid fallback math? Try the <a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a> or <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Workflow Calculator</a>.</p>
+      <p class="muted small" style="margin-top:10px">Evaluates both <strong>daily volume (RPD / TPD / Neurons)</strong> and <strong>peak minute throughput (RPM / TPM)</strong>. Need paid fallback pricing? Open the <a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a> or <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Workflow Calculator</a>.</p>
     </section>
 
     <section>
-      <h2>Cross-Provider Free LLM API Comparison Matrix</h2>
-      <p class="muted small">Provider policies below are <strong>Official Docs Verified (2026-11-25)</strong> and <strong>Not Live-Probed</strong>. Free-tier quotas change without notice&mdash;always confirm live limits in each provider's console before relying on them in production.</p>
+      <h2>Cross-Provider Free LLM API Comparison (Permanently Free vs. Free Trial)</h2>
+      <p class="muted small">Loaded from <a href="/data/free-provider-policies.json"><code translate="no">/data/free-provider-policies.json</code></a> and monitored for official documentation drift. Policies are separated into <strong>Permanently Free</strong>, <strong>Credit-Unlocked</strong>, and <strong>Time-Limited Free Trial</strong>. Runtime availability is <strong>Not Live-Probed</strong>.</p>
+      <div class="table-wrap provider-table-desktop">
+        <table>
+          <thead><tr><th>Provider &amp; Tier Type</th><th>Credit Card Required?</th><th>Verified Quota &amp; Reset</th><th>API Compatibility</th><th>Data &amp; Training Policy</th><th>Verification</th></tr></thead>
+          <tbody>{"".join(provider_rows)}</tbody>
+        </table>
+      </div>
+      <div class="provider-cards-mobile">{"".join(provider_mobile_cards)}</div>
+    </section>
+
+    <section>
+      <h2>Free LLM API Policy Changelog</h2>
+      <p class="muted small">Append-only record of verified free-tier rule changes and policy corrections.</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Provider &amp; Source</th><th>Credit Card Required?</th><th>Free Quota &amp; Reset Rules</th><th>API Compatibility</th><th>Free-Tier Data / Training Policy</th><th>Verification Status</th></tr></thead>
-          <tbody>{provider_rows}</tbody>
+          <thead><tr><th class="num-col">Date</th><th>Provider</th><th>Type</th><th>Verified Policy Change</th></tr></thead>
+          <tbody>{policy_history_rows}</tbody>
         </table>
       </div>
     </section>
 
     <section>
-      <h2>Live OpenRouter <code>:free</code> Text Endpoints ({len(free_models)} Active)</h2>
-      <p class="muted small">Updated daily from the OpenRouter Public API. Dynamic routers (<code>-1</code>) and audio/media endpoints are separated below.</p>
+      <h2>Live OpenRouter <code translate="no">:free</code> Text Endpoints ({len(free_models)} Active)</h2>
+      <p class="muted small">Updated daily from the OpenRouter Public API. Dynamic routers (<code translate="no">-1</code>) and audio/media endpoints are separated below.</p>
       <div class="controls">
         <label style="cursor:pointer"><input id="f-tools" type="checkbox" /> Tool Calling Supported Only</label>
         <label style="cursor:pointer"><input id="f-json" type="checkbox" /> Structured JSON Supported Only</label>
       </div>
       <div class="table-wrap">
-        <table><thead><tr><th>Verified Free Endpoint</th><th>Provider</th><th>Context</th><th>Capabilities (Source Verified)</th><th>Tier</th></tr></thead>
+        <table><thead><tr><th>Verified Free Endpoint</th><th>Provider</th><th class="num-col">Context</th><th>Capabilities (Source Verified)</th><th>Tier</th></tr></thead>
         <tbody id="free-tbody">{free_rows}</tbody></table>
       </div>
     </section>
 
     <h2>Routers Separated for Transparency</h2>
-    <div class="table-wrap"><table><thead><tr><th>Router</th><th>Pricing Type</th><th>Context</th><th>Billing &amp; Limits</th></tr></thead><tbody>{router_rows}</tbody></table></div>
+    <div class="table-wrap"><table><thead><tr><th>Router</th><th>Pricing Type</th><th class="num-col">Context</th><th>Billing &amp; Limits</th></tr></thead><tbody>{router_rows}</tbody></table></div>
 
     <script src="/assets/calc-engine.js"></script>
     <script>
@@ -1252,51 +1317,70 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
 
         const fqJobs = document.getElementById('fq-jobs');
         const fqCalls = document.getElementById('fq-calls');
+        const fqPeak = document.getElementById('fq-peak-rpm');
         const fqRetry = document.getElementById('fq-retry');
-        const fqTok = document.getElementById('fq-tok');
+        const fqIn = document.getElementById('fq-in-tok');
+        const fqOutTok = document.getElementById('fq-out-tok');
         const fqTier = document.getElementById('fq-or-tier');
         const fqOut = document.getElementById('fq-out');
         function calcQuota() {{
           const r = window.SysVCalc.calculateFreeQuota(
             parseFloat(fqJobs.value || '0') || 0,
             parseFloat(fqCalls.value || '0') || 0,
+            parseFloat(fqPeak.value || '0') || 0,
             parseFloat(fqRetry.value || '1') || 1,
-            parseFloat(fqTok.value || '0') || 0,
+            parseFloat(fqIn.value || '0') || 0,
+            parseFloat(fqOutTok.value || '0') || 0,
             fqTier.value || 'free_50'
           );
-          const orVerdict = r.openRouterCovered
-            ? '<span class="badge badge-free">Covered</span> OpenRouter free limit (' + r.openRouterLimit.toLocaleString() + ' RPD) fits with ' + (r.openRouterLimit - r.requiredCalls).toLocaleString() + ' calls/day headroom.'
-            : '<span class="badge badge-warn">Short by ' + r.openRouterDeficit.toLocaleString() + ' calls/day</span> Exceeds OpenRouter ' + r.openRouterLimit.toLocaleString() + ' RPD limit.';
-          const groqNote = r.groqSinglePromptOverTpm
-            ? 'Single call (&gt;8,000 tokens) risks hitting typical Groq ~8k TPM cap.'
-            : (r.groqFits ? 'Typically fits Groq free tier (~1,000 RPD &amp; ~200k TPD reference).' : 'Exceeds typical Groq free tier (~1,000 RPD or ~200k TPD reference).');
-          const cerNote = r.cerebrasFits
-            ? 'Typically fits Cerebras ~1M tokens/day reference (watch minute TPM).'
-            : 'Exceeds Cerebras ~1M tokens/day free reference.';
+          const orRpdBadge = r.openRouterRpdCovered
+            ? '<span class="badge badge-free">Daily RPD Covered (' + r.requiredCalls.toLocaleString() + '/' + r.openRouterLimit.toLocaleString() + ')</span>'
+            : '<span class="badge badge-warn">Short by ' + r.openRouterDeficit.toLocaleString() + ' calls/day (' + r.requiredCalls.toLocaleString() + '/' + r.openRouterLimit.toLocaleString() + ')</span>';
+          const orRpmBadge = r.openRouterRpmCovered
+            ? '<span class="badge badge-free">Burst OK (' + r.effectivePeakRpm + '/20 RPM)</span>'
+            : '<span class="badge badge-danger">Exceeds 20 RPM (' + r.effectivePeakRpm + ' RPM)</span>';
+
+          const groqIssues = [];
+          if (!r.groqRpdCovered) groqIssues.push('RPD > 1,000');
+          if (!r.groqTpdCovered) groqIssues.push('TPD > 200k');
+          if (!r.groqRpmCovered) groqIssues.push('RPM > 30');
+          if (!r.groqTpmCovered) groqIssues.push('Peak TPM > 8,000');
+          const groqStatus = r.groqFits
+            ? '<span class="badge badge-free">Fits</span> GPT-OSS 120B / 20B &amp; Qwen 3.8 27B (30 RPM, 1k RPD, 8k TPM, 200k TPD)'
+            : '<span class="badge badge-warn">Blocked: ' + groqIssues.join(', ') + '</span> on GPT-OSS 120B / 20B &amp; Qwen 3.8 27B';
+
+          const cfStatus = r.cfCovered
+            ? '<span class="badge badge-free">Fits 10k Neurons/day</span> ' + r.cfNeuronsPerCall.toFixed(2) + ' Neurons/call &rarr; max ~<strong>' + r.cfMaxFreeCalls.toLocaleString() + ' calls/day</strong> (uses ' + Math.round(r.cfDailyNeurons).toLocaleString() + ' / 10,000)'
+            : '<span class="badge badge-warn">Exceeds 10k Neurons/day</span> ' + Math.round(r.cfDailyNeurons).toLocaleString() + ' Neurons needed (max ~' + r.cfMaxFreeCalls.toLocaleString() + ' calls/day)';
+
           fqOut.innerHTML =
-            '<div><strong>Daily Calls Needed:</strong> ' + r.requiredCalls.toLocaleString() + ' calls/day &middot; <strong>Est. Daily Tokens:</strong> ' + r.requiredTokens.toLocaleString() + ' tokens/day</div>' +
-            '<div style="margin-top:8px">' + orVerdict + '</div>' +
-            '<ul style="margin:8px 0 0;padding-left:20px" class="small muted">' +
-            '<li><strong>Groq (Free Reference):</strong> ' + groqNote + '</li>' +
-            '<li><strong>Cerebras (Free Reference):</strong> ' + cerNote + '</li>' +
-            '<li><strong>Google Gemini / Cloudflare Workers AI:</strong> Quotas vary per model (RPD) or use 10,000 Neurons/day&mdash;check the matrix below before routing production traffic.</li>' +
-            '</ul>';
+            '<div><strong>Daily Demand:</strong> ' + r.requiredCalls.toLocaleString() + ' calls/day (' + r.requiredTokens.toLocaleString() + ' tokens) &middot; <strong>Peak Burst:</strong> ' + r.effectivePeakRpm + ' RPM (' + r.peakTpm.toLocaleString() + ' TPM)</div>' +
+            '<div class="quota-grid">' +
+              '<div class="quota-item"><strong>OpenRouter (<code translate="no">:free</code>)</strong><div style="margin-top:6px">' + orRpdBadge + ' ' + orRpmBadge + '</div></div>' +
+              '<div class="quota-item"><strong>Cloudflare Workers AI</strong> <span class="muted small">(<code translate="no">llama-3.2-1b</code>)</span><div style="margin-top:6px">' + cfStatus + '</div><div class="muted small" style="margin-top:4px">Larger frontier models require Workers Paid ($5/mo).</div></div>' +
+              '<div class="quota-item"><strong>Groq Free (Model-Specific)</strong><div style="margin-top:6px">' + groqStatus + '</div></div>' +
+              '<div class="quota-item"><strong>Cerebras Inference</strong><div style="margin-top:6px"><span class="badge badge-warn">30-Day Trial Only</span> $5 credit expires in 30 days; verified payment method required (5 RPM; no permanently free tier).</div></div>' +
+            '</div>';
         }}
-        [fqJobs, fqCalls, fqRetry, fqTok, fqTier].forEach(el => {{ el.addEventListener('input', calcQuota); el.addEventListener('change', calcQuota); }});
+        [fqJobs, fqCalls, fqPeak, fqRetry, fqIn, fqOutTok, fqTier].forEach(el => {{ el.addEventListener('input', calcQuota); el.addEventListener('change', calcQuota); }});
         calcQuota();
       }})();
     </script>
     """
+    policy_sem_sig = [
+        (p.get("id"), p.get("tier_classification"), p.get("credit_card_required"), p.get("quota_summary"), p.get("verification_status"), p.get("last_verified_date"))
+        for p in providers_list
+    ]
     register_page(
         "free-llm-apis/index.html",
         "/free-llm-apis/",
         "free_hub",
         "index",
-        sem_hash(["free_hub_v2.2.2", TEMPLATE_VERSION, provider_matrix, [model_semantic_fingerprint(m) for m in free_models + routers]]),
+        sem_hash(["free_hub_v2.2.3", TEMPLATE_VERSION, policy_sem_sig, len(policy_history), [model_semantic_fingerprint(m) for m in free_models + routers]]),
         render_layout(
             cfg,
             title="Free LLM APIs With Tool Calling & Real Rate Limits (2026) | SysV",
-            description=f"Compare free LLM API quotas (OpenRouter, Gemini, Groq, Cloudflare, Cerebras), test daily limits with the Free Quota Calculator, and filter {len(free_models)} verified $0 endpoints.",
+            description=f"Compare permanently free LLM APIs vs. free trials (OpenRouter, Gemini, Groq, Cloudflare Workers AI Neurons, Cerebras), calculate RPM/RPD/TPM limits, and filter {len(free_models)} verified $0 endpoints.",
             canonical_path="/free-llm-apis/",
             body_html=free_hub_body,
             git_commit=git_commit,

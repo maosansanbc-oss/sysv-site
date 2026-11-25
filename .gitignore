@@ -1,5 +1,9 @@
+dist/
 __pycache__/
 *.pyc
 .env
-dist/
 .DS_Store
+# Keep private commercial revenue, GSC query exports & conversion ledgers strictly out of the public repo
+private/
+data/private_*.json
+data/gsc_raw_*.json

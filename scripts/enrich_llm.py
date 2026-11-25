@@ -218,6 +218,38 @@ def _valid_enrichment(data: dict[str, Any] | None, pricing_type: str | None = No
     return True
 
 
+def _ensure_today_ops_entry(ops: dict[str, Any], today: str) -> dict[str, Any]:
+    daily = ops.setdefault("daily", [])
+    entry = next((d for d in daily if d.get("date") == today), None)
+    if entry is None:
+        entry = {
+            "date": today,
+            "fetch_success": None,
+            "fetch_repos_success": None,
+            "publish_success": None,
+            "llm_calls": 0,
+            "llm_failed_calls": 0,
+            "llm_tokens_in": 0,
+            "llm_tokens_out": 0,
+            "llm_cost_usd": 0.0,
+            "visits": None,
+            "gsc_impressions": None,
+            "gsc_clicks": None,
+            "indexed_pages": None,
+            "affiliate_clicks": None,
+            "affiliate_conversions": None,
+            "revenue_status": "REVENUE_UNKNOWN",
+            "estimated_revenue_usd": None,
+            "confirmed_payable_usd": None,
+            "bank_settled_usd": None,
+            "net_profit_usd": None,
+            "manual_interventions": 0,
+            "manual_minutes": 0,
+        }
+        daily.append(entry)
+    return entry
+
+
 def run_enrichment(
     models: list[dict[str, Any]],
     repos: list[dict[str, Any]],
@@ -226,9 +258,17 @@ def run_enrichment(
     max_cost_usd: float,
     prompt_ver: str,
     allow_live_llm: bool = True,
+    already_used_calls: int = 0,
+    already_spent_usd: float = 0.0,
+    on_call_recorded=None,
 ) -> dict[str, Any]:
+    """Enforce true cumulative daily call + USD caps across runs, retries, and failed calls."""
     has_live_llm = allow_live_llm and len(get_available_providers()) > 0
+    remaining_calls = max(0, int(max_calls) - max(0, int(already_used_calls)))
+    remaining_budget = max(0.0, round(float(max_cost_usd) - max(0.0, float(already_spent_usd)), 6))
+
     llm_calls_used = 0
+    llm_failed_calls = 0
     total_in_tokens = 0
     total_out_tokens = 0
     total_cost_usd = 0.0
@@ -245,18 +285,40 @@ def run_enrichment(
         if existing and not hash_matches:
             invalidated_count += 1
 
-        if has_live_llm and llm_calls_used < max_calls and total_cost_usd < max_cost_usd and m.get("status") == "active":
+        if (
+            has_live_llm
+            and llm_calls_used < remaining_calls
+            and total_cost_usd < remaining_budget
+            and m.get("status") == "active"
+        ):
             parsed, provider, usage = generate_json_with_fallback(_build_model_prompt(m))
-            call_cost = estimate_call_cost_usd(provider, usage)
-            total_in_tokens += usage.get("prompt_tokens", 0)
-            total_out_tokens += usage.get("completion_tokens", 0)
-            total_cost_usd = round(total_cost_usd + call_cost, 6)
-            if _valid_enrichment(parsed, pricing_type=m.get("pricing_type")):
+            in_tok = int((usage or {}).get("prompt_tokens", 0) or 0)
+            out_tok = int((usage or {}).get("completion_tokens", 0) or 0)
+            call_cost = estimate_call_cost_usd(provider, usage or {})
+            attempted_live = provider != "none" or in_tok > 0 or out_tok > 0 or call_cost > 0
+            valid_ok = _valid_enrichment(parsed, pricing_type=m.get("pricing_type"))
+
+            if attempted_live:
+                llm_calls_used += 1
+                total_in_tokens += in_tok
+                total_out_tokens += out_tok
+                total_cost_usd = round(total_cost_usd + call_cost, 6)
+                if not valid_ok:
+                    llm_failed_calls += 1
+                if on_call_recorded is not None:
+                    on_call_recorded(
+                        calls=1,
+                        failed=0 if valid_ok else 1,
+                        tokens_in=in_tok,
+                        tokens_out=out_tok,
+                        cost_usd=call_cost,
+                    )
+
+            if valid_ok:
                 parsed["source"] = provider
                 parsed["cache_hash"] = c_hash
                 parsed["enriched_at"] = utc_today()
                 m["enrichment"] = parsed
-                llm_calls_used += 1
                 time.sleep(0.8)
                 continue
 
@@ -277,9 +339,14 @@ def run_enrichment(
 
     return {
         "llm_calls": llm_calls_used,
+        "llm_failed_calls": llm_failed_calls,
         "llm_tokens_in": total_in_tokens,
         "llm_tokens_out": total_out_tokens,
         "llm_cost_usd": total_cost_usd,
+        "already_used_calls_before_run": int(already_used_calls),
+        "already_spent_usd_before_run": round(float(already_spent_usd), 6),
+        "remaining_calls_before_run": remaining_calls,
+        "remaining_budget_before_run": remaining_budget,
         "cache_invalidated": invalidated_count,
     }
 
@@ -293,30 +360,50 @@ def main() -> None:
 
     models_path = DATA_DIR / "models.json"
     repos_path = DATA_DIR / "repos.json"
+    ops_path = DATA_DIR / "ops_metrics.json"
     models = load_json(models_path, default=[])
     repos = load_json(repos_path, default=[])
 
-    stats = run_enrichment(models, repos, max_calls=max_calls, max_cost_usd=max_cost_usd, prompt_ver=prompt_ver)
+    ops = load_json(ops_path, default={"daily": []})
+    today = utc_today()
+    entry = _ensure_today_ops_entry(ops, today)
+    already_calls = int(entry.get("llm_calls") or 0)
+    already_cost = float(entry.get("llm_cost_usd") or 0.0)
+
+    def _persist_call(*, calls: int, failed: int, tokens_in: int, tokens_out: int, cost_usd: float) -> None:
+        entry["llm_calls"] = int(entry.get("llm_calls") or 0) + calls
+        entry["llm_failed_calls"] = int(entry.get("llm_failed_calls") or 0) + failed
+        entry["llm_tokens_in"] = int(entry.get("llm_tokens_in") or 0) + tokens_in
+        entry["llm_tokens_out"] = int(entry.get("llm_tokens_out") or 0) + tokens_out
+        entry["llm_cost_usd"] = round(float(entry.get("llm_cost_usd") or 0.0) + cost_usd, 6)
+        if entry.get("bank_settled_usd") is None:
+            entry["revenue_status"] = "REVENUE_UNKNOWN"
+            entry["net_profit_usd"] = None
+        else:
+            entry["net_profit_usd"] = round(float(entry["bank_settled_usd"]) - entry["llm_cost_usd"], 6)
+        ops["daily"] = sorted(ops["daily"], key=lambda x: x["date"], reverse=True)[:365]
+        save_json(ops_path, ops)
+
+    stats = run_enrichment(
+        models,
+        repos,
+        max_calls=max_calls,
+        max_cost_usd=max_cost_usd,
+        prompt_ver=prompt_ver,
+        already_used_calls=already_calls,
+        already_spent_usd=already_cost,
+        on_call_recorded=_persist_call,
+    )
 
     save_json(models_path, models)
     save_json(repos_path, repos)
-
-    # Update daily ops ledger
-    ops_path = DATA_DIR / "ops_metrics.json"
-    ops = load_json(ops_path, default={"daily": []})
-    today = utc_today()
-    entry = next((d for d in ops["daily"] if d.get("date") == today), None)
-    if entry is not None:
-        entry["llm_calls"] = int(entry.get("llm_calls") or 0) + stats["llm_calls"]
-        entry["llm_tokens_in"] = int(entry.get("llm_tokens_in") or 0) + stats["llm_tokens_in"]
-        entry["llm_tokens_out"] = int(entry.get("llm_tokens_out") or 0) + stats["llm_tokens_out"]
-        entry["llm_cost_usd"] = round(float(entry.get("llm_cost_usd") or 0.0) + stats["llm_cost_usd"], 6)
-        entry["net_profit_usd"] = round(float(entry.get("bank_settled_usd") or 0.0) - entry["llm_cost_usd"], 6)
-        save_json(ops_path, ops)
+    ops["daily"] = sorted(ops["daily"], key=lambda x: x["date"], reverse=True)[:365]
+    save_json(ops_path, ops)
 
     print(
-        f"[enrich_llm] Done: live_llm_calls={stats['llm_calls']} (cap={max_calls}), "
-        f"cost_usd=${stats['llm_cost_usd']:.6f} (cap=${max_cost_usd}), "
+        f"[enrich_llm] Done: this_run_calls={stats['llm_calls']} (failed={stats['llm_failed_calls']}), "
+        f"today_total_calls={entry['llm_calls']}/{max_calls}, "
+        f"today_total_cost=${entry['llm_cost_usd']:.6f}/${max_cost_usd:.4f}, "
         f"cache_invalidated={stats['cache_invalidated']}, models={len(models)}, repos={len(repos)}."
     )
 
