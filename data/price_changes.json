@@ -158,6 +158,15 @@
       "detail": "Input $0.27 -> $0.3, Output $0.95 -> $1.2 per 1M"
     },
     {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "google/gemma-4-26b-a4b-it",
+      "name": "Google: Gemma 4 26B A4B",
+      "slug": "google-gemma-4-26b-a4b-it",
+      "detail": "Input $0.0765 -> $0.09, Output $0.255 -> $0.3 per 1M"
+    },
+    {
       "date": "2026-11-24",
       "compared_to": "2026-11-24",
       "type": "tier_change",

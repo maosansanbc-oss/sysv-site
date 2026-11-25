@@ -238,7 +238,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e670c38aad1b741f",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "NVIDIA: Nemotron 3 Ultra (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1000K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
       "best_for": [
         "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
@@ -805,7 +805,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "7668abe44f58a1f1",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Mistral Nemo is a real-time paid endpoint billed at $0.029/1M input and $0.03/1M output tokens (estimated $0.29 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -868,7 +868,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f15570ef81345128",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemma 3 4B is a real-time paid endpoint billed at $0.04/1M input and $0.05/1M output tokens (estimated $0.42 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -931,7 +931,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "08a76bea79a54873",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Mistral Small 3 is a real-time paid endpoint billed at $0.05/1M input and $0.08/1M output tokens (estimated $0.56 for 8M input + 2M output tokens) with a 32K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -1057,7 +1057,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "affea0ac4a21c2ca",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: gpt-oss-20b is a real-time paid endpoint billed at $0.03/1M input and $0.13/1M output tokens (estimated $0.5 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1120,7 +1120,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f5d0d85f2a221ed8",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Ministral 3 3B 2512 is a real-time paid endpoint billed at $0.1/1M input and $0.1/1M output tokens (estimated $1.0 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1183,7 +1183,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "17f42f6bee05c7d1",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemma 3 12B is a real-time paid endpoint billed at $0.05/1M input and $0.15/1M output tokens (estimated $0.7 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1246,7 +1246,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "14eddf5f71ffdcda",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemma 3 27B is a real-time paid endpoint billed at $0.08/1M input and $0.16/1M output tokens (estimated $0.96 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1309,7 +1309,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "11fe18d291676146",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: DeepSeek V4 Flash 0423 is a real-time paid endpoint billed at $0.09/1M input and $0.18/1M output tokens (estimated $1.08 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1372,7 +1372,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "342cec79e86a746d",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Mistral Small 3.2 24B is a real-time paid endpoint billed at $0.075/1M input and $0.2/1M output tokens (estimated $1.0 for 8M input + 2M output tokens) with a 256K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1435,7 +1435,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8aadaa2431c198f2",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Ministral 3 8B 2512 is a real-time paid endpoint billed at $0.15/1M input and $0.15/1M output tokens (estimated $1.5 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1498,7 +1498,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d82a7a6bb0b906cb",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: gpt-oss-120b is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1561,7 +1561,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "997df8daf38074c6",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Meta: Muse Spark 1.3 Contributor is a real-time paid endpoint billed at $0.1/1M input and $0.2/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1624,7 +1624,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "67216ea79d808fb2",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Meta: Muse Spark 1.2 Contributor is a real-time paid endpoint billed at $0.1/1M input and $0.2/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1687,7 +1687,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "fcd8c14a499ec019",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.5-Flash is a real-time paid endpoint billed at $0.065/1M input and $0.26/1M output tokens (estimated $1.04 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1698,69 +1698,6 @@
         "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
         "Cache repeated prompts by content hash to prevent duplicate spend"
       ]
-    }
-  },
-  {
-    "id": "google/gemma-4-26b-a4b-it",
-    "slug": "google-gemma-4-26b-a4b-it",
-    "name": "Google: Gemma 4 26B A4B",
-    "provider": "Google",
-    "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.0765,
-    "completion_price_per_m": 0.255,
-    "cache_read_price_per_m": 0.0425,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.0000000765",
-      "completion": "0.000000255",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.0000000425",
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+video->text",
-    "task_category": "reasoning",
-    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference — delivering near-31B quality at...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "summary": "Gemma 4 26B A4B IT is a paid, real-time instruction-tuned MoE model with 25.2B total parameters and 3.8B active per token. It supports text, image, and video inputs with a 262,144-token context, tools, structured outputs, and reasoning.",
-      "best_for": [
-        "Multimodal tasks combining text, image, and video inputs",
-        "Long-context workloads up to 262K tokens",
-        "Tool-calling and structured-output pipelines"
-      ],
-      "watch_outs": [
-        "Paid per-token pricing (0.0765 input / 0.255 output per 1M) plus OpenRouter top-up fees unless BYOK",
-        "Real-time only; no free or batch tier indicated"
-      ],
-      "source": "deepseek",
-      "cache_hash": "96fecbbebbe42099",
-      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -1811,19 +1748,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "5e090db6be39293c",
-      "enriched_at": "2026-11-25",
-      "summary": "DeepSeek: DeepSeek V4 Flash 0731 is a real-time paid endpoint billed at $0.047/1M input and $0.3/1M output tokens (estimated $0.98 for 8M input + 2M output tokens) with a 1048K context window.",
+      "summary": "DeepSeek V4 Flash 0731 is a paid, real-time text-to-text endpoint with a 1,048,576-token context window and per-1M pricing of 0.047 input / 0.3 output. It is a sparse mixture-of-experts model with 13B active of 284B total parameters, supporting tools, structured outputs, and reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1048K tokens"
+        "Coding and agent workflows",
+        "Long-context reasoning over large inputs",
+        "Cost-sensitive real-time tool-calling and structured output"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; OpenRouter adds 5.5% card / 5% crypto top-up fees unless BYOK",
+        "Text-only modality with no image or audio input"
+      ],
+      "source": "deepseek",
+      "cache_hash": "5e090db6be39293c",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -1876,7 +1813,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "68376e2fca828999",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 Coder 30B A3B Instruct is a real-time paid endpoint billed at $0.07/1M input and $0.28/1M output tokens (estimated $1.12 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1939,7 +1876,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "05be25c206610c9b",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 14B is a real-time paid endpoint billed at $0.12/1M input and $0.24/1M output tokens (estimated $1.44 for 8M input + 2M output tokens) with a 40K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2002,7 +1939,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "43e855e29fff9191",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 32B is a real-time paid endpoint billed at $0.08/1M input and $0.28/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2063,14 +2000,77 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
+      "summary": "OpenAI gpt-oss-safeguard-20b is a paid, real-time text-to-text safety reasoning model with a 131072-token context window and per-token pricing of 0.075 input / 0.3 output per 1M tokens. It supports tools, structured outputs, and reasoning, and is built for lower-latency safety tasks such as content classification and LLM filtering.",
+      "best_for": [
+        "Content classification and safety labeling",
+        "LLM output filtering and trust workflows",
+        "Structured, tool-assisted safety reasoning"
+      ],
+      "watch_outs": [
+        "Paid per-token pricing applies, plus OpenRouter top-up fees unless BYOK",
+        "Large context and reasoning outputs can raise token costs"
+      ],
+      "source": "deepseek",
       "cache_hash": "5561508f4ee86710",
-      "enriched_at": "2026-11-24",
-      "summary": "OpenAI: gpt-oss-safeguard-20b is a real-time paid endpoint billed at $0.075/1M input and $0.3/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 131K context window.",
+      "enriched_at": "2026-11-25"
+    }
+  },
+  {
+    "id": "google/gemma-4-26b-a4b-it",
+    "slug": "google-gemma-4-26b-a4b-it",
+    "name": "Google: Gemma 4 26B A4B",
+    "provider": "Google",
+    "context_length": 262144,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.09,
+    "completion_price_per_m": 0.3,
+    "cache_read_price_per_m": 0.05,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-25"
+    },
+    "raw_pricing": {
+      "prompt": "0.00000009",
+      "completion": "0.0000003",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.00000005",
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image+video->text",
+    "task_category": "reasoning",
+    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference — delivering near-31B quality at...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
+    "delisted_at": null,
+    "updated_at": "2026-11-25",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "ebf35bb533355afb",
+      "enriched_at": "2026-11-25",
+      "summary": "Google: Gemma 4 26B A4B is a real-time paid endpoint billed at $0.09/1M input and $0.3/1M output tokens (estimated $1.32 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
         "Strict JSON / structured extraction",
-        "Long-context inputs up to 131K tokens"
+        "Long-context inputs up to 262K tokens"
       ],
       "watch_outs": [
         "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
@@ -2126,19 +2126,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "99051925aed3de9b",
-      "enriched_at": "2026-11-24",
-      "summary": "Mistral: Ministral 3 14B 2512 is a real-time paid endpoint billed at $0.2/1M input and $0.2/1M output tokens (estimated $2.0 for 8M input + 2M output tokens) with a 262K context window.",
+      "summary": "Mistral: Ministral 3 14B 2512 is a paid real-time text-and-image-to-text endpoint priced at 0.2 per 1M input and output tokens. It offers a 262144-token context with tool use and structured outputs, but no reasoning mode.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
+        "Long-context text and image tasks needing a large 262144-token window",
+        "Tool-calling and structured-output workflows",
+        "Cost-sensitive real-time applications at 0.2 per 1M tokens"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing plus OpenRouter top-up fees unless BYOK",
+        "No reasoning capability; reasoning-heavy tasks may need another model"
+      ],
+      "source": "deepseek",
+      "cache_hash": "99051925aed3de9b",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -2191,7 +2191,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "c0760e3d4fae8b3d",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 30B A3B Instruct 2507 is a real-time paid endpoint billed at $0.1/1M input and $0.3/1M output tokens (estimated $1.4 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2254,7 +2254,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "3ac6c23b9abd7ad9",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Voxtral Small 24B 2507 is a real-time paid endpoint billed at $0.1/1M input and $0.3/1M output tokens (estimated $1.4 for 8M input + 2M output tokens) with a 32K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2317,7 +2317,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "55ed71dee5d6b7c1",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.5-9B is a real-time paid endpoint billed at $0.17/1M input and $0.25/1M output tokens (estimated $1.86 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2380,7 +2380,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "102b4905ec2a25c3",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5 Nano is a real-time paid endpoint billed at $0.05/1M input and $0.4/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2441,19 +2441,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "fbc2f1c17c303b01",
-      "enriched_at": "2026-11-24",
-      "summary": "Google: Gemini 2.5 Flash Lite is a real-time paid endpoint billed at $0.1/1M input and $0.4/1M output tokens (estimated $1.6 for 8M input + 2M output tokens) with a 1048K context window.",
+      "summary": "Gemini 2.5 Flash Lite is a paid real-time model priced at 0.1 per 1M input tokens and 0.4 per 1M output tokens. It supports text, image, file, audio, and video inputs to text output with a 1,048,576-token context and tools, structured outputs, and reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1048K tokens"
+        "Ultra-low-latency interactive applications",
+        "Cost-efficient high-throughput text generation",
+        "Multimodal inputs spanning text, image, file, audio, and video"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
+        "Large 1,048,576-token context can increase input token costs on long prompts"
+      ],
+      "source": "deepseek",
+      "cache_hash": "fbc2f1c17c303b01",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -2506,7 +2506,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "011b92e912a90084",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-4.1 Nano is a real-time paid endpoint billed at $0.1/1M input and $0.4/1M output tokens (estimated $1.6 for 8M input + 2M output tokens) with a 1047K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2758,7 +2758,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "962e6971dd21b726",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Meta: Muse Ember is a real-time paid endpoint billed at $0.1/1M input and $0.5/1M output tokens (estimated $1.8 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2821,7 +2821,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "1177f537a99b8ac3",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Anthropic: Claude Haiku 5.5 is a real-time paid endpoint billed at $0.1/1M input and $0.5/1M output tokens (estimated $1.8 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2884,7 +2884,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a0954d903e130f48",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemma 4 31B is a real-time paid endpoint billed at $0.2/1M input and $0.4/1M output tokens (estimated $2.4 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2945,19 +2945,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "21f8352381065883",
-      "enriched_at": "2026-11-24",
-      "summary": "Qwen: Qwen3.8 Omni Flash is a real-time paid endpoint billed at $0.15/1M input and $0.47/1M output tokens (estimated $2.14 for 8M input + 2M output tokens) with a 1000K context window.",
+      "summary": "Qwen3.8 Omni Flash is a paid, real-time interactive omni-modal model accepting text, image, audio, and video inputs with a 1M-token context. It supports tools, structured outputs, and reasoning, priced at 0.15 per 1M input tokens and 0.47 per 1M output tokens.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1000K tokens"
+        "Audio-video analysis and summarization",
+        "Agentic multimodal workflows with tool use",
+        "Long-context tasks leveraging the 1M-token window"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
+        "Real-time interactive usage incurs standard per-token costs, so high-volume or streaming workloads need cost monitoring"
+      ],
+      "source": "deepseek",
+      "cache_hash": "21f8352381065883",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3010,7 +3010,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "18952ac75f477092",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.8 Flash is a real-time paid endpoint billed at $0.15/1M input and $0.47/1M output tokens (estimated $2.14 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3073,7 +3073,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "9db24ed3171ed5f1",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 30B A3B is a real-time paid endpoint billed at $0.12/1M input and $0.5/1M output tokens (estimated $1.96 for 8M input + 2M output tokens) with a 40K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3134,19 +3134,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "917cda73f9528fbc",
-      "enriched_at": "2026-11-24",
-      "summary": "DeepSeek: DeepSeek V3.2 is a real-time paid endpoint billed at $0.26/1M input and $0.38/1M output tokens (estimated $2.84 for 8M input + 2M output tokens) with a 163K context window.",
+      "summary": "DeepSeek V3.2 is a paid, real-time text-to-text model priced at 0.26 per 1M input tokens and 0.38 per 1M output tokens, with a 163,840-token context window. It supports tools, structured outputs, and reasoning, and is described as balancing computational efficiency with strong reasoning and agentic tool-use performance.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 163K tokens"
+        "Agentic tool-use workflows",
+        "Reasoning-heavy text tasks",
+        "Structured output generation"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
+        "Text-only modality with no other input/output types supported"
+      ],
+      "source": "deepseek",
+      "cache_hash": "917cda73f9528fbc",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3199,7 +3199,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f147a345ee190565",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: DeepSeek V3.2 Exp is a real-time paid endpoint billed at $0.27/1M input and $0.41/1M output tokens (estimated $2.98 for 8M input + 2M output tokens) with a 163K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3262,7 +3262,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b11ac31e110c43ae",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Mistral Small 4 is a real-time paid endpoint billed at $0.15/1M input and $0.6/1M output tokens (estimated $2.4 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3323,19 +3323,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "d9ffa2177bc5d965",
-      "enriched_at": "2026-11-24",
-      "summary": "Qwen: Qwen3 VL 30B A3B Instruct is a real-time paid endpoint billed at $0.15/1M input and $0.6/1M output tokens (estimated $2.4 for 8M input + 2M output tokens) with a 262K context window.",
+      "summary": "Qwen3 VL 30B A3B Instruct is a paid, real-time multimodal endpoint supporting text and image inputs with a 262,144-token context window. It offers tool use and structured outputs but no reasoning mode, priced at 0.15/0.6 per 1M input/output tokens.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
+        "General multimodal instruction-following tasks",
+        "Image understanding with large context needs",
+        "Tool-augmented and structured-output workflows"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing plus OpenRouter top-up fees unless BYOK",
+        "No reasoning capability; not suited for tasks requiring explicit reasoning modes"
+      ],
+      "source": "deepseek",
+      "cache_hash": "d9ffa2177bc5d965",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3388,7 +3388,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "2c47110796418dde",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-4o-mini is a real-time paid endpoint billed at $0.15/1M input and $0.6/1M output tokens (estimated $2.4 for 8M input + 2M output tokens) with a 128K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3451,7 +3451,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b68ff014c028049e",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-4o-mini (2024-07-18) is a real-time paid endpoint billed at $0.15/1M input and $0.6/1M output tokens (estimated $2.4 for 8M input + 2M output tokens) with a 128K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3514,7 +3514,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "bb6e89df8eae13db",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen2.5 72B Instruct is a real-time paid endpoint billed at $0.36/1M input and $0.4/1M output tokens (estimated $3.68 for 8M input + 2M output tokens) with a 32K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3575,19 +3575,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "12a70e8b9ea2ade1",
-      "enriched_at": "2026-11-24",
-      "summary": "Mistral: Saba is a real-time paid endpoint billed at $0.2/1M input and $0.6/1M output tokens (estimated $2.8 for 8M input + 2M output tokens) with a 32K context window.",
+      "summary": "Mistral Saba is a paid, real-time interactive text+file-to-text model priced at 0.2 per 1M input tokens and 0.6 per 1M output tokens, with a 32,768-token context. It is a 24B-parameter model designed for Middle East and South Asia use cases, supporting tools and structured outputs but not reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Cost-controlled production API workloads"
+        "Regional Middle East and South Asia language tasks",
+        "Tool-using and structured-output workflows",
+        "Cost-sensitive real-time text and file inputs"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing plus OpenRouter top-up fees unless BYOK",
+        "No reasoning capability and limited to 32,768-token context"
+      ],
+      "source": "deepseek",
+      "cache_hash": "12a70e8b9ea2ade1",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3638,19 +3638,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "a5ae1f5f7ec82ea2",
-      "enriched_at": "2026-11-24",
-      "summary": "Mistral: Mistral Small 3.1 24B is a real-time paid endpoint billed at $0.351/1M input and $0.555/1M output tokens (estimated $3.92 for 8M input + 2M output tokens) with a 128K context window.",
+      "summary": "Mistral Small 3.1 24B Instruct is a paid real-time interactive endpoint with a 128K context window and text+image-to-text modality. It supports tools and structured outputs but not reasoning, priced at 0.351 per 1M input and 0.555 per 1M output tokens.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 128K tokens"
+        "Multimodal tasks combining text and image inputs",
+        "Tool-calling and structured-output workflows",
+        "Long-context interactive applications up to 128K tokens"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies, plus OpenRouter top-up fees unless using BYOK",
+        "No reasoning capability, so complex multi-step reasoning tasks may be limited"
+      ],
+      "source": "deepseek",
+      "cache_hash": "a5ae1f5f7ec82ea2",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3703,7 +3703,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "6a2fc75c06c76d39",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 Coder Next is a real-time paid endpoint billed at $0.12/1M input and $0.8/1M output tokens (estimated $2.56 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3766,7 +3766,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "1dad9b879d04e71b",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 235B A22B Instruct 2507 is a real-time paid endpoint billed at $0.14/1M input and $0.8/1M output tokens (estimated $2.72 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3890,19 +3890,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "47fcb63e38e8d7b2",
-      "enriched_at": "2026-11-24",
-      "summary": "Qwen: Qwen3 VL 8B Instruct is a real-time paid endpoint billed at $0.25/1M input and $0.75/1M output tokens (estimated $3.5 for 8M input + 2M output tokens) with a 262K context window.",
+      "summary": "Qwen3 VL 8B Instruct is a paid real-time multimodal endpoint accepting text and image input with a 262,144-token context and per-1M pricing of 0.25 input / 0.75 output. It supports tools and structured outputs but not reasoning, and standard per-token pricing applies plus OpenRouter top-up fees unless using BYOK.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
+        "Image-and-text understanding tasks needing long context",
+        "Tool-augmented multimodal workflows",
+        "Structured output generation from visual inputs"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing with added top-up fees unless BYOK",
+        "No reasoning capability enabled on this endpoint"
+      ],
+      "source": "deepseek",
+      "cache_hash": "47fcb63e38e8d7b2",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3955,7 +3955,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b4f71adf55735993",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen-Plus is a real-time paid endpoint billed at $0.26/1M input and $0.78/1M output tokens (estimated $3.64 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4018,7 +4018,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "00fb427d295df4b9",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.5-35B-A3B is a real-time paid endpoint billed at $0.14/1M input and $1.0/1M output tokens (estimated $3.12 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4081,7 +4081,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "c23ce1238ffbe0a9",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 Coder Flash is a real-time paid endpoint billed at $0.195/1M input and $0.975/1M output tokens (estimated $3.51 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4144,7 +4144,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "fc26d8a52f0194e7",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Codestral 2508 is a real-time paid endpoint billed at $0.3/1M input and $0.9/1M output tokens (estimated $4.2 for 8M input + 2M output tokens) with a 256K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4207,7 +4207,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "120601bd2d8eaec0",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: DeepSeek V3.1 is a real-time paid endpoint billed at $0.25/1M input and $0.95/1M output tokens (estimated $3.9 for 8M input + 2M output tokens) with a 163K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4270,7 +4270,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a21f1133542df15a",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 Next 80B A3B Instruct is a real-time paid endpoint billed at $0.1/1M input and $1.1/1M output tokens (estimated $3.0 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4333,7 +4333,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "163356881d2c2abd",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: DeepSeek V3 0324 is a real-time paid endpoint billed at $0.25/1M input and $1.0/1M output tokens (estimated $4.0 for 8M input + 2M output tokens) with a 163K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4396,7 +4396,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b148908198d578d7",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: DeepSeek V3.1 Terminus is a real-time paid endpoint billed at $0.27/1M input and $1.0/1M output tokens (estimated $4.16 for 8M input + 2M output tokens) with a 163K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4459,7 +4459,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e0d6c83abed106dd",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: DeepSeek V3 is a real-time paid endpoint billed at $0.2574/1M input and $1.0287/1M output tokens (estimated $4.12 for 8M input + 2M output tokens) with a 163K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4522,7 +4522,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "adf2f35cfa63dcc9",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 Coder 480B A35B is a real-time paid endpoint billed at $0.3/1M input and $1.0/1M output tokens (estimated $4.4 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4648,7 +4648,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "cf5cc887503021cf",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5.6 Luna Pro is a real-time paid endpoint billed at $0.2/1M input and $1.2/1M output tokens (estimated $4.0 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4774,7 +4774,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "cb9b2d0c0e365b4d",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5.4 Nano is a real-time paid endpoint billed at $0.2/1M input and $1.25/1M output tokens (estimated $4.1 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4963,7 +4963,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e148538acf418d19",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.7 Plus is a real-time paid endpoint billed at $0.32/1M input and $1.28/1M output tokens (estimated $5.12 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5026,7 +5026,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "af3353b436578573",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen2.5 Coder 32B Instruct is a real-time paid endpoint billed at $0.66/1M input and $1.0/1M output tokens (estimated $7.28 for 8M input + 2M output tokens) with a 32K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -5089,7 +5089,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8ec29198dc0332b9",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemini 3.1 Flash Lite is a real-time paid endpoint billed at $0.25/1M input and $1.5/1M output tokens (estimated $5.0 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5152,7 +5152,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e39fb8075d344627",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemini 3.1 Flash Lite Preview is a real-time paid endpoint billed at $0.25/1M input and $1.5/1M output tokens (estimated $5.0 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5278,7 +5278,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "561bb882dd7f9aa5",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen2.5 VL 72B Instruct is a real-time paid endpoint billed at $0.8/1M input and $1.0/1M output tokens (estimated $8.4 for 8M input + 2M output tokens) with a 128K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -5341,7 +5341,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d48e40a40a88d36c",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.5 Plus 2026-02-15 is a real-time paid endpoint billed at $0.26/1M input and $1.56/1M output tokens (estimated $5.2 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5404,7 +5404,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "929b170ccbb3f6a6",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Meta: Muse Glimmer 30B is a real-time paid endpoint billed at $0.35/1M input and $1.5/1M output tokens (estimated $5.8 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5467,7 +5467,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8e0664b5ad393eee",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-4.1 Mini is a real-time paid endpoint billed at $0.4/1M input and $1.6/1M output tokens (estimated $6.4 for 8M input + 2M output tokens) with a 1047K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5530,7 +5530,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "90d497d7d40ac4c5",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Mistral Large 3 2512 is a real-time paid endpoint billed at $0.5/1M input and $1.5/1M output tokens (estimated $7.0 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5656,7 +5656,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f64acd5212e4cd6e",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 VL 235B A22B Instruct is a real-time paid endpoint billed at $0.21/1M input and $1.9/1M output tokens (estimated $5.48 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5719,7 +5719,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "eff29b135563ea68",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5.1-Codex-Mini is a real-time paid endpoint billed at $0.25/1M input and $2.0/1M output tokens (estimated $6.0 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5782,7 +5782,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "3c4d8ca93d081ede",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5 Mini is a real-time paid endpoint billed at $0.25/1M input and $2.0/1M output tokens (estimated $6.0 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5845,7 +5845,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "9ef578f44bb49840",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.6 Plus is a real-time paid endpoint billed at $0.325/1M input and $1.95/1M output tokens (estimated $6.5 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5908,7 +5908,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d0036e23c77f3c58",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.5-122B-A10B is a real-time paid endpoint billed at $0.26/1M input and $2.08/1M output tokens (estimated $6.24 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5971,7 +5971,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "094b1f1050a19bd7",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Devstral 2 2512 is a real-time paid endpoint billed at $0.4/1M input and $2.0/1M output tokens (estimated $7.2 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6034,7 +6034,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "da166da41225aafd",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Mistral Large 4 is a real-time paid endpoint billed at $0.7/1M input and $2.1/1M output tokens (estimated $9.8 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6097,7 +6097,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "841624c0397cd0d3",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemini 3.5 Flash Lite is a real-time paid endpoint billed at $0.3/1M input and $2.5/1M output tokens (estimated $7.4 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6160,7 +6160,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8b0d7cda90b0c0c1",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemini 2.5 Flash is a real-time paid endpoint billed at $0.3/1M input and $2.5/1M output tokens (estimated $7.4 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6223,7 +6223,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "fbe7340c604ae11b",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: R1 0528 is a real-time paid endpoint billed at $0.571/1M input and $2.286/1M output tokens (estimated $9.14 for 8M input + 2M output tokens) with a 163K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6286,7 +6286,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "696561bdf4f3a166",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.5-27B is a real-time paid endpoint billed at $0.26/1M input and $2.6/1M output tokens (estimated $7.28 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6349,7 +6349,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b95567cb5ec9dccf",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.5 397B A17B is a real-time paid endpoint billed at $0.45/1M input and $3.0/1M output tokens (estimated $9.6 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6412,7 +6412,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "5d374c6ac2adb186",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemini 3 Flash Preview is a real-time paid endpoint billed at $0.5/1M input and $3.0/1M output tokens (estimated $10.0 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6475,7 +6475,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "3bfc25008b9f8969",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.6 27B is a real-time paid endpoint billed at $0.32/1M input and $3.2/1M output tokens (estimated $8.96 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6601,7 +6601,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e0c996f7c59dfbca",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3 235B A22B Thinking 2507 is a real-time paid endpoint billed at $0.45/1M input and $3.5/1M output tokens (estimated $10.6 for 8M input + 2M output tokens) with a 128K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6664,7 +6664,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "7907758546074a48",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemini 3.7 Flash is a real-time paid endpoint billed at $0.75/1M input and $3.75/1M output tokens (estimated $13.5 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6727,7 +6727,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "fb22301f23e49490",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemini 3.6 Flash is a real-time paid endpoint billed at $0.75/1M input and $3.75/1M output tokens (estimated $13.5 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6853,7 +6853,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a934e573b11ab2c0",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Google: Gemini 3.8 Flash is a real-time paid endpoint billed at $0.825/1M input and $4.125/1M output tokens (estimated $14.85 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6916,7 +6916,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "94ef23d7c4135455",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5.4 Mini is a real-time paid endpoint billed at $0.75/1M input and $4.5/1M output tokens (estimated $15.0 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -8113,7 +8113,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "c5c9c36cd22b528c",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Z.ai: GLM 5.3 Flash (batch) is an asynchronous batch-only endpoint billed at $0.023/1M input and $0.068/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8176,7 +8176,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "7960532ffedce688",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: gpt-oss-20b (batch) is an asynchronous batch-only endpoint billed at $0.024/1M input and $0.112/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8239,7 +8239,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "2dc304d6f624e1f9",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: gpt-oss-120b (batch) is an asynchronous batch-only endpoint billed at $0.0296/1M input and $0.136/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8302,7 +8302,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f576d82c6afbe4ca",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch) is an asynchronous batch-only endpoint billed at $0.035/1M input and $0.149/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8365,7 +8365,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "9a6b96e3073f83d7",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: DeepSeek V4 Flash 0731 (batch) is an asynchronous batch-only endpoint billed at $0.048/1M input and $0.144/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8428,7 +8428,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "aae65eea18e73850",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "DeepSeek: DeepSeek V4.1 Flash (batch) is an asynchronous batch-only endpoint billed at $0.05/1M input and $0.15/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8491,7 +8491,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f181d22dc03310b2",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5 Nano (batch) is an asynchronous batch-only endpoint billed at $0.025/1M input and $0.2/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8554,7 +8554,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8a8eb69d700fa775",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-4.1 Nano (batch) is an asynchronous batch-only endpoint billed at $0.05/1M input and $0.2/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8888,7 +8888,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "55d0481522429fea",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-6 Luna Pro (batch) is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -8931,7 +8931,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "4acc4a273b873f39",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-6 Luna (batch) is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -8974,7 +8974,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "267dac112fbb2088",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Anthropic: Claude Haiku 5.5 (batch) is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9017,7 +9017,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "168bf7f5252d3878",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-4o-mini (batch) is a real-time paid endpoint billed at $0.075/1M input and $0.3/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 128K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9060,7 +9060,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e33d3d4bb0e95920",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5.6 Luna Pro (batch) is a real-time paid endpoint billed at $0.1/1M input and $0.6/1M output tokens (estimated $2.0 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9103,7 +9103,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "6b9976b4d094dcc1",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5.6 Luna (batch) is a real-time paid endpoint billed at $0.1/1M input and $0.6/1M output tokens (estimated $2.0 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9146,7 +9146,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "aa44c1dd0a98df65",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5.4 Nano (batch) is a real-time paid endpoint billed at $0.1/1M input and $0.625/1M output tokens (estimated $2.05 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9189,7 +9189,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "1ce95bfa8e5df7c3",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-4.1 Mini (batch) is a real-time paid endpoint billed at $0.2/1M input and $0.8/1M output tokens (estimated $3.2 for 8M input + 2M output tokens) with a 1047K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9232,7 +9232,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "268120817f8f2b73",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5 Mini (batch) is a real-time paid endpoint billed at $0.125/1M input and $1.0/1M output tokens (estimated $3.0 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9275,7 +9275,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "ac9418c03a5e83fe",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.7 Plus (batch) is a real-time paid endpoint billed at $0.23/1M input and $0.92/1M output tokens (estimated $3.68 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9318,7 +9318,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "7bc0e0c10d650c49",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Meta: Muse Glimmer 30B (batch) is a real-time paid endpoint billed at $0.24/1M input and $0.96/1M output tokens (estimated $3.84 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9361,7 +9361,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "77396c8761e8de50",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Qwen: Qwen3.8 27B (batch) is a real-time paid endpoint billed at $0.16/1M input and $2.0/1M output tokens (estimated $5.28 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9404,7 +9404,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a4f0863cab997cab",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-5.4 Mini (batch) is a real-time paid endpoint billed at $0.375/1M input and $2.25/1M output tokens (estimated $7.5 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9447,7 +9447,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "68fa088aca2164c9",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Mistral Medium 3.1 is a real-time paid endpoint billed at $0.44/1M input and $2.2/1M output tokens (estimated $7.92 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9489,7 +9489,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "76ab1005ba9794ce",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Mistral Medium 3 is a real-time paid endpoint billed at $0.44/1M input and $2.2/1M output tokens (estimated $7.92 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9531,7 +9531,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e6ee219ff39d8038",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: o4 Mini (batch) is a real-time paid endpoint billed at $0.55/1M input and $2.2/1M output tokens (estimated $8.8 for 8M input + 2M output tokens) with a 200K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9574,7 +9574,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8e0802249bc7c481",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: o3 Mini (batch) is a real-time paid endpoint billed at $0.55/1M input and $2.2/1M output tokens (estimated $8.8 for 8M input + 2M output tokens) with a 200K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9617,7 +9617,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "dce6e31ccd078122",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-6.1 Terra Pro (batch) is a real-time paid endpoint billed at $0.5/1M input and $2.5/1M output tokens (estimated $9.0 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9660,7 +9660,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "374332f1a97424bf",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "OpenAI: GPT-6.1 Terra (batch) is a real-time paid endpoint billed at $0.5/1M input and $2.5/1M output tokens (estimated $9.0 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9703,7 +9703,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "6bf509c5d763a66d",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Anthropic: Claude Haiku 4.5 (batch) is a real-time paid endpoint billed at $0.5/1M input and $2.5/1M output tokens (estimated $9.0 for 8M input + 2M output tokens) with a 200K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9746,7 +9746,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "5f0b580a6fcd53ae",
-      "enriched_at": "2026-11-24",
+      "enriched_at": "2026-11-25",
       "summary": "Mistral: Mistral Medium 3.5 (batch) is a real-time paid endpoint billed at $0.75/1M input and $3.75/1M output tokens (estimated $13.5 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time text generation and analysis",

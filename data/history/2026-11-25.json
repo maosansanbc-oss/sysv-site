@@ -2302,8 +2302,8 @@
       "slug": "google-gemma-4-26b-a4b-it",
       "provider": "Google",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.0765,
-      "completion_price_per_m": 0.255,
+      "prompt_price_per_m": 0.09,
+      "completion_price_per_m": 0.3,
       "context_length": 262144
     },
     "google/gemma-4-26b-a4b-it:free": {
