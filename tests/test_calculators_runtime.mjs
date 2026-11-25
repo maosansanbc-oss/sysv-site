@@ -50,6 +50,21 @@ assert.equal(calc.isValidPrice({ in: NaN, out: 1 }), false);
 assert.equal(calc.isValidPrice({ in: -1, out: 1 }), false);
 assert.equal(calc.isValidPrice({ in: 0, out: 0 }), true);
 
+// Free LLM API Quota Calculator boundary checks
+const fqShort = calc.calculateFreeQuota(30, 3, 1.0, 1500, "free_50");
+assert.equal(fqShort.requiredCalls, 90);
+assert.equal(fqShort.openRouterCovered, false);
+assert.equal(fqShort.openRouterDeficit, 40);
+assert.equal(fqShort.groqFits, true);
+
+const fqPaid = calc.calculateFreeQuota(30, 3, 1.0, 1500, "paid_1000");
+assert.equal(fqPaid.openRouterCovered, true);
+assert.equal(fqPaid.openRouterDeficit, 0);
+
+const fqBigPrompt = calc.calculateFreeQuota(10, 2, 1.0, 9500, "free_50");
+assert.equal(fqBigPrompt.groqSinglePromptOverTpm, true);
+assert.equal(fqBigPrompt.groqFits, false);
+
 console.log("[runtime_js] calc-engine.js boundary assertions PASSED");
 
 // 2. Verify all 4 ad-free /embed/ pages strictly exclude AdSense & trackers
@@ -90,6 +105,7 @@ await new Promise((r) => setTimeout(r, 1200));
 try {
   const targets = [
     ["/", "Lowest Estimated Token Cost"],
+    ["/free-llm-apis/", "Short by 40 calls/day"],
     ["/tools/openrouter-cost-calculator/", "Total Cash Outlay"],
     ["/tools/n8n-ai-workflow-cost-calculator/", "Self-Hosted Total:"],
     ["/tools/llm-translation-cost-calculator/", "per 1,000 docs"],

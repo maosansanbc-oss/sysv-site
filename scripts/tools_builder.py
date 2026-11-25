@@ -95,11 +95,41 @@ window.SysVCalc = (function () {
     };
   }
 
+  /* Free LLM API daily quota estimator (v2.2.2):
+   * Evaluates daily automation call/token demand against verified free-tier limits.
+   */
+  function calculateFreeQuota(dailyJobs, callsPerJob, retryMult, avgTokensPerCall, openRouterTier) {
+    var jobs = Math.max(0, Number(dailyJobs) || 0);
+    var perJob = Math.max(0, Number(callsPerJob) || 0);
+    var mult = Math.max(1.0, Number(retryMult) || 1.0);
+    var tokPerCall = Math.max(0, Number(avgTokensPerCall) || 0);
+    var requiredCalls = Math.ceil(jobs * perJob * mult);
+    var requiredTokens = Math.round(requiredCalls * tokPerCall);
+    var orLimit = openRouterTier === 'paid_1000' ? 1000 : 50;
+    var orDeficit = Math.max(0, requiredCalls - orLimit);
+    var groqRpd = 1000;
+    var groqTpd = 200000;
+    var groqFits = requiredCalls <= groqRpd && requiredTokens <= groqTpd && tokPerCall <= 8000;
+    var cerebrasTpd = 1000000;
+    var cerebrasFits = requiredTokens <= cerebrasTpd;
+    return {
+      requiredCalls: requiredCalls,
+      requiredTokens: requiredTokens,
+      openRouterLimit: orLimit,
+      openRouterCovered: requiredCalls <= orLimit,
+      openRouterDeficit: orDeficit,
+      groqFits: groqFits,
+      groqSinglePromptOverTpm: tokPerCall > 8000,
+      cerebrasFits: cerebrasFits
+    };
+  }
+
   return {
     isValidPrice: isValidPrice,
     filterEligible: filterEligible,
     estimateMonthlyCost: estimateMonthlyCost,
-    calculateOpenRouterBilling: calculateOpenRouterBilling
+    calculateOpenRouterBilling: calculateOpenRouterBilling,
+    calculateFreeQuota: calculateFreeQuota
   };
 })();
 """
@@ -144,6 +174,35 @@ def calculate_openrouter_billing_py(inference_cost: float, billing_method: str, 
         "platformFee": fee,
         "totalCashOutlay": round(charge_base + fee, 6),
         "minFeeTriggered": min_applied,
+    }
+
+
+def calculate_free_quota_py(
+    daily_jobs: float,
+    calls_per_job: float,
+    retry_mult: float = 1.0,
+    avg_tokens_per_call: float = 1500.0,
+    openrouter_tier: str = "free_50",
+) -> dict[str, Any]:
+    """Python parity mirror of window.SysVCalc.calculateFreeQuota for unit tests."""
+    import math
+
+    jobs = max(0.0, float(daily_jobs or 0.0))
+    per_job = max(0.0, float(calls_per_job or 0.0))
+    mult = max(1.0, float(retry_mult or 1.0))
+    tok = max(0.0, float(avg_tokens_per_call or 0.0))
+    req_calls = int(math.ceil(jobs * per_job * mult))
+    req_tokens = int(round(req_calls * tok))
+    or_limit = 1000 if openrouter_tier == "paid_1000" else 50
+    return {
+        "requiredCalls": req_calls,
+        "requiredTokens": req_tokens,
+        "openRouterLimit": or_limit,
+        "openRouterCovered": req_calls <= or_limit,
+        "openRouterDeficit": max(0, req_calls - or_limit),
+        "groqFits": req_calls <= 1000 and req_tokens <= 200000 and tok <= 8000,
+        "groqSinglePromptOverTpm": tok > 8000,
+        "cerebrasFits": req_tokens <= 1000000,
     }
 
 

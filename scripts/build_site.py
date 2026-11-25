@@ -916,7 +916,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         ),
     )
 
-    # --- 3. /free-llm-apis/ Hub Page (With Tool-Calling Filter!) ---
+    # --- 3. /free-llm-apis/ Hub Page (Cross-Provider Matrix + Free Quota Calculator + Live OpenRouter Directory) ---
     routers = [m for m in active_models if m["pricing_type"] in ("free_router", "variable")]
     free_rows = "".join(
         f'<tr data-tools="{"1" if (m.get("capabilities") or {}).get("tools") else "0"}" data-json="{"1" if (m.get("capabilities") or {}).get("structured_outputs") else "0"}">'
@@ -930,32 +930,175 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         f'<tr><td><a href="/models/{e(m["slug"])}/"><strong>{e(m["name"])}</strong></a></td><td>{pricing_badge(m)}</td><td>{e(fmt_ctx(m["context_length"]))}</td><td class="muted small">{e(m.get("rate_limit_note", ""))}</td></tr>'
         for m in routers
     )
+    provider_matrix = [
+        (
+            "OpenRouter (:free)",
+            "No ($10 lifetime credits unlocks 1,000 RPD)",
+            "20 RPM global; 50 RPD (<$10 credits) or 1,000 RPD (>=$10 credits); upstream capacity may still 429",
+            "OpenAI SDK (openrouter.ai/api/v1)",
+            "Varies by upstream host; account setting can opt out & block providers that train",
+            "Live API Verified (models) / Docs Verified (2026-11-25); Not Live-Probed",
+            "https://openrouter.ai/docs/api-reference/limits",
+        ),
+        (
+            "Google Gemini API (AI Studio)",
+            "No (linking Cloud Billing moves project to Paid Tier)",
+            "Per-project RPM / TPM / RPD limits vary dynamically by model (resets midnight PT; see AI Studio console)",
+            "OpenAI SDK (generativelanguage.googleapis.com/v1beta/openai/)",
+            "Free tier prompts/outputs may be reviewed and used to improve Google products (Paid tier opts out)",
+            "Official Docs Verified (2026-11-25); Not Live-Probed",
+            "https://ai.google.dev/gemini-api/docs/rate-limits",
+        ),
+        (
+            "Groq (Free Plan)",
+            "No (standing free tier, no trial clock)",
+            "Org-level, model-dependent; core text models typically ~30 RPM, ~1,000 RPD, ~8,000 TPM, ~200k TPD",
+            "OpenAI SDK (api.groq.com/openai/v1)",
+            "No training on customer data (Free & Paid); zero inference retention by default (up to 30d abuse logs)",
+            "Official Docs Verified (2026-11-25); Not Live-Probed",
+            "https://console.groq.com/docs/rate-limits",
+        ),
+        (
+            "Cloudflare Workers AI",
+            "No (Workers Free plan)",
+            "10,000 Neurons/day (resets 00:00 UTC; neuron burn varies by model size; paid overage $0.011 / 1k Neurons)",
+            "OpenAI SDK (api.cloudflare.com/.../ai/v1) & Workers AI binding",
+            "Inputs/outputs not used for model training or shared with third-party model providers",
+            "Official Docs Verified (2026-11-25); Not Live-Probed",
+            "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+        ),
+        (
+            "Cerebras Inference",
+            "No (Free tier signup)",
+            "Model-dependent token bucket; typically ~30 RPM and up to ~1,000,000 tokens/day (minute TPM & shared context caps apply)",
+            "OpenAI SDK (api.cerebras.ai/v1)",
+            "Consult official Cerebras Inference Docs / Terms for current free-tier retention & training policy",
+            "Official Docs Verified (2026-11-25); Not Live-Probed",
+            "https://inference-docs.cerebras.ai/support/rate-limits",
+        ),
+    ]
+    provider_rows = "".join(
+        f'<tr><td><strong>{e(p[0])}</strong><br><a class="small" href="{e(p[6])}" target="_blank" rel="noopener noreferrer">Official Docs &rarr;</a></td>'
+        f'<td class="small">{e(p[1])}</td><td class="small">{e(p[2])}</td><td class="small">{e(p[3])}</td>'
+        f'<td class="small">{e(p[4])}</td><td class="muted small">{e(p[5])}</td></tr>'
+        for p in provider_matrix
+    )
     free_hub_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / Free LLM APIs</div>
     <h1>Free LLM APIs With Tool Calling &amp; Real Rate Limits</h1>
-    <p class="muted">Zero token cost is <strong>not</strong> unlimited. On OpenRouter, <code>:free</code> models enforce <strong>20 RPM</strong> and <strong>50 RPD</strong> without credit history (increasing to <strong>1,000 RPD</strong> after &ge;$10 lifetime credit purchase). Dynamic routers (<code>-1</code>) and audio/media endpoints are separated below.</p>
-    <div class="controls">
-      <label style="cursor:pointer"><input id="f-tools" type="checkbox" /> Tool Calling Supported Only</label>
-      <label style="cursor:pointer"><input id="f-json" type="checkbox" /> Structured JSON Supported Only</label>
-    </div>
-    <div class="table-wrap">
-      <table><thead><tr><th>Verified Free Endpoint</th><th>Provider</th><th>Context</th><th>Capabilities (Source Verified)</th><th>Tier</th></tr></thead>
-      <tbody id="free-tbody">{free_rows}</tbody></table>
-    </div>
+    <p class="muted">Zero token cost is <strong>not</strong> unlimited. Compare free-tier quotas, credit-card rules, OpenAI SDK compatibility, and data-training policies across major providers, test whether free limits cover your daily automation workload, and filter {len(free_models)} live OpenRouter <code>:free</code> text endpoints below.</p>
+
+    <section class="card" style="margin:18px 0">
+      <h2 style="margin-top:0">Free LLM API Daily Quota Calculator</h2>
+      <p class="muted small">Estimate whether free-tier daily limits cover your scheduled jobs or automation workflows before hitting HTTP <code>429</code> rate limits.</p>
+      <div class="calc-grid">
+        <div>
+          <label class="muted small" for="fq-jobs">Daily Automation Jobs / Runs</label><br />
+          <input id="fq-jobs" type="number" min="0" step="5" value="30" style="width:100%;margin-top:6px" />
+        </div>
+        <div>
+          <label class="muted small" for="fq-calls">AI Calls per Job</label><br />
+          <input id="fq-calls" type="number" min="0" step="1" value="3" style="width:100%;margin-top:6px" />
+        </div>
+        <div>
+          <label class="muted small" for="fq-retry">Retry / Error Overhead</label><br />
+          <select id="fq-retry" style="width:100%;margin-top:6px">
+            <option value="1.0" selected>1.0x (Clean single-shot calls)</option>
+            <option value="1.2">1.2x (Normal retries / JSON fixups)</option>
+            <option value="1.5">1.5x (Multi-step agent retries)</option>
+          </select>
+        </div>
+        <div>
+          <label class="muted small" for="fq-tok">Avg. Tokens / Call (In + Out)</label><br />
+          <input id="fq-tok" type="number" min="0" step="250" value="1500" style="width:100%;margin-top:6px" />
+        </div>
+        <div>
+          <label class="muted small" for="fq-or-tier">OpenRouter Account Status</label><br />
+          <select id="fq-or-tier" style="width:100%;margin-top:6px">
+            <option value="free_50" selected>Standard Free Account (50 RPD)</option>
+            <option value="paid_1000">Lifetime Credits &ge;$10 (1,000 RPD)</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-result" id="fq-out"></div>
+      <p class="muted small" style="margin-top:10px"><strong>Caveat:</strong> OpenRouter <code>:free</code> models also enforce a global <strong>20 RPM</strong> ceiling, and retries/upstream errors can consume rate-limit headroom. Need paid fallback math? Try the <a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a> or <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Workflow Calculator</a>.</p>
+    </section>
+
+    <section>
+      <h2>Cross-Provider Free LLM API Comparison Matrix</h2>
+      <p class="muted small">Provider policies below are <strong>Official Docs Verified (2026-11-25)</strong> and <strong>Not Live-Probed</strong>. Free-tier quotas change without notice&mdash;always confirm live limits in each provider's console before relying on them in production.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Provider &amp; Source</th><th>Credit Card Required?</th><th>Free Quota &amp; Reset Rules</th><th>API Compatibility</th><th>Free-Tier Data / Training Policy</th><th>Verification Status</th></tr></thead>
+          <tbody>{provider_rows}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Live OpenRouter <code>:free</code> Text Endpoints ({len(free_models)} Active)</h2>
+      <p class="muted small">Updated daily from the OpenRouter Public API. Dynamic routers (<code>-1</code>) and audio/media endpoints are separated below.</p>
+      <div class="controls">
+        <label style="cursor:pointer"><input id="f-tools" type="checkbox" /> Tool Calling Supported Only</label>
+        <label style="cursor:pointer"><input id="f-json" type="checkbox" /> Structured JSON Supported Only</label>
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr><th>Verified Free Endpoint</th><th>Provider</th><th>Context</th><th>Capabilities (Source Verified)</th><th>Tier</th></tr></thead>
+        <tbody id="free-tbody">{free_rows}</tbody></table>
+      </div>
+    </section>
+
     <h2>Routers Separated for Transparency</h2>
     <div class="table-wrap"><table><thead><tr><th>Router</th><th>Pricing Type</th><th>Context</th><th>Billing &amp; Limits</th></tr></thead><tbody>{router_rows}</tbody></table></div>
+
+    <script src="/assets/calc-engine.js"></script>
     <script>
       (function() {{
         const tEl = document.getElementById('f-tools');
         const jEl = document.getElementById('f-json');
         const rows = Array.from(document.querySelectorAll('#free-tbody tr'));
-        function run() {{
+        function filterTable() {{
           rows.forEach(tr => {{
             const ok = (!tEl.checked || tr.dataset.tools === '1') && (!jEl.checked || tr.dataset.json === '1');
             tr.style.display = ok ? '' : 'none';
           }});
         }}
-        tEl.addEventListener('change', run); jEl.addEventListener('change', run);
+        tEl.addEventListener('change', filterTable); jEl.addEventListener('change', filterTable);
+
+        const fqJobs = document.getElementById('fq-jobs');
+        const fqCalls = document.getElementById('fq-calls');
+        const fqRetry = document.getElementById('fq-retry');
+        const fqTok = document.getElementById('fq-tok');
+        const fqTier = document.getElementById('fq-or-tier');
+        const fqOut = document.getElementById('fq-out');
+        function calcQuota() {{
+          const r = window.SysVCalc.calculateFreeQuota(
+            parseFloat(fqJobs.value || '0') || 0,
+            parseFloat(fqCalls.value || '0') || 0,
+            parseFloat(fqRetry.value || '1') || 1,
+            parseFloat(fqTok.value || '0') || 0,
+            fqTier.value || 'free_50'
+          );
+          const orVerdict = r.openRouterCovered
+            ? '<span class="badge badge-free">Covered</span> OpenRouter free limit (' + r.openRouterLimit.toLocaleString() + ' RPD) fits with ' + (r.openRouterLimit - r.requiredCalls).toLocaleString() + ' calls/day headroom.'
+            : '<span class="badge badge-warn">Short by ' + r.openRouterDeficit.toLocaleString() + ' calls/day</span> Exceeds OpenRouter ' + r.openRouterLimit.toLocaleString() + ' RPD limit.';
+          const groqNote = r.groqSinglePromptOverTpm
+            ? 'Single call (&gt;8,000 tokens) risks hitting typical Groq ~8k TPM cap.'
+            : (r.groqFits ? 'Typically fits Groq free tier (~1,000 RPD &amp; ~200k TPD reference).' : 'Exceeds typical Groq free tier (~1,000 RPD or ~200k TPD reference).');
+          const cerNote = r.cerebrasFits
+            ? 'Typically fits Cerebras ~1M tokens/day reference (watch minute TPM).'
+            : 'Exceeds Cerebras ~1M tokens/day free reference.';
+          fqOut.innerHTML =
+            '<div><strong>Daily Calls Needed:</strong> ' + r.requiredCalls.toLocaleString() + ' calls/day &middot; <strong>Est. Daily Tokens:</strong> ' + r.requiredTokens.toLocaleString() + ' tokens/day</div>' +
+            '<div style="margin-top:8px">' + orVerdict + '</div>' +
+            '<ul style="margin:8px 0 0;padding-left:20px" class="small muted">' +
+            '<li><strong>Groq (Free Reference):</strong> ' + groqNote + '</li>' +
+            '<li><strong>Cerebras (Free Reference):</strong> ' + cerNote + '</li>' +
+            '<li><strong>Google Gemini / Cloudflare Workers AI:</strong> Quotas vary per model (RPD) or use 10,000 Neurons/day&mdash;check the matrix below before routing production traffic.</li>' +
+            '</ul>';
+        }}
+        [fqJobs, fqCalls, fqRetry, fqTok, fqTier].forEach(el => {{ el.addEventListener('input', calcQuota); el.addEventListener('change', calcQuota); }});
+        calcQuota();
       }})();
     </script>
     """
@@ -964,11 +1107,11 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         "/free-llm-apis/",
         "free_hub",
         "index",
-        sem_hash(["free_hub", TEMPLATE_VERSION, [model_semantic_fingerprint(m) for m in free_models + routers]]),
+        sem_hash(["free_hub_v2.2.2", TEMPLATE_VERSION, provider_matrix, [model_semantic_fingerprint(m) for m in free_models + routers]]),
         render_layout(
             cfg,
             title="Free LLM APIs With Tool Calling & Real Rate Limits (2026) | SysV",
-            description=f"Daily verified directory of {len(free_models)} rate-limited $0 LLM text APIs with tool-calling filters and OpenRouter 50/1,000 RPD limits.",
+            description=f"Compare free LLM API quotas (OpenRouter, Gemini, Groq, Cloudflare, Cerebras), test daily limits with the Free Quota Calculator, and filter {len(free_models)} verified $0 endpoints.",
             canonical_path="/free-llm-apis/",
             body_html=free_hub_body,
             git_commit=git_commit,

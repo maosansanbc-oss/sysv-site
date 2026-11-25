@@ -110,5 +110,28 @@ class TestEnrichmentBenchmarkGuard(unittest.TestCase):
         self.assertTrue(enrich_llm._valid_enrichment(good, pricing_type="paid"))
 
 
+class TestFreeQuotaCalculator(unittest.TestCase):
+    def test_openrouter_50_vs_1000_and_groq_cerebras_bounds(self):
+        q1 = tools_builder.calculate_free_quota_py(30, 3, 1.0, 1500, "free_50")
+        self.assertEqual(q1["requiredCalls"], 90)
+        self.assertEqual(q1["requiredTokens"], 135000)
+        self.assertFalse(q1["openRouterCovered"])
+        self.assertEqual(q1["openRouterDeficit"], 40)
+        self.assertTrue(q1["groqFits"])
+        self.assertTrue(q1["cerebrasFits"])
+
+        q2 = tools_builder.calculate_free_quota_py(30, 3, 1.0, 1500, "paid_1000")
+        self.assertTrue(q2["openRouterCovered"])
+        self.assertEqual(q2["openRouterDeficit"], 0)
+
+        q3 = tools_builder.calculate_free_quota_py(10, 2, 1.0, 9000, "free_50")
+        self.assertTrue(q3["groqSinglePromptOverTpm"])
+        self.assertFalse(q3["groqFits"])
+
+        q4 = tools_builder.calculate_free_quota_py(-5, 3, 1.0, 1000, "free_50")
+        self.assertEqual(q4["requiredCalls"], 0)
+        self.assertTrue(q4["openRouterCovered"])
+
+
 if __name__ == "__main__":
     unittest.main()
