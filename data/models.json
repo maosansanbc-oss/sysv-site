@@ -236,19 +236,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "e670c38aad1b741f",
-      "enriched_at": "2026-11-25",
-      "summary": "NVIDIA: Nemotron 3 Ultra (free) is listed at $0/1M tokens (Limited Free Tier ($0)) with a 1000K context window. OpenRouter :free tier is capped at 20 RPM and 50 RPD without credits (1,000 RPD after >=$10 lifetime credit purchase); NOT unlimited.",
+      "summary": "NVIDIA Nemotron 3 Ultra is a limited free tier text-to-text model with a 1M-token context and reasoning plus tool support. The :free tier is rate-limited to 20 RPM and 50 RPD without credits, rising to 1,000 RPD after a $10 lifetime credit purchase.",
       "best_for": [
-        "Low-volume scheduled batch jobs and prototyping under free-tier rate limits",
-        "Fallback target inside a multi-provider LLM router",
-        "Tool calling tasks"
+        "Long-context reasoning over large text inputs",
+        "Tool-augmented agent and orchestration workflows",
+        "Cost-free prototyping within daily request caps"
       ],
       "watch_outs": [
-        "Zero token price does NOT mean unlimited—respect strict RPM/RPD caps",
-        "Upstream providers may retire or re-price free tiers with short notice"
-      ]
+        "Free tier is capped at 20 RPM and 50 RPD without credits, not unlimited",
+        "Structured outputs are not supported"
+      ],
+      "source": "deepseek",
+      "cache_hash": "e670c38aad1b741f",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -1118,19 +1118,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "f5d0d85f2a221ed8",
-      "enriched_at": "2026-11-25",
-      "summary": "Mistral: Ministral 3 3B 2512 is a real-time paid endpoint billed at $0.1/1M input and $0.1/1M output tokens (estimated $1.0 for 8M input + 2M output tokens) with a 131K context window.",
+      "summary": "Mistral: Ministral 3 3B 2512 is a paid real-time interactive endpoint priced at 0.1 per 1M input and output tokens. It supports text+image input with a 131072 context, tools, and structured outputs, but no reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 131K tokens"
+        "Low-cost real-time text and image tasks",
+        "Tool-calling and structured-output workflows",
+        "Long-context lightweight inference"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing plus OpenRouter top-up fees unless BYOK",
+        "No reasoning capability; small 3B model may limit complex tasks"
+      ],
+      "source": "deepseek",
+      "cache_hash": "f5d0d85f2a221ed8",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -1433,19 +1433,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "342cec79e86a746d",
-      "enriched_at": "2026-11-25",
-      "summary": "Mistral: Mistral Small 3.2 24B is a real-time paid endpoint billed at $0.075/1M input and $0.2/1M output tokens (estimated $1.0 for 8M input + 2M output tokens) with a 256K context window.",
+      "summary": "Mistral Small 3.2 24B is a paid real-time interactive endpoint priced at 0.075 per 1M input tokens and 0.2 per 1M output tokens. It supports a 256K context, text+image input to text output, tools, and structured outputs, but not reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 256K tokens"
+        "Instruction-following tasks with large 256K context",
+        "Function calling and tool use",
+        "Structured output generation"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing plus OpenRouter top-up fees unless BYOK",
+        "No reasoning capability; not suited for tasks requiring explicit reasoning"
+      ],
+      "source": "deepseek",
+      "cache_hash": "342cec79e86a746d",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -1824,69 +1824,6 @@
       "source": "deepseek",
       "cache_hash": "36dfd19d4879e087",
       "enriched_at": "2026-11-25"
-    }
-  },
-  {
-    "id": "qwen/qwen3.5-9b",
-    "slug": "qwen-qwen3-5-9b",
-    "name": "Qwen: Qwen3.5-9B",
-    "provider": "Qwen",
-    "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.1,
-    "completion_price_per_m": 0.25,
-    "cache_read_price_per_m": null,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.0000001",
-      "completion": "0.00000025",
-      "request": null,
-      "image": null,
-      "input_cache_read": null,
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+video->text",
-    "task_category": "reasoning",
-    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "61df975a4bf6cc4b",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen3.5-9B is a real-time paid endpoint billed at $0.1/1M input and $0.25/1M output tokens (estimated $1.3 for 8M input + 2M output tokens) with a 262K context window.",
-      "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
     }
   },
   {
@@ -2394,6 +2331,69 @@
     }
   },
   {
+    "id": "qwen/qwen3.5-9b",
+    "slug": "qwen-qwen3-5-9b",
+    "name": "Qwen: Qwen3.5-9B",
+    "provider": "Qwen",
+    "context_length": 262144,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.17,
+    "completion_price_per_m": 0.25,
+    "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-25"
+    },
+    "raw_pricing": {
+      "prompt": "0.00000017",
+      "completion": "0.00000025",
+      "request": null,
+      "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image+video->text",
+    "task_category": "reasoning",
+    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
+    "delisted_at": null,
+    "updated_at": "2026-11-25",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "55ed71dee5d6b7c1",
+      "enriched_at": "2026-11-25",
+      "summary": "Qwen: Qwen3.5-9B is a real-time paid endpoint billed at $0.17/1M input and $0.25/1M output tokens (estimated $1.86 for 8M input + 2M output tokens) with a 262K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 262K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
+    }
+  },
+  {
     "id": "openai/gpt-5-nano",
     "slug": "openai-gpt-5-nano",
     "name": "OpenAI: GPT-5 Nano",
@@ -2567,19 +2567,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "011b92e912a90084",
-      "enriched_at": "2026-11-25",
-      "summary": "OpenAI: GPT-4.1 Nano is a real-time paid endpoint billed at $0.1/1M input and $0.4/1M output tokens (estimated $1.6 for 8M input + 2M output tokens) with a 1047K context window.",
+      "summary": "GPT-4.1 Nano is a paid real-time text, image, and file-to-text endpoint priced at 0.1 per 1M input tokens and 0.4 per 1M output tokens, with a 1,047,576-token context. It supports tools and structured outputs but not reasoning, and is positioned as the fastest and cheapest model in the GPT-4.1 series for low-latency tasks.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1047K tokens"
+        "Low-latency interactive applications",
+        "High-volume, cost-sensitive text and image tasks",
+        "Long-context inputs up to roughly 1M tokens"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing plus OpenRouter top-up fees unless using BYOK",
+        "No reasoning capability; verify suitability for complex multi-step tasks"
+      ],
+      "source": "deepseek",
+      "cache_hash": "011b92e912a90084",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -4205,19 +4205,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "fc26d8a52f0194e7",
-      "enriched_at": "2026-11-25",
-      "summary": "Mistral: Codestral 2508 is a real-time paid endpoint billed at $0.3/1M input and $0.9/1M output tokens (estimated $4.2 for 8M input + 2M output tokens) with a 256K context window.",
+      "summary": "Codestral 2508 is a paid, real-time text-and-file-to-text coding model priced at 0.3 per 1M input tokens and 0.9 per 1M output tokens, with a 256K context window. It supports tools and structured outputs but not reasoning, and is positioned for low-latency, high-frequency coding tasks such as fill-in-the-middle, code correction, and test generation.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 256K tokens"
+        "Low-latency fill-in-the-middle code completion",
+        "Automated code correction and test generation",
+        "High-frequency coding workflows needing tools and structured outputs"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
+        "No reasoning capability, so complex multi-step reasoning tasks may need a different model"
+      ],
+      "source": "deepseek",
+      "cache_hash": "fc26d8a52f0194e7",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -4835,19 +4835,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "cb9b2d0c0e365b4d",
-      "enriched_at": "2026-11-25",
-      "summary": "OpenAI: GPT-5.4 Nano is a real-time paid endpoint billed at $0.2/1M input and $1.25/1M output tokens (estimated $4.1 for 8M input + 2M output tokens) with a 400K context window.",
+      "summary": "GPT-5.4 Nano is a paid, real-time interactive endpoint priced at 0.2 per 1M input tokens and 1.25 per 1M output tokens, with a 400K context window. It accepts text, image, and file inputs and supports tools, structured outputs, and reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 400K tokens"
+        "Speed-critical, low-latency interactive tasks",
+        "High-volume workloads where cost efficiency matters",
+        "Multimodal text and image input processing"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies, plus OpenRouter 5.5% card or 5% crypto top-up fees unless using BYOK",
+        "Output tokens cost notably more than input tokens, so long generations add up"
+      ],
+      "source": "deepseek",
+      "cache_hash": "cb9b2d0c0e365b4d",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -5276,19 +5276,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "561bb882dd7f9aa5",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen2.5 VL 72B Instruct is a real-time paid endpoint billed at $0.8/1M input and $1.0/1M output tokens (estimated $8.4 for 8M input + 2M output tokens) with a 128K context window.",
+      "summary": "Qwen2.5 VL 72B Instruct is a paid, real-time interactive multimodal endpoint accepting text and images with a 128K context window. It supports structured outputs but not tools or reasoning, priced at 0.8 per 1M input and 1.0 per 1M output tokens.",
       "best_for": [
-        "Real-time text generation and analysis",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 128K tokens"
+        "Image understanding of objects, charts, icons, and layouts",
+        "Structured-output extraction from text and image inputs",
+        "Real-time interactive multimodal applications"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies, plus OpenRouter top-up fees unless BYOK",
+        "No tool calling or reasoning support; rate limits follow standard real-time tiers"
+      ],
+      "source": "deepseek",
+      "cache_hash": "561bb882dd7f9aa5",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -5402,19 +5402,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "929b170ccbb3f6a6",
-      "enriched_at": "2026-11-25",
-      "summary": "Meta: Muse Glimmer 30B is a real-time paid endpoint billed at $0.35/1M input and $1.5/1M output tokens (estimated $5.8 for 8M input + 2M output tokens) with a 131K context window.",
+      "summary": "Muse Glimmer 30B is a paid, real-time multimodal endpoint (text+image to text) with a 131,072-token context and per-token pricing of 0.35/1.5 per 1M input/output tokens. It supports tools, structured outputs, and reasoning, and is described as a dense open-weight model optimized for autonomous agents.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 131K tokens"
+        "Long-horizon autonomous agent workflows",
+        "Multimodal tasks combining text and image inputs",
+        "Tool-using and structured-output pipelines"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies, plus OpenRouter top-up fees unless using BYOK",
+        "Long 131K context and agentic loops can accumulate token costs quickly"
+      ],
+      "source": "deepseek",
+      "cache_hash": "929b170ccbb3f6a6",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -5654,19 +5654,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "f64acd5212e4cd6e",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen3 VL 235B A22B Instruct is a real-time paid endpoint billed at $0.21/1M input and $1.9/1M output tokens (estimated $5.48 for 8M input + 2M output tokens) with a 262K context window.",
+      "summary": "Qwen3 VL 235B A22B Instruct is a paid, real-time multimodal endpoint supporting text+image input to text output with a 262144-token context. It offers tools and structured outputs but no reasoning mode, priced at 0.21 input and 1.9 output per 1M tokens.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
+        "Vision-language tasks such as VQA and document parsing",
+        "Chart and table understanding from images",
+        "Tool-augmented and structured-output multimodal workflows"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing plus OpenRouter top-up fees unless BYOK",
+        "No built-in reasoning mode; verify fit for complex multi-step tasks"
+      ],
+      "source": "deepseek",
+      "cache_hash": "f64acd5212e4cd6e",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -5780,19 +5780,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "3c4d8ca93d081ede",
-      "enriched_at": "2026-11-25",
-      "summary": "OpenAI: GPT-5 Mini is a real-time paid endpoint billed at $0.25/1M input and $2.0/1M output tokens (estimated $6.0 for 8M input + 2M output tokens) with a 400K context window.",
+      "summary": "GPT-5 Mini is a paid real-time interactive endpoint priced at 0.25 per 1M input tokens and 2.0 per 1M output tokens, with a 400K context window. It accepts text, image, and file inputs and supports tools, structured outputs, and reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 400K tokens"
+        "Lighter-weight reasoning tasks needing lower latency and cost",
+        "Multimodal inputs combining text, images, and files",
+        "Tool use and structured output workflows"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
+        "Large 400K context can raise input token costs on long prompts"
+      ],
+      "source": "deepseek",
+      "cache_hash": "3c4d8ca93d081ede",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -5933,8 +5933,8 @@
     "is_realtime": true,
     "has_tiered_overrides": false,
     "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.86711,
-    "completion_price_per_m": 1.5228,
+    "prompt_price_per_m": 0.799448,
+    "completion_price_per_m": 1.5629,
     "cache_read_price_per_m": 0.2,
     "cache_write_price_per_m": null,
     "capabilities": {
@@ -5950,8 +5950,8 @@
       "verified_at": "2026-11-25"
     },
     "raw_pricing": {
-      "prompt": "0.00000086711",
-      "completion": "0.0000015228",
+      "prompt": "0.000000799448",
+      "completion": "0.0000015629",
       "request": null,
       "image": null,
       "input_cache_read": "0.0000002",
@@ -5970,9 +5970,9 @@
     "updated_at": "2026-11-25",
     "enrichment": {
       "source": "deterministic-fallback",
-      "cache_hash": "717d73543dc7af36",
+      "cache_hash": "f0b1ff90947cf69d",
       "enriched_at": "2026-11-25",
-      "summary": "DeepSeek: DeepSeek V4 Pro 0423 is a real-time paid endpoint billed at $0.86711/1M input and $1.5228/1M output tokens (estimated $9.98 for 8M input + 2M output tokens) with a 1048K context window.",
+      "summary": "DeepSeek: DeepSeek V4 Pro 0423 is a real-time paid endpoint billed at $0.799448/1M input and $1.5629/1M output tokens (estimated $9.52 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
         "Strict JSON / structured extraction",

@@ -248,6 +248,33 @@
       "detail": "Input $0.17 -> $0.1, Output $0.25 -> $0.25 per 1M"
     },
     {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "minimax/minimax-m3.1-flash",
+      "name": "MiniMax: MiniMax M3.1 Flash",
+      "slug": "minimax-minimax-m3-1-flash",
+      "detail": "Input $0.15 -> $0.075, Output $0.6 -> $0.3 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro 0423",
+      "slug": "deepseek-deepseek-v4-pro",
+      "detail": "Input $0.86711 -> $0.799448, Output $1.5228 -> $1.5629 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "qwen/qwen3.5-9b",
+      "name": "Qwen: Qwen3.5-9B",
+      "slug": "qwen-qwen3-5-9b",
+      "detail": "Input $0.1 -> $0.17, Output $0.25 -> $0.25 per 1M"
+    },
+    {
       "date": "2026-11-24",
       "compared_to": "2026-11-24",
       "type": "tier_change",

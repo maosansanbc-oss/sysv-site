@@ -439,8 +439,8 @@
       "slug": "minimax-minimax-m3-1-flash",
       "provider": "Minimax",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.15,
-      "completion_price_per_m": 0.6,
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.3,
       "context_length": 1048576
     },
     "deepseek/deepseek-v4.1-flash-1017": {
@@ -2230,8 +2230,8 @@
       "slug": "deepseek-deepseek-v4-pro",
       "provider": "Deepseek",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.86711,
-      "completion_price_per_m": 1.5228,
+      "prompt_price_per_m": 0.799448,
+      "completion_price_per_m": 1.5629,
       "context_length": 1048576
     },
     "deepseek/deepseek-v4-flash": {
@@ -2482,7 +2482,7 @@
       "slug": "qwen-qwen3-5-9b",
       "provider": "Qwen",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.1,
+      "prompt_price_per_m": 0.17,
       "completion_price_per_m": 0.25,
       "context_length": 262144
     },

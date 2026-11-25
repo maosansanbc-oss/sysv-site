@@ -5,8 +5,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d979f163f7d4de0f",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "e3607cf5be1236ea",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/about/": {
     "url": "/about/",
@@ -50,8 +50,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "15990dfec77237f4",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "b3bd52b87acaf2f7",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -158,8 +158,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d27551aa276d5a31",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "e52a5d77f74995ba",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512/",
@@ -194,8 +194,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "be98e3810d5982fd",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "de9cd41a3b374339",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507/": {
     "url": "/compare/google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507/",
@@ -248,8 +248,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "02b74430bb8e5e22",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "d723cb4c62251c1d",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/mistralai-mistral-large-2407-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/mistralai-mistral-large-2407-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -257,8 +257,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "f9b82c1d9b234e41",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "41dd7e874ec77c57",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/mistralai-mistral-large-2512-vs-openai-gpt-4-1/": {
     "url": "/compare/mistralai-mistral-large-2512-vs-openai-gpt-4-1/",
@@ -275,8 +275,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "bf7fb7502b7ae1b3",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "e5a102ae23044b25",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/mistralai-mistral-large-2512-vs-qwen-qwen3-8-27b-batch/": {
     "url": "/compare/mistralai-mistral-large-2512-vs-qwen-qwen3-8-27b-batch/",
@@ -293,8 +293,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "64acf753370377ee",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "41cb52efa54eda81",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/mistralai-mistral-large-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/mistralai-mistral-large-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -302,8 +302,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "8b5bfd8ab9db12ca",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "85ec1a9c43be6fc6",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/mistralai-mistral-nemo-vs-qwen-qwen3-30b-a3b-instruct-2507/": {
     "url": "/compare/mistralai-mistral-nemo-vs-qwen-qwen3-30b-a3b-instruct-2507/",
@@ -320,8 +320,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "b857616083b9d5e3",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "b1a589f2ce029604",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/mistralai-pixtral-large-2502-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/mistralai-pixtral-large-2502-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -329,8 +329,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "851dfda0e00a67f1",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "3f71523962d53df8",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/nvidia-nemotron-3-5-lightning-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/nvidia-nemotron-3-5-lightning-free-vs-particle-ai-particle-1-free/",
@@ -356,8 +356,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "553f92a39e372fc8",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "7a92bccb04b6aec0",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/openai-gpt-4-1-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/openai-gpt-4-1-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -365,8 +365,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "3cff4d5a1288023e",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "847dd1d5a7b6466b",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/openai-gpt-5-4-mini-batch-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/openai-gpt-5-4-mini-batch-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -374,8 +374,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a20bd349ea2385d9",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "1ad385e8edb63209",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/compare/particle-ai-particle-1-free-vs-recursive-flint-v1-0-free/": {
     "url": "/compare/particle-ai-particle-1-free-vs-recursive-flint-v1-0-free/",
@@ -410,8 +410,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ad8bcc40891920fc",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "93d2b05f99a1d2be",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/": {
     "url": "/models/",
@@ -419,8 +419,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "f9af5e50d7c24194",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "11db1079f1438bec",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/anthropic-claude-haiku-4-5-batch/": {
     "url": "/models/anthropic-claude-haiku-4-5-batch/",
@@ -617,8 +617,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d8ea9999a2b241f0",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "1ebc1d2314680bb3",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/dots-studio-dots-3-note-preview-free/": {
     "url": "/models/dots-studio-dots-3-note-preview-free/",
@@ -824,8 +824,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "fa9290d431371de0",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "33039d30cc3615a4",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/meta-muse-spark-1-1/": {
     "url": "/models/meta-muse-spark-1-1/",
@@ -887,8 +887,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a3b00b77fdb50fc5",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "27476e1a31eddb8c",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/mistralai-devstral-2512/": {
     "url": "/models/mistralai-devstral-2512/",
@@ -914,8 +914,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "0fdfae3141df0086",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "8d665636c987cc95",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/mistralai-ministral-8b-2512/": {
     "url": "/models/mistralai-ministral-8b-2512/",
@@ -1049,8 +1049,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ca0ffbad75013049",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "293c3364d11eff6d",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/mistralai-mixtral-8x22b-instruct/": {
     "url": "/models/mistralai-mixtral-8x22b-instruct/",
@@ -1112,8 +1112,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "900062750b332635",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "c4e25ff6f7abe66b",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/nvidia-switchyard/": {
     "url": "/models/nvidia-switchyard/",
@@ -1166,8 +1166,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "07d5005f288f8589",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "8c9e2c67361854d0",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/openai-gpt-4-1/": {
     "url": "/models/openai-gpt-4-1/",
@@ -1247,8 +1247,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "cb7d601d6cc11a8f",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "34828d7bce933dfb",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/openai-gpt-5-6-luna-batch/": {
     "url": "/models/openai-gpt-5-6-luna-batch/",
@@ -1301,8 +1301,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "b09c835bad6ba605",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "3944ccd9d8fb590b",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/openai-gpt-5-nano-batch/": {
     "url": "/models/openai-gpt-5-nano-batch/",
@@ -1535,8 +1535,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "68b3d40b4f50e5c5",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "70fbaedef0967d0f",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/qwen-qwen3-14b/": {
     "url": "/models/qwen-qwen3-14b/",
@@ -1634,8 +1634,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "994898c68aafe547",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "6da487bef35c2c01",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/qwen-qwen3-5-flash-02-23/": {
     "url": "/models/qwen-qwen3-5-flash-02-23/",
@@ -1850,8 +1850,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "103d4c3240875ad2",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "e9b25aa6f76945af",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/models/qwen-qwen3-vl-30b-a3b-instruct/": {
     "url": "/models/qwen-qwen3-vl-30b-a3b-instruct/",
@@ -1913,8 +1913,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "8453c7ae50111f04",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "3470c8ad7d3c2253",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/privacy/": {
     "url": "/privacy/",
@@ -2345,8 +2345,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "1bf190d5ac704d39",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "46d0aa44d8f2972d",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/repos/xing61-zzz-api/": {
     "url": "/repos/xing61-zzz-api/",
@@ -2363,8 +2363,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "637beb58a0cebea9",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "30334b6fe64763f9",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/terms/": {
     "url": "/terms/",
@@ -2381,8 +2381,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "522c01db5060f8cb",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "dc400ebcab531f83",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/tools/api-vs-local-llm-calculator/": {
     "url": "/tools/api-vs-local-llm-calculator/",
@@ -2390,8 +2390,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "f601d9077faf09c6",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "2f418fde0e5fc860",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/tools/llm-translation-cost-calculator/": {
     "url": "/tools/llm-translation-cost-calculator/",
@@ -2399,8 +2399,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "9128cc133b707e71",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "84a10e915c87ad6b",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/tools/n8n-ai-workflow-cost-calculator/": {
     "url": "/tools/n8n-ai-workflow-cost-calculator/",
@@ -2408,8 +2408,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "455d8e3838af6761",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "d30cbf0646359ce1",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/tools/openrouter-cost-calculator/": {
     "url": "/tools/openrouter-cost-calculator/",
@@ -2417,8 +2417,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "2b42b9a7e9b387e2",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "b3bba8092ecb07bd",
+    "lastmod": "2026-11-25T15:20:02Z"
   },
   "/zero-cost-stack/": {
     "url": "/zero-cost-stack/",
