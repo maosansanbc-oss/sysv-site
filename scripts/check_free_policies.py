@@ -31,8 +31,7 @@ POLICY_SIGNAL_PATTERN = re.compile(
 
 
 def _normalize_doc_text(raw_html: str) -> str:
-    txt = re.sub(r"<script\b[^>]*>.*?</script>", " ", raw_html, flags=re.S | re.I)
-    txt = re.sub(r"<style\b[^>]*>.*?</style>", " ", txt, flags=re.S | re.I)
+    txt = re.sub(r"<(script|style|noscript|svg|nav|footer)\b[^>]*>.*?</\1>", " ", raw_html, flags=re.S | re.I)
     txt = re.sub(r"<[^>]+>", " ", txt)
     txt = re.sub(r"\s+", " ", txt).strip()
     return txt

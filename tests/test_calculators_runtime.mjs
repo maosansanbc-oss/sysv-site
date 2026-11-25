@@ -52,7 +52,10 @@ assert.equal(calc.isValidPrice({ in: 0, out: 0 }), true);
 
 // Free LLM API Quota & Burst Calculator boundary checks (reads directly from free-provider-policies.json!)
 const policyDb = JSON.parse(fs.readFileSync(path.join(DIST, "data/free-provider-policies.json"), "utf8"));
-const fqShort = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "free_50", policyDb);
+const verifiedPolicy = {
+  providers: policyDb.providers.map((p) => ({ ...p, verification_status: "OFFICIAL_DOCS_VERIFIED" })),
+};
+const fqShort = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "free_50", verifiedPolicy);
 assert.equal(fqShort.requiredCalls, 90);
 assert.equal(fqShort.openRouterStatus, "VERIFIED");
 assert.equal(fqShort.openRouterRpdCovered, false);
@@ -63,13 +66,13 @@ assert.equal(fqShort.cfMaxFreeCalls, 863);
 assert.equal(fqShort.cfCovered, true);
 assert.equal(fqShort.cerebrasPermanentlyFree, false);
 
-const fqBurst = calc.calculateFreeQuota(1, 40, 40, 1.0, 1000, 500, "free_50", policyDb);
+const fqBurst = calc.calculateFreeQuota(1, 40, 40, 1.0, 1000, 500, "free_50", verifiedPolicy);
 assert.equal(fqBurst.openRouterRpdCovered, true);
 assert.equal(fqBurst.openRouterRpmCovered, false);
 assert.equal(fqBurst.openRouterCovered, false);
 assert.equal(fqBurst.groqRpmCovered, false);
 
-const fqPaid = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "paid_1000", policyDb);
+const fqPaid = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "paid_1000", verifiedPolicy);
 assert.equal(fqPaid.openRouterCovered, true);
 assert.equal(fqPaid.openRouterDeficit, 0);
 
@@ -121,11 +124,15 @@ const server = spawn("python3", ["-m", "http.server", "18765", "--bind", "127.0.
 await new Promise((r) => setTimeout(r, 1200));
 
 try {
+  const orPol = policyDb.providers.find((p) => p.id === "openrouter");
+  const cfPol = policyDb.providers.find((p) => p.id === "cloudflare_workers_ai");
+  const cerPol = policyDb.providers.find((p) => p.id === "cerebras");
   const targets = [
     ["/", "Lowest Estimated Token Cost"],
-    ["/free-llm-apis/", "Short by 40 calls/day"],
-    ["/free-llm-apis/", "863 calls/day"],
-    ["/free-llm-apis/", "30-Day Trial Only"],
+    ["/free-llm-apis/", "Daily Demand:"],
+    ["/free-llm-apis/", orPol?.verification_status === "OFFICIAL_DOCS_VERIFIED" ? "Short by 40 calls/day" : "Policy "],
+    ["/free-llm-apis/", cfPol?.verification_status === "OFFICIAL_DOCS_VERIFIED" ? "863 calls/day" : "Policy "],
+    ["/free-llm-apis/", cerPol?.verification_status === "OFFICIAL_DOCS_VERIFIED" ? "30-Day Trial Only" : "Policy "],
     ["/tools/openrouter-cost-calculator/", "Total Cash Outlay"],
     ["/tools/n8n-ai-workflow-cost-calculator/", "Self-Hosted Total:"],
     ["/tools/llm-translation-cost-calculator/", "per 1,000 docs"],

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-11-25T19:14:38Z",
+  "updated_utc": "2026-11-25T19:16:31Z",
   "note": "Structured cross-provider Free LLM API policy database. Distinguishes permanently free, credit-unlocked free tiers, and time-limited free trials. Never claim verified when stale or unverified.",
   "providers": [
     {
@@ -30,15 +30,12 @@
       "source_url": "https://openrouter.ai/docs/api-reference/limits",
       "last_verified_date": "2026-11-25",
       "max_freshness_days": 14,
-      "verification_status": "DOC_CHANGED_NEEDS_REVIEW",
+      "verification_status": "OFFICIAL_DOCS_VERIFIED",
       "runtime_availability": "NOT_LIVE_PROBED",
-      "source_content_hash": "1a893699c450fd53",
-      "last_checked_utc": "2026-11-25T19:14:38Z",
-      "verification_reason": "doc_text_hash_changed_signals_stable",
-      "policy_signal_hash": "8f5ac553e273a077",
-      "pending_source_hash": "0f63dbe565a3fb4d",
-      "pending_signal_hash": "8f5ac553e273a077",
-      "drift_detected_utc": "2026-11-25T19:14:38Z"
+      "source_content_hash": "0f63dbe565a3fb4d",
+      "last_checked_utc": "2026-11-25T19:16:31Z",
+      "verification_reason": "confirmed_reverified",
+      "policy_signal_hash": "8f5ac553e273a077"
     },
     {
       "id": "google_gemini",
