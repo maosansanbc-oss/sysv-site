@@ -1222,8 +1222,8 @@
       "slug": "tencent-hy4-preview",
       "provider": "Tencent",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.834,
-      "completion_price_per_m": 2.501,
+      "prompt_price_per_m": 0.7506,
+      "completion_price_per_m": 2.2509,
       "context_length": 1048576
     },
     "~z-ai/glm-flash-latest": {
@@ -1789,8 +1789,8 @@
       "slug": "tencent-hy3",
       "provider": "Tencent",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.132,
-      "completion_price_per_m": 0.528,
+      "prompt_price_per_m": 0.0825,
+      "completion_price_per_m": 0.33,
       "context_length": 262144
     },
     "anthropic/claude-sonnet-5": {
@@ -2230,7 +2230,7 @@
       "slug": "deepseek-deepseek-v4-pro",
       "provider": "Deepseek",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.78937,
+      "prompt_price_per_m": 0.777524,
       "completion_price_per_m": 1.5629,
       "context_length": 1048576
     },

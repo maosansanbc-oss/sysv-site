@@ -284,6 +284,33 @@
       "detail": "Input $0.799448 -> $0.78937, Output $1.5629 -> $1.5629 per 1M"
     },
     {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "tencent/hy4-preview",
+      "name": "Tencent: Hy4 preview",
+      "slug": "tencent-hy4-preview",
+      "detail": "Input $0.834 -> $0.7506, Output $2.501 -> $2.2509 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "tencent/hy3",
+      "name": "Tencent: Hy3",
+      "slug": "tencent-hy3",
+      "detail": "Input $0.132 -> $0.0825, Output $0.528 -> $0.33 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro 0423",
+      "slug": "deepseek-deepseek-v4-pro",
+      "detail": "Input $0.78937 -> $0.777524, Output $1.5629 -> $1.5629 per 1M"
+    },
+    {
       "date": "2026-11-24",
       "compared_to": "2026-11-24",
       "type": "tier_change",
