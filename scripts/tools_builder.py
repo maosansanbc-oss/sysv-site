@@ -811,10 +811,10 @@ def build_tools_and_data_assets(
 
     badge_svg = (
         '<svg xmlns="http://www.w3.org/2000/svg" width="210" height="24" role="img" aria-label="SysV Free LLM APIs">'
-        '<rect width="142" height="24" rx="4" fill="#121a2e"/>'
-        '<rect x="138" width="72" height="24" rx="4" fill="#16a34a"/>'
-        '<text x="70" y="16" fill="#e6edf8" font-family="sans-serif" font-size="11" text-anchor="middle">SysV Free LLM APIs</text>'
-        f'<text x="174" y="16" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">{len(free_models)} active</text>'
+        '<rect width="142" height="24" rx="6" fill="#1d1d1f"/>'
+        '<rect x="138" width="72" height="24" rx="6" fill="#137333"/>'
+        '<text x="70" y="16" fill="#f5f5f7" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" text-anchor="middle">SysV Free LLM APIs</text>'
+        f'<text x="174" y="16" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" font-weight="600" text-anchor="middle">{len(free_models)} active</text>'
         "</svg>\n"
     )
     write_page_fn("data/badge-free-count.svg", badge_svg)
@@ -836,11 +836,11 @@ def build_tools_and_data_assets(
     </div>
     <div class="card" style="margin-top:20px">
       <h2>Voluntary Markdown Citation Snippet (GitHub README / Docs)</h2>
-      <pre style="overflow-x:auto;background:#0b1020;padding:12px;border-radius:8px;border:1px solid #263456;font-size:0.84rem">![SysV Free LLM APIs](https://sysv.cn/data/badge-free-count.svg)
+      <pre style="overflow-x:auto;background:#f5f5f7;padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.84rem">![SysV Free LLM APIs](https://sysv.cn/data/badge-free-count.svg)
 Live LLM API pricing &amp; daily CSV archive: https://sysv.cn/data/</pre>
       <h3>Ad-Free Embeddable Cost Calculator Snippet</h3>
       <p class="muted small">Dedicated <code>/embed/</code> endpoints strip all ads and third-party trackers to prevent invalid ad impressions on host pages.</p>
-      <pre style="overflow-x:auto;background:#0b1020;padding:12px;border-radius:8px;border:1px solid #263456;font-size:0.84rem">&lt;iframe src="https://sysv.cn/embed/openrouter-cost-calculator/" width="100%" height="580" style="border:1px solid #263456;border-radius:12px" loading="lazy"&gt;&lt;/iframe&gt;</pre>
+      <pre style="overflow-x:auto;background:#f5f5f7;padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.84rem">&lt;iframe src="https://sysv.cn/embed/openrouter-cost-calculator/" width="100%" height="580" style="border:1px solid #d2d2d7;border-radius:16px" loading="lazy"&gt;&lt;/iframe&gt;</pre>
     </div>
     """
     urls.append("/data/")
