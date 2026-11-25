@@ -45,3 +45,24 @@ jobs:
           else
             echo "No GSC report changes to commit."
           fi
+
+      - name: Notify auth or API failure via PushPlus / Webhook (failure only)
+        if: failure()
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
+        run: |
+          python3 -c '
+          import json, os, urllib.request
+          msg = "SysV Weekly GSC workflow FAILED (check Service Account / OAuth refresh auth or API logs)."
+          pp = os.getenv("PUSHPLUS_TOKEN", "").strip()
+          if pp:
+              payload = json.dumps({"token": pp, "title": "[SysV] Weekly GSC Auth/API Alert", "content": msg, "template": "txt"}).encode()
+              req = urllib.request.Request("https://www.pushplus.plus/send", data=payload, headers={"Content-Type": "application/json"})
+              urllib.request.urlopen(req, timeout=12)
+          wh = os.getenv("ALERT_WEBHOOK_URL", "").strip()
+          if wh:
+              payload = json.dumps({"text": msg}).encode()
+              req = urllib.request.Request(wh, data=payload, headers={"Content-Type": "application/json"})
+              urllib.request.urlopen(req, timeout=12)
+          '

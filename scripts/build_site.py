@@ -248,6 +248,7 @@ footer {
   .wrap { padding: 0 14px; }
   h1 { font-size: 1.45rem; }
   .hero, .card { padding: 16px; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .controls input { min-width: 0 !important; width: 100%; }
 }
 """
@@ -720,7 +721,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         <div class="stat"><div class="num">{len(free_models)}</div><div class="lbl">Rate-Limited Free ($0) Models</div></div>
         <div class="stat"><div class="num">{len(paid_models)}</div><div class="lbl">Real-Time Paid Models</div></div>
         <div class="stat"><div class="num">{len(batch_models)}</div><div class="lbl">Async Batch Tracked</div></div>
-        <div class="stat"><div class="num">{changelog.get("latest_total_endpoints", len(active_models))}</div><div class="lbl">Endpoints Archived Daily</div></div>
+        <div class="stat"><div class="num">{changelog.get("latest_total_endpoints", len(active_models))}</div><div class="lbl">Endpoints in Daily Snapshot</div></div>
       </div>
     </section>
 
@@ -1479,7 +1480,16 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
     write_page("CNAME", f"{cfg['domain']}\n")
     write_page(
         "_headers",
-        "/*\n  X-Content-Type-Options: nosniff\n  X-Frame-Options: SAMEORIGIN\n  Referrer-Policy: strict-origin-when-cross-origin\n  Cache-Control: public, max-age=3600\n\n/version.json\n  Cache-Control: public, max-age=300\n",
+        "/*\n"
+        "  X-Content-Type-Options: nosniff\n"
+        "  X-Frame-Options: SAMEORIGIN\n"
+        "  Referrer-Policy: strict-origin-when-cross-origin\n"
+        "  Cache-Control: public, max-age=3600\n\n"
+        "/embed/*\n"
+        "  ! X-Frame-Options\n"
+        "  Content-Security-Policy: frame-ancestors *\n\n"
+        "/version.json\n"
+        "  Cache-Control: public, max-age=300\n",
     )
 
     client_id = str(cfg.get("monetization", {}).get("adsense_client_id") or "").strip()

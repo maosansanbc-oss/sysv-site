@@ -158,7 +158,7 @@ def _build_model_prompt(m: dict[str, Any]) -> str:
         "STRICT RULES:\n"
         "1. NEVER claim 'variable', 'paid', or 'batch' endpoints are free.\n"
         "2. NEVER claim ':free' / 'limited_free' endpoints are unlimited.\n"
-        "3. Do NOT invent benchmark scores or unverified pricing.\n"
+        "3. Do NOT invent scores, unverified pricing, or use the words 'benchmark', 'benchmarks', 'benchmarked', or 'runtime tested'.\n"
         'Return valid JSON only with keys: "summary" (2 concise factual sentences), '
         '"best_for" (array of 3 concise strings), "watch_outs" (array of 2 concise strings).\n\n'
         f"Facts:\n"
@@ -204,6 +204,11 @@ def _valid_enrichment(data: dict[str, Any] | None, pricing_type: str | None = No
         and isinstance(data.get("watch_outs"), list)
     ):
         return False
+    all_text = " ".join(
+        [data["summary"]] + [str(x) for x in data["best_for"]] + [str(x) for x in data["watch_outs"]]
+    ).lower()
+    if any(w in all_text for w in ("benchmark", "runtime tested")):
+        return False
     s_low = data["summary"].lower()
     if pricing_type in ("variable", "paid", "batch"):
         if "$0" in s_low or "completely free" in s_low or "zero-cost" in s_low:
@@ -232,7 +237,8 @@ def run_enrichment(
     for m in models:
         c_hash = compute_model_hash(m, prompt_ver)
         existing = m.get("enrichment") or {}
-        hash_matches = existing.get("cache_hash") == c_hash
+        existing_valid = _valid_enrichment(existing, pricing_type=m.get("pricing_type"))
+        hash_matches = existing.get("cache_hash") == c_hash and existing_valid
         already_llm = hash_matches and existing.get("source") not in (None, "deterministic-fallback")
         if already_llm:
             continue

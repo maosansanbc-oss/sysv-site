@@ -7,7 +7,7 @@ import unittest
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
 
-from scripts import gsc_report, tools_builder
+from scripts import enrich_llm, gsc_report, tools_builder
 
 
 class TestGSCAuthInspectionAndMath(unittest.TestCase):
@@ -100,6 +100,14 @@ class TestOpenRouterBillingMath(unittest.TestCase):
         b5 = tools_builder.calculate_openrouter_billing_py(35000.0, "byok", 0.0)
         self.assertEqual(b5["platformFee"], 500.0)
         self.assertEqual(b5["totalCashOutlay"], 35500.0)
+
+
+class TestEnrichmentBenchmarkGuard(unittest.TestCase):
+    def test_llm_enrichment_rejects_unverified_benchmark_word(self):
+        bad = {"summary": "Top coding benchmark performer.", "best_for": ["A"], "watch_outs": ["B"]}
+        self.assertFalse(enrich_llm._valid_enrichment(bad, pricing_type="paid"))
+        good = {"summary": "Low-latency paid coding model.", "best_for": ["A"], "watch_outs": ["B"]}
+        self.assertTrue(enrich_llm._valid_enrichment(good, pricing_type="paid"))
 
 
 if __name__ == "__main__":
