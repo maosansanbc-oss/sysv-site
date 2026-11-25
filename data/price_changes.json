@@ -167,6 +167,24 @@
       "detail": "Input $0.0765 -> $0.09, Output $0.255 -> $0.3 per 1M"
     },
     {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "xiaomi/mimo-v2.6-flash-mopd",
+      "name": "Xiaomi: MiMo-V2.6-Flash-MOPD",
+      "slug": "xiaomi-mimo-v2-6-flash-mopd",
+      "detail": "Input $0.15 -> $0.5, Output $0.42 -> $1.0 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "z-ai/glm-4.5-air",
+      "name": "Z.ai: GLM 4.5 Air",
+      "slug": "z-ai-glm-4-5-air",
+      "detail": "Input $0.13 -> $0.14, Output $0.85 -> $0.86 per 1M"
+    },
+    {
       "date": "2026-11-24",
       "compared_to": "2026-11-24",
       "type": "tier_change",

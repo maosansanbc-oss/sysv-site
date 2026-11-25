@@ -25,8 +25,8 @@
       "slug": "xiaomi-mimo-v2-6-flash-mopd",
       "provider": "Xiaomi",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.15,
-      "completion_price_per_m": 0.42,
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 1.0,
       "context_length": 1048576
     },
     "thinkingmachines/inkling-2-mini": {
@@ -2754,7 +2754,7 @@
       "pricing_type": "paid",
       "prompt_price_per_m": 0.0605,
       "completion_price_per_m": 0.4,
-      "context_length": 200000
+      "context_length": 131072
     },
     "openai/gpt-5.2-codex": {
       "name": "OpenAI: GPT-5.2-Codex",
@@ -3382,8 +3382,8 @@
       "slug": "z-ai-glm-4-5-air",
       "provider": "Z Ai",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.13,
-      "completion_price_per_m": 0.85,
+      "prompt_price_per_m": 0.14,
+      "completion_price_per_m": 0.86,
       "context_length": 131072
     },
     "qwen/qwen3-235b-a22b-thinking-2507": {
