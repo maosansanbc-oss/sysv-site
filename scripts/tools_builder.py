@@ -147,6 +147,27 @@ def calculate_openrouter_billing_py(inference_cost: float, billing_method: str, 
     }
 
 
+def _render_tool_affiliates(cfg: dict[str, Any], esc) -> str:
+    affs = [a for a in cfg.get("monetization", {}).get("affiliates", []) if a.get("url")]
+    if not affs:
+        return ""
+    cards = []
+    for a in affs:
+        cards.append(
+            '<div class="card">'
+            f'<span class="badge">{esc(a.get("badge", "Partner"))}</span>'
+            f'<h3>{esc(a["name"])}</h3>'
+            f'<p class="muted small">{esc(a["description"])}</p>'
+            f'<a class="btn" href="{esc(a["url"])}" rel="sponsored noopener noreferrer" target="_blank">{esc(a["cta"])} &rarr;</a>'
+            "</div>"
+        )
+    return (
+        '<h2>Self-Hosting Infrastructure Partners</h2>'
+        '<p class="muted small">Affiliate disclosure: links below are marked <code>sponsored</code> and may earn a cash commission at no extra cost to you.</p>'
+        '<div class="grid">' + "".join(cards) + "</div>"
+    )
+
+
 def build_tools_and_data_assets(
     cfg: dict[str, Any],
     models: list[dict[str, Any]],
@@ -416,6 +437,7 @@ def build_tools_and_data_assets(
     <h1>n8n AI Workflow Cost Calculator: Self-Hosted vs. Cloud</h1>
     <p class="muted">Compare self-hosted VPS hosting vs. n8n Cloud alongside live real-time tool-calling LLM token spend and retry multipliers.</p>
     {n8n_widget}
+    {_render_tool_affiliates(cfg, esc)}
     """
     urls.append("/tools/n8n-ai-workflow-cost-calculator/")
     register_page_fn(
@@ -629,6 +651,7 @@ def build_tools_and_data_assets(
     <h1>API vs. Local LLM Break-Even Calculator</h1>
     <p class="muted">Compare buying local GPU hardware (amortization + electricity) against paying per-token for managed real-time LLM APIs.</p>
     {local_widget}
+    {_render_tool_affiliates(cfg, esc)}
     """
     urls.append("/tools/api-vs-local-llm-calculator/")
     register_page_fn(

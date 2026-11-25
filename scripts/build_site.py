@@ -1284,6 +1284,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
       <label style="cursor:pointer"><input id="repo-perm" type="checkbox" /> Permissive Licenses Only (MIT/Apache/BSD)</label>
     </div>
     <div class="grid">{"".join(repo_cards)}</div>
+    {render_affiliates(cfg)}
     <script>
       (function() {{
         const catEl = document.getElementById('repo-cat');
@@ -1345,6 +1346,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         </tbody>
       </table>
     </div>
+    {render_affiliates(cfg)}
     """
     register_page(
         "zero-cost-stack/index.html",
