@@ -1,13 +1,22 @@
-"""Record real pipeline publish status & enforce honest REVENUE_UNKNOWN distinction in data/ops_metrics.json.
-
-Usage:
-  python3 -m scripts.record_deploy_status --status success --commit 2180975
-  python3 -m scripts.record_deploy_status --status failure --commit 2180975
-"""
+"""Record real pipeline publish status in technical ops ledger (commercial revenue/traffic stay strictly in private/)."""
 
 import argparse
 
 from scripts.utils import DATA_DIR, load_json, save_json, utc_now_iso, utc_today
+
+PRIVATE_COMMERCIAL_FIELDS = (
+    "visits",
+    "gsc_impressions",
+    "gsc_clicks",
+    "indexed_pages",
+    "affiliate_clicks",
+    "affiliate_conversions",
+    "estimated_revenue_usd",
+    "confirmed_payable_usd",
+    "bank_settled_usd",
+    "net_profit_usd",
+    "revenue_status",
+)
 
 
 def record_publish_status(*, success: bool, git_commit: str = "", ops_path=None) -> dict:
@@ -24,46 +33,29 @@ def record_publish_status(*, success: bool, git_commit: str = "", ops_path=None)
             "publish_success": bool(success),
             "llm_calls": 0,
             "llm_failed_calls": 0,
+            "llm_unknown_cost_calls": 0,
             "llm_tokens_in": 0,
             "llm_tokens_out": 0,
             "llm_cost_usd": 0.0,
-            "visits": None,
-            "gsc_impressions": None,
-            "gsc_clicks": None,
-            "indexed_pages": None,
-            "affiliate_clicks": None,
-            "affiliate_conversions": None,
-            "revenue_status": "REVENUE_UNKNOWN",
-            "estimated_revenue_usd": None,
-            "confirmed_payable_usd": None,
-            "bank_settled_usd": None,
-            "net_profit_usd": None,
-            "manual_interventions": 0,
-            "manual_minutes": 0,
+            "llm_unknown_cost_reserve_usd": 0.0,
+            "commercial_data_location": "private/commercial_ledger.json (excluded from public repo)",
         }
         daily.append(entry)
     else:
         entry["publish_success"] = bool(success)
-        if entry.get("revenue_status") is None:
-            entry["revenue_status"] = "REVENUE_UNKNOWN"
-        if entry["revenue_status"] == "REVENUE_UNKNOWN":
-            entry["estimated_revenue_usd"] = None
-            entry["confirmed_payable_usd"] = None
-            entry["bank_settled_usd"] = None
-            entry["net_profit_usd"] = None
 
     entry["last_deploy_utc"] = utc_now_iso()
     if git_commit:
         entry["last_deploy_commit"] = git_commit
 
-    # Normalize historical entries that lacked explicit revenue_status (distinguish unmeasured vs verified $0)
+    # Strip private commercial/revenue fields from public technical ops ledger
     for row in daily:
-        if "revenue_status" not in row:
-            row["revenue_status"] = "REVENUE_UNKNOWN"
-            row["estimated_revenue_usd"] = None
-            row["confirmed_payable_usd"] = None
-            row["bank_settled_usd"] = None
-            row["net_profit_usd"] = None
+        for priv_k in PRIVATE_COMMERCIAL_FIELDS:
+            row.pop(priv_k, None)
+        row.setdefault("llm_failed_calls", 0)
+        row.setdefault("llm_unknown_cost_calls", 0)
+        row.setdefault("llm_unknown_cost_reserve_usd", 0.0)
+        row["commercial_data_location"] = "private/commercial_ledger.json (excluded from public repo)"
 
     ops["daily"] = sorted(daily, key=lambda x: x["date"], reverse=True)[:365]
     save_json(path, ops)
@@ -76,7 +68,7 @@ def main() -> None:
     parser.add_argument("--commit", default="")
     args = parser.parse_args()
     entry = record_publish_status(success=(args.status == "success"), git_commit=args.commit)
-    print(f"[record_deploy_status] date={entry['date']} publish_success={entry['publish_success']} revenue_status={entry['revenue_status']}")
+    print(f"[record_deploy_status] date={entry['date']} publish_success={entry['publish_success']} commit={entry.get('last_deploy_commit')}")
 
 
 if __name__ == "__main__":

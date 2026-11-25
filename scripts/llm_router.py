@@ -1,11 +1,118 @@
-"""Multi-provider LLM router with automatic fallback and token usage accounting."""
+"""Multi-provider LLM router with per-request budget enforcement and honest cost accounting.
 
+Design guarantees:
+1. Daily call & USD budget enforcement lives inside the router at the ACTUAL provider HTTP request layer.
+2. Every single provider attempt (success, HTTP error, JSON parse failure, fallback retry) is counted and
+   persisted independently via `DailyBudgetGuard` — retries NEVER bypass daily call or cost caps.
+3. Unknown provider costs NEVER default to $0.00: `estimate_call_cost_usd` returns `(None, False)` for
+   unpriced/variable providers, and `DailyBudgetGuard` deducts a conservative safety reserve
+   (`UNKNOWN_COST_RESERVE_USD`) while recording `unknown_cost_calls`.
+4. When remaining daily call or USD budget is exhausted, the router makes zero network requests and
+   returns `("budget-exhausted")` so callers immediately fall back to deterministic templates.
+"""
+
+from dataclasses import dataclass, field
 import json
 import os
 import re
-from typing import Any
+from typing import Any, Callable
 
-from scripts.utils import http_post_json
+from scripts.utils import http_post_json, utc_now_iso
+
+# Conservative per-attempt safety reserve when a provider's pricing is unknown/unverified
+UNKNOWN_COST_RESERVE_USD = 0.005
+
+
+@dataclass
+class DailyBudgetGuard:
+    max_calls: int
+    max_cost_usd: float
+    used_calls: int = 0
+    failed_calls: int = 0
+    unknown_cost_calls: int = 0
+    spent_usd: float = 0.0
+    reserved_unknown_usd: float = 0.0
+    tokens_in: int = 0
+    tokens_out: int = 0
+    this_run_calls: int = 0
+    this_run_failed_calls: int = 0
+    this_run_unknown_cost_calls: int = 0
+    this_run_tokens_in: int = 0
+    this_run_tokens_out: int = 0
+    this_run_cost_usd: float = 0.0
+    attempt_log: list[dict[str, Any]] = field(default_factory=list)
+    on_attempt_recorded: Callable[[dict[str, Any]], None] | None = None
+
+    @property
+    def effective_spent_usd(self) -> float:
+        return round(self.spent_usd + self.reserved_unknown_usd, 6)
+
+    @property
+    def remaining_calls(self) -> int:
+        return max(0, int(self.max_calls) - int(self.used_calls))
+
+    @property
+    def remaining_budget_usd(self) -> float:
+        return max(0.0, round(float(self.max_cost_usd) - self.effective_spent_usd, 6))
+
+    def can_attempt(self) -> bool:
+        return self.remaining_calls > 0 and self.effective_spent_usd < float(self.max_cost_usd)
+
+    def record_attempt(
+        self,
+        *,
+        provider: str,
+        model: str,
+        status: str,
+        usage: dict[str, int] | None,
+        cost_usd: float | None,
+        cost_known: bool,
+        error: str = "",
+    ) -> dict[str, Any]:
+        u = usage or {}
+        in_tok = int(u.get("prompt_tokens", 0) or 0)
+        out_tok = int(u.get("completion_tokens", 0) or 0)
+        failed = status != "ok"
+
+        self.used_calls += 1
+        self.this_run_calls += 1
+        self.tokens_in += in_tok
+        self.tokens_out += out_tok
+        self.this_run_tokens_in += in_tok
+        self.this_run_tokens_out += out_tok
+
+        if failed:
+            self.failed_calls += 1
+            self.this_run_failed_calls += 1
+
+        if cost_known and cost_usd is not None:
+            actual_cost = round(float(cost_usd), 6)
+            self.spent_usd = round(self.spent_usd + actual_cost, 6)
+            self.this_run_cost_usd = round(self.this_run_cost_usd + actual_cost, 6)
+            reserve_applied = 0.0
+        else:
+            actual_cost = None
+            self.unknown_cost_calls += 1
+            self.this_run_unknown_cost_calls += 1
+            reserve_applied = UNKNOWN_COST_RESERVE_USD
+            self.reserved_unknown_usd = round(self.reserved_unknown_usd + reserve_applied, 6)
+
+        rec = {
+            "timestamp_utc": utc_now_iso(),
+            "provider": provider,
+            "model": model,
+            "status": status,
+            "prompt_tokens": in_tok,
+            "completion_tokens": out_tok,
+            "cost_usd": actual_cost,
+            "cost_known": bool(cost_known),
+            "unknown_cost_reserve_usd": reserve_applied,
+            "error": error[:180] if error else "",
+        }
+        self.attempt_log.append(rec)
+        if self.on_attempt_recorded is not None:
+            self.on_attempt_recorded(rec)
+        return rec
 
 
 def _extract_json_object(text: str) -> dict[str, Any]:
@@ -24,8 +131,7 @@ def _extract_json_object(text: str) -> dict[str, Any]:
     return data
 
 
-def _call_gemini(prompt: str, api_key: str) -> tuple[str, dict[str, int]]:
-    model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+def _call_gemini(prompt: str, api_key: str, model: str) -> tuple[str, dict[str, int]]:
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
@@ -90,7 +196,14 @@ def get_available_providers() -> list[dict[str, str]]:
                     }
                 )
     if os.getenv("GEMINI_API_KEY"):
-        providers.append({"name": "gemini", "key": os.environ["GEMINI_API_KEY"], "is_paid": "0"})
+        providers.append(
+            {
+                "name": "gemini",
+                "key": os.environ["GEMINI_API_KEY"],
+                "model": os.getenv("GEMINI_MODEL", "gemini-2.0-flash"),
+                "is_paid": "0",
+            }
+        )
     if os.getenv("GROQ_API_KEY"):
         providers.append(
             {
@@ -118,40 +231,102 @@ def get_available_providers() -> list[dict[str, str]]:
                 "key": os.environ["SILICONFLOW_API_KEY"],
                 "base_url": "https://api.siliconflow.cn/v1",
                 "model": os.getenv("SILICONFLOW_MODEL", "Qwen/Qwen2.5-7B-Instruct"),
-                "is_paid": "0",
+                "is_paid": "unknown",
             }
         )
     return providers
 
 
-def estimate_call_cost_usd(provider_name: str, usage: dict[str, int]) -> float:
+def estimate_call_cost_detail(
+    provider_name: str, usage: dict[str, int] | None, *, model: str = ""
+) -> tuple[float | None, bool]:
+    """Return (cost_usd, cost_known). Unknown costs NEVER default to $0.00."""
+    u = usage or {}
+    in_tok = int(u.get("prompt_tokens", 0) or 0)
+    out_tok = int(u.get("completion_tokens", 0) or 0)
+
     if provider_name.startswith("deepseek"):
         # Conservative upper-bound estimate for deepseek-chat: $0.28/1M in, $0.42/1M out
-        return round((usage.get("prompt_tokens", 0) * 0.28 + usage.get("completion_tokens", 0) * 0.42) / 1_000_000, 6)
-    return 0.0
+        if in_tok == 0 and out_tok == 0:
+            return None, False
+        return round((in_tok * 0.28 + out_tok * 0.42) / 1_000_000, 6), True
+
+    if provider_name == "openrouter" and model.endswith(":free"):
+        return 0.0, True
+
+    if provider_name in ("groq", "gemini") and not os.getenv(f"{provider_name.upper()}_PAID_TIER"):
+        return 0.0, True
+
+    # Any other provider (e.g., siliconflow, paid openrouter model, custom endpoint): cost is UNKNOWN
+    return None, False
 
 
-def generate_json_with_fallback(prompt: str) -> tuple[dict[str, Any] | None, str, dict[str, int]]:
-    """Try configured LLM providers in order. Returns (parsed_json, provider_name, usage)."""
+def estimate_call_cost_usd(provider_name: str, usage: dict[str, int] | None, *, model: str = "") -> float | None:
+    """Backward-compatible wrapper returning float cost when known, or None when unknown (never 0.0 for unknown)."""
+    cost, known = estimate_call_cost_detail(provider_name, usage, model=model)
+    return cost if known else None
+
+
+def generate_json_with_fallback(
+    prompt: str,
+    *,
+    budget_guard: DailyBudgetGuard | None = None,
+) -> tuple[dict[str, Any] | None, str, dict[str, int]]:
+    """Try configured LLM providers in order with per-attempt budget gating and accounting.
+
+    Every single upstream request (including retries, HTTP failures, and invalid JSON responses)
+    is independently checked against `budget_guard` and recorded immediately.
+    """
     providers = get_available_providers()
     if not providers:
         return None, "deterministic-fallback", {"prompt_tokens": 0, "completion_tokens": 0}
 
     errors: list[str] = []
     for p in providers:
+        if budget_guard is not None and not budget_guard.can_attempt():
+            return None, "budget-exhausted", {"prompt_tokens": 0, "completion_tokens": 0}
+
         name = p["name"]
+        model = p.get("model", "")
+        usage: dict[str, int] = {"prompt_tokens": 0, "completion_tokens": 0}
         try:
             if name == "gemini":
-                raw, usage = _call_gemini(prompt, p["key"])
+                raw, usage = _call_gemini(prompt, p["key"], model or "gemini-2.0-flash")
             else:
                 extra = {"HTTP-Referer": "https://sysv.cn", "X-Title": "SysV Radar"} if name == "openrouter" else None
-                raw, usage = _call_openai_compat(p["base_url"], p["key"], p["model"], prompt, extra_headers=extra)
-            parsed = _extract_json_object(raw)
-            return parsed, name, usage
+                raw, usage = _call_openai_compat(p["base_url"], p["key"], model, prompt, extra_headers=extra)
         except Exception as err:
-            errors.append(f"{name}: {err}")
+            # Request failed or timed out — still consumes an attempt and may have incurred upstream cost!
+            cost, known = estimate_call_cost_detail(name, usage, model=model)
+            # If request errored with 0 reported usage on a paid/unknown provider, cost is unknown (never $0)
+            if p.get("is_paid") != "0":
+                cost, known = None, False
+            if budget_guard is not None:
+                budget_guard.record_attempt(
+                    provider=name, model=model, status="http_error", usage=usage, cost_usd=cost, cost_known=known, error=str(err)
+                )
+            errors.append(f"{name} (http_error): {err}")
+            continue
 
-    print("[llm_router] All configured providers failed, falling back to deterministic generator:")
+        # HTTP succeeded (upstream tokens were billed!) — now parse JSON
+        cost, known = estimate_call_cost_detail(name, usage, model=model)
+        try:
+            parsed = _extract_json_object(raw)
+        except Exception as err:
+            if budget_guard is not None:
+                budget_guard.record_attempt(
+                    provider=name, model=model, status="parse_error", usage=usage, cost_usd=cost, cost_known=known, error=str(err)
+                )
+            errors.append(f"{name} (parse_error): {err}")
+            continue
+
+        if budget_guard is not None:
+            budget_guard.record_attempt(
+                provider=name, model=model, status="ok", usage=usage, cost_usd=cost, cost_known=known
+            )
+        return parsed, name, usage
+
+    print("[llm_router] All attempted providers failed or exhausted budget, falling back to deterministic generator:")
     for e in errors:
         print(f"  - {e}")
     return None, "deterministic-fallback", {"prompt_tokens": 0, "completion_tokens": 0}

@@ -7,7 +7,7 @@ import unittest
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
 
-from scripts import check_free_policies, enrich_llm, gsc_report, record_deploy_status, tools_builder
+from scripts import check_free_policies, enrich_llm, gsc_report, llm_router, record_deploy_status, tools_builder
 
 
 class TestGSCAuthInspectionAndMath(unittest.TestCase):
@@ -145,89 +145,67 @@ class TestFreeQuotaCalculator(unittest.TestCase):
         self.assertEqual(q4["requiredCalls"], 0)
         self.assertTrue(q4["openRouterCovered"])
 
+    def test_stale_or_unverified_policy_blocks_deterministic_coverage(self):
+        stale_db = {
+            "providers": [
+                {"id": "openrouter", "verification_status": "STALE", "model_quotas": [{"rpm": 20, "rpd": 50, "rpd_unlocked": 1000}]},
+                {"id": "groq", "verification_status": "DOC_CHANGED_NEEDS_REVIEW", "model_quotas": [{"model": "GPT-OSS 120B", "rpm": 30, "rpd": 1000, "tpm": 8000, "tpd": 200000}]},
+                {"id": "cloudflare_workers_ai", "verification_status": "UNKNOWN", "free_daily_neurons": 10000, "model_quotas": [{"model": "@cf/meta/llama-3.2-1b-instruct", "neurons_per_m_input": 2457, "neurons_per_m_output": 18252}]},
+                {"id": "cerebras", "verification_status": "FETCH_ERROR", "tier_classification": "free_trial"},
+            ]
+        }
+        q = tools_builder.calculate_free_quota_py(10, 1, 2, 1.0, 1000, 500, "free_50", policy_db=stale_db)
+        self.assertEqual(q["openRouterStatus"], "STALE")
+        self.assertIsNone(q["openRouterCovered"])
+        self.assertIsNone(q["openRouterRpdCovered"])
+        self.assertEqual(q["groqStatus"], "DOC_CHANGED_NEEDS_REVIEW")
+        self.assertIsNone(q["groqFits"])
+        self.assertEqual(q["cfStatus"], "UNKNOWN")
+        self.assertIsNone(q["cfCovered"])
+        self.assertEqual(q["cerebrasStatus"], "FETCH_ERROR")
+        self.assertIsNone(q["cerebrasPermanentlyFree"])
+
 
 class TestCumulativeDailyBudgetAndPolicies(unittest.TestCase):
-    def test_cumulative_daily_budget_across_multiple_runs_and_failed_calls(self):
+    def test_router_layer_budget_retries_and_unknown_cost_never_zero(self):
         from unittest.mock import patch
 
-        def make_models(n):
-            return [
-                {
-                    "id": f"prov/m-{i}",
-                    "name": f"M {i}",
-                    "pricing_type": "paid",
-                    "pricing_label": "Paid",
-                    "is_realtime": True,
-                    "prompt_price_per_m": 0.5,
-                    "completion_price_per_m": 1.0,
-                    "context_length": 64000,
-                    "modality": "text->text",
-                    "capabilities": {"tools": True},
-                    "task_category": "general",
-                    "rate_limit_note": "",
-                    "description": f"desc {i}",
-                    "status": "active",
-                }
-                for i in range(n)
-            ]
+        # Unknown cost provider must NEVER default to 0.0
+        self.assertIsNone(llm_router.estimate_call_cost_usd("siliconflow", {"prompt_tokens": 500, "completion_tokens": 200}))
+        self.assertIsNone(llm_router.estimate_call_cost_usd("openrouter", {"prompt_tokens": 500, "completion_tokens": 200}, model="openai/gpt-4o"))
+        self.assertEqual(llm_router.estimate_call_cost_usd("openrouter", {"prompt_tokens": 500, "completion_tokens": 200}, model="qwen/qwen3:free"), 0.0)
 
-        ledger = {"calls": 0, "failed": 0, "cost": 0.0}
+        # Router retries: provider 1 spends tokens then fails JSON parse; provider 2 succeeds; BOTH attempts counted!
+        fake_providers = [
+            {"name": "deepseek", "key": "k1", "base_url": "https://api.deepseek.com/v1", "model": "deepseek-chat", "is_paid": "1"},
+            {"name": "siliconflow", "key": "k2", "base_url": "https://api.siliconflow.cn/v1", "model": "Qwen/Qwen2.5-7B-Instruct", "is_paid": "unknown"},
+        ]
+        responses = [
+            ("NOT VALID JSON", {"prompt_tokens": 2000, "completion_tokens": 500}),
+            ('{"summary": "Ok", "best_for": ["A"], "watch_outs": ["B"]}', {"prompt_tokens": 1000, "completion_tokens": 300}),
+        ]
+        guard = llm_router.DailyBudgetGuard(max_calls=2, max_cost_usd=0.05)
+        with patch.object(llm_router, "get_available_providers", return_value=fake_providers), \
+             patch.object(llm_router, "_call_openai_compat", side_effect=responses):
+            parsed, prov, _ = llm_router.generate_json_with_fallback("prompt", budget_guard=guard)
+            self.assertEqual(prov, "siliconflow")
+            self.assertIsNotNone(parsed)
+            # Attempt 1 (deepseek parse_error) + Attempt 2 (siliconflow ok, unknown cost) = 2 attempts!
+            self.assertEqual(guard.used_calls, 2)
+            self.assertEqual(guard.failed_calls, 1)
+            self.assertEqual(guard.unknown_cost_calls, 1)
+            self.assertGreater(guard.spent_usd, 0.0)
+            self.assertEqual(guard.reserved_unknown_usd, llm_router.UNKNOWN_COST_RESERVE_USD)
 
-        def record_cb(*, calls, failed, tokens_in, tokens_out, cost_usd):
-            ledger["calls"] += calls
-            ledger["failed"] += failed
-            ledger["cost"] = round(ledger["cost"] + cost_usd, 6)
+            # Next call must immediately short-circuit with budget-exhausted (0 network calls!)
+            p2, prov2, _ = llm_router.generate_json_with_fallback("prompt2", budget_guard=guard)
+            self.assertIsNone(p2)
+            self.assertEqual(prov2, "budget-exhausted")
+            self.assertEqual(guard.used_calls, 2)
 
-        call_idx = {"n": 0}
-
-        def fake_gen(_prompt):
-            call_idx["n"] += 1
-            # Every 3rd call returns invalid enrichment (e.g. 'benchmark' word) — must STILL consume budget!
-            if call_idx["n"] % 3 == 0:
-                return (
-                    {"summary": "Best benchmark model", "best_for": ["A"], "watch_outs": ["B"]},
-                    "deepseek",
-                    {"prompt_tokens": 2000, "completion_tokens": 500},
-                )
-            return (
-                {"summary": "Clean model note.", "best_for": ["A"], "watch_outs": ["B"]},
-                "deepseek",
-                {"prompt_tokens": 2000, "completion_tokens": 500},
-            )
-
-        with patch.object(enrich_llm, "get_available_providers", return_value=["deepseek"]), \
-             patch.object(enrich_llm, "generate_json_with_fallback", side_effect=fake_gen), \
-             patch.object(enrich_llm, "estimate_call_cost_usd", return_value=0.008), \
-             patch.object(enrich_llm.time, "sleep", return_value=None):
-            # Run 1: already_used=0, max_calls=10, max_cost=0.05 -> stops at 7 calls? 6*0.008=0.048 (<0.05), 7th->0.056 -> stops after 7? Let's test 4 calls first:
-            r1 = enrich_llm.run_enrichment(
-                make_models(4), [], max_calls=10, max_cost_usd=0.05, prompt_ver="v2.2",
-                already_used_calls=ledger["calls"], already_spent_usd=ledger["cost"], on_call_recorded=record_cb
-            )
-            self.assertEqual(r1["llm_calls"], 4)
-            self.assertEqual(r1["llm_failed_calls"], 1)
-            self.assertEqual(ledger["calls"], 4)
-            self.assertAlmostEqual(ledger["cost"], 0.032)
-
-            # Run 2 (same day, second push/rerun): remaining budget is $0.018 -> at $0.008/call only 3 calls allowed (0.008, 0.016, 0.024>=0.018 stops!)
-            r2 = enrich_llm.run_enrichment(
-                make_models(10), [], max_calls=10, max_cost_usd=0.05, prompt_ver="v2.2",
-                already_used_calls=ledger["calls"], already_spent_usd=ledger["cost"], on_call_recorded=record_cb
-            )
-            self.assertEqual(r2["llm_calls"], 3)
-            self.assertEqual(ledger["calls"], 7)
-
-            # Run 3 (same day): budget already exhausted ($0.056 >= $0.05) -> MUST make 0 LLM calls!
-            r3 = enrich_llm.run_enrichment(
-                make_models(10), [], max_calls=10, max_cost_usd=0.05, prompt_ver="v2.2",
-                already_used_calls=ledger["calls"], already_spent_usd=ledger["cost"], on_call_recorded=record_cb
-            )
-            self.assertEqual(r3["llm_calls"], 0)
-            self.assertEqual(ledger["calls"], 7)
-
-    def test_cerebras_reclassified_and_policy_freshness_honesty(self):
+    def test_cerebras_reclassified_and_policy_drift_distinction(self):
         from pathlib import Path
-        import json
+        import tempfile
 
         pol = json.loads((Path(__file__).resolve().parent.parent / "data/free_provider_policies.json").read_text(encoding="utf-8"))
         cerebras = next(p for p in pol["providers"] if p["id"] == "cerebras")
@@ -236,38 +214,70 @@ class TestCumulativeDailyBudgetAndPolicies(unittest.TestCase):
         self.assertEqual(cerebras["trial_amount_usd"], 5.0)
         self.assertEqual(cerebras["trial_expiry_days"], 30)
 
-        # Freshness & drift rules
+        # Distinct states: STALE, FETCH_ERROR, DOC_CHANGED_NEEDS_REVIEW, POLICY_CHANGED_NEEDS_REVIEW, UNKNOWN
         st_stale, _ = check_free_policies.compute_policy_freshness_status(
             {"last_verified_date": "2026-10-01", "max_freshness_days": 14, "verification_status": "OFFICIAL_DOCS_VERIFIED"},
             today_iso="2026-11-25",
-            fetch_ok=False,
+            fetch_ok=True,
         )
         self.assertEqual(st_stale, "STALE")
 
-        st_chg, chg = check_free_policies.compute_policy_freshness_status(
-            {"last_verified_date": "2026-11-25", "max_freshness_days": 14, "source_content_hash": "aaa"},
+        st_fetch, _ = check_free_policies.compute_policy_freshness_status(
+            {"last_verified_date": "2026-11-25", "max_freshness_days": 14},
             today_iso="2026-11-25",
-            fetched_hash="bbb",
+            fetch_ok=False,
+        )
+        self.assertEqual(st_fetch, "FETCH_ERROR")
+
+        st_doc, _ = check_free_policies.compute_policy_freshness_status(
+            {"last_verified_date": "2026-11-25", "max_freshness_days": 14, "source_content_hash": "aaa", "policy_signal_hash": "sig1"},
+            today_iso="2026-11-25",
+            fetched_doc_hash="bbb",
+            fetched_signal_hash="sig1",
             fetch_ok=True,
         )
-        self.assertEqual(st_chg, "CHANGED_NEEDS_REVIEW")
-        self.assertTrue(chg)
+        self.assertEqual(st_doc, "DOC_CHANGED_NEEDS_REVIEW")
+
+        st_pol, _ = check_free_policies.compute_policy_freshness_status(
+            {"last_verified_date": "2026-11-25", "max_freshness_days": 14, "source_content_hash": "aaa", "policy_signal_hash": "sig1"},
+            today_iso="2026-11-25",
+            fetched_doc_hash="bbb",
+            fetched_signal_hash="sig2",
+            fetch_ok=True,
+        )
+        self.assertEqual(st_pol, "POLICY_CHANGED_NEEDS_REVIEW")
 
         st_unk, _ = check_free_policies.compute_policy_freshness_status({}, today_iso="2026-11-25")
         self.assertEqual(st_unk, "UNKNOWN")
 
-    def test_record_deploy_status_distinguishes_revenue_unknown(self):
+        # confirm_reverified re-baselines hashes cleanly
+        with tempfile.TemporaryDirectory() as td:
+            fp = Path(td) / "pol.json"
+            fp.write_text(json.dumps({"providers": [{"id": "groq", "verification_status": "POLICY_CHANGED_NEEDS_REVIEW", "pending_source_hash": "h2", "pending_signal_hash": "s2"}]}), encoding="utf-8")
+            updated = check_free_policies.confirm_reverified("groq", policy_path=fp)
+            self.assertEqual(updated["verification_status"], "OFFICIAL_DOCS_VERIFIED")
+            self.assertEqual(updated["source_content_hash"], "h2")
+            self.assertEqual(updated["policy_signal_hash"], "s2")
+
+    def test_commercial_data_strictly_isolated_from_public_repo(self):
         import tempfile
         from pathlib import Path
 
+        repo_root = Path(__file__).resolve().parent.parent
+        wf = (repo_root / ".github/workflows/weekly-gsc.yml").read_text(encoding="utf-8")
+        self.assertIn("contents: read", wf)
+        self.assertNotIn("git push", wf)
+        self.assertNotIn("git commit", wf)
+        self.assertIn("private/gsc", str(gsc_report.PRIVATE_GSC_DIR))
+
         with tempfile.TemporaryDirectory() as td:
             p = Path(td) / "ops_metrics.json"
+            p.write_text(json.dumps({"daily": [{"date": "2026-11-25", "estimated_revenue_usd": 12.34, "gsc_clicks": 99}]}), encoding="utf-8")
             entry = record_deploy_status.record_publish_status(success=True, git_commit="abc1234", ops_path=p)
             self.assertTrue(entry["publish_success"])
-            self.assertEqual(entry["revenue_status"], "REVENUE_UNKNOWN")
-            self.assertIsNone(entry["estimated_revenue_usd"])
-            self.assertIsNone(entry["bank_settled_usd"])
-            self.assertIsNone(entry["net_profit_usd"])
+            self.assertNotIn("estimated_revenue_usd", entry)
+            self.assertNotIn("gsc_clicks", entry)
+            self.assertIn("private/commercial_ledger.json", entry["commercial_data_location"])
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-name: Weekly GSC Search Analytics & URL Inspection (sysv.cn)
+name: Weekly GSC Search Analytics & URL Inspection (Private Artifact Only)
 
 on:
   schedule:
@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  # Read-only repository access: NEVER commit search queries, traffic, conversions, or revenue to public git!
+  contents: read
 
 jobs:
   gsc-weekly-report:
@@ -24,7 +25,7 @@ jobs:
       - name: Install cryptography for Service Account RS256 JWT signing
         run: python3 -m pip install --quiet cryptography
 
-      - name: Run GSC Search Analytics & URL Inspection API collector
+      - name: Run GSC Search Analytics & URL Inspection API collector (writes strictly to private/gsc/)
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
@@ -34,17 +35,38 @@ jobs:
           GSC_INSPECT_LIMIT: "25"
         run: python3 -m scripts.gsc_report
 
-      - name: Commit weekly GSC report & inspection states
+      - name: Upload private GSC report as restricted workflow artifact (never committed to public git)
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-gsc-weekly-report
+          path: private/gsc/
+          retention-days: 30
+
+      - name: Send private weekly summary via PushPlus / Webhook (optional)
+        if: success()
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
         run: |
-          git config user.name "sysv-bot"
-          git config user.email "bot@sysv.cn"
-          git add data/gsc_weekly_report.json data/published_pages.json data/gsc_history/
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(gsc): weekly search analytics & URL inspection $(date -u +%Y-%m-%d)"
-            git push
-          else
-            echo "No GSC report changes to commit."
-          fi
+          python3 -c '
+          import json, os, pathlib, urllib.request
+          p = pathlib.Path("private/gsc/gsc_weekly_report.json")
+          if not p.exists():
+              raise SystemExit(0)
+          rep = json.loads(p.read_text(encoding="utf-8"))
+          msg = (
+              f"SysV Weekly GSC ({rep[\"date_range\"][\"start_date\"]}..{rep[\"date_range\"][\"end_date\"]}) "
+              f"auth={rep[\"auth_mode\"]} totals={rep[\"site_totals\"]} buckets={rep[\"diagnostic_buckets\"]}"
+          )
+          pp = os.getenv("PUSHPLUS_TOKEN", "").strip()
+          if pp:
+              payload = json.dumps({"token": pp, "title": "[SysV] Weekly GSC Summary", "content": msg, "template": "txt"}).encode()
+              urllib.request.urlopen(urllib.request.Request("https://www.pushplus.plus/send", data=payload, headers={"Content-Type": "application/json"}), timeout=12)
+          wh = os.getenv("ALERT_WEBHOOK_URL", "").strip()
+          if wh:
+              payload = json.dumps({"text": msg}).encode()
+              urllib.request.urlopen(urllib.request.Request(wh, data=payload, headers={"Content-Type": "application/json"}), timeout=12)
+          '
 
       - name: Notify auth or API failure via PushPlus / Webhook (failure only)
         if: failure()

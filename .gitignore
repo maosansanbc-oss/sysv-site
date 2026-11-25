@@ -3,7 +3,9 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
-# Keep private commercial revenue, GSC query exports & conversion ledgers strictly out of the public repo
+# Strictly exclude ALL private commercial revenue, GSC queries, traffic & conversion ledgers from public git
 private/
 data/private_*.json
 data/gsc_raw_*.json
+data/gsc_weekly_report.json
+data/gsc_history/

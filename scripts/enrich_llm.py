@@ -13,7 +13,7 @@ import json
 import time
 from typing import Any
 
-from scripts.llm_router import estimate_call_cost_usd, generate_json_with_fallback, get_available_providers
+from scripts.llm_router import DailyBudgetGuard, generate_json_with_fallback, get_available_providers
 from scripts.utils import DATA_DIR, load_config, load_json, save_json, utc_today
 
 
@@ -219,6 +219,7 @@ def _valid_enrichment(data: dict[str, Any] | None, pricing_type: str | None = No
 
 
 def _ensure_today_ops_entry(ops: dict[str, Any], today: str) -> dict[str, Any]:
+    """Technical pipeline & AI cost ledger ONLY (commercial revenue/traffic live strictly in private/)."""
     daily = ops.setdefault("daily", [])
     entry = next((d for d in daily if d.get("date") == today), None)
     if entry is None:
@@ -229,22 +230,12 @@ def _ensure_today_ops_entry(ops: dict[str, Any], today: str) -> dict[str, Any]:
             "publish_success": None,
             "llm_calls": 0,
             "llm_failed_calls": 0,
+            "llm_unknown_cost_calls": 0,
             "llm_tokens_in": 0,
             "llm_tokens_out": 0,
             "llm_cost_usd": 0.0,
-            "visits": None,
-            "gsc_impressions": None,
-            "gsc_clicks": None,
-            "indexed_pages": None,
-            "affiliate_clicks": None,
-            "affiliate_conversions": None,
-            "revenue_status": "REVENUE_UNKNOWN",
-            "estimated_revenue_usd": None,
-            "confirmed_payable_usd": None,
-            "bank_settled_usd": None,
-            "net_profit_usd": None,
-            "manual_interventions": 0,
-            "manual_minutes": 0,
+            "llm_unknown_cost_reserve_usd": 0.0,
+            "commercial_data_location": "private/commercial_ledger.json (excluded from public repo)",
         }
         daily.append(entry)
     return entry
@@ -260,18 +251,19 @@ def run_enrichment(
     allow_live_llm: bool = True,
     already_used_calls: int = 0,
     already_spent_usd: float = 0.0,
-    on_call_recorded=None,
+    already_unknown_reserve_usd: float = 0.0,
+    on_attempt_recorded=None,
 ) -> dict[str, Any]:
-    """Enforce true cumulative daily call + USD caps across runs, retries, and failed calls."""
+    """Enforce true cumulative daily call + USD caps down at llm_router's actual provider request layer."""
     has_live_llm = allow_live_llm and len(get_available_providers()) > 0
-    remaining_calls = max(0, int(max_calls) - max(0, int(already_used_calls)))
-    remaining_budget = max(0.0, round(float(max_cost_usd) - max(0.0, float(already_spent_usd)), 6))
-
-    llm_calls_used = 0
-    llm_failed_calls = 0
-    total_in_tokens = 0
-    total_out_tokens = 0
-    total_cost_usd = 0.0
+    guard = DailyBudgetGuard(
+        max_calls=int(max_calls),
+        max_cost_usd=float(max_cost_usd),
+        used_calls=max(0, int(already_used_calls)),
+        spent_usd=max(0.0, float(already_spent_usd)),
+        reserved_unknown_usd=max(0.0, float(already_unknown_reserve_usd)),
+        on_attempt_recorded=on_attempt_recorded,
+    )
     invalidated_count = 0
 
     for m in models:
@@ -285,36 +277,9 @@ def run_enrichment(
         if existing and not hash_matches:
             invalidated_count += 1
 
-        if (
-            has_live_llm
-            and llm_calls_used < remaining_calls
-            and total_cost_usd < remaining_budget
-            and m.get("status") == "active"
-        ):
-            parsed, provider, usage = generate_json_with_fallback(_build_model_prompt(m))
-            in_tok = int((usage or {}).get("prompt_tokens", 0) or 0)
-            out_tok = int((usage or {}).get("completion_tokens", 0) or 0)
-            call_cost = estimate_call_cost_usd(provider, usage or {})
-            attempted_live = provider != "none" or in_tok > 0 or out_tok > 0 or call_cost > 0
-            valid_ok = _valid_enrichment(parsed, pricing_type=m.get("pricing_type"))
-
-            if attempted_live:
-                llm_calls_used += 1
-                total_in_tokens += in_tok
-                total_out_tokens += out_tok
-                total_cost_usd = round(total_cost_usd + call_cost, 6)
-                if not valid_ok:
-                    llm_failed_calls += 1
-                if on_call_recorded is not None:
-                    on_call_recorded(
-                        calls=1,
-                        failed=0 if valid_ok else 1,
-                        tokens_in=in_tok,
-                        tokens_out=out_tok,
-                        cost_usd=call_cost,
-                    )
-
-            if valid_ok:
+        if has_live_llm and guard.can_attempt() and m.get("status") == "active":
+            parsed, provider, _usage = generate_json_with_fallback(_build_model_prompt(m), budget_guard=guard)
+            if _valid_enrichment(parsed, pricing_type=m.get("pricing_type")):
                 parsed["source"] = provider
                 parsed["cache_hash"] = c_hash
                 parsed["enriched_at"] = utc_today()
@@ -338,15 +303,14 @@ def run_enrichment(
             r["enrichment"] = _deterministic_repo_enrichment(r, c_hash)
 
     return {
-        "llm_calls": llm_calls_used,
-        "llm_failed_calls": llm_failed_calls,
-        "llm_tokens_in": total_in_tokens,
-        "llm_tokens_out": total_out_tokens,
-        "llm_cost_usd": total_cost_usd,
-        "already_used_calls_before_run": int(already_used_calls),
-        "already_spent_usd_before_run": round(float(already_spent_usd), 6),
-        "remaining_calls_before_run": remaining_calls,
-        "remaining_budget_before_run": remaining_budget,
+        "llm_calls": guard.this_run_calls,
+        "llm_failed_calls": guard.this_run_failed_calls,
+        "llm_unknown_cost_calls": guard.this_run_unknown_cost_calls,
+        "llm_tokens_in": guard.this_run_tokens_in,
+        "llm_tokens_out": guard.this_run_tokens_out,
+        "llm_cost_usd": guard.this_run_cost_usd,
+        "llm_unknown_cost_reserve_usd": round(guard.reserved_unknown_usd - max(0.0, float(already_unknown_reserve_usd)), 6),
+        "attempts": guard.attempt_log,
         "cache_invalidated": invalidated_count,
     }
 
@@ -369,18 +333,21 @@ def main() -> None:
     entry = _ensure_today_ops_entry(ops, today)
     already_calls = int(entry.get("llm_calls") or 0)
     already_cost = float(entry.get("llm_cost_usd") or 0.0)
+    already_reserve = float(entry.get("llm_unknown_cost_reserve_usd") or 0.0)
 
-    def _persist_call(*, calls: int, failed: int, tokens_in: int, tokens_out: int, cost_usd: float) -> None:
-        entry["llm_calls"] = int(entry.get("llm_calls") or 0) + calls
-        entry["llm_failed_calls"] = int(entry.get("llm_failed_calls") or 0) + failed
-        entry["llm_tokens_in"] = int(entry.get("llm_tokens_in") or 0) + tokens_in
-        entry["llm_tokens_out"] = int(entry.get("llm_tokens_out") or 0) + tokens_out
-        entry["llm_cost_usd"] = round(float(entry.get("llm_cost_usd") or 0.0) + cost_usd, 6)
-        if entry.get("bank_settled_usd") is None:
-            entry["revenue_status"] = "REVENUE_UNKNOWN"
-            entry["net_profit_usd"] = None
+    def _persist_attempt(rec: dict[str, Any]) -> None:
+        entry["llm_calls"] = int(entry.get("llm_calls") or 0) + 1
+        if rec.get("status") != "ok":
+            entry["llm_failed_calls"] = int(entry.get("llm_failed_calls") or 0) + 1
+        if not rec.get("cost_known"):
+            entry["llm_unknown_cost_calls"] = int(entry.get("llm_unknown_cost_calls") or 0) + 1
+            entry["llm_unknown_cost_reserve_usd"] = round(
+                float(entry.get("llm_unknown_cost_reserve_usd") or 0.0) + float(rec.get("unknown_cost_reserve_usd") or 0.0), 6
+            )
         else:
-            entry["net_profit_usd"] = round(float(entry["bank_settled_usd"]) - entry["llm_cost_usd"], 6)
+            entry["llm_cost_usd"] = round(float(entry.get("llm_cost_usd") or 0.0) + float(rec.get("cost_usd") or 0.0), 6)
+        entry["llm_tokens_in"] = int(entry.get("llm_tokens_in") or 0) + int(rec.get("prompt_tokens") or 0)
+        entry["llm_tokens_out"] = int(entry.get("llm_tokens_out") or 0) + int(rec.get("completion_tokens") or 0)
         ops["daily"] = sorted(ops["daily"], key=lambda x: x["date"], reverse=True)[:365]
         save_json(ops_path, ops)
 
@@ -392,7 +359,8 @@ def main() -> None:
         prompt_ver=prompt_ver,
         already_used_calls=already_calls,
         already_spent_usd=already_cost,
-        on_call_recorded=_persist_call,
+        already_unknown_reserve_usd=already_reserve,
+        on_attempt_recorded=_persist_attempt,
     )
 
     save_json(models_path, models)
@@ -401,9 +369,9 @@ def main() -> None:
     save_json(ops_path, ops)
 
     print(
-        f"[enrich_llm] Done: this_run_calls={stats['llm_calls']} (failed={stats['llm_failed_calls']}), "
+        f"[enrich_llm] Done: this_run_attempts={stats['llm_calls']} (failed={stats['llm_failed_calls']}, unknown_cost={stats['llm_unknown_cost_calls']}), "
         f"today_total_calls={entry['llm_calls']}/{max_calls}, "
-        f"today_total_cost=${entry['llm_cost_usd']:.6f}/${max_cost_usd:.4f}, "
+        f"today_known_cost=${entry['llm_cost_usd']:.6f} + unknown_reserve=${entry.get('llm_unknown_cost_reserve_usd', 0.0):.6f} (cap=${max_cost_usd:.4f}), "
         f"cache_invalidated={stats['cache_invalidated']}, models={len(models)}, repos={len(repos)}."
     )
 

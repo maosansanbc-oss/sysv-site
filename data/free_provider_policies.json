@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-11-25T17:56:32Z",
+  "updated_utc": "2026-11-25T19:14:38Z",
   "note": "Structured cross-provider Free LLM API policy database. Distinguishes permanently free, credit-unlocked free tiers, and time-limited free trials. Never claim verified when stale or unverified.",
   "providers": [
     {
@@ -30,10 +30,15 @@
       "source_url": "https://openrouter.ai/docs/api-reference/limits",
       "last_verified_date": "2026-11-25",
       "max_freshness_days": 14,
-      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "verification_status": "DOC_CHANGED_NEEDS_REVIEW",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "1a893699c450fd53",
-      "last_checked_utc": "2026-11-25T17:56:32Z"
+      "last_checked_utc": "2026-11-25T19:14:38Z",
+      "verification_reason": "doc_text_hash_changed_signals_stable",
+      "policy_signal_hash": "8f5ac553e273a077",
+      "pending_source_hash": "0f63dbe565a3fb4d",
+      "pending_signal_hash": "8f5ac553e273a077",
+      "drift_detected_utc": "2026-11-25T19:14:38Z"
     },
     {
       "id": "google_gemini",
@@ -64,7 +69,9 @@
       "verification_status": "OFFICIAL_DOCS_VERIFIED",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "f849843c103ea67e",
-      "last_checked_utc": "2026-11-25T17:56:32Z"
+      "last_checked_utc": "2026-11-25T19:14:38Z",
+      "verification_reason": "ok",
+      "policy_signal_hash": "8fb8fef5cc524b1e"
     },
     {
       "id": "groq",
@@ -106,7 +113,9 @@
       "verification_status": "OFFICIAL_DOCS_VERIFIED",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "3dd424f8a8fecd3d",
-      "last_checked_utc": "2026-11-25T17:56:32Z"
+      "last_checked_utc": "2026-11-25T19:14:38Z",
+      "verification_reason": "ok",
+      "policy_signal_hash": "e3b0c44298fc1c14"
     },
     {
       "id": "cloudflare_workers_ai",
@@ -139,7 +148,9 @@
       "verification_status": "OFFICIAL_DOCS_VERIFIED",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "f79e1a973a7bdf05",
-      "last_checked_utc": "2026-11-25T17:56:32Z"
+      "last_checked_utc": "2026-11-25T19:14:38Z",
+      "verification_reason": "ok",
+      "policy_signal_hash": "50537845453cdc1b"
     },
     {
       "id": "cerebras",
@@ -171,7 +182,9 @@
       "verification_status": "OFFICIAL_DOCS_VERIFIED",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "e2e9a89c8becae41",
-      "last_checked_utc": "2026-11-25T17:56:32Z"
+      "last_checked_utc": "2026-11-25T19:14:38Z",
+      "verification_reason": "ok",
+      "policy_signal_hash": "07ea1874c07c5656"
     }
   ],
   "policy_history": [

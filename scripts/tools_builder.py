@@ -95,12 +95,25 @@ window.SysVCalc = (function () {
     };
   }
 
-  /* Free LLM API daily & burst quota estimator (v2.2.2):
-   * Separates daily totals (RPD / TPD / Neurons) from peak minute throughput (RPM / TPM).
-   * Cloudflare Workers AI reference: @cf/meta/llama-3.2-1b-instruct (2,457 in / 18,252 out Neurons per 1M tokens).
-   * Cerebras: $5 / 30-day verified-payment trial only (no permanently free tier).
+  /* Free LLM API daily & burst quota estimator (v2.2.3 — Single Source of Truth from policyDb):
+   * Reads ALL limits, Neuron coefficients, trial flags & verification_status strictly from policyDb.
+   * When verification_status !== 'OFFICIAL_DOCS_VERIFIED' (e.g. STALE, UNKNOWN, FETCH_ERROR,
+   * DOC_CHANGED_NEEDS_REVIEW, POLICY_CHANGED_NEEDS_REVIEW), outputs UNVERIFIED (covered = null)
+   * instead of a deterministic coverage verdict.
    */
-  function calculateFreeQuota(dailyJobs, callsPerJob, peakRpm, retryMult, inputTokensPerCall, outputTokensPerCall, openRouterTier) {
+  function _findProvider(policyDb, id) {
+    var list = (policyDb && policyDb.providers) ? policyDb.providers : [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i] && list[i].id === id) return list[i];
+    }
+    return null;
+  }
+
+  function _isVerifiedPolicy(p) {
+    return !!(p && p.verification_status === 'OFFICIAL_DOCS_VERIFIED');
+  }
+
+  function calculateFreeQuota(dailyJobs, callsPerJob, peakRpm, retryMult, inputTokensPerCall, outputTokensPerCall, openRouterTier, policyDb) {
     var jobs = Math.max(0, Number(dailyJobs) || 0);
     var perJob = Math.max(0, Number(callsPerJob) || 0);
     var burstRpm = Math.max(0, Number(peakRpm) || 0);
@@ -114,44 +127,87 @@ window.SysVCalc = (function () {
     var effectivePeakRpm = Math.ceil(burstRpm * mult);
     var peakTpm = Math.round(effectivePeakRpm * tokPerCall);
 
-    var orLimit = openRouterTier === 'paid_1000' ? 1000 : 50;
-    var orRpdCovered = requiredCalls <= orLimit;
-    var orRpmCovered = effectivePeakRpm <= 20;
-    var orDeficit = Math.max(0, requiredCalls - orLimit);
+    // 1. OpenRouter (from policyDb)
+    var pOr = _findProvider(policyDb, 'openrouter');
+    var orVerified = _isVerifiedPolicy(pOr);
+    var orQuota = (pOr && pOr.model_quotas && pOr.model_quotas[0]) || {};
+    var orLimit = openRouterTier === 'paid_1000' ? Number(orQuota.rpd_unlocked) : Number(orQuota.rpd);
+    var orRpmCap = Number(orQuota.rpm);
+    var orRpdCovered = null, orRpmCovered = null, orCovered = null, orDeficit = null;
+    if (orVerified && !isNaN(orLimit) && !isNaN(orRpmCap)) {
+      orRpdCovered = requiredCalls <= orLimit;
+      orRpmCovered = effectivePeakRpm <= orRpmCap;
+      orCovered = orRpdCovered && orRpmCovered;
+      orDeficit = Math.max(0, requiredCalls - orLimit);
+    }
 
-    // Groq verified model-specific free caps (GPT-OSS 120B, GPT-OSS 20B, Qwen 3.8 27B)
-    var groqRpdCovered = requiredCalls <= 1000;
-    var groqTpdCovered = requiredTokens <= 200000;
-    var groqRpmCovered = effectivePeakRpm <= 30;
-    var groqTpmCovered = peakTpm <= 8000 && tokPerCall <= 8000;
-    var groqFits = groqRpdCovered && groqTpdCovered && groqRpmCovered && groqTpmCovered;
+    // 2. Groq (model-specific quotas from policyDb)
+    var pGroq = _findProvider(policyDb, 'groq');
+    var groqVerified = _isVerifiedPolicy(pGroq);
+    var groqModels = (pGroq && pGroq.model_quotas) ? pGroq.model_quotas : [];
+    var groqRef = groqModels[0] || {};
+    var groqModelNames = groqModels.map(function (m) { return m.model; });
+    var groqRpdCovered = null, groqTpdCovered = null, groqRpmCovered = null, groqTpmCovered = null, groqFits = null;
+    if (groqVerified && groqRef.rpd != null && groqRef.tpd != null && groqRef.rpm != null && groqRef.tpm != null) {
+      groqRpdCovered = requiredCalls <= Number(groqRef.rpd);
+      groqTpdCovered = requiredTokens <= Number(groqRef.tpd);
+      groqRpmCovered = effectivePeakRpm <= Number(groqRef.rpm);
+      groqTpmCovered = peakTpm <= Number(groqRef.tpm) && tokPerCall <= Number(groqRef.tpm);
+      groqFits = groqRpdCovered && groqTpdCovered && groqRpmCovered && groqTpmCovered;
+    }
 
-    // Cloudflare Workers AI (@cf/meta/llama-3.2-1b-instruct official Neuron coefficients)
-    var cfNeuronsPerCall = (inTok / 1e6) * 2457 + (outTok / 1e6) * 18252;
-    var cfDailyNeurons = requiredCalls * cfNeuronsPerCall;
-    var cfMaxFreeCalls = cfNeuronsPerCall > 0 ? Math.floor(10000 / cfNeuronsPerCall) : 0;
-    var cfCovered = cfDailyNeurons <= 10000;
+    // 3. Cloudflare Workers AI (official Neuron coefficients from policyDb)
+    var pCf = _findProvider(policyDb, 'cloudflare_workers_ai');
+    var cfVerified = _isVerifiedPolicy(pCf);
+    var cfModel = (pCf && pCf.model_quotas && pCf.model_quotas[0]) || {};
+    var cfDailyAllowance = pCf ? Number(pCf.free_daily_neurons) : NaN;
+    var cfInRate = Number(cfModel.neurons_per_m_input);
+    var cfOutRate = Number(cfModel.neurons_per_m_output);
+    var cfNeuronsPerCall = null, cfDailyNeurons = null, cfMaxFreeCalls = null, cfCovered = null;
+    if (cfVerified && !isNaN(cfDailyAllowance) && !isNaN(cfInRate) && !isNaN(cfOutRate)) {
+      cfNeuronsPerCall = (inTok / 1e6) * cfInRate + (outTok / 1e6) * cfOutRate;
+      cfDailyNeurons = requiredCalls * cfNeuronsPerCall;
+      cfMaxFreeCalls = cfNeuronsPerCall > 0 ? Math.floor(cfDailyAllowance / cfNeuronsPerCall) : 0;
+      cfCovered = cfDailyNeurons <= cfDailyAllowance;
+    }
+
+    // 4. Cerebras (trial classification from policyDb)
+    var pCer = _findProvider(policyDb, 'cerebras');
+    var cerVerified = _isVerifiedPolicy(pCer);
+    var cerPermanentlyFree = cerVerified ? (pCer.tier_classification === 'permanently_free') : null;
 
     return {
       requiredCalls: requiredCalls,
       requiredTokens: requiredTokens,
       effectivePeakRpm: effectivePeakRpm,
       peakTpm: peakTpm,
-      openRouterLimit: orLimit,
+      openRouterStatus: orVerified ? 'VERIFIED' : (pOr ? pOr.verification_status : 'UNKNOWN'),
+      openRouterLimit: isNaN(orLimit) ? null : orLimit,
+      openRouterRpmCap: isNaN(orRpmCap) ? null : orRpmCap,
       openRouterRpdCovered: orRpdCovered,
       openRouterRpmCovered: orRpmCovered,
-      openRouterCovered: orRpdCovered && orRpmCovered,
+      openRouterCovered: orCovered,
       openRouterDeficit: orDeficit,
+      groqStatus: groqVerified ? 'VERIFIED' : (pGroq ? pGroq.verification_status : 'UNKNOWN'),
+      groqModels: groqModelNames,
+      groqLimits: groqRef,
       groqRpdCovered: groqRpdCovered,
       groqTpdCovered: groqTpdCovered,
       groqRpmCovered: groqRpmCovered,
       groqTpmCovered: groqTpmCovered,
       groqFits: groqFits,
+      cfStatus: cfVerified ? 'VERIFIED' : (pCf ? pCf.verification_status : 'UNKNOWN'),
+      cfModelName: cfModel.model || '',
+      cfDailyAllowance: isNaN(cfDailyAllowance) ? null : cfDailyAllowance,
       cfNeuronsPerCall: cfNeuronsPerCall,
       cfDailyNeurons: cfDailyNeurons,
       cfMaxFreeCalls: cfMaxFreeCalls,
       cfCovered: cfCovered,
-      cerebrasPermanentlyFree: false
+      cerebrasStatus: cerVerified ? 'VERIFIED' : (pCer ? pCer.verification_status : 'UNKNOWN'),
+      cerebrasTierLabel: pCer ? (pCer.tier_label || '') : 'UNKNOWN',
+      cerebrasTrialUsd: pCer ? pCer.trial_amount_usd : null,
+      cerebrasTrialDays: pCer ? pCer.trial_expiry_days : null,
+      cerebrasPermanentlyFree: cerPermanentlyFree
     };
   }
 
@@ -216,9 +272,20 @@ def calculate_free_quota_py(
     input_tokens_per_call: float = 1000.0,
     output_tokens_per_call: float = 500.0,
     openrouter_tier: str = "free_50",
+    policy_db: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Python parity mirror of window.SysVCalc.calculateFreeQuota for unit tests."""
+    """Python parity mirror of window.SysVCalc.calculateFreeQuota reading directly from policy_db."""
     import math
+
+    if policy_db is None:
+        pfile = DATA_DIR / "free_provider_policies.json"
+        policy_db = json.loads(pfile.read_text(encoding="utf-8")) if pfile.exists() else {"providers": []}
+
+    def _find(pid: str) -> dict[str, Any] | None:
+        return next((p for p in (policy_db.get("providers") or []) if p.get("id") == pid), None)
+
+    def _verified(p: dict[str, Any] | None) -> bool:
+        return bool(p and p.get("verification_status") == "OFFICIAL_DOCS_VERIFIED")
 
     jobs = max(0.0, float(daily_jobs or 0.0))
     per_job = max(0.0, float(calls_per_job or 0.0))
@@ -233,39 +300,71 @@ def calculate_free_quota_py(
     eff_peak_rpm = int(math.ceil(burst_rpm * mult))
     peak_tpm = int(round(eff_peak_rpm * tok))
 
-    or_limit = 1000 if openrouter_tier == "paid_1000" else 50
-    or_rpd_ok = req_calls <= or_limit
-    or_rpm_ok = eff_peak_rpm <= 20
+    p_or = _find("openrouter")
+    or_ok = _verified(p_or)
+    or_q = (p_or.get("model_quotas") or [{}])[0] if p_or else {}
+    or_limit = or_q.get("rpd_unlocked") if openrouter_tier == "paid_1000" else or_q.get("rpd")
+    or_rpm_cap = or_q.get("rpm")
+    if or_ok and or_limit is not None and or_rpm_cap is not None:
+        or_rpd_cov = req_calls <= int(or_limit)
+        or_rpm_cov = eff_peak_rpm <= int(or_rpm_cap)
+        or_cov = or_rpd_cov and or_rpm_cov
+        or_def = max(0, req_calls - int(or_limit))
+    else:
+        or_rpd_cov = or_rpm_cov = or_cov = or_def = None
 
-    groq_rpd_ok = req_calls <= 1000
-    groq_tpd_ok = req_tokens <= 200000
-    groq_rpm_ok = eff_peak_rpm <= 30
-    groq_tpm_ok = peak_tpm <= 8000 and tok <= 8000
+    p_groq = _find("groq")
+    groq_ok = _verified(p_groq)
+    groq_q = (p_groq.get("model_quotas") or [{}])[0] if p_groq else {}
+    if groq_ok and all(groq_q.get(k) is not None for k in ("rpd", "tpd", "rpm", "tpm")):
+        groq_rpd_cov = req_calls <= int(groq_q["rpd"])
+        groq_tpd_cov = req_tokens <= int(groq_q["tpd"])
+        groq_rpm_cov = eff_peak_rpm <= int(groq_q["rpm"])
+        groq_tpm_cov = peak_tpm <= int(groq_q["tpm"]) and tok <= int(groq_q["tpm"])
+        groq_fits = groq_rpd_cov and groq_tpd_cov and groq_rpm_cov and groq_tpm_cov
+    else:
+        groq_rpd_cov = groq_tpd_cov = groq_rpm_cov = groq_tpm_cov = groq_fits = None
 
-    cf_neurons_per_call = (in_tok / 1e6) * 2457.0 + (out_tok / 1e6) * 18252.0
-    cf_daily_neurons = req_calls * cf_neurons_per_call
-    cf_max_calls = int(math.floor(10000.0 / cf_neurons_per_call)) if cf_neurons_per_call > 0 else 0
+    p_cf = _find("cloudflare_workers_ai")
+    cf_ok = _verified(p_cf)
+    cf_q = (p_cf.get("model_quotas") or [{}])[0] if p_cf else {}
+    cf_allow = p_cf.get("free_daily_neurons") if p_cf else None
+    if cf_ok and cf_allow is not None and cf_q.get("neurons_per_m_input") is not None and cf_q.get("neurons_per_m_output") is not None:
+        cf_n_call = (in_tok / 1e6) * float(cf_q["neurons_per_m_input"]) + (out_tok / 1e6) * float(cf_q["neurons_per_m_output"])
+        cf_daily_n = req_calls * cf_n_call
+        cf_max_calls = int(math.floor(float(cf_allow) / cf_n_call)) if cf_n_call > 0 else 0
+        cf_cov = cf_daily_n <= float(cf_allow)
+    else:
+        cf_n_call = cf_daily_n = cf_max_calls = cf_cov = None
+
+    p_cer = _find("cerebras")
+    cer_ok = _verified(p_cer)
+    cer_perm = (p_cer.get("tier_classification") == "permanently_free") if cer_ok else None
 
     return {
         "requiredCalls": req_calls,
         "requiredTokens": req_tokens,
         "effectivePeakRpm": eff_peak_rpm,
         "peakTpm": peak_tpm,
+        "openRouterStatus": "VERIFIED" if or_ok else (p_or.get("verification_status") if p_or else "UNKNOWN"),
         "openRouterLimit": or_limit,
-        "openRouterRpdCovered": or_rpd_ok,
-        "openRouterRpmCovered": or_rpm_ok,
-        "openRouterCovered": or_rpd_ok and or_rpm_ok,
-        "openRouterDeficit": max(0, req_calls - or_limit),
-        "groqRpdCovered": groq_rpd_ok,
-        "groqTpdCovered": groq_tpd_ok,
-        "groqRpmCovered": groq_rpm_ok,
-        "groqTpmCovered": groq_tpm_ok,
-        "groqFits": groq_rpd_ok and groq_tpd_ok and groq_rpm_ok and groq_tpm_ok,
-        "cfNeuronsPerCall": round(cf_neurons_per_call, 4),
-        "cfDailyNeurons": round(cf_daily_neurons, 4),
+        "openRouterRpdCovered": or_rpd_cov,
+        "openRouterRpmCovered": or_rpm_cov,
+        "openRouterCovered": or_cov,
+        "openRouterDeficit": or_def,
+        "groqStatus": "VERIFIED" if groq_ok else (p_groq.get("verification_status") if p_groq else "UNKNOWN"),
+        "groqRpdCovered": groq_rpd_cov,
+        "groqTpdCovered": groq_tpd_cov,
+        "groqRpmCovered": groq_rpm_cov,
+        "groqTpmCovered": groq_tpm_cov,
+        "groqFits": groq_fits,
+        "cfStatus": "VERIFIED" if cf_ok else (p_cf.get("verification_status") if p_cf else "UNKNOWN"),
+        "cfNeuronsPerCall": round(cf_n_call, 4) if cf_n_call is not None else None,
+        "cfDailyNeurons": round(cf_daily_n, 4) if cf_daily_n is not None else None,
         "cfMaxFreeCalls": cf_max_calls,
-        "cfCovered": cf_daily_neurons <= 10000.0,
-        "cerebrasPermanentlyFree": False,
+        "cfCovered": cf_cov,
+        "cerebrasStatus": "VERIFIED" if cer_ok else (p_cer.get("verification_status") if p_cer else "UNKNOWN"),
+        "cerebrasPermanentlyFree": cer_perm,
     }
 
 

@@ -90,6 +90,9 @@ jobs:
 
       - name: Check official Free LLM API provider policy freshness & drift (0 LLM calls)
         if: steps.mode.outputs.run_fetch == 'true'
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
         run: python3 -m scripts.check_free_policies
 
       - name: Incremental enrichment with SHA-256 hash cache & true cumulative daily cost cap

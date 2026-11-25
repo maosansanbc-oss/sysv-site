@@ -195,13 +195,11 @@ class TestLifecycleHistoryAndBudgetCap(unittest.TestCase):
             fetch_data.classify_model({"id": f"v/m-{i}", "pricing": {"prompt": "0.000001", "completion": "0.000002"}, "context_length": 128000})
             for i in range(30)
         ]
-        fake_resp = (
-            {"summary": "Paid API model.", "best_for": ["A", "B", "C"], "watch_outs": ["X", "Y"]},
-            "deepseek",
-            {"prompt_tokens": 200, "completion_tokens": 120},
-        )
-        with mock.patch("scripts.enrich_llm.get_available_providers", return_value=[{"name": "deepseek"}]), \
-             mock.patch("scripts.enrich_llm.generate_json_with_fallback", return_value=fake_resp), \
+        raw_json = json.dumps({"summary": "Paid API model.", "best_for": ["A", "B", "C"], "watch_outs": ["X", "Y"]})
+        fake_provider = [{"name": "deepseek", "key": "k", "base_url": "https://api.deepseek.com/v1", "model": "deepseek-chat", "is_paid": "1"}]
+        with mock.patch("scripts.enrich_llm.get_available_providers", return_value=fake_provider), \
+             mock.patch("scripts.llm_router.get_available_providers", return_value=fake_provider), \
+             mock.patch("scripts.llm_router._call_openai_compat", return_value=(raw_json, {"prompt_tokens": 200, "completion_tokens": 120})), \
              mock.patch("scripts.enrich_llm.time.sleep", return_value=None):
             stats = enrich_llm.run_enrichment(models, [], max_calls=5, max_cost_usd=0.05, prompt_ver="v2.1")
         self.assertEqual(stats["llm_calls"], 5)

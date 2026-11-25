@@ -50,9 +50,11 @@ assert.equal(calc.isValidPrice({ in: NaN, out: 1 }), false);
 assert.equal(calc.isValidPrice({ in: -1, out: 1 }), false);
 assert.equal(calc.isValidPrice({ in: 0, out: 0 }), true);
 
-// Free LLM API Quota & Burst Calculator boundary checks (RPM + RPD + TPM + Cloudflare Neurons + Cerebras trial)
-const fqShort = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "free_50");
+// Free LLM API Quota & Burst Calculator boundary checks (reads directly from free-provider-policies.json!)
+const policyDb = JSON.parse(fs.readFileSync(path.join(DIST, "data/free-provider-policies.json"), "utf8"));
+const fqShort = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "free_50", policyDb);
 assert.equal(fqShort.requiredCalls, 90);
+assert.equal(fqShort.openRouterStatus, "VERIFIED");
 assert.equal(fqShort.openRouterRpdCovered, false);
 assert.equal(fqShort.openRouterRpmCovered, true);
 assert.equal(fqShort.openRouterDeficit, 40);
@@ -61,15 +63,25 @@ assert.equal(fqShort.cfMaxFreeCalls, 863);
 assert.equal(fqShort.cfCovered, true);
 assert.equal(fqShort.cerebrasPermanentlyFree, false);
 
-const fqBurst = calc.calculateFreeQuota(1, 40, 40, 1.0, 1000, 500, "free_50");
+const fqBurst = calc.calculateFreeQuota(1, 40, 40, 1.0, 1000, 500, "free_50", policyDb);
 assert.equal(fqBurst.openRouterRpdCovered, true);
 assert.equal(fqBurst.openRouterRpmCovered, false);
 assert.equal(fqBurst.openRouterCovered, false);
 assert.equal(fqBurst.groqRpmCovered, false);
 
-const fqPaid = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "paid_1000");
+const fqPaid = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "paid_1000", policyDb);
 assert.equal(fqPaid.openRouterCovered, true);
 assert.equal(fqPaid.openRouterDeficit, 0);
+
+// Stale/unverified policy MUST NOT output deterministic coverage
+const stalePolicy = {
+  providers: policyDb.providers.map((p) => ({ ...p, verification_status: "STALE" })),
+};
+const fqStale = calc.calculateFreeQuota(10, 1, 2, 1.0, 1000, 500, "free_50", stalePolicy);
+assert.equal(fqStale.openRouterStatus, "STALE");
+assert.equal(fqStale.openRouterCovered, null);
+assert.equal(fqStale.groqFits, null);
+assert.equal(fqStale.cfCovered, null);
 
 console.log("[runtime_js] calc-engine.js boundary assertions PASSED");
 

@@ -26,9 +26,11 @@ from typing import Any
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
 
-from scripts.utils import DATA_DIR, http_post_json, load_json, save_json, utc_now_iso, utc_today
+from scripts.utils import DATA_DIR, ROOT_DIR, http_post_json, load_json, save_json, utc_now_iso, utc_today
 
-GSC_DIR = DATA_DIR / "gsc_history"
+# Commercial/search-query telemetry MUST stay strictly inside private/ (gitignored, never pushed to public repo)
+PRIVATE_GSC_DIR = ROOT_DIR / "private" / "gsc"
+GSC_DIR = PRIVATE_GSC_DIR / "history"
 OAUTH_TOKEN_URL = "https://oauth2.googleapis.com/token"
 GSC_SCOPE = "https://www.googleapis.com/auth/webmasters.readonly"
 
@@ -300,6 +302,17 @@ def main() -> None:
 
     pub_path = DATA_DIR / "published_pages.json"
     published = load_json(pub_path, default={})
+    PRIVATE_GSC_DIR.mkdir(parents=True, exist_ok=True)
+    private_insp_path = PRIVATE_GSC_DIR / "url_inspections.json"
+    inspections = load_json(private_insp_path, default={})
+
+    # Merge private inspection records into in-memory published view (never written back into public repo!)
+    published_view: dict[str, Any] = {}
+    for u, meta in published.items():
+        merged = dict(meta)
+        if u in inspections:
+            merged["gsc_inspection"] = inspections[u]
+        published_view[u] = merged
 
     token, auth_mode = obtain_access_token()
     site_rows: list[dict[str, Any]] = []
@@ -314,15 +327,17 @@ def main() -> None:
         # Inspect rotating batch of uninspected / oldest-inspected indexable URLs via real URL Inspection API
         candidates = [
             (u, meta)
-            for u, meta in published.items()
+            for u, meta in published_view.items()
             if meta.get("status") != "gone" and meta.get("index_policy") == "index"
         ]
         candidates.sort(key=lambda item: (item[1].get("gsc_inspection") or {}).get("inspected_at", ""))
         for u, meta in candidates[:inspect_limit]:
-            meta["gsc_inspection"] = inspect_single_url(site_url, base_url + u, token)
+            insp_res = inspect_single_url(site_url, base_url + u, token)
+            inspections[u] = insp_res
+            meta["gsc_inspection"] = insp_res
             time.sleep(0.25)
 
-        save_json(pub_path, published)
+        save_json(private_insp_path, inspections)
         GSC_DIR.mkdir(parents=True, exist_ok=True)
         save_json(
             GSC_DIR / f"{utc_today()}.json",
@@ -335,13 +350,14 @@ def main() -> None:
         site_rows=site_rows,
         page_rows=page_rows,
         query_rows=query_rows,
-        published_pages=published,
+        published_pages=published_view,
         start_date=start_date,
         end_date=end_date,
         auth_mode=auth_mode,
     )
-    save_json(DATA_DIR / "gsc_weekly_report.json", report)
-    print(f"[gsc_report] Saved weekly report (auth={auth_mode}): totals={report['site_totals']}, buckets={report['diagnostic_buckets']}")
+    out_path = PRIVATE_GSC_DIR / "gsc_weekly_report.json"
+    save_json(out_path, report)
+    print(f"[gsc_report] Saved PRIVATE report to {out_path} (auth={auth_mode}): totals={report['site_totals']}, buckets={report['diagnostic_buckets']}")
 
 
 if __name__ == "__main__":

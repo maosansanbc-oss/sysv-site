@@ -1165,8 +1165,12 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         dt = p.get("last_verified_date") or "Unknown"
         if st == "OFFICIAL_DOCS_VERIFIED":
             return f'<span class="badge badge-free">Docs Verified ({e(dt)})</span>'
-        if st == "CHANGED_NEEDS_REVIEW":
-            return f'<span class="badge badge-warn">Docs Changed — Review Pending ({e(dt)})</span>'
+        if st == "POLICY_CHANGED_NEEDS_REVIEW":
+            return f'<span class="badge badge-danger">Policy Drift — Review Pending ({e(dt)})</span>'
+        if st in ("DOC_CHANGED_NEEDS_REVIEW", "CHANGED_NEEDS_REVIEW"):
+            return f'<span class="badge badge-warn">Doc Changed — Review Pending ({e(dt)})</span>'
+        if st == "FETCH_ERROR":
+            return f'<span class="badge badge-warn">Fetch Error — Check Docs ({e(dt)})</span>'
         if st == "STALE":
             return f'<span class="badge badge-warn">STALE ({e(dt)})</span>'
         return '<span class="badge badge-danger">UNKNOWN</span>'
@@ -1315,6 +1319,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         }}
         tEl.addEventListener('change', filterTable); jEl.addEventListener('change', filterTable);
 
+        const POLICY_DB = {json.dumps(policy_db, ensure_ascii=False)};
         const fqJobs = document.getElementById('fq-jobs');
         const fqCalls = document.getElementById('fq-calls');
         const fqPeak = document.getElementById('fq-peak-rpm');
@@ -1331,35 +1336,61 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             parseFloat(fqRetry.value || '1') || 1,
             parseFloat(fqIn.value || '0') || 0,
             parseFloat(fqOutTok.value || '0') || 0,
-            fqTier.value || 'free_50'
+            fqTier.value || 'free_50',
+            POLICY_DB
           );
-          const orRpdBadge = r.openRouterRpdCovered
-            ? '<span class="badge badge-free">Daily RPD Covered (' + r.requiredCalls.toLocaleString() + '/' + r.openRouterLimit.toLocaleString() + ')</span>'
-            : '<span class="badge badge-warn">Short by ' + r.openRouterDeficit.toLocaleString() + ' calls/day (' + r.requiredCalls.toLocaleString() + '/' + r.openRouterLimit.toLocaleString() + ')</span>';
-          const orRpmBadge = r.openRouterRpmCovered
-            ? '<span class="badge badge-free">Burst OK (' + r.effectivePeakRpm + '/20 RPM)</span>'
-            : '<span class="badge badge-danger">Exceeds 20 RPM (' + r.effectivePeakRpm + ' RPM)</span>';
+          let orHtml;
+          if (r.openRouterStatus !== 'VERIFIED') {{
+            orHtml = '<span class="badge badge-warn">Policy ' + r.openRouterStatus + '</span> Cannot compute deterministic verdict; verify live OpenRouter limits.';
+          }} else {{
+            const orRpdBadge = r.openRouterRpdCovered
+              ? '<span class="badge badge-free">Daily RPD Covered (' + r.requiredCalls.toLocaleString() + '/' + r.openRouterLimit.toLocaleString() + ')</span>'
+              : '<span class="badge badge-warn">Short by ' + r.openRouterDeficit.toLocaleString() + ' calls/day (' + r.requiredCalls.toLocaleString() + '/' + r.openRouterLimit.toLocaleString() + ')</span>';
+            const orRpmBadge = r.openRouterRpmCovered
+              ? '<span class="badge badge-free">Burst OK (' + r.effectivePeakRpm + '/' + r.openRouterRpmCap + ' RPM)</span>'
+              : '<span class="badge badge-danger">Exceeds ' + r.openRouterRpmCap + ' RPM (' + r.effectivePeakRpm + ' RPM)</span>';
+            orHtml = orRpdBadge + ' ' + orRpmBadge;
+          }}
 
-          const groqIssues = [];
-          if (!r.groqRpdCovered) groqIssues.push('RPD > 1,000');
-          if (!r.groqTpdCovered) groqIssues.push('TPD > 200k');
-          if (!r.groqRpmCovered) groqIssues.push('RPM > 30');
-          if (!r.groqTpmCovered) groqIssues.push('Peak TPM > 8,000');
-          const groqStatus = r.groqFits
-            ? '<span class="badge badge-free">Fits</span> GPT-OSS 120B / 20B &amp; Qwen 3.8 27B (30 RPM, 1k RPD, 8k TPM, 200k TPD)'
-            : '<span class="badge badge-warn">Blocked: ' + groqIssues.join(', ') + '</span> on GPT-OSS 120B / 20B &amp; Qwen 3.8 27B';
+          let groqStatus;
+          if (r.groqStatus !== 'VERIFIED') {{
+            groqStatus = '<span class="badge badge-warn">Policy ' + r.groqStatus + '</span> Verify live Groq limits in console.';
+          }} else {{
+            const gl = r.groqLimits || {{}};
+            const groqIssues = [];
+            if (!r.groqRpdCovered) groqIssues.push('RPD > ' + Number(gl.rpd).toLocaleString());
+            if (!r.groqTpdCovered) groqIssues.push('TPD > ' + Number(gl.tpd).toLocaleString());
+            if (!r.groqRpmCovered) groqIssues.push('RPM > ' + gl.rpm);
+            if (!r.groqTpmCovered) groqIssues.push('Peak TPM > ' + Number(gl.tpm).toLocaleString());
+            const mList = (r.groqModels || []).join(', ');
+            groqStatus = r.groqFits
+              ? '<span class="badge badge-free">Fits</span> ' + mList + ' (' + gl.rpm + ' RPM, ' + Number(gl.rpd).toLocaleString() + ' RPD, ' + Number(gl.tpm).toLocaleString() + ' TPM, ' + Number(gl.tpd).toLocaleString() + ' TPD)'
+              : '<span class="badge badge-warn">Blocked: ' + groqIssues.join(', ') + '</span> on ' + mList;
+          }}
 
-          const cfStatus = r.cfCovered
-            ? '<span class="badge badge-free">Fits 10k Neurons/day</span> ' + r.cfNeuronsPerCall.toFixed(2) + ' Neurons/call &rarr; max ~<strong>' + r.cfMaxFreeCalls.toLocaleString() + ' calls/day</strong> (uses ' + Math.round(r.cfDailyNeurons).toLocaleString() + ' / 10,000)'
-            : '<span class="badge badge-warn">Exceeds 10k Neurons/day</span> ' + Math.round(r.cfDailyNeurons).toLocaleString() + ' Neurons needed (max ~' + r.cfMaxFreeCalls.toLocaleString() + ' calls/day)';
+          let cfStatus;
+          if (r.cfStatus !== 'VERIFIED') {{
+            cfStatus = '<span class="badge badge-warn">Policy ' + r.cfStatus + '</span> Verify live Workers AI Neuron pricing.';
+          }} else {{
+            cfStatus = r.cfCovered
+              ? '<span class="badge badge-free">Fits ' + Number(r.cfDailyAllowance).toLocaleString() + ' Neurons/day</span> ' + r.cfNeuronsPerCall.toFixed(2) + ' Neurons/call &rarr; max ~<strong>' + r.cfMaxFreeCalls.toLocaleString() + ' calls/day</strong> (uses ' + Math.round(r.cfDailyNeurons).toLocaleString() + ' / ' + Number(r.cfDailyAllowance).toLocaleString() + ')'
+              : '<span class="badge badge-warn">Exceeds ' + Number(r.cfDailyAllowance).toLocaleString() + ' Neurons/day</span> ' + Math.round(r.cfDailyNeurons).toLocaleString() + ' Neurons needed (max ~' + r.cfMaxFreeCalls.toLocaleString() + ' calls/day)';
+          }}
+
+          let cerHtml;
+          if (r.cerebrasStatus !== 'VERIFIED') {{
+            cerHtml = '<span class="badge badge-warn">Policy ' + r.cerebrasStatus + '</span> Verify live Cerebras trial terms in docs.';
+          }} else {{
+            cerHtml = '<span class="badge badge-warn">30-Day Trial Only</span> $' + r.cerebrasTrialUsd + ' credit expires in ' + r.cerebrasTrialDays + ' days; verified payment method required (5 RPM; no permanently free tier).';
+          }}
 
           fqOut.innerHTML =
             '<div><strong>Daily Demand:</strong> ' + r.requiredCalls.toLocaleString() + ' calls/day (' + r.requiredTokens.toLocaleString() + ' tokens) &middot; <strong>Peak Burst:</strong> ' + r.effectivePeakRpm + ' RPM (' + r.peakTpm.toLocaleString() + ' TPM)</div>' +
             '<div class="quota-grid">' +
-              '<div class="quota-item"><strong>OpenRouter (<code translate="no">:free</code>)</strong><div style="margin-top:6px">' + orRpdBadge + ' ' + orRpmBadge + '</div></div>' +
-              '<div class="quota-item"><strong>Cloudflare Workers AI</strong> <span class="muted small">(<code translate="no">llama-3.2-1b</code>)</span><div style="margin-top:6px">' + cfStatus + '</div><div class="muted small" style="margin-top:4px">Larger frontier models require Workers Paid ($5/mo).</div></div>' +
+              '<div class="quota-item"><strong>OpenRouter (<code translate="no">:free</code>)</strong><div style="margin-top:6px">' + orHtml + '</div></div>' +
+              '<div class="quota-item"><strong>Cloudflare Workers AI</strong> <span class="muted small">(<code translate="no">' + (r.cfModelName || 'llama-3.2-1b') + '</code>)</span><div style="margin-top:6px">' + cfStatus + '</div><div class="muted small" style="margin-top:4px">Larger frontier models require Workers Paid ($5/mo).</div></div>' +
               '<div class="quota-item"><strong>Groq Free (Model-Specific)</strong><div style="margin-top:6px">' + groqStatus + '</div></div>' +
-              '<div class="quota-item"><strong>Cerebras Inference</strong><div style="margin-top:6px"><span class="badge badge-warn">30-Day Trial Only</span> $5 credit expires in 30 days; verified payment method required (5 RPM; no permanently free tier).</div></div>' +
+              '<div class="quota-item"><strong>Cerebras Inference</strong><div style="margin-top:6px">' + cerHtml + '</div></div>' +
             '</div>';
         }}
         [fqJobs, fqCalls, fqPeak, fqRetry, fqIn, fqOutTok, fqTier].forEach(el => {{ el.addEventListener('input', calcQuota); el.addEventListener('change', calcQuota); }});
