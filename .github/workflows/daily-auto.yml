@@ -24,11 +24,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+    outputs:
+      deploy_target: ${{ steps.target.outputs.host }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -108,27 +107,38 @@ jobs:
         with:
           path: dist
 
-      - name: Wait for GitHub Pages artifact metadata propagation
-        if: steps.target.outputs.host == 'github-pages'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          for i in 1 2 3 4 5 6; do
-            count=$(curl -fsSL -H "Authorization: Bearer $GH_TOKEN" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts?name=github-pages" \
-              | python3 -c 'import sys,json; print(json.load(sys.stdin).get("total_count",0))' || echo 0)
-            if [ "$count" -ge 1 ]; then
-              echo "Artifact github-pages visible (count=$count) on check $i."
-              break
-            fi
-            echo "Waiting for github-pages artifact metadata (check $i)..."
-            sleep 5
-          done
+      - name: Upload updated data snapshots for post-deploy commit
+        uses: actions/upload-artifact@v4
+        with:
+          name: sysv-data-snapshot
+          path: data/
+          retention-days: 1
 
+  deploy-pages:
+    needs: build
+    if: needs.build.outputs.deploy_target == 'github-pages'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        if: steps.target.outputs.host == 'github-pages'
         uses: actions/deploy-pages@v4
+
+  finalize:
+    needs: [build, deploy-pages]
+    if: always() && needs.build.result == 'success' && (needs.deploy-pages.result == 'success' || needs.deploy-pages.result == 'skipped')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download updated data snapshots
+        uses: actions/download-artifact@v4
+        with:
+          name: sysv-data-snapshot
+          path: data/
 
       - name: Commit data snapshots, permanent registries & ops ledger (after deploy)
         run: |
@@ -143,13 +153,16 @@ jobs:
           fi
 
       - name: Ping IndexNow for changed URLs only (optional)
-        if: success()
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: python3 -m scripts.indexnow_ping
 
+  notify-failure:
+    needs: [build, deploy-pages, finalize]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
       - name: Notify anomaly via PushPlus or Webhook (failure only)
-        if: failure()
         env:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
           ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
