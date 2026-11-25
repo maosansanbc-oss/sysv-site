@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-24",
-  "total_raw_endpoints": 470,
+  "updated_at": "2026-11-25",
+  "total_raw_endpoints": 472,
   "raw_breakdown_by_pricing_type": {
-    "paid": 342,
+    "paid": 344,
     "batch": 92,
     "limited_free": 11,
     "media": 16,
