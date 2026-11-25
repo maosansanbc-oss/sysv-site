@@ -5,8 +5,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "61893831583c1e7b",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "d979f163f7d4de0f",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/about/": {
     "url": "/about/",
@@ -419,8 +419,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "c96a5280fd74421f",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "f9af5e50d7c24194",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/anthropic-claude-haiku-4-5-batch/": {
     "url": "/models/anthropic-claude-haiku-4-5-batch/",
@@ -545,8 +545,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d165afe13341f1db",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "dd4aae85318d33ba",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/deepseek-deepseek-v4-1-flash-batch/": {
     "url": "/models/deepseek-deepseek-v4-1-flash-batch/",
@@ -563,8 +563,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "341e43630575f84a",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "fdc63eac02f0a4fa",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/deepseek-deepseek-v4-flash-0731-batch/": {
     "url": "/models/deepseek-deepseek-v4-flash-0731-batch/",
@@ -581,8 +581,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ffd7f45a093c6af0",
-    "lastmod": "2026-11-25T07:23:34Z"
+    "semantic_hash": "d4ec31189317cc93",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/deepseek-deepseek-v4-flash-vision-exp/": {
     "url": "/models/deepseek-deepseek-v4-flash-vision-exp/",
@@ -599,8 +599,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "f89460d7a3a9bcdb",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "148b80b79e4a6311",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/deepseek-deepseek-v4-pro-0813/": {
     "url": "/models/deepseek-deepseek-v4-pro-0813/",
@@ -617,8 +617,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "9b03db9b153ffb63",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "d8ea9999a2b241f0",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/dots-studio-dots-3-note-preview-free/": {
     "url": "/models/dots-studio-dots-3-note-preview-free/",
@@ -1274,8 +1274,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "2e6f34305aaf471d",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "5e4942d12034521e",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/openai-gpt-5-6-luna/": {
     "url": "/models/openai-gpt-5-6-luna/",
@@ -1508,8 +1508,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "82d3e48396780c3d",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "d0046b96db94b6ea",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/qwen-qwen-2-5-coder-32b-instruct/": {
     "url": "/models/qwen-qwen-2-5-coder-32b-instruct/",
@@ -1526,8 +1526,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "59397f13b9d45930",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "5cd73b85c12eb125",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/models/qwen-qwen2-5-vl-72b-instruct/",
@@ -1634,8 +1634,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "6da487bef35c2c01",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "994898c68aafe547",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/qwen-qwen3-5-flash-02-23/": {
     "url": "/models/qwen-qwen3-5-flash-02-23/",
@@ -1679,8 +1679,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "9e57bcd3463ee00d",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "6934a57e059e4547",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/qwen-qwen3-6-flash/": {
     "url": "/models/qwen-qwen3-6-flash/",
@@ -1733,8 +1733,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "2a75294468dc206c",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "cc9d1015646cc67e",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/qwen-qwen3-8-2-4t-a95b/": {
     "url": "/models/qwen-qwen3-8-2-4t-a95b/",
@@ -1832,8 +1832,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "b9671957af33f642",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "bc0a2542c27230f9",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/models/qwen-qwen3-next-80b-a3b-instruct/": {
     "url": "/models/qwen-qwen3-next-80b-a3b-instruct/",
@@ -1913,8 +1913,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "84416439afce256b",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "8453c7ae50111f04",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/privacy/": {
     "url": "/privacy/",
@@ -2381,8 +2381,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "39224b31cafe4060",
-    "lastmod": "2026-11-25T07:23:34Z"
+    "semantic_hash": "522c01db5060f8cb",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/tools/api-vs-local-llm-calculator/": {
     "url": "/tools/api-vs-local-llm-calculator/",
@@ -2390,8 +2390,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d4cea9231ba52f39",
-    "lastmod": "2026-11-25T07:23:34Z"
+    "semantic_hash": "f601d9077faf09c6",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/tools/llm-translation-cost-calculator/": {
     "url": "/tools/llm-translation-cost-calculator/",
@@ -2399,8 +2399,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a6f72da673293bfa",
-    "lastmod": "2026-11-25T07:23:34Z"
+    "semantic_hash": "9128cc133b707e71",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/tools/n8n-ai-workflow-cost-calculator/": {
     "url": "/tools/n8n-ai-workflow-cost-calculator/",
@@ -2408,8 +2408,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "e302a1e3bc46fea2",
-    "lastmod": "2026-11-25T07:23:34Z"
+    "semantic_hash": "455d8e3838af6761",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/tools/openrouter-cost-calculator/": {
     "url": "/tools/openrouter-cost-calculator/",
@@ -2417,8 +2417,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "9dbcc53d55e69bef",
-    "lastmod": "2026-11-25T07:23:34Z"
+    "semantic_hash": "2b42b9a7e9b387e2",
+    "lastmod": "2026-11-25T13:03:51Z"
   },
   "/zero-cost-stack/": {
     "url": "/zero-cost-stack/",

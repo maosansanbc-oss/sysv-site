@@ -448,8 +448,8 @@
       "slug": "deepseek-deepseek-v4-1-flash-1017",
       "provider": "Deepseek",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.3,
-      "completion_price_per_m": 1.2,
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.6,
       "context_length": 1048576
     },
     "deepseek/deepseek-v4.1-flash-1017:batch": {
@@ -1069,8 +1069,8 @@
       "slug": "deepseek-deepseek-v4-1-flash",
       "provider": "Deepseek",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.14,
-      "completion_price_per_m": 0.42,
+      "prompt_price_per_m": 0.0507,
+      "completion_price_per_m": 0.2028,
       "context_length": 1048576
     },
     "deepseek/deepseek-v4.1-flash:batch": {
@@ -1420,7 +1420,7 @@
       "slug": "nvidia-nemotron-3-5-lightning",
       "provider": "Nvidia",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.05,
+      "prompt_price_per_m": 0.07,
       "completion_price_per_m": 0.2,
       "context_length": 1048576
     },
@@ -1492,8 +1492,8 @@
       "slug": "deepseek-deepseek-v4-flash-latest",
       "provider": "~Deepseek",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.047,
-      "completion_price_per_m": 0.3,
+      "prompt_price_per_m": 0.04532,
+      "completion_price_per_m": 0.13596,
       "context_length": 1048576
     },
     "deepseek/deepseek-v4-flash-0731": {
@@ -1501,7 +1501,7 @@
       "slug": "deepseek-deepseek-v4-flash-0731",
       "provider": "Deepseek",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.047,
+      "prompt_price_per_m": 0.0456,
       "completion_price_per_m": 0.3,
       "context_length": 1048576
     },
@@ -2230,8 +2230,8 @@
       "slug": "deepseek-deepseek-v4-pro",
       "provider": "Deepseek",
       "pricing_type": "paid",
-      "prompt_price_per_m": 1.28,
-      "completion_price_per_m": 2.56,
+      "prompt_price_per_m": 0.86711,
+      "completion_price_per_m": 1.5228,
       "context_length": 1048576
     },
     "deepseek/deepseek-v4-flash": {
@@ -2482,7 +2482,7 @@
       "slug": "qwen-qwen3-5-9b",
       "provider": "Qwen",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.17,
+      "prompt_price_per_m": 0.1,
       "completion_price_per_m": 0.25,
       "context_length": 262144
     },

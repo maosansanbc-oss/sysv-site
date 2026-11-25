@@ -185,6 +185,69 @@
       "detail": "Input $0.13 -> $0.14, Output $0.85 -> $0.86 per 1M"
     },
     {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4.1-flash-1017",
+      "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+      "slug": "deepseek-deepseek-v4-1-flash-1017",
+      "detail": "Input $0.3 -> $0.15, Output $1.2 -> $0.6 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "name": "DeepSeek: DeepSeek V4.1 Flash",
+      "slug": "deepseek-deepseek-v4-1-flash",
+      "detail": "Input $0.14 -> $0.0507, Output $0.42 -> $0.2028 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "nvidia/nemotron-3.5-lightning",
+      "name": "NVIDIA: Nemotron 3.5 Lightning",
+      "slug": "nvidia-nemotron-3-5-lightning",
+      "detail": "Input $0.05 -> $0.07, Output $0.2 -> $0.2 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "~deepseek/deepseek-v4-flash-latest",
+      "name": "DeepSeek: DeepSeek V4 Flash Latest",
+      "slug": "deepseek-deepseek-v4-flash-latest",
+      "detail": "Input $0.047 -> $0.04532, Output $0.3 -> $0.13596 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4-flash-0731",
+      "name": "DeepSeek: DeepSeek V4 Flash 0731",
+      "slug": "deepseek-deepseek-v4-flash-0731",
+      "detail": "Input $0.047 -> $0.0456, Output $0.3 -> $0.3 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro 0423",
+      "slug": "deepseek-deepseek-v4-pro",
+      "detail": "Input $1.28 -> $0.86711, Output $2.56 -> $1.5228 per 1M"
+    },
+    {
+      "date": "2026-11-25",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "qwen/qwen3.5-9b",
+      "name": "Qwen: Qwen3.5-9B",
+      "slug": "qwen-qwen3-5-9b",
+      "detail": "Input $0.17 -> $0.1, Output $0.25 -> $0.25 per 1M"
+    },
+    {
       "date": "2026-11-24",
       "compared_to": "2026-11-24",
       "type": "tier_change",

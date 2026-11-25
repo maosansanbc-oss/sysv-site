@@ -1260,6 +1260,69 @@
     }
   },
   {
+    "id": "deepseek/deepseek-v4.1-flash",
+    "slug": "deepseek-deepseek-v4-1-flash",
+    "name": "DeepSeek: DeepSeek V4.1 Flash",
+    "provider": "Deepseek",
+    "context_length": 1048576,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.0507,
+    "completion_price_per_m": 0.2028,
+    "cache_read_price_per_m": 0.001014,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-25"
+    },
+    "raw_pricing": {
+      "prompt": "0.0000000507",
+      "completion": "0.0000002028",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.000000001014",
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image->text",
+    "task_category": "reasoning",
+    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
+    "delisted_at": null,
+    "updated_at": "2026-11-25",
+    "enrichment": {
+      "summary": "DeepSeek V4.1 Flash is a paid real-time text+image-to-text model priced at 0.0507 per 1M input tokens and 0.2028 per 1M output tokens, with a 1,048,576-token context. It supports tools, structured outputs, and reasoning, and uses standard per-token API pricing plus OpenRouter top-up fees unless BYOK.",
+      "best_for": [
+        "Long-context text and image inputs up to 1M tokens",
+        "Tool-calling and structured-output workflows",
+        "Reasoning-heavy interactive applications"
+      ],
+      "watch_outs": [
+        "Paid per-token pricing applies; OpenRouter adds 5.5% card or 5% crypto top-up fees unless BYOK",
+        "Sparse MoE architecture with 8B input/16B output activation may behave differently from dense models"
+      ],
+      "source": "deepseek",
+      "cache_hash": "fcd665202f48aebe",
+      "enriched_at": "2026-11-25"
+    }
+  },
+  {
     "id": "deepseek/deepseek-v4-flash",
     "slug": "deepseek-deepseek-v4-flash",
     "name": "DeepSeek: DeepSeek V4 Flash 0423",
@@ -1307,19 +1370,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "11fe18d291676146",
-      "enriched_at": "2026-11-25",
-      "summary": "DeepSeek: DeepSeek V4 Flash 0423 is a real-time paid endpoint billed at $0.09/1M input and $0.18/1M output tokens (estimated $1.08 for 8M input + 2M output tokens) with a 1048K context window.",
+      "summary": "DeepSeek V4 Flash 0423 is a paid, real-time text-to-text model priced at 0.09 per 1M input tokens and 0.18 per 1M output tokens. It offers a 1M-token context window with tool use, structured outputs, and reasoning support.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1048K tokens"
+        "Long-context text processing up to 1M tokens",
+        "Cost-sensitive real-time interactive applications",
+        "Tool-augmented and structured-output workflows"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
+        "Text-only modality with no other input types supported"
+      ],
+      "source": "deepseek",
+      "cache_hash": "11fe18d291676146",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -1712,7 +1775,7 @@
     "is_realtime": true,
     "has_tiered_overrides": false,
     "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.047,
+    "prompt_price_per_m": 0.0456,
     "completion_price_per_m": 0.3,
     "cache_read_price_per_m": 0.035,
     "cache_write_price_per_m": null,
@@ -1729,7 +1792,7 @@
       "verified_at": "2026-11-25"
     },
     "raw_pricing": {
-      "prompt": "0.000000047",
+      "prompt": "0.0000000456",
       "completion": "0.0000003",
       "request": null,
       "image": null,
@@ -1748,19 +1811,82 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "summary": "DeepSeek V4 Flash 0731 is a paid, real-time text-to-text endpoint with a 1,048,576-token context window and per-1M pricing of 0.047 input / 0.3 output. It is a sparse mixture-of-experts model with 13B active of 284B total parameters, supporting tools, structured outputs, and reasoning.",
+      "summary": "DeepSeek V4 Flash 0731 is a paid, real-time text-to-text endpoint with a 1,048,576-token context and per-token pricing of 0.0456 input / 0.3 output per 1M tokens. It is a sparse mixture-of-experts model with 13B active of 284B total parameters, supporting tools, structured outputs, and reasoning.",
       "best_for": [
         "Coding and agent workflows",
-        "Long-context reasoning over large inputs",
-        "Cost-sensitive real-time tool-calling and structured output"
+        "Long-context reasoning tasks",
+        "Tool and structured-output integrations"
       ],
       "watch_outs": [
-        "Paid per-token pricing applies; OpenRouter adds 5.5% card / 5% crypto top-up fees unless BYOK",
-        "Text-only modality with no image or audio input"
+        "Paid per-token pricing applies; OpenRouter top-up fees add 5.5% card / 5% crypto unless BYOK",
+        "Very large context window may increase token costs on long inputs"
       ],
       "source": "deepseek",
-      "cache_hash": "5e090db6be39293c",
+      "cache_hash": "36dfd19d4879e087",
       "enriched_at": "2026-11-25"
+    }
+  },
+  {
+    "id": "qwen/qwen3.5-9b",
+    "slug": "qwen-qwen3-5-9b",
+    "name": "Qwen: Qwen3.5-9B",
+    "provider": "Qwen",
+    "context_length": 262144,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.1,
+    "completion_price_per_m": 0.25,
+    "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-25"
+    },
+    "raw_pricing": {
+      "prompt": "0.0000001",
+      "completion": "0.00000025",
+      "request": null,
+      "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image+video->text",
+    "task_category": "reasoning",
+    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
+    "delisted_at": null,
+    "updated_at": "2026-11-25",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "61df975a4bf6cc4b",
+      "enriched_at": "2026-11-25",
+      "summary": "Qwen: Qwen3.5-9B is a real-time paid endpoint billed at $0.1/1M input and $0.25/1M output tokens (estimated $1.3 for 8M input + 2M output tokens) with a 262K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 262K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
     }
   },
   {
@@ -2268,69 +2394,6 @@
     }
   },
   {
-    "id": "qwen/qwen3.5-9b",
-    "slug": "qwen-qwen3-5-9b",
-    "name": "Qwen: Qwen3.5-9B",
-    "provider": "Qwen",
-    "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.17,
-    "completion_price_per_m": 0.25,
-    "cache_read_price_per_m": null,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.00000017",
-      "completion": "0.00000025",
-      "request": null,
-      "image": null,
-      "input_cache_read": null,
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+video->text",
-    "task_category": "reasoning",
-    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "55ed71dee5d6b7c1",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen3.5-9B is a real-time paid endpoint billed at $0.17/1M input and $0.25/1M output tokens (estimated $1.86 for 8M input + 2M output tokens) with a 262K context window.",
-      "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    }
-  },
-  {
     "id": "openai/gpt-5-nano",
     "slug": "openai-gpt-5-nano",
     "name": "OpenAI: GPT-5 Nano",
@@ -2517,69 +2580,6 @@
         "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
         "Cache repeated prompts by content hash to prevent duplicate spend"
       ]
-    }
-  },
-  {
-    "id": "deepseek/deepseek-v4.1-flash",
-    "slug": "deepseek-deepseek-v4-1-flash",
-    "name": "DeepSeek: DeepSeek V4.1 Flash",
-    "provider": "Deepseek",
-    "context_length": 1048576,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.14,
-    "completion_price_per_m": 0.42,
-    "cache_read_price_per_m": 0.0042,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.00000014",
-      "completion": "0.00000042",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.0000000042",
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image->text",
-    "task_category": "reasoning",
-    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "summary": "DeepSeek V4.1 Flash is a paid, real-time interactive text-and-image-to-text model priced at 0.14 per 1M input tokens and 0.42 per 1M output tokens, with a 1,048,576-token context window. It supports tools, structured outputs, and reasoning, and is built on DeepSeek's Causal Encoder-Decoder architecture as a sparse mixture-of-experts model.",
-      "best_for": [
-        "Long-context text and image inputs up to roughly 1M tokens",
-        "Tool-calling and structured-output workflows",
-        "Reasoning-heavy interactive applications"
-      ],
-      "watch_outs": [
-        "Paid per-token pricing applies, plus OpenRouter top-up fees unless using BYOK",
-        "Very large context windows can raise total token costs on long inputs"
-      ],
-      "source": "deepseek",
-      "cache_hash": "3a0b711d69f19454",
-      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3213,6 +3213,69 @@
     }
   },
   {
+    "id": "deepseek/deepseek-v4.1-flash-1017",
+    "slug": "deepseek-deepseek-v4-1-flash-1017",
+    "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+    "provider": "Deepseek",
+    "context_length": 1048576,
+    "pricing_type": "paid",
+    "pricing_label": "Paid (Tiered)",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": true,
+    "rate_limit_note": "Includes tiered long-context price surcharges above threshold prompt length.",
+    "prompt_price_per_m": 0.15,
+    "completion_price_per_m": 0.6,
+    "cache_read_price_per_m": 0.003,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-25"
+    },
+    "raw_pricing": {
+      "prompt": "0.00000015",
+      "completion": "0.0000006",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.000000003",
+      "has_overrides": true,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image->text",
+    "task_category": "reasoning",
+    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
+    "delisted_at": null,
+    "updated_at": "2026-11-25",
+    "enrichment": {
+      "summary": "DeepSeek V4.1 Flash 1017 is a paid, tiered, real-time interactive text-and-image-to-text endpoint with a 1,048,576-token context window. It supports tools, structured outputs, and reasoning, priced at 0.15 per 1M input tokens and 0.6 per 1M output tokens.",
+      "best_for": [
+        "Long-context text and image analysis",
+        "Tool-augmented and structured-output workflows",
+        "Reasoning-heavy interactive applications"
+      ],
+      "watch_outs": [
+        "Tiered long-context surcharges apply above the prompt-length threshold",
+        "Paid endpoint with per-token costs, not a free or unlimited tier"
+      ],
+      "source": "deepseek",
+      "cache_hash": "ee672f98db54e379",
+      "enriched_at": "2026-11-25"
+    }
+  },
+  {
     "id": "mistralai/mistral-small-2603",
     "slug": "mistralai-mistral-small-2603",
     "name": "Mistral: Mistral Small 4",
@@ -3512,19 +3575,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "bb6e89df8eae13db",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen2.5 72B Instruct is a real-time paid endpoint billed at $0.36/1M input and $0.4/1M output tokens (estimated $3.68 for 8M input + 2M output tokens) with a 32K context window.",
+      "summary": "Qwen2.5 72B Instruct is a paid, real-time text-to-text endpoint priced at 0.36 per 1M input tokens and 0.4 per 1M output tokens, with a 32,768-token context. It supports tool use and structured outputs but does not expose a reasoning mode.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Cost-controlled production API workloads"
+        "Tool-augmented text workflows",
+        "Structured output generation",
+        "Long-context text processing up to 32K tokens"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
+        "No reasoning capability and text-only modality"
+      ],
+      "source": "deepseek",
+      "cache_hash": "bb6e89df8eae13db",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3827,19 +3890,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "e9da361df4e9f7ce",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen3.6 35B A3B is a real-time paid endpoint billed at $0.1/1M input and $0.89/1M output tokens (estimated $2.58 for 8M input + 2M output tokens) with a 262K context window.",
+      "summary": "Qwen3.6-35B-A3B is a paid, real-time multimodal model accepting text, image, and video input with a 262,144-token context. It supports tools, structured outputs, and reasoning, priced at 0.1 per 1M input and 0.89 per 1M output tokens.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
+        "Long-context multimodal analysis across text, image, and video",
+        "Tool-augmented and structured-output agent workflows",
+        "Cost-sensitive reasoning tasks given low per-token input pricing"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing plus OpenRouter top-up fees unless using BYOK",
+        "Sparse MoE with 3B active parameters may trade depth for efficiency on complex reasoning"
+      ],
+      "source": "deepseek",
+      "cache_hash": "e9da361df4e9f7ce",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3953,19 +4016,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "b4f71adf55735993",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen-Plus is a real-time paid endpoint billed at $0.26/1M input and $0.78/1M output tokens (estimated $3.64 for 8M input + 2M output tokens) with a 1000K context window.",
+      "summary": "Qwen-Plus is a paid, tiered text-to-text endpoint priced at 0.26 per 1M input tokens and 0.78 per 1M output tokens, with a stated 1,000,000-token context. It supports tools and structured outputs but not reasoning, and is positioned for balanced performance, speed, and cost.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1000K tokens"
+        "Tool-calling and structured-output text workflows",
+        "Cost-sensitive interactive applications",
+        "Long-context text processing within the stated context window"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Check tiered long-context price surcharges"
-      ]
+        "Paid tiered pricing includes long-context surcharges above a prompt-length threshold",
+        "No reasoning capability; official description cites a 131K context versus the listed 1M context"
+      ],
+      "source": "deepseek",
+      "cache_hash": "b4f71adf55735993",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -4520,19 +4583,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "adf2f35cfa63dcc9",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen3 Coder 480B A35B is a real-time paid endpoint billed at $0.3/1M input and $1.0/1M output tokens (estimated $4.4 for 8M input + 2M output tokens) with a 262K context window.",
+      "summary": "Qwen3 Coder 480B A35B is a paid, real-time text-to-text MoE code generation model priced at 0.3 per 1M input tokens and 1.0 per 1M output tokens. It supports a 262144-token context, tool use, and structured outputs, and is optimized for agentic coding tasks such as function calling and long-context reasoning.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
+        "Agentic coding workflows with function calling and tool use",
+        "Long-context code reasoning over large repositories",
+        "Structured output generation for code-related tasks"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing applies, plus OpenRouter top-up fees unless using BYOK",
+        "Reasoning capability is not supported, so avoid tasks requiring explicit reasoning traces"
+      ],
+      "source": "deepseek",
+      "cache_hash": "adf2f35cfa63dcc9",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -4646,19 +4709,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "cf5cc887503021cf",
-      "enriched_at": "2026-11-25",
-      "summary": "OpenAI: GPT-5.6 Luna Pro is a real-time paid endpoint billed at $0.2/1M input and $1.2/1M output tokens (estimated $4.0 for 8M input + 2M output tokens) with a 1050K context window.",
+      "summary": "GPT-5.6 Luna Pro is a paid, tiered, real-time interactive endpoint with a 1,050,000-token context window and text+image+file input to text output. It supports tools, structured outputs, and reasoning, with pro mode spending far more than the base Luna model.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1050K tokens"
+        "Complex reasoning tasks requiring higher-quality responses",
+        "Long-context document and multimodal analysis",
+        "Tool-augmented and structured-output workflows"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Check tiered long-context price surcharges"
-      ]
+        "Paid tiered pricing with long-context surcharges above a prompt-length threshold",
+        "Pro reasoning mode spends far more, increasing cost on complex tasks"
+      ],
+      "source": "deepseek",
+      "cache_hash": "cf5cc887503021cf",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -4788,69 +4851,6 @@
     }
   },
   {
-    "id": "deepseek/deepseek-v4.1-flash-1017",
-    "slug": "deepseek-deepseek-v4-1-flash-1017",
-    "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
-    "provider": "Deepseek",
-    "context_length": 1048576,
-    "pricing_type": "paid",
-    "pricing_label": "Paid (Tiered)",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": true,
-    "rate_limit_note": "Includes tiered long-context price surcharges above threshold prompt length.",
-    "prompt_price_per_m": 0.3,
-    "completion_price_per_m": 1.2,
-    "cache_read_price_per_m": 0.006,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.0000003",
-      "completion": "0.0000012",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.000000006",
-      "has_overrides": true,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image->text",
-    "task_category": "reasoning",
-    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "summary": "DeepSeek V4.1 Flash 1017 is a paid, tiered endpoint with real-time interactive support, priced at 0.3 per 1M input tokens and 1.2 per 1M output tokens. It offers a 1,048,576-token context window, text+image-to-text modality, and supports tools, structured outputs, and reasoning.",
-      "best_for": [
-        "Long-context multimodal tasks",
-        "Tool-using and structured-output workflows",
-        "Reasoning-heavy interactive applications"
-      ],
-      "watch_outs": [
-        "Paid tiered pricing includes long-context surcharges above a prompt-length threshold",
-        "Costs scale with both input and output token usage at 0.3/1.2 per 1M"
-      ],
-      "source": "deepseek",
-      "cache_hash": "03ac46153daf64fa",
-      "enriched_at": "2026-11-25"
-    }
-  },
-  {
     "id": "qwen/qwen3.8-27b",
     "slug": "qwen-qwen3-8-27b",
     "name": "Qwen: Qwen3.8 27B",
@@ -4961,19 +4961,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "e148538acf418d19",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen3.7 Plus is a real-time paid endpoint billed at $0.32/1M input and $1.28/1M output tokens (estimated $5.12 for 8M input + 2M output tokens) with a 1000K context window.",
+      "summary": "Qwen3.7 Plus is a paid, tiered-pricing model supporting text and image input with text output, a 1M-token context, and tools, structured outputs, and reasoning. It is positioned as a cost-effective option in Alibaba's Qwen3.7 series with real-time interactive support.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1000K tokens"
+        "Long-context text and image understanding tasks",
+        "Interactive applications needing tools and structured outputs",
+        "Reasoning-heavy workflows within a 1M-token context"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Check tiered long-context price surcharges"
-      ]
+        "Paid tiered pricing includes long-context surcharges above a prompt-length threshold",
+        "Input/output costs are billed per 1M tokens, so usage must be budgeted"
+      ],
+      "source": "deepseek",
+      "cache_hash": "e148538acf418d19",
+      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -5922,6 +5922,69 @@
     }
   },
   {
+    "id": "deepseek/deepseek-v4-pro",
+    "slug": "deepseek-deepseek-v4-pro",
+    "name": "DeepSeek: DeepSeek V4 Pro 0423",
+    "provider": "Deepseek",
+    "context_length": 1048576,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.86711,
+    "completion_price_per_m": 1.5228,
+    "cache_read_price_per_m": 0.2,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-25"
+    },
+    "raw_pricing": {
+      "prompt": "0.00000086711",
+      "completion": "0.0000015228",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.0000002",
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text->text",
+    "task_category": "reasoning",
+    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
+    "delisted_at": null,
+    "updated_at": "2026-11-25",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "717d73543dc7af36",
+      "enriched_at": "2026-11-25",
+      "summary": "DeepSeek: DeepSeek V4 Pro 0423 is a real-time paid endpoint billed at $0.86711/1M input and $1.5228/1M output tokens (estimated $9.98 for 8M input + 2M output tokens) with a 1048K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 1048K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
+    }
+  },
+  {
     "id": "mistralai/devstral-2512",
     "slug": "mistralai-devstral-2512",
     "name": "Mistral: Devstral 2 2512",
@@ -6486,69 +6549,6 @@
         "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
         "Cache repeated prompts by content hash to prevent duplicate spend"
       ]
-    }
-  },
-  {
-    "id": "deepseek/deepseek-v4-pro",
-    "slug": "deepseek-deepseek-v4-pro",
-    "name": "DeepSeek: DeepSeek V4 Pro 0423",
-    "provider": "Deepseek",
-    "context_length": 1048576,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 1.28,
-    "completion_price_per_m": 2.56,
-    "cache_read_price_per_m": 0.108,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.00000128",
-      "completion": "0.00000256",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.000000108",
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text->text",
-    "task_category": "reasoning",
-    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "summary": "DeepSeek V4 Pro 0423 is a paid, real-time text-to-text API endpoint priced at $1.28 per 1M input tokens and $2.56 per 1M output tokens. It is a 1.6T-parameter MoE model (49B activated) with a 1,048,576-token context window and support for tools, structured outputs, and reasoning.",
-      "best_for": [
-        "Long-context reasoning over large documents up to 1M tokens",
-        "Agentic and tool-calling workflows",
-        "Structured output generation and coding tasks"
-      ],
-      "watch_outs": [
-        "Paid per-token pricing; OpenRouter adds 5.5% card or 5% crypto top-up fees unless using BYOK",
-        "Text-only modality with no image or audio input support"
-      ],
-      "source": "deepseek",
-      "cache_hash": "e39b95bd33519137",
-      "enriched_at": "2026-11-24"
     }
   },
   {
