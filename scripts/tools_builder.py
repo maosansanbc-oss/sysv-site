@@ -109,8 +109,19 @@ window.SysVCalc = (function () {
     return null;
   }
 
-  function _isVerifiedPolicy(p) {
-    return !!(p && p.verification_status === 'OFFICIAL_DOCS_VERIFIED');
+  function _isUsablePolicy(p) {
+    if (!p) return false;
+    var st = p.verification_status;
+    return st === 'OFFICIAL_DOCS_VERIFIED' || st === 'DOC_CHANGED_SIGNAL_STABLE' || st === 'FETCH_ERROR_CACHED';
+  }
+
+  function _policyDisplayStatus(p) {
+    if (!p) return 'UNKNOWN';
+    var st = p.verification_status || 'UNKNOWN';
+    if (st === 'OFFICIAL_DOCS_VERIFIED') return 'VERIFIED';
+    if (st === 'DOC_CHANGED_SIGNAL_STABLE') return 'VERIFIED_DOC_DRIFT';
+    if (st === 'FETCH_ERROR_CACHED') return 'VERIFIED_CACHED';
+    return st;
   }
 
   function calculateFreeQuota(dailyJobs, callsPerJob, peakRpm, retryMult, inputTokensPerCall, outputTokensPerCall, openRouterTier, policyDb) {
@@ -129,12 +140,12 @@ window.SysVCalc = (function () {
 
     // 1. OpenRouter (from policyDb)
     var pOr = _findProvider(policyDb, 'openrouter');
-    var orVerified = _isVerifiedPolicy(pOr);
+    var orUsable = _isUsablePolicy(pOr);
     var orQuota = (pOr && pOr.model_quotas && pOr.model_quotas[0]) || {};
     var orLimit = openRouterTier === 'paid_1000' ? Number(orQuota.rpd_unlocked) : Number(orQuota.rpd);
     var orRpmCap = Number(orQuota.rpm);
     var orRpdCovered = null, orRpmCovered = null, orCovered = null, orDeficit = null;
-    if (orVerified && !isNaN(orLimit) && !isNaN(orRpmCap)) {
+    if (orUsable && !isNaN(orLimit) && !isNaN(orRpmCap)) {
       orRpdCovered = requiredCalls <= orLimit;
       orRpmCovered = effectivePeakRpm <= orRpmCap;
       orCovered = orRpdCovered && orRpmCovered;
@@ -143,12 +154,12 @@ window.SysVCalc = (function () {
 
     // 2. Groq (model-specific quotas from policyDb)
     var pGroq = _findProvider(policyDb, 'groq');
-    var groqVerified = _isVerifiedPolicy(pGroq);
+    var groqUsable = _isUsablePolicy(pGroq);
     var groqModels = (pGroq && pGroq.model_quotas) ? pGroq.model_quotas : [];
     var groqRef = groqModels[0] || {};
     var groqModelNames = groqModels.map(function (m) { return m.model; });
     var groqRpdCovered = null, groqTpdCovered = null, groqRpmCovered = null, groqTpmCovered = null, groqFits = null;
-    if (groqVerified && groqRef.rpd != null && groqRef.tpd != null && groqRef.rpm != null && groqRef.tpm != null) {
+    if (groqUsable && groqRef.rpd != null && groqRef.tpd != null && groqRef.rpm != null && groqRef.tpm != null) {
       groqRpdCovered = requiredCalls <= Number(groqRef.rpd);
       groqTpdCovered = requiredTokens <= Number(groqRef.tpd);
       groqRpmCovered = effectivePeakRpm <= Number(groqRef.rpm);
@@ -158,13 +169,13 @@ window.SysVCalc = (function () {
 
     // 3. Cloudflare Workers AI (official Neuron coefficients from policyDb)
     var pCf = _findProvider(policyDb, 'cloudflare_workers_ai');
-    var cfVerified = _isVerifiedPolicy(pCf);
+    var cfUsable = _isUsablePolicy(pCf);
     var cfModel = (pCf && pCf.model_quotas && pCf.model_quotas[0]) || {};
     var cfDailyAllowance = pCf ? Number(pCf.free_daily_neurons) : NaN;
     var cfInRate = Number(cfModel.neurons_per_m_input);
     var cfOutRate = Number(cfModel.neurons_per_m_output);
     var cfNeuronsPerCall = null, cfDailyNeurons = null, cfMaxFreeCalls = null, cfCovered = null;
-    if (cfVerified && !isNaN(cfDailyAllowance) && !isNaN(cfInRate) && !isNaN(cfOutRate)) {
+    if (cfUsable && !isNaN(cfDailyAllowance) && !isNaN(cfInRate) && !isNaN(cfOutRate)) {
       cfNeuronsPerCall = (inTok / 1e6) * cfInRate + (outTok / 1e6) * cfOutRate;
       cfDailyNeurons = requiredCalls * cfNeuronsPerCall;
       cfMaxFreeCalls = cfNeuronsPerCall > 0 ? Math.floor(cfDailyAllowance / cfNeuronsPerCall) : 0;
@@ -173,22 +184,24 @@ window.SysVCalc = (function () {
 
     // 4. Cerebras (trial classification from policyDb)
     var pCer = _findProvider(policyDb, 'cerebras');
-    var cerVerified = _isVerifiedPolicy(pCer);
-    var cerPermanentlyFree = cerVerified ? (pCer.tier_classification === 'permanently_free') : null;
+    var cerUsable = _isUsablePolicy(pCer);
+    var cerPermanentlyFree = cerUsable ? (pCer.tier_classification === 'permanently_free') : null;
 
     return {
       requiredCalls: requiredCalls,
       requiredTokens: requiredTokens,
       effectivePeakRpm: effectivePeakRpm,
       peakTpm: peakTpm,
-      openRouterStatus: orVerified ? 'VERIFIED' : (pOr ? pOr.verification_status : 'UNKNOWN'),
+      openRouterUsable: orUsable,
+      openRouterStatus: _policyDisplayStatus(pOr),
       openRouterLimit: isNaN(orLimit) ? null : orLimit,
       openRouterRpmCap: isNaN(orRpmCap) ? null : orRpmCap,
       openRouterRpdCovered: orRpdCovered,
       openRouterRpmCovered: orRpmCovered,
       openRouterCovered: orCovered,
       openRouterDeficit: orDeficit,
-      groqStatus: groqVerified ? 'VERIFIED' : (pGroq ? pGroq.verification_status : 'UNKNOWN'),
+      groqUsable: groqUsable,
+      groqStatus: _policyDisplayStatus(pGroq),
       groqModels: groqModelNames,
       groqLimits: groqRef,
       groqRpdCovered: groqRpdCovered,
@@ -196,14 +209,16 @@ window.SysVCalc = (function () {
       groqRpmCovered: groqRpmCovered,
       groqTpmCovered: groqTpmCovered,
       groqFits: groqFits,
-      cfStatus: cfVerified ? 'VERIFIED' : (pCf ? pCf.verification_status : 'UNKNOWN'),
+      cfUsable: cfUsable,
+      cfStatus: _policyDisplayStatus(pCf),
       cfModelName: cfModel.model || '',
       cfDailyAllowance: isNaN(cfDailyAllowance) ? null : cfDailyAllowance,
       cfNeuronsPerCall: cfNeuronsPerCall,
       cfDailyNeurons: cfDailyNeurons,
       cfMaxFreeCalls: cfMaxFreeCalls,
       cfCovered: cfCovered,
-      cerebrasStatus: cerVerified ? 'VERIFIED' : (pCer ? pCer.verification_status : 'UNKNOWN'),
+      cerebrasUsable: cerUsable,
+      cerebrasStatus: _policyDisplayStatus(pCer),
       cerebrasTierLabel: pCer ? (pCer.tier_label || '') : 'UNKNOWN',
       cerebrasTrialUsd: pCer ? pCer.trial_amount_usd : null,
       cerebrasTrialDays: pCer ? pCer.trial_expiry_days : null,
@@ -284,8 +299,20 @@ def calculate_free_quota_py(
     def _find(pid: str) -> dict[str, Any] | None:
         return next((p for p in (policy_db.get("providers") or []) if p.get("id") == pid), None)
 
-    def _verified(p: dict[str, Any] | None) -> bool:
-        return bool(p and p.get("verification_status") == "OFFICIAL_DOCS_VERIFIED")
+    def _usable(p: dict[str, Any] | None) -> bool:
+        return bool(p and p.get("verification_status") in ("OFFICIAL_DOCS_VERIFIED", "DOC_CHANGED_SIGNAL_STABLE", "FETCH_ERROR_CACHED"))
+
+    def _status_lbl(p: dict[str, Any] | None) -> str:
+        if not p:
+            return "UNKNOWN"
+        st = str(p.get("verification_status") or "UNKNOWN")
+        if st == "OFFICIAL_DOCS_VERIFIED":
+            return "VERIFIED"
+        if st == "DOC_CHANGED_SIGNAL_STABLE":
+            return "VERIFIED_DOC_DRIFT"
+        if st == "FETCH_ERROR_CACHED":
+            return "VERIFIED_CACHED"
+        return st
 
     jobs = max(0.0, float(daily_jobs or 0.0))
     per_job = max(0.0, float(calls_per_job or 0.0))
@@ -301,7 +328,7 @@ def calculate_free_quota_py(
     peak_tpm = int(round(eff_peak_rpm * tok))
 
     p_or = _find("openrouter")
-    or_ok = _verified(p_or)
+    or_ok = _usable(p_or)
     or_q = (p_or.get("model_quotas") or [{}])[0] if p_or else {}
     or_limit = or_q.get("rpd_unlocked") if openrouter_tier == "paid_1000" else or_q.get("rpd")
     or_rpm_cap = or_q.get("rpm")
@@ -314,7 +341,7 @@ def calculate_free_quota_py(
         or_rpd_cov = or_rpm_cov = or_cov = or_def = None
 
     p_groq = _find("groq")
-    groq_ok = _verified(p_groq)
+    groq_ok = _usable(p_groq)
     groq_q = (p_groq.get("model_quotas") or [{}])[0] if p_groq else {}
     if groq_ok and all(groq_q.get(k) is not None for k in ("rpd", "tpd", "rpm", "tpm")):
         groq_rpd_cov = req_calls <= int(groq_q["rpd"])
@@ -326,7 +353,7 @@ def calculate_free_quota_py(
         groq_rpd_cov = groq_tpd_cov = groq_rpm_cov = groq_tpm_cov = groq_fits = None
 
     p_cf = _find("cloudflare_workers_ai")
-    cf_ok = _verified(p_cf)
+    cf_ok = _usable(p_cf)
     cf_q = (p_cf.get("model_quotas") or [{}])[0] if p_cf else {}
     cf_allow = p_cf.get("free_daily_neurons") if p_cf else None
     if cf_ok and cf_allow is not None and cf_q.get("neurons_per_m_input") is not None and cf_q.get("neurons_per_m_output") is not None:
@@ -338,7 +365,7 @@ def calculate_free_quota_py(
         cf_n_call = cf_daily_n = cf_max_calls = cf_cov = None
 
     p_cer = _find("cerebras")
-    cer_ok = _verified(p_cer)
+    cer_ok = _usable(p_cer)
     cer_perm = (p_cer.get("tier_classification") == "permanently_free") if cer_ok else None
 
     return {
@@ -346,24 +373,28 @@ def calculate_free_quota_py(
         "requiredTokens": req_tokens,
         "effectivePeakRpm": eff_peak_rpm,
         "peakTpm": peak_tpm,
-        "openRouterStatus": "VERIFIED" if or_ok else (p_or.get("verification_status") if p_or else "UNKNOWN"),
+        "openRouterUsable": or_ok,
+        "openRouterStatus": _status_lbl(p_or),
         "openRouterLimit": or_limit,
         "openRouterRpdCovered": or_rpd_cov,
         "openRouterRpmCovered": or_rpm_cov,
         "openRouterCovered": or_cov,
         "openRouterDeficit": or_def,
-        "groqStatus": "VERIFIED" if groq_ok else (p_groq.get("verification_status") if p_groq else "UNKNOWN"),
+        "groqUsable": groq_ok,
+        "groqStatus": _status_lbl(p_groq),
         "groqRpdCovered": groq_rpd_cov,
         "groqTpdCovered": groq_tpd_cov,
         "groqRpmCovered": groq_rpm_cov,
         "groqTpmCovered": groq_tpm_cov,
         "groqFits": groq_fits,
-        "cfStatus": "VERIFIED" if cf_ok else (p_cf.get("verification_status") if p_cf else "UNKNOWN"),
+        "cfUsable": cf_ok,
+        "cfStatus": _status_lbl(p_cf),
         "cfNeuronsPerCall": round(cf_n_call, 4) if cf_n_call is not None else None,
         "cfDailyNeurons": round(cf_daily_n, 4) if cf_daily_n is not None else None,
         "cfMaxFreeCalls": cf_max_calls,
         "cfCovered": cf_cov,
-        "cerebrasStatus": "VERIFIED" if cer_ok else (p_cer.get("verification_status") if p_cer else "UNKNOWN"),
+        "cerebrasUsable": cer_ok,
+        "cerebrasStatus": _status_lbl(p_cer),
         "cerebrasPermanentlyFree": cer_perm,
     }
 

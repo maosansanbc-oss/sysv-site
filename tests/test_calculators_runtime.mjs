@@ -76,11 +76,20 @@ const fqPaid = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "paid_1000", ve
 assert.equal(fqPaid.openRouterCovered, true);
 assert.equal(fqPaid.openRouterDeficit, 0);
 
-// Stale/unverified policy MUST NOT output deterministic coverage
+// DOC_CHANGED_SIGNAL_STABLE & FETCH_ERROR_CACHED remain usable (no false outage); STALE/POLICY_CHANGED pause verdicts
+const docDriftPolicy = {
+  providers: policyDb.providers.map((p) => ({ ...p, verification_status: "DOC_CHANGED_SIGNAL_STABLE" })),
+};
+const fqDrift = calc.calculateFreeQuota(30, 3, 5, 1.0, 1000, 500, "free_50", docDriftPolicy);
+assert.equal(fqDrift.openRouterUsable, true);
+assert.equal(fqDrift.openRouterDeficit, 40);
+assert.equal(fqDrift.cfMaxFreeCalls, 863);
+
 const stalePolicy = {
   providers: policyDb.providers.map((p) => ({ ...p, verification_status: "STALE" })),
 };
 const fqStale = calc.calculateFreeQuota(10, 1, 2, 1.0, 1000, 500, "free_50", stalePolicy);
+assert.equal(fqStale.openRouterUsable, false);
 assert.equal(fqStale.openRouterStatus, "STALE");
 assert.equal(fqStale.openRouterCovered, null);
 assert.equal(fqStale.groqFits, null);
@@ -124,15 +133,16 @@ const server = spawn("python3", ["-m", "http.server", "18765", "--bind", "127.0.
 await new Promise((r) => setTimeout(r, 1200));
 
 try {
+  const isUsable = (p) => ["OFFICIAL_DOCS_VERIFIED", "DOC_CHANGED_SIGNAL_STABLE", "FETCH_ERROR_CACHED"].includes(p?.verification_status);
   const orPol = policyDb.providers.find((p) => p.id === "openrouter");
   const cfPol = policyDb.providers.find((p) => p.id === "cloudflare_workers_ai");
   const cerPol = policyDb.providers.find((p) => p.id === "cerebras");
   const targets = [
     ["/", "Lowest Estimated Token Cost"],
     ["/free-llm-apis/", "Daily Demand:"],
-    ["/free-llm-apis/", orPol?.verification_status === "OFFICIAL_DOCS_VERIFIED" ? "Short by 40 calls/day" : "Policy "],
-    ["/free-llm-apis/", cfPol?.verification_status === "OFFICIAL_DOCS_VERIFIED" ? "863 calls/day" : "Policy "],
-    ["/free-llm-apis/", cerPol?.verification_status === "OFFICIAL_DOCS_VERIFIED" ? "30-Day Trial Only" : "Policy "],
+    ["/free-llm-apis/", isUsable(orPol) ? "Short by 40 calls/day" : "Policy "],
+    ["/free-llm-apis/", isUsable(cfPol) ? "863 calls/day" : "Policy "],
+    ["/free-llm-apis/", isUsable(cerPol) ? "30-Day Trial Only" : "Policy "],
     ["/tools/openrouter-cost-calculator/", "Total Cash Outlay"],
     ["/tools/n8n-ai-workflow-cost-calculator/", "Self-Hosted Total:"],
     ["/tools/llm-translation-cost-calculator/", "per 1,000 docs"],

@@ -1,16 +1,12 @@
-"""Low-cost official Free LLM API policy drift, freshness & alert monitor (0 LLM calls).
+"""Low-cost official Free LLM API policy drift, freshness & tiered degradation monitor (0 LLM calls).
 
-Explicitly distinguishes 5 states:
-- OFFICIAL_DOCS_VERIFIED: reachable, within freshness window, no document or policy-signal drift
-- DOC_CHANGED_NEEDS_REVIEW: official doc page hash changed, but core policy-signal numbers unchanged
-- POLICY_CHANGED_NEEDS_REVIEW: key policy signals (dollar amounts, RPM/RPD/TPM/TPD, neurons, trial/credit terms) drifted
-- FETCH_ERROR: official docs URL failed HTTP fetch/timeout
-- STALE: `last_verified_date` exceeded `max_freshness_days` (default 14 days)
-- UNKNOWN: missing `last_verified_date`
-
-Supports:
-- Anomaly-only notification via PushPlus / ALERT_WEBHOOK_URL whenever any provider enters a non-verified state.
-- `--confirm-reverified <provider_id>` CLI workflow to re-baseline hashes & reset `OFFICIAL_DOCS_VERIFIED` after review.
+Tiered status model (protects unattended availability without hiding real policy drift):
+- OFFICIAL_DOCS_VERIFIED     (calculator usable): reachable, within freshness window, no drift
+- DOC_CHANGED_SIGNAL_STABLE  (calculator usable, labeled review pending): page HTML/text drifted but core policy signals unchanged & still fresh
+- FETCH_ERROR_CACHED         (calculator usable, labeled cached): transient fetch failure (consecutive < 3) while last_verified_date still fresh
+- FETCH_ERROR_PERSISTENT     (calculator degraded + ALERT): >= 3 consecutive fetch failures
+- POLICY_CHANGED_NEEDS_REVIEW(calculator paused + ALERT): core policy signal tokens changed (dollar/RPM/RPD/TPM/Neurons/trial terms)
+- STALE / UNKNOWN            (calculator paused + ALERT): expired (> max_freshness_days) or missing last_verified_date
 """
 
 import argparse
@@ -23,6 +19,11 @@ import urllib.request
 from typing import Any
 
 from scripts.utils import DATA_DIR, load_json, save_json, utc_now_iso, utc_today
+
+PERSISTENT_FETCH_ERROR_THRESHOLD = 3
+USABLE_POLICY_STATUSES = frozenset(
+    {"OFFICIAL_DOCS_VERIFIED", "DOC_CHANGED_SIGNAL_STABLE", "FETCH_ERROR_CACHED"}
+)
 
 POLICY_SIGNAL_PATTERN = re.compile(
     r"(\$\d[\d,\.]*|\b\d[\d,]*\s*(?:rpm|rpd|tpm|tpd|neurons?|days?|requests?\s+per\s+(?:minute|day)|tokens?\s+per\s+(?:minute|day))\b|\bfree\s+trial\b|\bpayment\s+method\b|\bcredit\s+card\b|\bimprove\s+google\s+products\b)",
@@ -50,8 +51,9 @@ def compute_policy_freshness_status(
     fetched_doc_hash: str | None = None,
     fetched_signal_hash: str | None = None,
     fetch_ok: bool = True,
+    consecutive_fetch_errors: int | None = None,
 ) -> tuple[str, str]:
-    """Return (verification_status, reason) with strict distinction between doc drift, policy drift, fetch failure & expiry."""
+    """Return (verification_status, reason) using tiered degradation."""
     max_days = int(provider.get("max_freshness_days") or 14)
     last_verified = str(provider.get("last_verified_date") or "").strip()
     prev_doc_hash = provider.get("source_content_hash")
@@ -69,10 +71,18 @@ def compute_policy_freshness_status(
     if days_old is None:
         return "UNKNOWN", "missing_last_verified_date"
 
+    if days_old > max_days:
+        return "STALE", f"expired_{days_old}d_gt_{max_days}d"
+
     if not fetch_ok:
-        if days_old > max_days:
-            return "STALE", f"fetch_failed_and_expired_{days_old}d"
-        return "FETCH_ERROR", "upstream_doc_unreachable"
+        consec = (
+            int(consecutive_fetch_errors)
+            if consecutive_fetch_errors is not None
+            else int(provider.get("consecutive_fetch_errors") or 0) + 1
+        )
+        if consec >= PERSISTENT_FETCH_ERROR_THRESHOLD:
+            return "FETCH_ERROR_PERSISTENT", f"consecutive_fetch_errors_{consec}"
+        return "FETCH_ERROR_CACHED", f"transient_fetch_error_{consec}_using_fresh_cache"
 
     signal_changed = bool(fetched_signal_hash and prev_sig_hash and fetched_signal_hash != prev_sig_hash)
     doc_changed = bool(fetched_doc_hash and prev_doc_hash and fetched_doc_hash != prev_doc_hash)
@@ -80,14 +90,16 @@ def compute_policy_freshness_status(
     if signal_changed:
         return "POLICY_CHANGED_NEEDS_REVIEW", "policy_signal_tokens_changed"
     if doc_changed:
-        return "DOC_CHANGED_NEEDS_REVIEW", "doc_text_hash_changed_signals_stable"
-    if days_old > max_days:
-        return "STALE", f"expired_{days_old}d_gt_{max_days}d"
+        return "DOC_CHANGED_SIGNAL_STABLE", "doc_html_changed_core_signals_unchanged"
 
     prev_status = str(provider.get("verification_status") or "OFFICIAL_DOCS_VERIFIED")
-    if prev_status in ("POLICY_CHANGED_NEEDS_REVIEW", "DOC_CHANGED_NEEDS_REVIEW"):
-        return prev_status, "awaiting_manual_reverification"
+    if prev_status == "POLICY_CHANGED_NEEDS_REVIEW":
+        return prev_status, "awaiting_manual_policy_reverification"
     return "OFFICIAL_DOCS_VERIFIED", "ok"
+
+
+def has_alert_channel_configured() -> bool:
+    return bool(os.getenv("PUSHPLUS_TOKEN", "").strip() or os.getenv("ALERT_WEBHOOK_URL", "").strip())
 
 
 def send_policy_alert(message: str) -> bool:
@@ -95,7 +107,7 @@ def send_policy_alert(message: str) -> bool:
     pp = os.getenv("PUSHPLUS_TOKEN", "").strip()
     if pp:
         try:
-            payload = json.dumps({"token": pp, "title": "[SysV] Free Policy Drift Alert", "content": message, "template": "txt"}).encode()
+            payload = json.dumps({"token": pp, "title": "[SysV] Free Policy Alert", "content": message, "template": "txt"}).encode()
             req = urllib.request.Request("https://www.pushplus.plus/send", data=payload, headers={"Content-Type": "application/json"})
             urllib.request.urlopen(req, timeout=12)
             sent = True
@@ -120,11 +132,14 @@ def check_all_policies(*, policy_path=None, perform_network: bool = True, notify
     now_iso = utc_now_iso()
     summary: dict[str, Any] = {
         "checked": 0,
+        "verified": [],
+        "doc_changed_signal_stable": [],
+        "fetch_error_cached": [],
         "policy_changed": [],
-        "doc_changed": [],
+        "fetch_error_persistent": [],
         "stale": [],
-        "fetch_error": [],
         "unknown": [],
+        "alert_channel_configured": has_alert_channel_configured(),
         "alert_sent": False,
     }
 
@@ -137,7 +152,7 @@ def check_all_policies(*, policy_path=None, perform_network: bool = True, notify
 
         if perform_network and url:
             try:
-                req = urllib.request.Request(url, headers={"User-Agent": "SysV-PolicyMonitor/1.1 (+https://sysv.cn/about/)"})
+                req = urllib.request.Request(url, headers={"User-Agent": "SysV-PolicyMonitor/1.2 (+https://sysv.cn/about/)"})
                 with urllib.request.urlopen(req, timeout=15) as resp:
                     raw = resp.read().decode("utf-8", errors="ignore")
                     norm = _normalize_doc_text(raw)
@@ -148,12 +163,19 @@ def check_all_policies(*, policy_path=None, perform_network: bool = True, notify
                 fetch_ok = False
                 p["last_fetch_error"] = str(err)[:160]
 
+        if fetch_ok:
+            consec_errors = 0
+        else:
+            consec_errors = int(p.get("consecutive_fetch_errors") or 0) + 1
+        p["consecutive_fetch_errors"] = consec_errors
+
         new_status, reason = compute_policy_freshness_status(
             p,
             today_iso=today,
             fetched_doc_hash=fetched_doc_hash,
             fetched_signal_hash=fetched_sig_hash,
             fetch_ok=fetch_ok,
+            consecutive_fetch_errors=consec_errors,
         )
         p["verification_status"] = new_status
         p["verification_reason"] = reason
@@ -165,38 +187,37 @@ def check_all_policies(*, policy_path=None, perform_network: bool = True, notify
                 p["source_content_hash"] = fetched_doc_hash
             if fetched_sig_hash and not p.get("policy_signal_hash"):
                 p["policy_signal_hash"] = fetched_sig_hash
-            if new_status in ("POLICY_CHANGED_NEEDS_REVIEW", "DOC_CHANGED_NEEDS_REVIEW"):
+            if new_status in ("POLICY_CHANGED_NEEDS_REVIEW", "DOC_CHANGED_SIGNAL_STABLE"):
                 p["pending_source_hash"] = fetched_doc_hash
                 p["pending_signal_hash"] = fetched_sig_hash
                 p["drift_detected_utc"] = now_iso
 
-        if new_status == "POLICY_CHANGED_NEEDS_REVIEW":
+        if new_status == "OFFICIAL_DOCS_VERIFIED":
+            summary["verified"].append(p["id"])
+        elif new_status == "DOC_CHANGED_SIGNAL_STABLE":
+            summary["doc_changed_signal_stable"].append(p["id"])
+        elif new_status == "FETCH_ERROR_CACHED":
+            summary["fetch_error_cached"].append(p["id"])
+        elif new_status == "POLICY_CHANGED_NEEDS_REVIEW":
             summary["policy_changed"].append(p["id"])
-        elif new_status == "DOC_CHANGED_NEEDS_REVIEW":
-            summary["doc_changed"].append(p["id"])
+        elif new_status == "FETCH_ERROR_PERSISTENT":
+            summary["fetch_error_persistent"].append(p["id"])
         elif new_status == "STALE":
             summary["stale"].append(p["id"])
-        elif new_status == "FETCH_ERROR":
-            summary["fetch_error"].append(p["id"])
-        elif new_status == "UNKNOWN":
+        else:
             summary["unknown"].append(p["id"])
 
     data["updated_utc"] = now_iso
     save_json(path, data)
 
-    anomalies = (
-        summary["policy_changed"]
-        + summary["doc_changed"]
-        + summary["stale"]
-        + summary["fetch_error"]
-        + summary["unknown"]
-    )
-    if notify and anomalies:
+    # Alert ONLY on high-severity degradation (real policy change, persistent fetch failure, stale, unknown)
+    critical = summary["policy_changed"] + summary["fetch_error_persistent"] + summary["stale"] + summary["unknown"]
+    if notify and critical:
         msg = (
-            f"SysV Free LLM Policy Monitor detected anomalies ({today}): "
-            f"policy_changed={summary['policy_changed']}, doc_changed={summary['doc_changed']}, "
-            f"stale={summary['stale']}, fetch_error={summary['fetch_error']}, unknown={summary['unknown']}. "
-            f"Review data/free_provider_policies.json and run --confirm-reverified <id> after verifying."
+            f"SysV Free LLM Policy Monitor CRITICAL ({today}): "
+            f"policy_changed={summary['policy_changed']}, fetch_error_persistent={summary['fetch_error_persistent']}, "
+            f"stale={summary['stale']}, unknown={summary['unknown']}. "
+            f"Review data/free_provider_policies.json and run --confirm-reverified <id>."
         )
         summary["alert_sent"] = send_policy_alert(msg)
 
@@ -204,7 +225,7 @@ def check_all_policies(*, policy_path=None, perform_network: bool = True, notify
 
 
 def confirm_reverified(provider_id: str, *, policy_path=None) -> dict[str, Any]:
-    """Re-baseline hashes and mark provider OFFICIAL_DOCS_VERIFIED after human/manual doc re-verification."""
+    """Re-baseline hashes and mark provider OFFICIAL_DOCS_VERIFIED after manual review."""
     path = policy_path or (DATA_DIR / "free_provider_policies.json")
     data = load_json(path, default={"providers": [], "policy_history": []})
     target = next((p for p in data.get("providers", []) if p.get("id") == provider_id), None)
@@ -216,6 +237,7 @@ def confirm_reverified(provider_id: str, *, policy_path=None) -> dict[str, Any]:
         target["policy_signal_hash"] = target.pop("pending_signal_hash")
     target.pop("drift_detected_utc", None)
     target.pop("last_fetch_error", None)
+    target["consecutive_fetch_errors"] = 0
     target["last_verified_date"] = utc_today()
     target["last_checked_utc"] = utc_now_iso()
     target["verification_status"] = "OFFICIAL_DOCS_VERIFIED"
@@ -235,9 +257,11 @@ def main() -> None:
         return
     res = check_all_policies(perform_network=True, notify=True)
     print(
-        f"[check_free_policies] checked={res['checked']}, policy_changed={res['policy_changed']}, "
-        f"doc_changed={res['doc_changed']}, stale={res['stale']}, fetch_error={res['fetch_error']}, "
-        f"alert_sent={res['alert_sent']}"
+        f"[check_free_policies] checked={res['checked']}, verified={res['verified']}, "
+        f"doc_changed_signal_stable={res['doc_changed_signal_stable']}, "
+        f"fetch_error_cached={res['fetch_error_cached']}, "
+        f"policy_changed={res['policy_changed']}, fetch_error_persistent={res['fetch_error_persistent']}, "
+        f"stale={res['stale']}, alert_channel_configured={res['alert_channel_configured']}, alert_sent={res['alert_sent']}"
     )
 
 

@@ -19,8 +19,10 @@ from typing import Any, Callable
 
 from scripts.utils import http_post_json, utc_now_iso
 
-# Conservative per-attempt safety reserve when a provider's pricing is unknown/unverified
+# Conservative per-attempt ESTIMATED reservation when a provider's billing rate is unknown/unverified.
+# NOTE: This is an estimated budget guard reservation, NOT a hard provider-side spending cap.
 UNKNOWN_COST_RESERVE_USD = 0.005
+DEFAULT_MAX_OUTPUT_TOKENS = 450
 
 
 @dataclass
@@ -55,8 +57,9 @@ class DailyBudgetGuard:
     def remaining_budget_usd(self) -> float:
         return max(0.0, round(float(self.max_cost_usd) - self.effective_spent_usd, 6))
 
-    def can_attempt(self) -> bool:
-        return self.remaining_calls > 0 and self.effective_spent_usd < float(self.max_cost_usd)
+    def can_attempt(self, estimated_max_request_cost_usd: float = 0.0) -> bool:
+        est = max(0.0, float(estimated_max_request_cost_usd or 0.0))
+        return self.remaining_calls > 0 and round(self.effective_spent_usd + est, 6) <= float(self.max_cost_usd)
 
     def record_attempt(
         self,
@@ -131,13 +134,18 @@ def _extract_json_object(text: str) -> dict[str, Any]:
     return data
 
 
-def _call_gemini(prompt: str, api_key: str, model: str) -> tuple[str, dict[str, int]]:
+def _call_gemini(prompt: str, api_key: str, model: str, *, max_output_tokens: int = DEFAULT_MAX_OUTPUT_TOKENS) -> tuple[str, dict[str, int]]:
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.3, "responseMimeType": "application/json"},
+        "generationConfig": {
+            "temperature": 0.3,
+            "responseMimeType": "application/json",
+            "maxOutputTokens": int(max_output_tokens),
+        },
     }
-    resp = http_post_json(url, payload, timeout=40)
+    # retries=0: disable hidden HTTP retries so every attempt is explicitly gated & counted by DailyBudgetGuard
+    resp = http_post_json(url, payload, timeout=40, retries=0)
     candidates = resp.get("candidates", [])
     if not candidates:
         raise RuntimeError(f"Gemini returned no candidates: {resp}")
@@ -151,7 +159,13 @@ def _call_gemini(prompt: str, api_key: str, model: str) -> tuple[str, dict[str, 
 
 
 def _call_openai_compat(
-    base_url: str, api_key: str, model: str, prompt: str, extra_headers: dict[str, str] | None = None
+    base_url: str,
+    api_key: str,
+    model: str,
+    prompt: str,
+    extra_headers: dict[str, str] | None = None,
+    *,
+    max_tokens: int = DEFAULT_MAX_OUTPUT_TOKENS,
 ) -> tuple[str, dict[str, int]]:
     url = base_url.rstrip("/") + "/chat/completions"
     headers = {"Authorization": f"Bearer {api_key}"}
@@ -160,6 +174,7 @@ def _call_openai_compat(
     payload = {
         "model": model,
         "temperature": 0.3,
+        "max_tokens": int(max_tokens),
         "messages": [
             {
                 "role": "system",
@@ -168,7 +183,8 @@ def _call_openai_compat(
             {"role": "user", "content": prompt},
         ],
     }
-    resp = http_post_json(url, payload, headers=headers, timeout=45)
+    # retries=0: disable hidden HTTP retries so every attempt is explicitly gated & counted by DailyBudgetGuard
+    resp = http_post_json(url, payload, headers=headers, timeout=45, retries=0)
     choices = resp.get("choices", [])
     if not choices:
         raise RuntimeError(f"OpenAI-compatible endpoint returned no choices: {resp}")
@@ -267,34 +283,48 @@ def estimate_call_cost_usd(provider_name: str, usage: dict[str, int] | None, *, 
     return cost if known else None
 
 
+def estimate_max_request_cost_usd(
+    provider_name: str, prompt: str, *, max_output_tokens: int = DEFAULT_MAX_OUTPUT_TOKENS, model: str = ""
+) -> float:
+    """Pre-request conservative estimated reservation (input chars/3 + max_output_tokens)."""
+    est_in_tokens = max(256, int(len(prompt or "") / 3) + 128)
+    est_out_tokens = max(1, int(max_output_tokens))
+    cost, known = estimate_call_cost_detail(
+        provider_name, {"prompt_tokens": est_in_tokens, "completion_tokens": est_out_tokens}, model=model
+    )
+    if known and cost is not None:
+        return cost
+    return UNKNOWN_COST_RESERVE_USD
+
+
 def generate_json_with_fallback(
     prompt: str,
     *,
     budget_guard: DailyBudgetGuard | None = None,
+    max_output_tokens: int = DEFAULT_MAX_OUTPUT_TOKENS,
 ) -> tuple[dict[str, Any] | None, str, dict[str, int]]:
-    """Try configured LLM providers in order with per-attempt budget gating and accounting.
-
-    Every single upstream request (including retries, HTTP failures, and invalid JSON responses)
-    is independently checked against `budget_guard` and recorded immediately.
-    """
+    """Try configured LLM providers in order with zero hidden HTTP retries & pre-request budget gating."""
     providers = get_available_providers()
     if not providers:
         return None, "deterministic-fallback", {"prompt_tokens": 0, "completion_tokens": 0}
 
     errors: list[str] = []
     for p in providers:
-        if budget_guard is not None and not budget_guard.can_attempt():
-            return None, "budget-exhausted", {"prompt_tokens": 0, "completion_tokens": 0}
-
         name = p["name"]
         model = p.get("model", "")
+        pre_est = estimate_max_request_cost_usd(name, prompt, max_output_tokens=max_output_tokens, model=model)
+        if budget_guard is not None and not budget_guard.can_attempt(pre_est):
+            return None, "budget-exhausted", {"prompt_tokens": 0, "completion_tokens": 0}
+
         usage: dict[str, int] = {"prompt_tokens": 0, "completion_tokens": 0}
         try:
             if name == "gemini":
-                raw, usage = _call_gemini(prompt, p["key"], model or "gemini-2.0-flash")
+                raw, usage = _call_gemini(prompt, p["key"], model or "gemini-2.0-flash", max_output_tokens=max_output_tokens)
             else:
                 extra = {"HTTP-Referer": "https://sysv.cn", "X-Title": "SysV Radar"} if name == "openrouter" else None
-                raw, usage = _call_openai_compat(p["base_url"], p["key"], model, prompt, extra_headers=extra)
+                raw, usage = _call_openai_compat(
+                    p["base_url"], p["key"], model, prompt, extra_headers=extra, max_tokens=max_output_tokens
+                )
         except Exception as err:
             # Request failed or timed out — still consumes an attempt and may have incurred upstream cost!
             cost, known = estimate_call_cost_detail(name, usage, model=model)

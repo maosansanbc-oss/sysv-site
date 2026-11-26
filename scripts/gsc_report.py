@@ -294,6 +294,11 @@ def build_weekly_report(
 
 
 def main() -> None:
+    if os.getenv("GITHUB_ACTIONS") == "true" and os.getenv("ALLOW_PUBLIC_REPO_GSC") != "true":
+        raise SystemExit(
+            "[gsc_report] REFUSED: Public repository Actions artifacts and logs are NOT private. "
+            "Run GSC analytics strictly in the dedicated private repository (maosansanbc-oss/sysv-ops-private)."
+        )
     site_url = os.getenv("GSC_SITE_URL", "sc-domain:sysv.cn").strip()
     base_url = os.getenv("MONITOR_BASE_URL", "https://sysv.cn").rstrip("/")
     inspect_limit = int(os.getenv("GSC_INSPECT_LIMIT", "25"))

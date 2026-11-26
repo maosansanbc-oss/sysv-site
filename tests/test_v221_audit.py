@@ -145,28 +145,77 @@ class TestFreeQuotaCalculator(unittest.TestCase):
         self.assertEqual(q4["requiredCalls"], 0)
         self.assertTrue(q4["openRouterCovered"])
 
-    def test_stale_or_unverified_policy_blocks_deterministic_coverage(self):
-        stale_db = {
+    def test_tiered_policy_degradation_usable_vs_paused(self):
+        # DOC_CHANGED_SIGNAL_STABLE and FETCH_ERROR_CACHED MUST keep calculator usable (no over-strict outage!)
+        usable_db = {
             "providers": [
-                {"id": "openrouter", "verification_status": "STALE", "model_quotas": [{"rpm": 20, "rpd": 50, "rpd_unlocked": 1000}]},
-                {"id": "groq", "verification_status": "DOC_CHANGED_NEEDS_REVIEW", "model_quotas": [{"model": "GPT-OSS 120B", "rpm": 30, "rpd": 1000, "tpm": 8000, "tpd": 200000}]},
-                {"id": "cloudflare_workers_ai", "verification_status": "UNKNOWN", "free_daily_neurons": 10000, "model_quotas": [{"model": "@cf/meta/llama-3.2-1b-instruct", "neurons_per_m_input": 2457, "neurons_per_m_output": 18252}]},
-                {"id": "cerebras", "verification_status": "FETCH_ERROR", "tier_classification": "free_trial"},
+                {"id": "openrouter", "verification_status": "DOC_CHANGED_SIGNAL_STABLE", "model_quotas": [{"rpm": 20, "rpd": 50, "rpd_unlocked": 1000}]},
+                {"id": "groq", "verification_status": "FETCH_ERROR_CACHED", "model_quotas": [{"model": "GPT-OSS 120B", "rpm": 30, "rpd": 1000, "tpm": 8000, "tpd": 200000}]},
+                {"id": "cloudflare_workers_ai", "verification_status": "DOC_CHANGED_SIGNAL_STABLE", "free_daily_neurons": 10000, "model_quotas": [{"model": "@cf/meta/llama-3.2-1b-instruct", "neurons_per_m_input": 2457, "neurons_per_m_output": 18252}]},
+                {"id": "cerebras", "verification_status": "FETCH_ERROR_CACHED", "tier_classification": "free_trial"},
             ]
         }
-        q = tools_builder.calculate_free_quota_py(10, 1, 2, 1.0, 1000, 500, "free_50", policy_db=stale_db)
-        self.assertEqual(q["openRouterStatus"], "STALE")
-        self.assertIsNone(q["openRouterCovered"])
-        self.assertIsNone(q["openRouterRpdCovered"])
-        self.assertEqual(q["groqStatus"], "DOC_CHANGED_NEEDS_REVIEW")
-        self.assertIsNone(q["groqFits"])
-        self.assertEqual(q["cfStatus"], "UNKNOWN")
-        self.assertIsNone(q["cfCovered"])
-        self.assertEqual(q["cerebrasStatus"], "FETCH_ERROR")
-        self.assertIsNone(q["cerebrasPermanentlyFree"])
+        qu = tools_builder.calculate_free_quota_py(30, 3, 5, 1.0, 1000, 500, "free_50", policy_db=usable_db)
+        self.assertTrue(qu["openRouterUsable"])
+        self.assertEqual(qu["openRouterStatus"], "VERIFIED_DOC_DRIFT")
+        self.assertEqual(qu["openRouterDeficit"], 40)
+        self.assertTrue(qu["groqUsable"])
+        self.assertEqual(qu["groqStatus"], "VERIFIED_CACHED")
+        self.assertTrue(qu["groqFits"])
+        self.assertEqual(qu["cfMaxFreeCalls"], 863)
+        self.assertFalse(qu["cerebrasPermanentlyFree"])
+
+        # STALE, POLICY_CHANGED_NEEDS_REVIEW, FETCH_ERROR_PERSISTENT, UNKNOWN MUST pause deterministic verdicts
+        paused_db = {
+            "providers": [
+                {"id": "openrouter", "verification_status": "STALE", "model_quotas": [{"rpm": 20, "rpd": 50, "rpd_unlocked": 1000}]},
+                {"id": "groq", "verification_status": "POLICY_CHANGED_NEEDS_REVIEW", "model_quotas": [{"model": "GPT-OSS 120B", "rpm": 30, "rpd": 1000, "tpm": 8000, "tpd": 200000}]},
+                {"id": "cloudflare_workers_ai", "verification_status": "UNKNOWN", "free_daily_neurons": 10000, "model_quotas": [{"model": "@cf/meta/llama-3.2-1b-instruct", "neurons_per_m_input": 2457, "neurons_per_m_output": 18252}]},
+                {"id": "cerebras", "verification_status": "FETCH_ERROR_PERSISTENT", "tier_classification": "free_trial"},
+            ]
+        }
+        qp = tools_builder.calculate_free_quota_py(10, 1, 2, 1.0, 1000, 500, "free_50", policy_db=paused_db)
+        self.assertFalse(qp["openRouterUsable"])
+        self.assertIsNone(qp["openRouterCovered"])
+        self.assertFalse(qp["groqUsable"])
+        self.assertIsNone(qp["groqFits"])
+        self.assertFalse(qp["cfUsable"])
+        self.assertIsNone(qp["cfCovered"])
+        self.assertFalse(qp["cerebrasUsable"])
+        self.assertIsNone(qp["cerebrasPermanentlyFree"])
 
 
 class TestCumulativeDailyBudgetAndPolicies(unittest.TestCase):
+    def test_router_disables_hidden_http_retries_sets_max_tokens_and_gates_pre_request(self):
+        from unittest.mock import patch
+
+        captured = {}
+
+        def fake_post(url, payload, headers=None, timeout=45, retries=1):
+            captured["retries"] = retries
+            captured["max_tokens"] = payload.get("max_tokens")
+            return {"choices": [{"message": {"content": '{"summary":"Ok","best_for":["A"],"watch_outs":["B"]}'}}], "usage": {"prompt_tokens": 300, "completion_tokens": 100}}
+
+        fake_providers = [
+            {"name": "deepseek", "key": "k1", "base_url": "https://api.deepseek.com/v1", "model": "deepseek-chat", "is_paid": "1"},
+        ]
+        guard = llm_router.DailyBudgetGuard(max_calls=5, max_cost_usd=0.05)
+        with patch.object(llm_router, "get_available_providers", return_value=fake_providers), \
+             patch.object(llm_router, "http_post_json", side_effect=fake_post):
+            parsed, prov, _ = llm_router.generate_json_with_fallback("short prompt", budget_guard=guard)
+            self.assertEqual(prov, "deepseek")
+            self.assertEqual(captured["retries"], 0)
+            self.assertEqual(captured["max_tokens"], llm_router.DEFAULT_MAX_OUTPUT_TOKENS)
+
+        # Pre-request reservation guard: if remaining budget ($0.0001) < estimated max request cost, block BEFORE HTTP!
+        tight_guard = llm_router.DailyBudgetGuard(max_calls=5, max_cost_usd=0.0001)
+        with patch.object(llm_router, "get_available_providers", return_value=fake_providers), \
+             patch.object(llm_router, "http_post_json", side_effect=AssertionError("HTTP should never fire when pre-request budget is insufficient")):
+            p_blocked, prov_blocked, _ = llm_router.generate_json_with_fallback("prompt", budget_guard=tight_guard)
+            self.assertIsNone(p_blocked)
+            self.assertEqual(prov_blocked, "budget-exhausted")
+            self.assertEqual(tight_guard.used_calls, 0)
+
     def test_router_layer_budget_retries_and_unknown_cost_never_zero(self):
         from unittest.mock import patch
 
@@ -214,65 +263,76 @@ class TestCumulativeDailyBudgetAndPolicies(unittest.TestCase):
         self.assertEqual(cerebras["trial_amount_usd"], 5.0)
         self.assertEqual(cerebras["trial_expiry_days"], 30)
 
-        # Distinct states: STALE, FETCH_ERROR, DOC_CHANGED_NEEDS_REVIEW, POLICY_CHANGED_NEEDS_REVIEW, UNKNOWN
+        # Tiered states: STALE, FETCH_ERROR_CACHED (<3), FETCH_ERROR_PERSISTENT (>=3), DOC_CHANGED_SIGNAL_STABLE, POLICY_CHANGED_NEEDS_REVIEW, UNKNOWN
         st_stale, _ = check_free_policies.compute_policy_freshness_status(
             {"last_verified_date": "2026-10-01", "max_freshness_days": 14, "verification_status": "OFFICIAL_DOCS_VERIFIED"},
-            today_iso="2026-11-25",
+            today_iso="2026-11-26",
             fetch_ok=True,
         )
         self.assertEqual(st_stale, "STALE")
 
-        st_fetch, _ = check_free_policies.compute_policy_freshness_status(
+        st_fetch1, _ = check_free_policies.compute_policy_freshness_status(
             {"last_verified_date": "2026-11-25", "max_freshness_days": 14},
-            today_iso="2026-11-25",
+            today_iso="2026-11-26",
             fetch_ok=False,
+            consecutive_fetch_errors=1,
         )
-        self.assertEqual(st_fetch, "FETCH_ERROR")
+        self.assertEqual(st_fetch1, "FETCH_ERROR_CACHED")
+
+        st_fetch3, _ = check_free_policies.compute_policy_freshness_status(
+            {"last_verified_date": "2026-11-25", "max_freshness_days": 14},
+            today_iso="2026-11-26",
+            fetch_ok=False,
+            consecutive_fetch_errors=3,
+        )
+        self.assertEqual(st_fetch3, "FETCH_ERROR_PERSISTENT")
 
         st_doc, _ = check_free_policies.compute_policy_freshness_status(
             {"last_verified_date": "2026-11-25", "max_freshness_days": 14, "source_content_hash": "aaa", "policy_signal_hash": "sig1"},
-            today_iso="2026-11-25",
+            today_iso="2026-11-26",
             fetched_doc_hash="bbb",
             fetched_signal_hash="sig1",
             fetch_ok=True,
         )
-        self.assertEqual(st_doc, "DOC_CHANGED_NEEDS_REVIEW")
+        self.assertEqual(st_doc, "DOC_CHANGED_SIGNAL_STABLE")
 
         st_pol, _ = check_free_policies.compute_policy_freshness_status(
             {"last_verified_date": "2026-11-25", "max_freshness_days": 14, "source_content_hash": "aaa", "policy_signal_hash": "sig1"},
-            today_iso="2026-11-25",
+            today_iso="2026-11-26",
             fetched_doc_hash="bbb",
             fetched_signal_hash="sig2",
             fetch_ok=True,
         )
         self.assertEqual(st_pol, "POLICY_CHANGED_NEEDS_REVIEW")
 
-        st_unk, _ = check_free_policies.compute_policy_freshness_status({}, today_iso="2026-11-25")
+        st_unk, _ = check_free_policies.compute_policy_freshness_status({}, today_iso="2026-11-26")
         self.assertEqual(st_unk, "UNKNOWN")
 
-        # confirm_reverified re-baselines hashes cleanly
+        # confirm_reverified re-baselines hashes & resets consecutive_fetch_errors cleanly
         with tempfile.TemporaryDirectory() as td:
             fp = Path(td) / "pol.json"
-            fp.write_text(json.dumps({"providers": [{"id": "groq", "verification_status": "POLICY_CHANGED_NEEDS_REVIEW", "pending_source_hash": "h2", "pending_signal_hash": "s2"}]}), encoding="utf-8")
+            fp.write_text(json.dumps({"providers": [{"id": "groq", "verification_status": "POLICY_CHANGED_NEEDS_REVIEW", "consecutive_fetch_errors": 3, "pending_source_hash": "h2", "pending_signal_hash": "s2"}]}), encoding="utf-8")
             updated = check_free_policies.confirm_reverified("groq", policy_path=fp)
             self.assertEqual(updated["verification_status"], "OFFICIAL_DOCS_VERIFIED")
+            self.assertEqual(updated["consecutive_fetch_errors"], 0)
             self.assertEqual(updated["source_content_hash"], "h2")
             self.assertEqual(updated["policy_signal_hash"], "s2")
 
-    def test_commercial_data_strictly_isolated_from_public_repo(self):
+    def test_commercial_data_strictly_removed_from_public_repo_workflows(self):
         import tempfile
         from pathlib import Path
 
         repo_root = Path(__file__).resolve().parent.parent
-        wf = (repo_root / ".github/workflows/weekly-gsc.yml").read_text(encoding="utf-8")
-        self.assertIn("contents: read", wf)
-        self.assertNotIn("git push", wf)
-        self.assertNotIn("git commit", wf)
-        self.assertIn("private/gsc", str(gsc_report.PRIVATE_GSC_DIR))
+        wf_dir = repo_root / ".github/workflows"
+        # ZERO GSC workflows or GSC artifacts allowed in public repository!
+        for wf_file in wf_dir.glob("*.yml"):
+            txt = wf_file.read_text(encoding="utf-8")
+            self.assertNotIn("gsc_report", txt, f"Public repo workflow must not run gsc_report: {wf_file}")
+            self.assertNotIn("gsc-weekly-report", txt, f"Public repo workflow must not upload GSC artifacts: {wf_file}")
 
         with tempfile.TemporaryDirectory() as td:
             p = Path(td) / "ops_metrics.json"
-            p.write_text(json.dumps({"daily": [{"date": "2026-11-25", "estimated_revenue_usd": 12.34, "gsc_clicks": 99}]}), encoding="utf-8")
+            p.write_text(json.dumps({"daily": [{"date": "2026-11-26", "estimated_revenue_usd": 12.34, "gsc_clicks": 99}]}), encoding="utf-8")
             entry = record_deploy_status.record_publish_status(success=True, git_commit="abc1234", ops_path=p)
             self.assertTrue(entry["publish_success"])
             self.assertNotIn("estimated_revenue_usd", entry)

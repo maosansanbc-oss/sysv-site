@@ -1165,14 +1165,16 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         dt = p.get("last_verified_date") or "Unknown"
         if st == "OFFICIAL_DOCS_VERIFIED":
             return f'<span class="badge badge-free">Docs Verified ({e(dt)})</span>'
+        if st == "DOC_CHANGED_SIGNAL_STABLE":
+            return f'<span class="badge badge-free">Verified ({e(dt)}) &middot; Docs Layout Updated</span>'
+        if st == "FETCH_ERROR_CACHED":
+            return f'<span class="badge">Cached Verified ({e(dt)}) &middot; Retry Pending</span>'
         if st == "POLICY_CHANGED_NEEDS_REVIEW":
-            return f'<span class="badge badge-danger">Policy Drift — Review Pending ({e(dt)})</span>'
-        if st in ("DOC_CHANGED_NEEDS_REVIEW", "CHANGED_NEEDS_REVIEW"):
-            return f'<span class="badge badge-warn">Doc Changed — Review Pending ({e(dt)})</span>'
-        if st == "FETCH_ERROR":
-            return f'<span class="badge badge-warn">Fetch Error — Check Docs ({e(dt)})</span>'
+            return f'<span class="badge badge-danger">Policy Drift — Paused ({e(dt)})</span>'
+        if st in ("FETCH_ERROR_PERSISTENT", "FETCH_ERROR"):
+            return f'<span class="badge badge-danger">Fetch Degraded — Check Docs ({e(dt)})</span>'
         if st == "STALE":
-            return f'<span class="badge badge-warn">STALE ({e(dt)})</span>'
+            return f'<span class="badge badge-warn">STALE — Paused ({e(dt)})</span>'
         return '<span class="badge badge-danger">UNKNOWN</span>'
 
     provider_rows = []
@@ -1339,9 +1341,15 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             fqTier.value || 'free_50',
             POLICY_DB
           );
+          function _advisoryTag(st) {{
+            if (st === 'VERIFIED_DOC_DRIFT') return ' <span class="badge">Docs updated (review pending)</span>';
+            if (st === 'VERIFIED_CACHED') return ' <span class="badge">Using fresh cache</span>';
+            return '';
+          }}
+
           let orHtml;
-          if (r.openRouterStatus !== 'VERIFIED') {{
-            orHtml = '<span class="badge badge-warn">Policy ' + r.openRouterStatus + '</span> Cannot compute deterministic verdict; verify live OpenRouter limits.';
+          if (!r.openRouterUsable) {{
+            orHtml = '<span class="badge badge-warn">Policy ' + r.openRouterStatus + '</span> Paused — verify live OpenRouter limits in docs.';
           }} else {{
             const orRpdBadge = r.openRouterRpdCovered
               ? '<span class="badge badge-free">Daily RPD Covered (' + r.requiredCalls.toLocaleString() + '/' + r.openRouterLimit.toLocaleString() + ')</span>'
@@ -1349,12 +1357,12 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             const orRpmBadge = r.openRouterRpmCovered
               ? '<span class="badge badge-free">Burst OK (' + r.effectivePeakRpm + '/' + r.openRouterRpmCap + ' RPM)</span>'
               : '<span class="badge badge-danger">Exceeds ' + r.openRouterRpmCap + ' RPM (' + r.effectivePeakRpm + ' RPM)</span>';
-            orHtml = orRpdBadge + ' ' + orRpmBadge;
+            orHtml = orRpdBadge + ' ' + orRpmBadge + _advisoryTag(r.openRouterStatus);
           }}
 
           let groqStatus;
-          if (r.groqStatus !== 'VERIFIED') {{
-            groqStatus = '<span class="badge badge-warn">Policy ' + r.groqStatus + '</span> Verify live Groq limits in console.';
+          if (!r.groqUsable) {{
+            groqStatus = '<span class="badge badge-warn">Policy ' + r.groqStatus + '</span> Paused — verify live Groq limits in console.';
           }} else {{
             const gl = r.groqLimits || {{}};
             const groqIssues = [];
@@ -1363,25 +1371,25 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             if (!r.groqRpmCovered) groqIssues.push('RPM > ' + gl.rpm);
             if (!r.groqTpmCovered) groqIssues.push('Peak TPM > ' + Number(gl.tpm).toLocaleString());
             const mList = (r.groqModels || []).join(', ');
-            groqStatus = r.groqFits
+            groqStatus = (r.groqFits
               ? '<span class="badge badge-free">Fits</span> ' + mList + ' (' + gl.rpm + ' RPM, ' + Number(gl.rpd).toLocaleString() + ' RPD, ' + Number(gl.tpm).toLocaleString() + ' TPM, ' + Number(gl.tpd).toLocaleString() + ' TPD)'
-              : '<span class="badge badge-warn">Blocked: ' + groqIssues.join(', ') + '</span> on ' + mList;
+              : '<span class="badge badge-warn">Blocked: ' + groqIssues.join(', ') + '</span> on ' + mList) + _advisoryTag(r.groqStatus);
           }}
 
           let cfStatus;
-          if (r.cfStatus !== 'VERIFIED') {{
-            cfStatus = '<span class="badge badge-warn">Policy ' + r.cfStatus + '</span> Verify live Workers AI Neuron pricing.';
+          if (!r.cfUsable) {{
+            cfStatus = '<span class="badge badge-warn">Policy ' + r.cfStatus + '</span> Paused — verify live Workers AI Neuron pricing.';
           }} else {{
-            cfStatus = r.cfCovered
+            cfStatus = (r.cfCovered
               ? '<span class="badge badge-free">Fits ' + Number(r.cfDailyAllowance).toLocaleString() + ' Neurons/day</span> ' + r.cfNeuronsPerCall.toFixed(2) + ' Neurons/call &rarr; max ~<strong>' + r.cfMaxFreeCalls.toLocaleString() + ' calls/day</strong> (uses ' + Math.round(r.cfDailyNeurons).toLocaleString() + ' / ' + Number(r.cfDailyAllowance).toLocaleString() + ')'
-              : '<span class="badge badge-warn">Exceeds ' + Number(r.cfDailyAllowance).toLocaleString() + ' Neurons/day</span> ' + Math.round(r.cfDailyNeurons).toLocaleString() + ' Neurons needed (max ~' + r.cfMaxFreeCalls.toLocaleString() + ' calls/day)';
+              : '<span class="badge badge-warn">Exceeds ' + Number(r.cfDailyAllowance).toLocaleString() + ' Neurons/day</span> ' + Math.round(r.cfDailyNeurons).toLocaleString() + ' Neurons needed (max ~' + r.cfMaxFreeCalls.toLocaleString() + ' calls/day)') + _advisoryTag(r.cfStatus);
           }}
 
           let cerHtml;
-          if (r.cerebrasStatus !== 'VERIFIED') {{
-            cerHtml = '<span class="badge badge-warn">Policy ' + r.cerebrasStatus + '</span> Verify live Cerebras trial terms in docs.';
+          if (!r.cerebrasUsable) {{
+            cerHtml = '<span class="badge badge-warn">Policy ' + r.cerebrasStatus + '</span> Paused — verify live Cerebras trial terms in docs.';
           }} else {{
-            cerHtml = '<span class="badge badge-warn">30-Day Trial Only</span> $' + r.cerebrasTrialUsd + ' credit expires in ' + r.cerebrasTrialDays + ' days; verified payment method required (5 RPM; no permanently free tier).';
+            cerHtml = '<span class="badge badge-warn">30-Day Trial Only</span> $' + r.cerebrasTrialUsd + ' credit expires in ' + r.cerebrasTrialDays + ' days; verified payment method required (5 RPM; no permanently free tier).' + _advisoryTag(r.cerebrasStatus);
           }}
 
           fqOut.innerHTML =
