@@ -1,0 +1,4272 @@
+{
+  "date": "2026-11-26",
+  "total_endpoints": 474,
+  "models": {
+    "upstage/solar-mini-4-5": {
+      "name": "Upstage: Solar Mini 4.5 (Preview)",
+      "slug": "upstage-solar-mini-4-5",
+      "provider": "Upstage",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.01,
+      "completion_price_per_m": 0.04,
+      "context_length": 524288
+    },
+    "upstage/solar-pro-4-contributor": {
+      "name": "Upstage: Solar Pro 4 Contributor",
+      "slug": "upstage-solar-pro-4-contributor",
+      "provider": "Upstage",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.09,
+      "completion_price_per_m": 0.36,
+      "context_length": 524288
+    },
+    "xiaomi/mimo-v2.6-flash-mopd": {
+      "name": "Xiaomi: MiMo-V2.6-Flash-MOPD",
+      "slug": "xiaomi-mimo-v2-6-flash-mopd",
+      "provider": "Xiaomi",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 1.0,
+      "context_length": 1048576
+    },
+    "thinkingmachines/inkling-2-mini": {
+      "name": "Thinking Machines: Inkling 2 Mini",
+      "slug": "thinkingmachines-inkling-2-mini",
+      "provider": "Thinkingmachines",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.3,
+      "context_length": 1048576
+    },
+    "radixark/daisyrose-27b": {
+      "name": "RadixArk: DaisyRose 27B",
+      "slug": "radixark-daisyrose-27b",
+      "provider": "Radixark",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 1.875,
+      "context_length": 262144
+    },
+    "mistralai/pixtral-large-2502": {
+      "name": "Mistral: Pixtral Large 2502",
+      "slug": "mistralai-pixtral-large-2502",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 128000
+    },
+    "google/gemini-4-neon": {
+      "name": "Google: Gemini 4 Neon",
+      "slug": "google-gemini-4-neon",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 15.0,
+      "context_length": 1048576
+    },
+    "google/gemini-4-neon:batch": {
+      "name": "Google: Gemini 4 Neon (batch)",
+      "slug": "google-gemini-4-neon-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 7.5,
+      "context_length": 1048576
+    },
+    "openai/gpt-6.2-astra-pro": {
+      "name": "OpenAI: GPT-6.2 Astra Pro",
+      "slug": "openai-gpt-6-2-astra-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 8.0,
+      "completion_price_per_m": 40.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.2-astra-pro:batch": {
+      "name": "OpenAI: GPT-6.2 Astra Pro (batch)",
+      "slug": "openai-gpt-6-2-astra-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 4.0,
+      "completion_price_per_m": 20.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.2-astra": {
+      "name": "OpenAI: GPT-6.2 Astra",
+      "slug": "openai-gpt-6-2-astra",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 8.0,
+      "completion_price_per_m": 40.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.2-astra:batch": {
+      "name": "OpenAI: GPT-6.2 Astra (batch)",
+      "slug": "openai-gpt-6-2-astra-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 4.0,
+      "completion_price_per_m": 20.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.2-sol-pro": {
+      "name": "OpenAI: GPT-6.2 Sol Pro",
+      "slug": "openai-gpt-6-2-sol-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.2-sol-pro:batch": {
+      "name": "OpenAI: GPT-6.2 Sol Pro (batch)",
+      "slug": "openai-gpt-6-2-sol-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.2-sol": {
+      "name": "OpenAI: GPT-6.2 Sol",
+      "slug": "openai-gpt-6-2-sol",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.2-sol:batch": {
+      "name": "OpenAI: GPT-6.2 Sol (batch)",
+      "slug": "openai-gpt-6-2-sol-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1050000
+    },
+    "tencent/hy4-flash": {
+      "name": "Tencent: Hy4 flash",
+      "slug": "tencent-hy4-flash",
+      "provider": "Tencent",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.035,
+      "completion_price_per_m": 0.1405,
+      "context_length": 1048576
+    },
+    "qwen/qwen4-max": {
+      "name": "Qwen: Qwen4 Max",
+      "slug": "qwen-qwen4-max",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.425,
+      "completion_price_per_m": 4.275,
+      "context_length": 1000000
+    },
+    "inclusionai/ling-3.2-flash:free": {
+      "name": "inclusionAI: Ling 3.2 Flash (free)",
+      "slug": "inclusionai-ling-3-2-flash-free",
+      "provider": "Inclusionai",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 1048576
+    },
+    "google/gemini-4-hydrogen": {
+      "name": "Google: Gemini 4 Hydrogen",
+      "slug": "google-gemini-4-hydrogen",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 7.5,
+      "context_length": 1048576
+    },
+    "google/gemini-4-hydrogen:batch": {
+      "name": "Google: Gemini 4 Hydrogen (batch)",
+      "slug": "google-gemini-4-hydrogen-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 3.75,
+      "context_length": 1048576
+    },
+    "baidu/ernie-5.5-flash-preview:free": {
+      "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
+      "slug": "baidu-ernie-5-5-flash-preview-free",
+      "provider": "Baidu",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 1024000
+    },
+    "baidu/ernie-light-dt-1.0-intl": {
+      "name": "Baidu: ERNIE-Light-DT-1.0",
+      "slug": "baidu-ernie-light-dt-1-0-intl",
+      "provider": "Baidu",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.13,
+      "completion_price_per_m": 3.94,
+      "context_length": 1024000
+    },
+    "google/gemini-4-carbon": {
+      "name": "Google: Gemini 4 Carbon",
+      "slug": "google-gemini-4-carbon",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1048576
+    },
+    "google/gemini-4-carbon:batch": {
+      "name": "Google: Gemini 4 Carbon (batch)",
+      "slug": "google-gemini-4-carbon-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1048576
+    },
+    "nex-agi/nex-n2.6": {
+      "name": "Nex AGI: Nex-N2.6",
+      "slug": "nex-agi-nex-n2-6",
+      "provider": "Nex Agi",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.12,
+      "completion_price_per_m": 0.4,
+      "context_length": 262144
+    },
+    "thinkingmachines/inkling-2-small": {
+      "name": "Thinking Machines: Inkling 2 Small",
+      "slug": "thinkingmachines-inkling-2-small",
+      "provider": "Thinkingmachines",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 1.0,
+      "context_length": 1048576
+    },
+    "anthropic/claude-fable-5.2": {
+      "name": "Anthropic: Claude Fable 5.2",
+      "slug": "anthropic-claude-fable-5-2",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 8.0,
+      "completion_price_per_m": 40.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-fable-5.2:batch": {
+      "name": "Anthropic: Claude Fable 5.2 (batch)",
+      "slug": "anthropic-claude-fable-5-2-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 4.0,
+      "completion_price_per_m": 20.0,
+      "context_length": 1000000
+    },
+    "meta/muse-ember": {
+      "name": "Meta: Muse Ember",
+      "slug": "meta-muse-ember",
+      "provider": "Meta",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.5,
+      "context_length": 1048576
+    },
+    "liquid/lfm-3-1.7b": {
+      "name": "LiquidAI: LFM3-1.7B",
+      "slug": "liquid-lfm-3-1-7b",
+      "provider": "Liquid",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.08,
+      "completion_price_per_m": 0.2,
+      "context_length": 262144
+    },
+    "liquid/lfm-3-1.7b:free": {
+      "name": "LiquidAI: LFM3-1.7B (free)",
+      "slug": "liquid-lfm-3-1-7b-free",
+      "provider": "Liquid",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 262144
+    },
+    "google/gemini-omni-1.2-flash": {
+      "name": "Google: Gemini Omni 1.2 Flash",
+      "slug": "google-gemini-omni-1-2-flash",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 131072
+    },
+    "kt/midm-k-3.0-pro": {
+      "name": "KT: Mi:dm K 3.0 Pro",
+      "slug": "kt-midm-k-3-0-pro",
+      "provider": "Kt",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 0.8,
+      "context_length": 261795
+    },
+    "google/gemini-omni-1.1-flash": {
+      "name": "Google: Gemini Omni 1.1 Flash",
+      "slug": "google-gemini-omni-1-1-flash",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 131072
+    },
+    "ricursiveai/ripple-65b-preview": {
+      "name": "Ricursive: Ripple 65B Preview",
+      "slug": "ricursiveai-ripple-65b-preview",
+      "provider": "Ricursiveai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.3,
+      "context_length": 1048576
+    },
+    "tencent/hy4": {
+      "name": "Tencent: Hy4",
+      "slug": "tencent-hy4",
+      "provider": "Tencent",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.417,
+      "completion_price_per_m": 1.2505,
+      "context_length": 1048576
+    },
+    "motif-technologies/motif-3": {
+      "name": "Motif Technologies: Motif 3",
+      "slug": "motif-technologies-motif-3",
+      "provider": "Motif Technologies",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 1.2,
+      "context_length": 262144
+    },
+    "z-ai/glm-5.3-flashx-legal": {
+      "name": "Z.ai: GLM 5.3 FlashX Legal",
+      "slug": "z-ai-glm-5-3-flashx-legal",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.37,
+      "completion_price_per_m": 1.25,
+      "context_length": 1048576
+    },
+    "particle-ai/particle-1": {
+      "name": "Particle AI: Particle-1",
+      "slug": "particle-ai-particle-1",
+      "provider": "Particle Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.07,
+      "completion_price_per_m": 0.5,
+      "context_length": 1048576
+    },
+    "particle-ai/particle-1:free": {
+      "name": "Particle AI: Particle-1 (free)",
+      "slug": "particle-ai-particle-1-free",
+      "provider": "Particle Ai",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 1048576
+    },
+    "openai/gpt-6.1-terra-pro": {
+      "name": "OpenAI: GPT-6.1 Terra Pro",
+      "slug": "openai-gpt-6-1-terra-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.1-terra-pro:batch": {
+      "name": "OpenAI: GPT-6.1 Terra Pro (batch)",
+      "slug": "openai-gpt-6-1-terra-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 2.5,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.1-terra": {
+      "name": "OpenAI: GPT-6.1 Terra",
+      "slug": "openai-gpt-6-1-terra",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.1-terra:batch": {
+      "name": "OpenAI: GPT-6.1 Terra (batch)",
+      "slug": "openai-gpt-6-1-terra-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 2.5,
+      "context_length": 1050000
+    },
+    "moonshotai/kimi-k3.1-pro": {
+      "name": "MoonshotAI: Kimi K3.1 Pro",
+      "slug": "moonshotai-kimi-k3-1-pro",
+      "provider": "Moonshotai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2403,
+      "completion_price_per_m": 8.4023,
+      "context_length": 1048576
+    },
+    "moonshotai/kimi-k3.1-pro:batch": {
+      "name": "MoonshotAI: Kimi K3.1 Pro (batch)",
+      "slug": "moonshotai-kimi-k3-1-pro-batch",
+      "provider": "Moonshotai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.372,
+      "completion_price_per_m": 5.583,
+      "context_length": 1048576
+    },
+    "recursive/flint-v1.0:free": {
+      "name": "Recursive: Flint (free)",
+      "slug": "recursive-flint-v1-0-free",
+      "provider": "Recursive",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 262144
+    },
+    "minimax/minimax-m3.1-flash": {
+      "name": "MiniMax: MiniMax M3.1 Flash",
+      "slug": "minimax-minimax-m3-1-flash",
+      "provider": "Minimax",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.6,
+      "context_length": 1048576
+    },
+    "deepseek/deepseek-v4.1-flash-1017": {
+      "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+      "slug": "deepseek-deepseek-v4-1-flash-1017",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 1.2,
+      "context_length": 1048576
+    },
+    "deepseek/deepseek-v4.1-flash-1017:batch": {
+      "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
+      "slug": "deepseek-deepseek-v4-1-flash-1017-batch",
+      "provider": "Deepseek",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.035,
+      "completion_price_per_m": 0.149,
+      "context_length": 1048576
+    },
+    "elorian/glimpse": {
+      "name": "Elorian: Glimpse",
+      "slug": "elorian-glimpse",
+      "provider": "Elorian",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.6,
+      "completion_price_per_m": 3.0,
+      "context_length": 262144
+    },
+    "reflection/beam-1.0-501b-a23b": {
+      "name": "Reflection: Beam 1.0 501B A23B",
+      "slug": "reflection-beam-1-0-501b-a23b",
+      "provider": "Reflection",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 1.0,
+      "context_length": 1048576
+    },
+    "prism-ml/ternary-bonsai-2-9b": {
+      "name": "PrismML: Ternary Bonsai 2 9B",
+      "slug": "prism-ml-ternary-bonsai-2-9b",
+      "provider": "Prism Ml",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.08,
+      "completion_price_per_m": 0.13,
+      "context_length": 262144
+    },
+    "moondream/moondream3-preview": {
+      "name": "Moondream: Moondream 3 Preview",
+      "slug": "moondream-moondream3-preview",
+      "provider": "Moondream",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 2.5,
+      "context_length": 32000
+    },
+    "moondream/moondream3.1-9b-a2b": {
+      "name": "Moondream: Moondream 3.1",
+      "slug": "moondream-moondream3-1-9b-a2b",
+      "provider": "Moondream",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 2.5,
+      "context_length": 32000
+    },
+    "meta/muse-spark-open": {
+      "name": "Meta: Muse Spark Open",
+      "slug": "meta-muse-spark-open",
+      "provider": "Meta",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 4.25,
+      "context_length": 1048576
+    },
+    "nvidia/nemotron-3.5-super-vl": {
+      "name": "NVIDIA: Nemotron 3.5 Super VL",
+      "slug": "nvidia-nemotron-3-5-super-vl",
+      "provider": "Nvidia",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.47,
+      "context_length": 1048576
+    },
+    "nvidia/nemotron-3.5-super-vl:free": {
+      "name": "NVIDIA: Nemotron 3.5 Super VL (free)",
+      "slug": "nvidia-nemotron-3-5-super-vl-free",
+      "provider": "Nvidia",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 1000000
+    },
+    "~unbiased/pareto-latest": {
+      "name": "Pareto Latest",
+      "slug": "unbiased-pareto-latest",
+      "provider": "~Unbiased",
+      "pricing_type": "variable",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 262144
+    },
+    "liquid/lfm-2.5-24b-a2b": {
+      "name": "LiquidAI: LFM2.5-24B-A2B",
+      "slug": "liquid-lfm-2-5-24b-a2b",
+      "provider": "Liquid",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.7,
+      "context_length": 128000
+    },
+    "google/gemini-4-argon": {
+      "name": "Google: Gemini 4 Argon",
+      "slug": "google-gemini-4-argon",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1048576
+    },
+    "google/gemini-4-argon:batch": {
+      "name": "Google: Gemini 4 Argon (batch)",
+      "slug": "google-gemini-4-argon-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1048576
+    },
+    "scaledown/summarize": {
+      "name": "ScaleDown: Summarize",
+      "slug": "scaledown-summarize",
+      "provider": "Scaledown",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.04,
+      "completion_price_per_m": 0.0,
+      "context_length": 1000000
+    },
+    "scaledown/extract": {
+      "name": "ScaleDown: Extract",
+      "slug": "scaledown-extract",
+      "provider": "Scaledown",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.04,
+      "completion_price_per_m": 0.0,
+      "context_length": 1000000
+    },
+    "meta/muse-wonder": {
+      "name": "Meta: Muse Wonder",
+      "slug": "meta-muse-wonder",
+      "provider": "Meta",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 4.0,
+      "completion_price_per_m": 20.0,
+      "context_length": 1048576
+    },
+    "stepfun/step-5-preview": {
+      "name": "StepFun: Step 5 Preview",
+      "slug": "stepfun-step-5-preview",
+      "provider": "Stepfun",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 2.7,
+      "context_length": 1000000
+    },
+    "anthropic/claude-haiku-5.5": {
+      "name": "Anthropic: Claude Haiku 5.5",
+      "slug": "anthropic-claude-haiku-5-5",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.5,
+      "context_length": 1000000
+    },
+    "anthropic/claude-haiku-5.5:batch": {
+      "name": "Anthropic: Claude Haiku 5.5 (batch)",
+      "slug": "anthropic-claude-haiku-5-5-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.25,
+      "context_length": 1000000
+    },
+    "google/gemini-nano-banana-2.1": {
+      "name": "Google: Nano Banana 2.1",
+      "slug": "google-gemini-nano-banana-2-1",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 65536
+    },
+    "mistralai/mistral-large-4-0": {
+      "name": "Mistral: Mistral Large 4",
+      "slug": "mistralai-mistral-large-4-0",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.7,
+      "completion_price_per_m": 2.1,
+      "context_length": 1048576
+    },
+    "inclusionai/ling-3.1-flash": {
+      "name": "inclusionAI: Ling 3.1 Flash",
+      "slug": "inclusionai-ling-3-1-flash",
+      "provider": "Inclusionai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.225,
+      "context_length": 1048576
+    },
+    "openai/gpt-6.1-sol-pro": {
+      "name": "OpenAI: GPT-6.1 Sol Pro",
+      "slug": "openai-gpt-6-1-sol-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.1-sol-pro:batch": {
+      "name": "OpenAI: GPT-6.1 Sol Pro (batch)",
+      "slug": "openai-gpt-6-1-sol-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.1-sol": {
+      "name": "OpenAI: GPT-6.1 Sol",
+      "slug": "openai-gpt-6-1-sol",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6.1-sol:batch": {
+      "name": "OpenAI: GPT-6.1 Sol (batch)",
+      "slug": "openai-gpt-6-1-sol-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1050000
+    },
+    "anthropic/claude-sonnet-5.5": {
+      "name": "Anthropic: Claude Sonnet 5.5",
+      "slug": "anthropic-claude-sonnet-5-5",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-sonnet-5.5:batch": {
+      "name": "Anthropic: Claude Sonnet 5.5 (batch)",
+      "slug": "anthropic-claude-sonnet-5-5-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1000000
+    },
+    "perceptron/perceptron-mk1.5": {
+      "name": "Perceptron: Perceptron Mk1.5",
+      "slug": "perceptron-perceptron-mk1-5",
+      "provider": "Perceptron",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 1.5,
+      "context_length": 36864
+    },
+    "fireworks/ember-1": {
+      "name": "Fireworks: Ember-1",
+      "slug": "fireworks-ember-1",
+      "provider": "Fireworks",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 15.0,
+      "context_length": 1048576
+    },
+    "z-ai/glm-5.3-prime": {
+      "name": "Z.ai: GLM 5.3 Prime",
+      "slug": "z-ai-glm-5-3-prime",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.68,
+      "completion_price_per_m": 5.28,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.8-max-prime": {
+      "name": "Qwen: Qwen3.8 Max Prime",
+      "slug": "qwen-qwen3-8-max-prime",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 4.0,
+      "completion_price_per_m": 12.0,
+      "context_length": 1000000
+    },
+    "aion-labs/aion-3.5-mini": {
+      "name": "AionLabs: Aion 3.5 Mini",
+      "slug": "aion-labs-aion-3-5-mini",
+      "provider": "Aion Labs",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.7,
+      "completion_price_per_m": 1.4,
+      "context_length": 262144
+    },
+    "aion-labs/aion-3.5": {
+      "name": "AionLabs: Aion 3.5",
+      "slug": "aion-labs-aion-3-5",
+      "provider": "Aion Labs",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 262144
+    },
+    "upstage/solar-mini4": {
+      "name": "Upstage: Solar Mini 4",
+      "slug": "upstage-solar-mini4",
+      "provider": "Upstage",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.2,
+      "context_length": 524288
+    },
+    "cohere/command-a-plus": {
+      "name": "Cohere: Command A+",
+      "slug": "cohere-command-a-plus",
+      "provider": "Cohere",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 1.5,
+      "context_length": 192000
+    },
+    "openai/gpt-6-luna-pro": {
+      "name": "OpenAI: GPT-6 Luna Pro",
+      "slug": "openai-gpt-6-luna-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.5,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-luna-pro:batch": {
+      "name": "OpenAI: GPT-6 Luna Pro (batch)",
+      "slug": "openai-gpt-6-luna-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.25,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-luna": {
+      "name": "OpenAI: GPT-6 Luna",
+      "slug": "openai-gpt-6-luna",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.5,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-luna:batch": {
+      "name": "OpenAI: GPT-6 Luna (batch)",
+      "slug": "openai-gpt-6-luna-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.25,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-sol-pro": {
+      "name": "OpenAI: GPT-6 Sol Pro",
+      "slug": "openai-gpt-6-sol-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-sol-pro:batch": {
+      "name": "OpenAI: GPT-6 Sol Pro (batch)",
+      "slug": "openai-gpt-6-sol-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-sol": {
+      "name": "OpenAI: GPT-6 Sol",
+      "slug": "openai-gpt-6-sol",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-sol:batch": {
+      "name": "OpenAI: GPT-6 Sol (batch)",
+      "slug": "openai-gpt-6-sol-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1050000
+    },
+    "anthropic/claude-opus-5.5": {
+      "name": "Anthropic: Claude Opus 5.5",
+      "slug": "anthropic-claude-opus-5-5",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 4.0,
+      "completion_price_per_m": 20.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-opus-5.5:batch": {
+      "name": "Anthropic: Claude Opus 5.5 (batch)",
+      "slug": "anthropic-claude-opus-5-5-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1000000
+    },
+    "xiaomi/mimo-v2.6-pro-ultraspeed": {
+      "name": "Xiaomi: MiMo-V2.6-Pro-UltraSpeed",
+      "slug": "xiaomi-mimo-v2-6-pro-ultraspeed",
+      "provider": "Xiaomi",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 4.35,
+      "completion_price_per_m": 8.7,
+      "context_length": 1048576
+    },
+    "xiaomi/mimo-v2.6-flash": {
+      "name": "Xiaomi: MiMo-V2.6-Flash",
+      "slug": "xiaomi-mimo-v2-6-flash",
+      "provider": "Xiaomi",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.14,
+      "completion_price_per_m": 0.28,
+      "context_length": 1048576
+    },
+    "xiaomi/mimo-v2.6-pro": {
+      "name": "Xiaomi: MiMo-V2.6-Pro",
+      "slug": "xiaomi-mimo-v2-6-pro",
+      "provider": "Xiaomi",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.435,
+      "completion_price_per_m": 0.87,
+      "context_length": 1048576
+    },
+    "x-ai/grok-4.7": {
+      "name": "SpaceXSI: Grok 4.7",
+      "slug": "x-ai-grok-4-7",
+      "provider": "X Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 500000
+    },
+    "x-ai/grok-4.7:batch": {
+      "name": "SpaceXSI: Grok 4.7 (batch)",
+      "slug": "x-ai-grok-4-7-batch",
+      "provider": "X Ai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.6,
+      "completion_price_per_m": 4.8,
+      "context_length": 500000
+    },
+    "qwen/qwen3.8-omni-flash": {
+      "name": "Qwen: Qwen3.8 Omni Flash",
+      "slug": "qwen-qwen3-8-omni-flash",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.47,
+      "context_length": 1000000
+    },
+    "prism-ml/ternary-bonsai-2-27b": {
+      "name": "PrismML: Ternary Bonsai 2 27B",
+      "slug": "prism-ml-ternary-bonsai-2-27b",
+      "provider": "Prism Ml",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.5,
+      "context_length": 262144
+    },
+    "z-ai/glm-5.3-flashx": {
+      "name": "Z.ai: GLM 5.3 FlashX",
+      "slug": "z-ai-glm-5-3-flashx",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.37,
+      "completion_price_per_m": 1.25,
+      "context_length": 1048576
+    },
+    "~deepseek/deepseek-pro-latest": {
+      "name": "DeepSeek: DeepSeek Pro Latest",
+      "slug": "deepseek-deepseek-pro-latest",
+      "provider": "~Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.0999,
+      "completion_price_per_m": 5.0,
+      "context_length": 1048576
+    },
+    "~deepseek/deepseek-flash-latest": {
+      "name": "DeepSeek: DeepSeek Flash Latest",
+      "slug": "deepseek-deepseek-flash-latest",
+      "provider": "~Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.036,
+      "completion_price_per_m": 0.5,
+      "context_length": 1048576
+    },
+    "inference-net/schematron-v2-turbo": {
+      "name": "Inference.net: Schematron V2 Turbo",
+      "slug": "inference-net-schematron-v2-turbo",
+      "provider": "Inference Net",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.03,
+      "completion_price_per_m": 0.15,
+      "context_length": 128000
+    },
+    "inference-net/schematron-v2-small": {
+      "name": "Inference.net: Schematron V2 Small",
+      "slug": "inference-net-schematron-v2-small",
+      "provider": "Inference Net",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.23,
+      "context_length": 128000
+    },
+    "~openai/gpt-astra-latest": {
+      "name": "OpenAI: GPT Astra Latest",
+      "slug": "openai-gpt-astra-latest",
+      "provider": "~Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 8.0,
+      "completion_price_per_m": 40.0,
+      "context_length": 1050000
+    },
+    "~openai/gpt-sol-latest": {
+      "name": "OpenAI: GPT Sol Latest",
+      "slug": "openai-gpt-sol-latest",
+      "provider": "~Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1050000
+    },
+    "~openai/gpt-terra-latest": {
+      "name": "OpenAI: GPT Terra Latest",
+      "slug": "openai-gpt-terra-latest",
+      "provider": "~Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1050000
+    },
+    "~openai/gpt-luna-latest": {
+      "name": "OpenAI: GPT Luna Latest",
+      "slug": "openai-gpt-luna-latest",
+      "provider": "~Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.5,
+      "context_length": 1050000
+    },
+    "sakana/fugu-ultra-v2": {
+      "name": "Sakana: Fugu Ultra v2",
+      "slug": "sakana-fugu-ultra-v2",
+      "provider": "Sakana",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 30.0,
+      "context_length": 1000000
+    },
+    "sakana/fugu-max": {
+      "name": "Sakana: Fugu Max",
+      "slug": "sakana-fugu-max",
+      "provider": "Sakana",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 1000000
+    },
+    "inclusionai/ling-3.0-flash-vl": {
+      "name": "inclusionAI: Ling 3.0 Flash VL",
+      "slug": "inclusionai-ling-3-0-flash-vl",
+      "provider": "Inclusionai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.06,
+      "completion_price_per_m": 0.18,
+      "context_length": 131072
+    },
+    "deepseek/deepseek-v4.1-flash": {
+      "name": "DeepSeek: DeepSeek V4.1 Flash",
+      "slug": "deepseek-deepseek-v4-1-flash",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.14,
+      "completion_price_per_m": 0.42,
+      "context_length": 1048576
+    },
+    "deepseek/deepseek-v4.1-flash:batch": {
+      "name": "DeepSeek: DeepSeek V4.1 Flash (batch)",
+      "slug": "deepseek-deepseek-v4-1-flash-batch",
+      "provider": "Deepseek",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.15,
+      "context_length": 1048576
+    },
+    "nex-agi/nex-n2.5-mini": {
+      "name": "Nex AGI: Nex-N2.5-Mini",
+      "slug": "nex-agi-nex-n2-5-mini",
+      "provider": "Nex Agi",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.025,
+      "completion_price_per_m": 0.1,
+      "context_length": 262144
+    },
+    "nex-agi/nex-n2.5-pro": {
+      "name": "Nex AGI: Nex-N2.5-Pro",
+      "slug": "nex-agi-nex-n2-5-pro",
+      "provider": "Nex Agi",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.25,
+      "context_length": 262144
+    },
+    "openai/gpt-6-astra": {
+      "name": "OpenAI: GPT-6 Astra",
+      "slug": "openai-gpt-6-astra",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 10.0,
+      "completion_price_per_m": 50.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-astra:batch": {
+      "name": "OpenAI: GPT-6 Astra (batch)",
+      "slug": "openai-gpt-6-astra-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 25.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-astra-pro": {
+      "name": "OpenAI: GPT-6 Astra Pro",
+      "slug": "openai-gpt-6-astra-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 10.0,
+      "completion_price_per_m": 50.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-6-astra-pro:batch": {
+      "name": "OpenAI: GPT-6 Astra Pro (batch)",
+      "slug": "openai-gpt-6-astra-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 25.0,
+      "context_length": 1050000
+    },
+    "qwen/qwen3.8-max-0902": {
+      "name": "Qwen: Qwen3.8 Max (0902)",
+      "slug": "qwen-qwen3-8-max-0902",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.8-max-0902:batch": {
+      "name": "Qwen: Qwen3.8 Max (0902) (batch)",
+      "slug": "qwen-qwen3-8-max-0902-batch",
+      "provider": "Qwen",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.15,
+      "completion_price_per_m": 3.45,
+      "context_length": 262144
+    },
+    "meta/muse-spark-1.3-contributor": {
+      "name": "Meta: Muse Spark 1.3 Contributor",
+      "slug": "meta-muse-spark-1-3-contributor",
+      "provider": "Meta",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.2,
+      "context_length": 1048576
+    },
+    "meta/muse-spark-1.3": {
+      "name": "Meta: Muse Spark 1.3",
+      "slug": "meta-muse-spark-1-3",
+      "provider": "Meta",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 4.25,
+      "context_length": 1048576
+    },
+    "google/gemini-3.8-flash": {
+      "name": "Google: Gemini 3.8 Flash",
+      "slug": "google-gemini-3-8-flash",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.825,
+      "completion_price_per_m": 4.125,
+      "context_length": 1048576
+    },
+    "google/gemini-3.8-flash:batch": {
+      "name": "Google: Gemini 3.8 Flash (batch)",
+      "slug": "google-gemini-3-8-flash-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.375,
+      "completion_price_per_m": 1.875,
+      "context_length": 1048576
+    },
+    "anthropic/claude-fable-5.1": {
+      "name": "Anthropic: Claude Fable 5.1",
+      "slug": "anthropic-claude-fable-5-1",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 10.0,
+      "completion_price_per_m": 50.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-fable-5.1:batch": {
+      "name": "Anthropic: Claude Fable 5.1 (batch)",
+      "slug": "anthropic-claude-fable-5-1-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 25.0,
+      "context_length": 1000000
+    },
+    "ibm-granite/granite-4.2-8b": {
+      "name": "IBM: Granite 4.2 8B",
+      "slug": "ibm-granite-granite-4-2-8b",
+      "provider": "Ibm Granite",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.06,
+      "completion_price_per_m": 0.15,
+      "context_length": 131072
+    },
+    "tencent/hy4-preview": {
+      "name": "Tencent: Hy4 preview",
+      "slug": "tencent-hy4-preview",
+      "provider": "Tencent",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.834,
+      "completion_price_per_m": 2.501,
+      "context_length": 1048576
+    },
+    "~z-ai/glm-flash-latest": {
+      "name": "Z.ai: GLM Flash Latest",
+      "slug": "z-ai-glm-flash-latest",
+      "provider": "~Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.0356,
+      "completion_price_per_m": 0.0815,
+      "context_length": 1048576
+    },
+    "qwen/qwen3.8-flash": {
+      "name": "Qwen: Qwen3.8 Flash",
+      "slug": "qwen-qwen3-8-flash",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.47,
+      "context_length": 1000000
+    },
+    "z-ai/glm-5.3-flash": {
+      "name": "Z.ai: GLM 5.3 Flash",
+      "slug": "z-ai-glm-5-3-flash",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.12,
+      "completion_price_per_m": 0.38,
+      "context_length": 1048576
+    },
+    "z-ai/glm-5.3-flash:batch": {
+      "name": "Z.ai: GLM 5.3 Flash (batch)",
+      "slug": "z-ai-glm-5-3-flash-batch",
+      "provider": "Z Ai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.023,
+      "completion_price_per_m": 0.068,
+      "context_length": 1048576
+    },
+    "meta/muse-spark-1.2-contributor": {
+      "name": "Meta: Muse Spark 1.2 Contributor",
+      "slug": "meta-muse-spark-1-2-contributor",
+      "provider": "Meta",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.2,
+      "context_length": 1048576
+    },
+    "deepseek/deepseek-v4-flash-vision-exp": {
+      "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
+      "slug": "deepseek-deepseek-v4-flash-vision-exp",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.44,
+      "completion_price_per_m": 1.32,
+      "context_length": 1048576
+    },
+    "tencent/hy-mt2-1.8b": {
+      "name": "Tencent: Hy-MT2-1.8B",
+      "slug": "tencent-hy-mt2-1-8b",
+      "provider": "Tencent",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.044,
+      "completion_price_per_m": 0.177,
+      "context_length": 8192
+    },
+    "tencent/hy-mt2-30b-a3b": {
+      "name": "Tencent: Hy-MT2-30B-A3B",
+      "slug": "tencent-hy-mt2-30b-a3b",
+      "provider": "Tencent",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.074,
+      "completion_price_per_m": 0.295,
+      "context_length": 8192
+    },
+    "~z-ai/glm-latest": {
+      "name": "Z.ai: GLM Latest",
+      "slug": "z-ai-glm-latest",
+      "provider": "~Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.0699,
+      "completion_price_per_m": 1.4,
+      "context_length": 1048576
+    },
+    "tencent/hy-mt2-7b": {
+      "name": "Tencent: Hy-MT2-7B",
+      "slug": "tencent-hy-mt2-7b",
+      "provider": "Tencent",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.074,
+      "completion_price_per_m": 0.295,
+      "context_length": 8192
+    },
+    "z-ai/glm-5.3": {
+      "name": "Z.ai: GLM 5.3",
+      "slug": "z-ai-glm-5-3",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.0699,
+      "completion_price_per_m": 1.4,
+      "context_length": 1048576
+    },
+    "z-ai/glm-5.3:batch": {
+      "name": "Z.ai: GLM 5.3 (batch)",
+      "slug": "z-ai-glm-5-3-batch",
+      "provider": "Z Ai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.28,
+      "completion_price_per_m": 1.249,
+      "context_length": 1048576
+    },
+    "qwen/qwen3.8-27b": {
+      "name": "Qwen: Qwen3.8 27B",
+      "slug": "qwen-qwen3-8-27b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.035,
+      "completion_price_per_m": 1.5,
+      "context_length": 1024000
+    },
+    "qwen/qwen3.8-27b:batch": {
+      "name": "Qwen: Qwen3.8 27B (batch)",
+      "slug": "qwen-qwen3-8-27b-batch",
+      "provider": "Qwen",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.16,
+      "completion_price_per_m": 2.0,
+      "context_length": 262144
+    },
+    "google/gemini-3.7-flash": {
+      "name": "Google: Gemini 3.7 Flash",
+      "slug": "google-gemini-3-7-flash",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 3.75,
+      "context_length": 1048576
+    },
+    "google/gemini-3.7-flash:batch": {
+      "name": "Google: Gemini 3.7 Flash (batch)",
+      "slug": "google-gemini-3-7-flash-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.375,
+      "completion_price_per_m": 1.875,
+      "context_length": 1048576
+    },
+    "bytedance-seed/seed-2-1-turbo": {
+      "name": "ByteDance Seed: Seed 2.1 Turbo",
+      "slug": "bytedance-seed-seed-2-1-turbo",
+      "provider": "Bytedance Seed",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 2.5,
+      "context_length": 262144
+    },
+    "qwen/qwen3.8-2.4t-a95b": {
+      "name": "Qwen: Qwen3.8 2.4T A95B",
+      "slug": "qwen-qwen3-8-2-4t-a95b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 1048576
+    },
+    "deepseek/deepseek-v4-pro-0813": {
+      "name": "DeepSeek: DeepSeek V4 Pro 0813",
+      "slug": "deepseek-deepseek-v4-pro-0813",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.111,
+      "completion_price_per_m": 4.44,
+      "context_length": 1048576
+    },
+    "x-ai/grok-4.6": {
+      "name": "SpaceXSI: Grok 4.6",
+      "slug": "x-ai-grok-4-6",
+      "provider": "X Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 500000
+    },
+    "x-ai/grok-4.6:batch": {
+      "name": "SpaceXSI: Grok 4.6 (batch)",
+      "slug": "x-ai-grok-4-6-batch",
+      "provider": "X Ai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.6,
+      "completion_price_per_m": 4.8,
+      "context_length": 500000
+    },
+    "nvidia/nemotron-3.5-lightning": {
+      "name": "NVIDIA: Nemotron 3.5 Lightning",
+      "slug": "nvidia-nemotron-3-5-lightning",
+      "provider": "Nvidia",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.07,
+      "completion_price_per_m": 0.2,
+      "context_length": 1048576
+    },
+    "nvidia/nemotron-3.5-lightning:free": {
+      "name": "NVIDIA: Nemotron 3.5 Lightning (free)",
+      "slug": "nvidia-nemotron-3-5-lightning-free",
+      "provider": "Nvidia",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 1000000
+    },
+    "sakana/sakana-namazu": {
+      "name": "Sakana: Sakana Namazu",
+      "slug": "sakana-sakana-namazu",
+      "provider": "Sakana",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.95,
+      "completion_price_per_m": 4.0,
+      "context_length": 262144
+    },
+    "upstage/solar-pro4": {
+      "name": "Upstage: Solar Pro 4",
+      "slug": "upstage-solar-pro4",
+      "provider": "Upstage",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.6,
+      "context_length": 524288
+    },
+    "meta/muse-glimmer-30b": {
+      "name": "Meta: Muse Glimmer 30B",
+      "slug": "meta-muse-glimmer-30b",
+      "provider": "Meta",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.35,
+      "completion_price_per_m": 1.5,
+      "context_length": 131072
+    },
+    "meta/muse-glimmer-30b:batch": {
+      "name": "Meta: Muse Glimmer 30B (batch)",
+      "slug": "meta-muse-glimmer-30b-batch",
+      "provider": "Meta",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.24,
+      "completion_price_per_m": 0.96,
+      "context_length": 131072
+    },
+    "inclusionai/ling-3.0-tiny": {
+      "name": "inclusionAI: Ling 3.0 Tiny",
+      "slug": "inclusionai-ling-3-0-tiny",
+      "provider": "Inclusionai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.015,
+      "completion_price_per_m": 0.045,
+      "context_length": 262144
+    },
+    "meta/muse-spark-1.2": {
+      "name": "Meta: Muse Spark 1.2",
+      "slug": "meta-muse-spark-1-2",
+      "provider": "Meta",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 4.25,
+      "context_length": 1048576
+    },
+    "~deepseek/deepseek-v4-flash-latest": {
+      "name": "DeepSeek: DeepSeek V4 Flash Latest",
+      "slug": "deepseek-deepseek-v4-flash-latest",
+      "provider": "~Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.047,
+      "completion_price_per_m": 0.3,
+      "context_length": 1048576
+    },
+    "deepseek/deepseek-v4-flash-0731": {
+      "name": "DeepSeek: DeepSeek V4 Flash 0731",
+      "slug": "deepseek-deepseek-v4-flash-0731",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.06,
+      "completion_price_per_m": 0.18,
+      "context_length": 1048576
+    },
+    "deepseek/deepseek-v4-flash-0731:batch": {
+      "name": "DeepSeek: DeepSeek V4 Flash 0731 (batch)",
+      "slug": "deepseek-deepseek-v4-flash-0731-batch",
+      "provider": "Deepseek",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.048,
+      "completion_price_per_m": 0.144,
+      "context_length": 1048576
+    },
+    "thinkingmachines/inkling-small": {
+      "name": "Thinking Machines: Inkling Small",
+      "slug": "thinkingmachines-inkling-small",
+      "provider": "Thinkingmachines",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.45,
+      "completion_price_per_m": 1.2,
+      "context_length": 524288
+    },
+    "thinkingmachines/inkling-small:batch": {
+      "name": "Thinking Machines: Inkling Small (batch)",
+      "slug": "thinkingmachines-inkling-small-batch",
+      "provider": "Thinkingmachines",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.36,
+      "completion_price_per_m": 0.96,
+      "context_length": 524288
+    },
+    "qwen/qwen3.7-flash": {
+      "name": "Qwen: Qwen3.7 Flash",
+      "slug": "qwen-qwen3-7-flash",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.03,
+      "completion_price_per_m": 0.13,
+      "context_length": 1000000
+    },
+    "anthropic/claude-opus-5": {
+      "name": "Anthropic: Claude Opus 5",
+      "slug": "anthropic-claude-opus-5",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 25.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-opus-5:batch": {
+      "name": "Anthropic: Claude Opus 5 (batch)",
+      "slug": "anthropic-claude-opus-5-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 12.5,
+      "context_length": 1000000
+    },
+    "inclusionai/ling-3.0-flash": {
+      "name": "inclusionAI: Ling 3.0 Flash",
+      "slug": "inclusionai-ling-3-0-flash",
+      "provider": "Inclusionai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.021,
+      "completion_price_per_m": 0.063,
+      "context_length": 262144
+    },
+    "google/gemini-3.6-flash": {
+      "name": "Google: Gemini 3.6 Flash",
+      "slug": "google-gemini-3-6-flash",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 3.75,
+      "context_length": 1048576
+    },
+    "google/gemini-3.6-flash:batch": {
+      "name": "Google: Gemini 3.6 Flash (batch)",
+      "slug": "google-gemini-3-6-flash-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.375,
+      "completion_price_per_m": 1.875,
+      "context_length": 1048576
+    },
+    "google/gemini-3.5-flash-lite": {
+      "name": "Google: Gemini 3.5 Flash Lite",
+      "slug": "google-gemini-3-5-flash-lite",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 2.5,
+      "context_length": 1048576
+    },
+    "google/gemini-3.5-flash-lite:batch": {
+      "name": "Google: Gemini 3.5 Flash Lite (batch)",
+      "slug": "google-gemini-3-5-flash-lite-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 1.25,
+      "context_length": 1048576
+    },
+    "thinkingmachines/inkling": {
+      "name": "Thinking Machines: Inkling",
+      "slug": "thinkingmachines-inkling",
+      "provider": "Thinkingmachines",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 4.05,
+      "context_length": 1048576
+    },
+    "moonshotai/kimi-k3": {
+      "name": "MoonshotAI: Kimi K3",
+      "slug": "moonshotai-kimi-k3",
+      "provider": "Moonshotai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.192,
+      "completion_price_per_m": 16.0,
+      "context_length": 1048576
+    },
+    "moonshotai/kimi-k3:batch": {
+      "name": "MoonshotAI: Kimi K3 (batch)",
+      "slug": "moonshotai-kimi-k3-batch",
+      "provider": "Moonshotai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.28,
+      "completion_price_per_m": 11.4,
+      "context_length": 1048576
+    },
+    "meta/muse-spark-1.1": {
+      "name": "Meta: Muse Spark 1.1",
+      "slug": "meta-muse-spark-1-1",
+      "provider": "Meta",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 4.25,
+      "context_length": 1048576
+    },
+    "openai/gpt-5.6-luna-pro": {
+      "name": "OpenAI: GPT-5.6 Luna Pro",
+      "slug": "openai-gpt-5-6-luna-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 1.2,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-luna-pro:batch": {
+      "name": "OpenAI: GPT-5.6 Luna Pro (batch)",
+      "slug": "openai-gpt-5-6-luna-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.6,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-luna": {
+      "name": "OpenAI: GPT-5.6 Luna",
+      "slug": "openai-gpt-5-6-luna",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 1.2,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-luna:batch": {
+      "name": "OpenAI: GPT-5.6 Luna (batch)",
+      "slug": "openai-gpt-5-6-luna-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.6,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-terra-pro": {
+      "name": "OpenAI: GPT-5.6 Terra Pro",
+      "slug": "openai-gpt-5-6-terra-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 12.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-terra-pro:batch": {
+      "name": "OpenAI: GPT-5.6 Terra Pro (batch)",
+      "slug": "openai-gpt-5-6-terra-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-terra": {
+      "name": "OpenAI: GPT-5.6 Terra",
+      "slug": "openai-gpt-5-6-terra",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 12.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-terra:batch": {
+      "name": "OpenAI: GPT-5.6 Terra (batch)",
+      "slug": "openai-gpt-5-6-terra-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-sol-pro": {
+      "name": "OpenAI: GPT-5.6 Sol Pro",
+      "slug": "openai-gpt-5-6-sol-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 4.0,
+      "completion_price_per_m": 20.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-sol-pro:batch": {
+      "name": "OpenAI: GPT-5.6 Sol Pro (batch)",
+      "slug": "openai-gpt-5-6-sol-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-sol": {
+      "name": "OpenAI: GPT-5.6 Sol",
+      "slug": "openai-gpt-5-6-sol",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 4.0,
+      "completion_price_per_m": 20.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.6-sol:batch": {
+      "name": "OpenAI: GPT-5.6 Sol (batch)",
+      "slug": "openai-gpt-5-6-sol-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1050000
+    },
+    "x-ai/grok-4.5": {
+      "name": "SpaceXSI: Grok 4.5",
+      "slug": "x-ai-grok-4-5",
+      "provider": "X Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 500000
+    },
+    "~x-ai/grok-latest": {
+      "name": "xAI: Grok Latest",
+      "slug": "x-ai-grok-latest",
+      "provider": "~X Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 500000
+    },
+    "aion-labs/aion-3.0-mini": {
+      "name": "AionLabs: Aion-3.0-Mini",
+      "slug": "aion-labs-aion-3-0-mini",
+      "provider": "Aion Labs",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.7,
+      "completion_price_per_m": 1.4,
+      "context_length": 131072
+    },
+    "aion-labs/aion-3.0": {
+      "name": "AionLabs: Aion-3.0",
+      "slug": "aion-labs-aion-3-0",
+      "provider": "Aion Labs",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 131072
+    },
+    "tencent/hy3": {
+      "name": "Tencent: Hy3",
+      "slug": "tencent-hy3",
+      "provider": "Tencent",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.132,
+      "completion_price_per_m": 0.528,
+      "context_length": 262144
+    },
+    "anthropic/claude-sonnet-5": {
+      "name": "Anthropic: Claude Sonnet 5",
+      "slug": "anthropic-claude-sonnet-5",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-sonnet-5:batch": {
+      "name": "Anthropic: Claude Sonnet 5 (batch)",
+      "slug": "anthropic-claude-sonnet-5-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 1000000
+    },
+    "google/gemini-3.1-flash-lite-image": {
+      "name": "Google: Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+      "slug": "google-gemini-3-1-flash-lite-image",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 65536
+    },
+    "sakana/fugu-ultra": {
+      "name": "Sakana: Fugu Ultra",
+      "slug": "sakana-fugu-ultra",
+      "provider": "Sakana",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 30.0,
+      "context_length": 1000000
+    },
+    "google/gemini-3.1-flash-image": {
+      "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image)",
+      "slug": "google-gemini-3-1-flash-image",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 131072
+    },
+    "google/gemini-3-pro-image": {
+      "name": "Google: Nano Banana Pro (Gemini 3 Pro Image)",
+      "slug": "google-gemini-3-pro-image",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 131072
+    },
+    "z-ai/glm-5.2": {
+      "name": "Z.ai: GLM 5.2",
+      "slug": "z-ai-glm-5-2",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.62,
+      "completion_price_per_m": 2.42,
+      "context_length": 1048576
+    },
+    "z-ai/glm-5.2:batch": {
+      "name": "Z.ai: GLM 5.2 (batch)",
+      "slug": "z-ai-glm-5-2-batch",
+      "provider": "Z Ai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.322,
+      "completion_price_per_m": 0.989,
+      "context_length": 1048576
+    },
+    "moonshotai/kimi-k2.7-code": {
+      "name": "MoonshotAI: Kimi K2.7 Code",
+      "slug": "moonshotai-kimi-k2-7-code",
+      "provider": "Moonshotai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.6,
+      "completion_price_per_m": 3.0,
+      "context_length": 262144
+    },
+    "~anthropic/claude-fable-latest": {
+      "name": "Anthropic: Claude Fable Latest",
+      "slug": "anthropic-claude-fable-latest",
+      "provider": "~Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 8.0,
+      "completion_price_per_m": 40.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-fable-5": {
+      "name": "Anthropic: Claude Fable 5",
+      "slug": "anthropic-claude-fable-5",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 10.0,
+      "completion_price_per_m": 50.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-fable-5:batch": {
+      "name": "Anthropic: Claude Fable 5 (batch)",
+      "slug": "anthropic-claude-fable-5-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 25.0,
+      "context_length": 1000000
+    },
+    "nvidia/nemotron-3.5-content-safety": {
+      "name": "NVIDIA: Nemotron 3.5 Content Safety",
+      "slug": "nvidia-nemotron-3-5-content-safety",
+      "provider": "Nvidia",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 0.2,
+      "context_length": 131072
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b": {
+      "name": "NVIDIA: Nemotron 3 Ultra",
+      "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+      "provider": "Nvidia",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 2.2,
+      "context_length": 262144
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free": {
+      "name": "NVIDIA: Nemotron 3 Ultra (free)",
+      "slug": "nvidia-nemotron-3-ultra-550b-a55b-free",
+      "provider": "Nvidia",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.7-plus": {
+      "name": "Qwen: Qwen3.7 Plus",
+      "slug": "qwen-qwen3-7-plus",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.32,
+      "completion_price_per_m": 1.28,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.7-plus:batch": {
+      "name": "Qwen: Qwen3.7 Plus (batch)",
+      "slug": "qwen-qwen3-7-plus-batch",
+      "provider": "Qwen",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.23,
+      "completion_price_per_m": 0.92,
+      "context_length": 262144
+    },
+    "minimax/minimax-m3": {
+      "name": "MiniMax: MiniMax M3",
+      "slug": "minimax-minimax-m3",
+      "provider": "Minimax",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 1.2,
+      "context_length": 1048576
+    },
+    "minimax/minimax-m3:batch": {
+      "name": "MiniMax: MiniMax M3 (batch)",
+      "slug": "minimax-minimax-m3-batch",
+      "provider": "Minimax",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.224,
+      "completion_price_per_m": 0.88,
+      "context_length": 524288
+    },
+    "stepfun/step-3.7-flash": {
+      "name": "StepFun: Step 3.7 Flash",
+      "slug": "stepfun-step-3-7-flash",
+      "provider": "Stepfun",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 1.15,
+      "context_length": 256000
+    },
+    "anthropic/claude-opus-4.8": {
+      "name": "Anthropic: Claude Opus 4.8",
+      "slug": "anthropic-claude-opus-4-8",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 25.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-opus-4.8:batch": {
+      "name": "Anthropic: Claude Opus 4.8 (batch)",
+      "slug": "anthropic-claude-opus-4-8-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 12.5,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.7-max": {
+      "name": "Qwen: Qwen3.7 Max",
+      "slug": "qwen-qwen3-7-max",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.475,
+      "completion_price_per_m": 4.425,
+      "context_length": 1000000
+    },
+    "google/gemini-3.5-flash": {
+      "name": "Google: Gemini 3.5 Flash",
+      "slug": "google-gemini-3-5-flash",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 9.0,
+      "context_length": 1048576
+    },
+    "google/gemini-3.5-flash:batch": {
+      "name": "Google: Gemini 3.5 Flash (batch)",
+      "slug": "google-gemini-3-5-flash-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 4.5,
+      "context_length": 1048576
+    },
+    "perceptron/perceptron-mk1": {
+      "name": "Perceptron: Perceptron Mk1",
+      "slug": "perceptron-perceptron-mk1",
+      "provider": "Perceptron",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 1.5,
+      "context_length": 32768
+    },
+    "google/gemini-3.1-flash-lite": {
+      "name": "Google: Gemini 3.1 Flash Lite",
+      "slug": "google-gemini-3-1-flash-lite",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 1.5,
+      "context_length": 1048576
+    },
+    "google/gemini-3.1-flash-lite:batch": {
+      "name": "Google: Gemini 3.1 Flash Lite (batch)",
+      "slug": "google-gemini-3-1-flash-lite-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.125,
+      "completion_price_per_m": 0.75,
+      "context_length": 1048576
+    },
+    "openai/gpt-chat-latest": {
+      "name": "OpenAI: GPT Chat Latest",
+      "slug": "openai-gpt-chat-latest",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 30.0,
+      "context_length": 400000
+    },
+    "x-ai/grok-4.3": {
+      "name": "SpaceXSI: Grok 4.3",
+      "slug": "x-ai-grok-4-3",
+      "provider": "X Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 2.5,
+      "context_length": 1000000
+    },
+    "x-ai/grok-4.3:batch": {
+      "name": "SpaceXSI: Grok 4.3 (batch)",
+      "slug": "x-ai-grok-4-3-batch",
+      "provider": "X Ai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 2.0,
+      "context_length": 1000000
+    },
+    "mistralai/mistral-medium-3-5": {
+      "name": "Mistral: Mistral Medium 3.5",
+      "slug": "mistralai-mistral-medium-3-5",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 7.5,
+      "context_length": 262144
+    },
+    "mistralai/mistral-medium-3-5:batch": {
+      "name": "Mistral: Mistral Medium 3.5 (batch)",
+      "slug": "mistralai-mistral-medium-3-5-batch",
+      "provider": "Mistralai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 3.75,
+      "context_length": 262144
+    },
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": {
+      "name": "NVIDIA: Nemotron 3 Nano Omni (free)",
+      "slug": "nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-free",
+      "provider": "Nvidia",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 256000
+    },
+    "~anthropic/claude-haiku-latest": {
+      "name": "Anthropic: Claude Haiku Latest",
+      "slug": "anthropic-claude-haiku-latest",
+      "provider": "~Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.5,
+      "context_length": 1000000
+    },
+    "~openai/gpt-mini-latest": {
+      "name": "OpenAI: GPT Mini Latest",
+      "slug": "openai-gpt-mini-latest",
+      "provider": "~Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 4.5,
+      "context_length": 400000
+    },
+    "~google/gemini-pro-latest": {
+      "name": "Google: Gemini Pro Latest",
+      "slug": "google-gemini-pro-latest",
+      "provider": "~Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1048576
+    },
+    "~moonshotai/kimi-latest": {
+      "name": "MoonshotAI: Kimi Latest",
+      "slug": "moonshotai-kimi-latest",
+      "provider": "~Moonshotai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1824,
+      "completion_price_per_m": 11.0055,
+      "context_length": 1048576
+    },
+    "~google/gemini-flash-latest": {
+      "name": "Google: Gemini Flash Latest",
+      "slug": "google-gemini-flash-latest",
+      "provider": "~Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 7.5,
+      "context_length": 1048576
+    },
+    "~anthropic/claude-sonnet-latest": {
+      "name": "Anthropic: Claude Sonnet Latest",
+      "slug": "anthropic-claude-sonnet-latest",
+      "provider": "~Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 10.0,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.5-plus-20260420": {
+      "name": "Qwen: Qwen3.5 Plus 2026-04-20",
+      "slug": "qwen-qwen3-5-plus-20260420",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 1.8,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.6-flash": {
+      "name": "Qwen: Qwen3.6 Flash",
+      "slug": "qwen-qwen3-6-flash",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1875,
+      "completion_price_per_m": 1.125,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.6-35b-a3b": {
+      "name": "Qwen: Qwen3.6 35B A3B",
+      "slug": "qwen-qwen3-6-35b-a3b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.89,
+      "context_length": 262144
+    },
+    "qwen/qwen3.6-27b": {
+      "name": "Qwen: Qwen3.6 27B",
+      "slug": "qwen-qwen3-6-27b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.32,
+      "completion_price_per_m": 3.2,
+      "context_length": 262144
+    },
+    "openai/gpt-5.5-pro": {
+      "name": "OpenAI: GPT-5.5 Pro",
+      "slug": "openai-gpt-5-5-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 30.0,
+      "completion_price_per_m": 180.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.5-pro:batch": {
+      "name": "OpenAI: GPT-5.5 Pro (batch)",
+      "slug": "openai-gpt-5-5-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 15.0,
+      "completion_price_per_m": 90.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.5": {
+      "name": "OpenAI: GPT-5.5",
+      "slug": "openai-gpt-5-5",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 30.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.5:batch": {
+      "name": "OpenAI: GPT-5.5 (batch)",
+      "slug": "openai-gpt-5-5-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 15.0,
+      "context_length": 1050000
+    },
+    "deepseek/deepseek-v4-pro": {
+      "name": "DeepSeek: DeepSeek V4 Pro 0423",
+      "slug": "deepseek-deepseek-v4-pro",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.888188,
+      "completion_price_per_m": 1.5082,
+      "context_length": 1048576
+    },
+    "deepseek/deepseek-v4-flash": {
+      "name": "DeepSeek: DeepSeek V4 Flash 0423",
+      "slug": "deepseek-deepseek-v4-flash",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.09,
+      "completion_price_per_m": 0.18,
+      "context_length": 1048576
+    },
+    "openai/gpt-5.4-image-2": {
+      "name": "OpenAI: GPT-5.4 Image 2",
+      "slug": "openai-gpt-5-4-image-2",
+      "provider": "Openai",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 272000
+    },
+    "~anthropic/claude-opus-latest": {
+      "name": "Anthropic: Claude Opus Latest",
+      "slug": "anthropic-claude-opus-latest",
+      "provider": "~Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 4.0,
+      "completion_price_per_m": 20.0,
+      "context_length": 1000000
+    },
+    "moonshotai/kimi-k2.6": {
+      "name": "MoonshotAI: Kimi K2.6",
+      "slug": "moonshotai-kimi-k2-6",
+      "provider": "Moonshotai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.65,
+      "completion_price_per_m": 3.41,
+      "context_length": 262144
+    },
+    "anthropic/claude-opus-4.7": {
+      "name": "Anthropic: Claude Opus 4.7",
+      "slug": "anthropic-claude-opus-4-7",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 25.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-opus-4.7:batch": {
+      "name": "Anthropic: Claude Opus 4.7 (batch)",
+      "slug": "anthropic-claude-opus-4-7-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 12.5,
+      "context_length": 1000000
+    },
+    "z-ai/glm-5.1": {
+      "name": "Z.ai: GLM 5.1",
+      "slug": "z-ai-glm-5-1",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.4,
+      "completion_price_per_m": 4.4,
+      "context_length": 204800
+    },
+    "google/gemma-4-26b-a4b-it": {
+      "name": "Google: Gemma 4 26B A4B",
+      "slug": "google-gemma-4-26b-a4b-it",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.0765,
+      "completion_price_per_m": 0.255,
+      "context_length": 262144
+    },
+    "google/gemma-4-26b-a4b-it:free": {
+      "name": "Google: Gemma 4 26B A4B  (free)",
+      "slug": "google-gemma-4-26b-a4b-it-free",
+      "provider": "Google",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 262144
+    },
+    "google/gemma-4-31b-it": {
+      "name": "Google: Gemma 4 31B",
+      "slug": "google-gemma-4-31b-it",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 0.4,
+      "context_length": 262144
+    },
+    "google/gemma-4-31b-it:free": {
+      "name": "Google: Gemma 4 31B (free)",
+      "slug": "google-gemma-4-31b-it-free",
+      "provider": "Google",
+      "pricing_type": "limited_free",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 262144
+    },
+    "qwen/qwen3.6-plus": {
+      "name": "Qwen: Qwen3.6 Plus",
+      "slug": "qwen-qwen3-6-plus",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.325,
+      "completion_price_per_m": 1.95,
+      "context_length": 1000000
+    },
+    "z-ai/glm-5v-turbo": {
+      "name": "Z.ai: GLM 5V Turbo",
+      "slug": "z-ai-glm-5v-turbo",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.2,
+      "completion_price_per_m": 4.0,
+      "context_length": 202752
+    },
+    "x-ai/grok-4.20-multi-agent": {
+      "name": "SpaceXSI: Grok 4.20 Multi-Agent",
+      "slug": "x-ai-grok-4-20-multi-agent",
+      "provider": "X Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 2.5,
+      "context_length": 2000000
+    },
+    "x-ai/grok-4.20": {
+      "name": "SpaceXSI: Grok 4.20",
+      "slug": "x-ai-grok-4-20",
+      "provider": "X Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 2.5,
+      "context_length": 2000000
+    },
+    "google/lyria-3-pro-preview": {
+      "name": "Google: Lyria 3 Pro Preview",
+      "slug": "google-lyria-3-pro-preview",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 1048576
+    },
+    "google/lyria-3-clip-preview": {
+      "name": "Google: Lyria 3 Clip Preview",
+      "slug": "google-lyria-3-clip-preview",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 1048576
+    },
+    "rekaai/reka-edge": {
+      "name": "Reka Edge",
+      "slug": "rekaai-reka-edge",
+      "provider": "Rekaai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.1,
+      "context_length": 16384
+    },
+    "minimax/minimax-m2.7": {
+      "name": "MiniMax: MiniMax M2.7",
+      "slug": "minimax-minimax-m2-7",
+      "provider": "Minimax",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.6,
+      "completion_price_per_m": 1.8,
+      "context_length": 196608
+    },
+    "openai/gpt-5.4-nano": {
+      "name": "OpenAI: GPT-5.4 Nano",
+      "slug": "openai-gpt-5-4-nano",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 1.25,
+      "context_length": 400000
+    },
+    "openai/gpt-5.4-nano:batch": {
+      "name": "OpenAI: GPT-5.4 Nano (batch)",
+      "slug": "openai-gpt-5-4-nano-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.625,
+      "context_length": 400000
+    },
+    "openai/gpt-5.4-mini": {
+      "name": "OpenAI: GPT-5.4 Mini",
+      "slug": "openai-gpt-5-4-mini",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.75,
+      "completion_price_per_m": 4.5,
+      "context_length": 400000
+    },
+    "openai/gpt-5.4-mini:batch": {
+      "name": "OpenAI: GPT-5.4 Mini (batch)",
+      "slug": "openai-gpt-5-4-mini-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.375,
+      "completion_price_per_m": 2.25,
+      "context_length": 400000
+    },
+    "mistralai/mistral-small-2603": {
+      "name": "Mistral: Mistral Small 4",
+      "slug": "mistralai-mistral-small-2603",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.6,
+      "context_length": 262144
+    },
+    "mistralai/mistral-small-2603:batch": {
+      "name": "Mistral: Mistral Small 4 (batch)",
+      "slug": "mistralai-mistral-small-2603-batch",
+      "provider": "Mistralai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.3,
+      "context_length": 262144
+    },
+    "z-ai/glm-5-turbo": {
+      "name": "Z.ai: GLM 5 Turbo",
+      "slug": "z-ai-glm-5-turbo",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.2,
+      "completion_price_per_m": 4.0,
+      "context_length": 202752
+    },
+    "nvidia/nemotron-3-super-120b-a12b": {
+      "name": "NVIDIA: Nemotron 3 Super",
+      "slug": "nvidia-nemotron-3-super-120b-a12b",
+      "provider": "Nvidia",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.4,
+      "context_length": 262144
+    },
+    "bytedance-seed/seed-2.0-lite": {
+      "name": "ByteDance Seed: Seed-2.0-Lite",
+      "slug": "bytedance-seed-seed-2-0-lite",
+      "provider": "Bytedance Seed",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 2.0,
+      "context_length": 262144
+    },
+    "qwen/qwen3.5-9b": {
+      "name": "Qwen: Qwen3.5-9B",
+      "slug": "qwen-qwen3-5-9b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.25,
+      "context_length": 262144
+    },
+    "openai/gpt-5.4-pro": {
+      "name": "OpenAI: GPT-5.4 Pro",
+      "slug": "openai-gpt-5-4-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 30.0,
+      "completion_price_per_m": 180.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.4-pro:batch": {
+      "name": "OpenAI: GPT-5.4 Pro (batch)",
+      "slug": "openai-gpt-5-4-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 15.0,
+      "completion_price_per_m": 90.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.4": {
+      "name": "OpenAI: GPT-5.4",
+      "slug": "openai-gpt-5-4",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 15.0,
+      "context_length": 1050000
+    },
+    "openai/gpt-5.4:batch": {
+      "name": "OpenAI: GPT-5.4 (batch)",
+      "slug": "openai-gpt-5-4-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 7.5,
+      "context_length": 1050000
+    },
+    "google/gemini-3.1-flash-lite-preview": {
+      "name": "Google: Gemini 3.1 Flash Lite Preview",
+      "slug": "google-gemini-3-1-flash-lite-preview",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 1.5,
+      "context_length": 1048576
+    },
+    "bytedance-seed/seed-2.0-mini": {
+      "name": "ByteDance Seed: Seed-2.0-Mini",
+      "slug": "bytedance-seed-seed-2-0-mini",
+      "provider": "Bytedance Seed",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.4,
+      "context_length": 262144
+    },
+    "google/gemini-3.1-flash-image-preview": {
+      "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image Preview)",
+      "slug": "google-gemini-3-1-flash-image-preview",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 65536
+    },
+    "qwen/qwen3.5-35b-a3b": {
+      "name": "Qwen: Qwen3.5-35B-A3B",
+      "slug": "qwen-qwen3-5-35b-a3b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.14,
+      "completion_price_per_m": 1.0,
+      "context_length": 262144
+    },
+    "qwen/qwen3.5-27b": {
+      "name": "Qwen: Qwen3.5-27B",
+      "slug": "qwen-qwen3-5-27b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.26,
+      "completion_price_per_m": 2.6,
+      "context_length": 262144
+    },
+    "qwen/qwen3.5-122b-a10b": {
+      "name": "Qwen: Qwen3.5-122B-A10B",
+      "slug": "qwen-qwen3-5-122b-a10b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.26,
+      "completion_price_per_m": 2.08,
+      "context_length": 262144
+    },
+    "qwen/qwen3.5-flash-02-23": {
+      "name": "Qwen: Qwen3.5-Flash",
+      "slug": "qwen-qwen3-5-flash-02-23",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.065,
+      "completion_price_per_m": 0.26,
+      "context_length": 1000000
+    },
+    "google/gemini-3.1-pro-preview-customtools": {
+      "name": "Google: Gemini 3.1 Pro Preview Custom Tools",
+      "slug": "google-gemini-3-1-pro-preview-customtools",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 12.0,
+      "context_length": 1048576
+    },
+    "openai/gpt-5.3-codex": {
+      "name": "OpenAI: GPT-5.3-Codex",
+      "slug": "openai-gpt-5-3-codex",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.75,
+      "completion_price_per_m": 14.0,
+      "context_length": 400000
+    },
+    "aion-labs/aion-2.0": {
+      "name": "AionLabs: Aion-2.0",
+      "slug": "aion-labs-aion-2-0",
+      "provider": "Aion Labs",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.8,
+      "completion_price_per_m": 1.6,
+      "context_length": 131072
+    },
+    "google/gemini-3.1-pro-preview": {
+      "name": "Google: Gemini 3.1 Pro Preview",
+      "slug": "google-gemini-3-1-pro-preview",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 12.0,
+      "context_length": 1048576
+    },
+    "google/gemini-3.1-pro-preview:batch": {
+      "name": "Google: Gemini 3.1 Pro Preview (batch)",
+      "slug": "google-gemini-3-1-pro-preview-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 1048576
+    },
+    "anthropic/claude-sonnet-4.6": {
+      "name": "Anthropic: Claude Sonnet 4.6",
+      "slug": "anthropic-claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 15.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-sonnet-4.6:batch": {
+      "name": "Anthropic: Claude Sonnet 4.6 (batch)",
+      "slug": "anthropic-claude-sonnet-4-6-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 7.5,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.5-plus-02-15": {
+      "name": "Qwen: Qwen3.5 Plus 2026-02-15",
+      "slug": "qwen-qwen3-5-plus-02-15",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.26,
+      "completion_price_per_m": 1.56,
+      "context_length": 1000000
+    },
+    "qwen/qwen3.5-397b-a17b": {
+      "name": "Qwen: Qwen3.5 397B A17B",
+      "slug": "qwen-qwen3-5-397b-a17b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 3.6,
+      "context_length": 262144
+    },
+    "minimax/minimax-m2.5": {
+      "name": "MiniMax: MiniMax M2.5",
+      "slug": "minimax-minimax-m2-5",
+      "provider": "Minimax",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 1.2,
+      "context_length": 65536
+    },
+    "z-ai/glm-5": {
+      "name": "Z.ai: GLM 5",
+      "slug": "z-ai-glm-5",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 3.2,
+      "context_length": 204800
+    },
+    "anthropic/claude-opus-4.6": {
+      "name": "Anthropic: Claude Opus 4.6",
+      "slug": "anthropic-claude-opus-4-6",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 25.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-opus-4.6:batch": {
+      "name": "Anthropic: Claude Opus 4.6 (batch)",
+      "slug": "anthropic-claude-opus-4-6-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 12.5,
+      "context_length": 1000000
+    },
+    "qwen/qwen3-coder-next": {
+      "name": "Qwen: Qwen3 Coder Next",
+      "slug": "qwen-qwen3-coder-next",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.12,
+      "completion_price_per_m": 0.8,
+      "context_length": 262144
+    },
+    "moonshotai/kimi-k2.5": {
+      "name": "MoonshotAI: Kimi K2.5",
+      "slug": "moonshotai-kimi-k2-5",
+      "provider": "Moonshotai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 2.5,
+      "context_length": 262144
+    },
+    "writer/palmyra-x5": {
+      "name": "Writer: Palmyra X5",
+      "slug": "writer-palmyra-x5",
+      "provider": "Writer",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.6,
+      "completion_price_per_m": 6.0,
+      "context_length": 1040000
+    },
+    "openai/gpt-audio": {
+      "name": "OpenAI: GPT Audio",
+      "slug": "openai-gpt-audio",
+      "provider": "Openai",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 128000
+    },
+    "openai/gpt-audio-mini": {
+      "name": "OpenAI: GPT Audio Mini",
+      "slug": "openai-gpt-audio-mini",
+      "provider": "Openai",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 128000
+    },
+    "z-ai/glm-4.7-flash": {
+      "name": "Z.ai: GLM 4.7 Flash",
+      "slug": "z-ai-glm-4-7-flash",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.0605,
+      "completion_price_per_m": 0.4,
+      "context_length": 131072
+    },
+    "openai/gpt-5.2-codex": {
+      "name": "OpenAI: GPT-5.2-Codex",
+      "slug": "openai-gpt-5-2-codex",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.75,
+      "completion_price_per_m": 14.0,
+      "context_length": 400000
+    },
+    "z-ai/glm-4.7": {
+      "name": "Z.ai: GLM 4.7",
+      "slug": "z-ai-glm-4-7",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.6,
+      "completion_price_per_m": 2.2,
+      "context_length": 204800
+    },
+    "google/gemini-3-flash-preview": {
+      "name": "Google: Gemini 3 Flash Preview",
+      "slug": "google-gemini-3-flash-preview",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 3.0,
+      "context_length": 1048576
+    },
+    "google/gemini-3-flash-preview:batch": {
+      "name": "Google: Gemini 3 Flash Preview (batch)",
+      "slug": "google-gemini-3-flash-preview-batch",
+      "provider": "Google",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 1.5,
+      "context_length": 1048576
+    },
+    "nvidia/nemotron-3-nano-30b-a3b": {
+      "name": "NVIDIA: Nemotron 3 Nano 30B A3B",
+      "slug": "nvidia-nemotron-3-nano-30b-a3b",
+      "provider": "Nvidia",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.06,
+      "completion_price_per_m": 0.24,
+      "context_length": 262144
+    },
+    "openai/gpt-5.2-chat": {
+      "name": "OpenAI: GPT-5.2 Chat",
+      "slug": "openai-gpt-5-2-chat",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.75,
+      "completion_price_per_m": 14.0,
+      "context_length": 128000
+    },
+    "openai/gpt-5.2-pro": {
+      "name": "OpenAI: GPT-5.2 Pro",
+      "slug": "openai-gpt-5-2-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 21.0,
+      "completion_price_per_m": 168.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5.2-pro:batch": {
+      "name": "OpenAI: GPT-5.2 Pro (batch)",
+      "slug": "openai-gpt-5-2-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 10.5,
+      "completion_price_per_m": 84.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5.2": {
+      "name": "OpenAI: GPT-5.2",
+      "slug": "openai-gpt-5-2",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.75,
+      "completion_price_per_m": 14.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5.2:batch": {
+      "name": "OpenAI: GPT-5.2 (batch)",
+      "slug": "openai-gpt-5-2-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.875,
+      "completion_price_per_m": 7.0,
+      "context_length": 400000
+    },
+    "mistralai/devstral-2512": {
+      "name": "Mistral: Devstral 2 2512",
+      "slug": "mistralai-devstral-2512",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.4,
+      "completion_price_per_m": 2.0,
+      "context_length": 262144
+    },
+    "relace/relace-search": {
+      "name": "Relace: Relace Search",
+      "slug": "relace-relace-search",
+      "provider": "Relace",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 3.0,
+      "context_length": 256000
+    },
+    "z-ai/glm-4.6v": {
+      "name": "Z.ai: GLM 4.6V",
+      "slug": "z-ai-glm-4-6v",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 0.9,
+      "context_length": 131072
+    },
+    "openai/gpt-5.1-codex-max": {
+      "name": "OpenAI: GPT-5.1-Codex-Max",
+      "slug": "openai-gpt-5-1-codex-max",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 10.0,
+      "context_length": 400000
+    },
+    "amazon/nova-2-lite-v1": {
+      "name": "Amazon: Nova 2 Lite",
+      "slug": "amazon-nova-2-lite-v1",
+      "provider": "Amazon",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 2.5,
+      "context_length": 1000000
+    },
+    "mistralai/ministral-14b-2512": {
+      "name": "Mistral: Ministral 3 14B 2512",
+      "slug": "mistralai-ministral-14b-2512",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 0.2,
+      "context_length": 262144
+    },
+    "mistralai/ministral-8b-2512": {
+      "name": "Mistral: Ministral 3 8B 2512",
+      "slug": "mistralai-ministral-8b-2512",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.15,
+      "context_length": 262144
+    },
+    "mistralai/ministral-8b-2512:batch": {
+      "name": "Mistral: Ministral 3 8B 2512 (batch)",
+      "slug": "mistralai-ministral-8b-2512-batch",
+      "provider": "Mistralai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.075,
+      "context_length": 262144
+    },
+    "mistralai/ministral-3b-2512": {
+      "name": "Mistral: Ministral 3 3B 2512",
+      "slug": "mistralai-ministral-3b-2512",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.1,
+      "context_length": 131072
+    },
+    "mistralai/mistral-large-2512": {
+      "name": "Mistral: Mistral Large 3 2512",
+      "slug": "mistralai-mistral-large-2512",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 1.5,
+      "context_length": 262144
+    },
+    "mistralai/mistral-large-2512:batch": {
+      "name": "Mistral: Mistral Large 3 2512 (batch)",
+      "slug": "mistralai-mistral-large-2512-batch",
+      "provider": "Mistralai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 0.75,
+      "context_length": 262144
+    },
+    "deepseek/deepseek-v3.2": {
+      "name": "DeepSeek: DeepSeek V3.2",
+      "slug": "deepseek-deepseek-v3-2",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.26,
+      "completion_price_per_m": 0.38,
+      "context_length": 163840
+    },
+    "anthropic/claude-opus-4.5": {
+      "name": "Anthropic: Claude Opus 4.5",
+      "slug": "anthropic-claude-opus-4-5",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 25.0,
+      "context_length": 200000
+    },
+    "anthropic/claude-opus-4.5:batch": {
+      "name": "Anthropic: Claude Opus 4.5 (batch)",
+      "slug": "anthropic-claude-opus-4-5-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 12.5,
+      "context_length": 200000
+    },
+    "google/gemini-3-pro-image-preview": {
+      "name": "Google: Nano Banana Pro (Gemini 3 Pro Image Preview)",
+      "slug": "google-gemini-3-pro-image-preview",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 65536
+    },
+    "openai/gpt-5.1": {
+      "name": "OpenAI: GPT-5.1",
+      "slug": "openai-gpt-5-1",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 10.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5.1:batch": {
+      "name": "OpenAI: GPT-5.1 (batch)",
+      "slug": "openai-gpt-5-1-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.625,
+      "completion_price_per_m": 5.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5.1-codex": {
+      "name": "OpenAI: GPT-5.1-Codex",
+      "slug": "openai-gpt-5-1-codex",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 10.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5.1-codex-mini": {
+      "name": "OpenAI: GPT-5.1-Codex-Mini",
+      "slug": "openai-gpt-5-1-codex-mini",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 2.0,
+      "context_length": 400000
+    },
+    "amazon/nova-premier-v1": {
+      "name": "Amazon: Nova Premier 1.0",
+      "slug": "amazon-nova-premier-v1",
+      "provider": "Amazon",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 12.5,
+      "context_length": 1000000
+    },
+    "perplexity/sonar-pro-search": {
+      "name": "Perplexity: Sonar Pro Search",
+      "slug": "perplexity-sonar-pro-search",
+      "provider": "Perplexity",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 15.0,
+      "context_length": 200000
+    },
+    "mistralai/voxtral-small-24b-2507": {
+      "name": "Mistral: Voxtral Small 24B 2507",
+      "slug": "mistralai-voxtral-small-24b-2507",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.3,
+      "context_length": 32768
+    },
+    "openai/gpt-oss-safeguard-20b": {
+      "name": "OpenAI: gpt-oss-safeguard-20b",
+      "slug": "openai-gpt-oss-safeguard-20b",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.3,
+      "context_length": 131072
+    },
+    "openai/gpt-5-image-mini": {
+      "name": "OpenAI: GPT-5 Image Mini",
+      "slug": "openai-gpt-5-image-mini",
+      "provider": "Openai",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 400000
+    },
+    "anthropic/claude-haiku-4.5": {
+      "name": "Anthropic: Claude Haiku 4.5",
+      "slug": "anthropic-claude-haiku-4-5",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 5.0,
+      "context_length": 200000
+    },
+    "anthropic/claude-haiku-4.5:batch": {
+      "name": "Anthropic: Claude Haiku 4.5 (batch)",
+      "slug": "anthropic-claude-haiku-4-5-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 2.5,
+      "context_length": 200000
+    },
+    "qwen/qwen3-vl-8b-instruct": {
+      "name": "Qwen: Qwen3 VL 8B Instruct",
+      "slug": "qwen-qwen3-vl-8b-instruct",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 0.75,
+      "context_length": 262144
+    },
+    "openai/gpt-5-image": {
+      "name": "OpenAI: GPT-5 Image",
+      "slug": "openai-gpt-5-image",
+      "provider": "Openai",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 400000
+    },
+    "google/gemini-2.5-flash-image": {
+      "name": "Google: Nano Banana (Gemini 2.5 Flash Image)",
+      "slug": "google-gemini-2-5-flash-image",
+      "provider": "Google",
+      "pricing_type": "media",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 32768
+    },
+    "qwen/qwen3-vl-30b-a3b-instruct": {
+      "name": "Qwen: Qwen3 VL 30B A3B Instruct",
+      "slug": "qwen-qwen3-vl-30b-a3b-instruct",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.6,
+      "context_length": 262144
+    },
+    "openai/gpt-5-pro": {
+      "name": "OpenAI: GPT-5 Pro",
+      "slug": "openai-gpt-5-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 15.0,
+      "completion_price_per_m": 120.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5-pro:batch": {
+      "name": "OpenAI: GPT-5 Pro (batch)",
+      "slug": "openai-gpt-5-pro-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 7.5,
+      "completion_price_per_m": 60.0,
+      "context_length": 400000
+    },
+    "z-ai/glm-4.6": {
+      "name": "Z.ai: GLM 4.6",
+      "slug": "z-ai-glm-4-6",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.5,
+      "completion_price_per_m": 2.0,
+      "context_length": 204800
+    },
+    "anthropic/claude-sonnet-4.5": {
+      "name": "Anthropic: Claude Sonnet 4.5",
+      "slug": "anthropic-claude-sonnet-4-5",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 15.0,
+      "context_length": 1000000
+    },
+    "anthropic/claude-sonnet-4.5:batch": {
+      "name": "Anthropic: Claude Sonnet 4.5 (batch)",
+      "slug": "anthropic-claude-sonnet-4-5-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.5,
+      "completion_price_per_m": 7.5,
+      "context_length": 1000000
+    },
+    "deepseek/deepseek-v3.2-exp": {
+      "name": "DeepSeek: DeepSeek V3.2 Exp",
+      "slug": "deepseek-deepseek-v3-2-exp",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.27,
+      "completion_price_per_m": 0.41,
+      "context_length": 163840
+    },
+    "thedrummer/cydonia-24b-v4.1": {
+      "name": "TheDrummer: Cydonia 24B V4.1",
+      "slug": "thedrummer-cydonia-24b-v4-1",
+      "provider": "Thedrummer",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 0.5,
+      "context_length": 131072
+    },
+    "relace/relace-apply-3": {
+      "name": "Relace: Relace Apply 3",
+      "slug": "relace-relace-apply-3",
+      "provider": "Relace",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.85,
+      "completion_price_per_m": 1.25,
+      "context_length": 256000
+    },
+    "qwen/qwen3-vl-235b-a22b-instruct": {
+      "name": "Qwen: Qwen3 VL 235B A22B Instruct",
+      "slug": "qwen-qwen3-vl-235b-a22b-instruct",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.21,
+      "completion_price_per_m": 1.9,
+      "context_length": 262144
+    },
+    "deepseek/deepseek-v3.1-terminus": {
+      "name": "DeepSeek: DeepSeek V3.1 Terminus",
+      "slug": "deepseek-deepseek-v3-1-terminus",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.27,
+      "completion_price_per_m": 1.0,
+      "context_length": 163840
+    },
+    "qwen/qwen3-coder-flash": {
+      "name": "Qwen: Qwen3 Coder Flash",
+      "slug": "qwen-qwen3-coder-flash",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.195,
+      "completion_price_per_m": 0.975,
+      "context_length": 1000000
+    },
+    "qwen/qwen3-next-80b-a3b-instruct": {
+      "name": "Qwen: Qwen3 Next 80B A3B Instruct",
+      "slug": "qwen-qwen3-next-80b-a3b-instruct",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 1.1,
+      "context_length": 262144
+    },
+    "nousresearch/hermes-4-405b": {
+      "name": "Nous: Hermes 4 405B",
+      "slug": "nousresearch-hermes-4-405b",
+      "provider": "Nousresearch",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 3.0,
+      "context_length": 131072
+    },
+    "deepseek/deepseek-chat-v3.1": {
+      "name": "DeepSeek: DeepSeek V3.1",
+      "slug": "deepseek-deepseek-chat-v3-1",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 0.95,
+      "context_length": 163840
+    },
+    "z-ai/glm-4.5v": {
+      "name": "Z.ai: GLM 4.5V",
+      "slug": "z-ai-glm-4-5v",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.6,
+      "completion_price_per_m": 1.8,
+      "context_length": 65536
+    },
+    "openai/gpt-5": {
+      "name": "OpenAI: GPT-5",
+      "slug": "openai-gpt-5",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 10.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5:batch": {
+      "name": "OpenAI: GPT-5 (batch)",
+      "slug": "openai-gpt-5-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.625,
+      "completion_price_per_m": 5.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5-mini": {
+      "name": "OpenAI: GPT-5 Mini",
+      "slug": "openai-gpt-5-mini",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 2.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5-mini:batch": {
+      "name": "OpenAI: GPT-5 Mini (batch)",
+      "slug": "openai-gpt-5-mini-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.125,
+      "completion_price_per_m": 1.0,
+      "context_length": 400000
+    },
+    "openai/gpt-5-nano": {
+      "name": "OpenAI: GPT-5 Nano",
+      "slug": "openai-gpt-5-nano",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.4,
+      "context_length": 400000
+    },
+    "openai/gpt-5-nano:batch": {
+      "name": "OpenAI: GPT-5 Nano (batch)",
+      "slug": "openai-gpt-5-nano-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.025,
+      "completion_price_per_m": 0.2,
+      "context_length": 400000
+    },
+    "openai/gpt-oss-120b": {
+      "name": "OpenAI: gpt-oss-120b",
+      "slug": "openai-gpt-oss-120b",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.25,
+      "context_length": 131072
+    },
+    "openai/gpt-oss-120b:batch": {
+      "name": "OpenAI: gpt-oss-120b (batch)",
+      "slug": "openai-gpt-oss-120b-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.0296,
+      "completion_price_per_m": 0.136,
+      "context_length": 131072
+    },
+    "openai/gpt-oss-20b": {
+      "name": "OpenAI: gpt-oss-20b",
+      "slug": "openai-gpt-oss-20b",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.03,
+      "completion_price_per_m": 0.13,
+      "context_length": 131072
+    },
+    "openai/gpt-oss-20b:batch": {
+      "name": "OpenAI: gpt-oss-20b (batch)",
+      "slug": "openai-gpt-oss-20b-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.024,
+      "completion_price_per_m": 0.112,
+      "context_length": 131072
+    },
+    "anthropic/claude-opus-4.1": {
+      "name": "Anthropic: Claude Opus 4.1",
+      "slug": "anthropic-claude-opus-4-1",
+      "provider": "Anthropic",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 15.0,
+      "completion_price_per_m": 75.0,
+      "context_length": 200000
+    },
+    "anthropic/claude-opus-4.1:batch": {
+      "name": "Anthropic: Claude Opus 4.1 (batch)",
+      "slug": "anthropic-claude-opus-4-1-batch",
+      "provider": "Anthropic",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 7.5,
+      "completion_price_per_m": 37.5,
+      "context_length": 200000
+    },
+    "mistralai/codestral-2508": {
+      "name": "Mistral: Codestral 2508",
+      "slug": "mistralai-codestral-2508",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 0.9,
+      "context_length": 256000
+    },
+    "mistralai/codestral-2508:batch": {
+      "name": "Mistral: Codestral 2508 (batch)",
+      "slug": "mistralai-codestral-2508-batch",
+      "provider": "Mistralai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.45,
+      "context_length": 256000
+    },
+    "qwen/qwen3-coder-30b-a3b-instruct": {
+      "name": "Qwen: Qwen3 Coder 30B A3B Instruct",
+      "slug": "qwen-qwen3-coder-30b-a3b-instruct",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.07,
+      "completion_price_per_m": 0.28,
+      "context_length": 262144
+    },
+    "qwen/qwen3-30b-a3b-instruct-2507": {
+      "name": "Qwen: Qwen3 30B A3B Instruct 2507",
+      "slug": "qwen-qwen3-30b-a3b-instruct-2507",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.3,
+      "context_length": 262144
+    },
+    "z-ai/glm-4.5": {
+      "name": "Z.ai: GLM 4.5",
+      "slug": "z-ai-glm-4-5",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.6,
+      "completion_price_per_m": 2.2,
+      "context_length": 131072
+    },
+    "z-ai/glm-4.5-air": {
+      "name": "Z.ai: GLM 4.5 Air",
+      "slug": "z-ai-glm-4-5-air",
+      "provider": "Z Ai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 1.1,
+      "context_length": 131072
+    },
+    "qwen/qwen3-235b-a22b-thinking-2507": {
+      "name": "Qwen: Qwen3 235B A22B Thinking 2507",
+      "slug": "qwen-qwen3-235b-a22b-thinking-2507",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.45,
+      "completion_price_per_m": 3.5,
+      "context_length": 128000
+    },
+    "qwen/qwen3-coder": {
+      "name": "Qwen: Qwen3 Coder 480B A35B",
+      "slug": "qwen-qwen3-coder",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 1.0,
+      "context_length": 262144
+    },
+    "bytedance/ui-tars-1.5-7b": {
+      "name": "ByteDance: UI-TARS 7B",
+      "slug": "bytedance-ui-tars-1-5-7b",
+      "provider": "Bytedance",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.2,
+      "context_length": 128000
+    },
+    "google/gemini-2.5-flash-lite": {
+      "name": "Google: Gemini 2.5 Flash Lite",
+      "slug": "google-gemini-2-5-flash-lite",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.4,
+      "context_length": 1048576
+    },
+    "qwen/qwen3-235b-a22b-2507": {
+      "name": "Qwen: Qwen3 235B A22B Instruct 2507",
+      "slug": "qwen-qwen3-235b-a22b-2507",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.14,
+      "completion_price_per_m": 0.8,
+      "context_length": 262144
+    },
+    "cognitivecomputations/dolphin-mistral-24b-venice-edition": {
+      "name": "Venice: Uncensored",
+      "slug": "cognitivecomputations-dolphin-mistral-24b-venice-edition",
+      "provider": "Cognitivecomputations",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 0.9,
+      "context_length": 128000
+    },
+    "tngtech/deepseek-r1t2-chimera": {
+      "name": "TNG: DeepSeek R1T2 Chimera",
+      "slug": "tngtech-deepseek-r1t2-chimera",
+      "provider": "Tngtech",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 2.625,
+      "context_length": 131072
+    },
+    "morph/morph-v3-large": {
+      "name": "Morph: Morph V3 Large",
+      "slug": "morph-morph-v3-large",
+      "provider": "Morph",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.9,
+      "completion_price_per_m": 1.9,
+      "context_length": 262144
+    },
+    "morph/morph-v3-large:batch": {
+      "name": "Morph: Morph V3 Large (batch)",
+      "slug": "morph-morph-v3-large-batch",
+      "provider": "Morph",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.45,
+      "completion_price_per_m": 0.95,
+      "context_length": 262144
+    },
+    "morph/morph-v3-fast": {
+      "name": "Morph: Morph V3 Fast",
+      "slug": "morph-morph-v3-fast",
+      "provider": "Morph",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.8,
+      "completion_price_per_m": 1.2,
+      "context_length": 262144
+    },
+    "morph/morph-v3-fast:batch": {
+      "name": "Morph: Morph V3 Fast (batch)",
+      "slug": "morph-morph-v3-fast-batch",
+      "provider": "Morph",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.4,
+      "completion_price_per_m": 0.6,
+      "context_length": 81920
+    },
+    "mistralai/mistral-small-3.2-24b-instruct": {
+      "name": "Mistral: Mistral Small 3.2 24B",
+      "slug": "mistralai-mistral-small-3-2-24b-instruct",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.2,
+      "context_length": 256000
+    },
+    "google/gemini-2.5-flash": {
+      "name": "Google: Gemini 2.5 Flash",
+      "slug": "google-gemini-2-5-flash",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 2.5,
+      "context_length": 1048576
+    },
+    "google/gemini-2.5-pro": {
+      "name": "Google: Gemini 2.5 Pro",
+      "slug": "google-gemini-2-5-pro",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 10.0,
+      "context_length": 1048576
+    },
+    "openai/o3-pro": {
+      "name": "OpenAI: o3 Pro",
+      "slug": "openai-o3-pro",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 20.0,
+      "completion_price_per_m": 80.0,
+      "context_length": 200000
+    },
+    "google/gemini-2.5-pro-preview": {
+      "name": "Google: Gemini 2.5 Pro Preview 06-05",
+      "slug": "google-gemini-2-5-pro-preview",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 10.0,
+      "context_length": 1048576
+    },
+    "deepseek/deepseek-r1-0528": {
+      "name": "DeepSeek: R1 0528",
+      "slug": "deepseek-deepseek-r1-0528",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.571,
+      "completion_price_per_m": 2.286,
+      "context_length": 163840
+    },
+    "meta-llama/llama-guard-4-12b": {
+      "name": "Meta: Llama Guard 4 12B",
+      "slug": "meta-llama-llama-guard-4-12b",
+      "provider": "Meta Llama",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.18,
+      "completion_price_per_m": 0.18,
+      "context_length": 163840
+    },
+    "qwen/qwen3-30b-a3b": {
+      "name": "Qwen: Qwen3 30B A3B",
+      "slug": "qwen-qwen3-30b-a3b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.12,
+      "completion_price_per_m": 0.5,
+      "context_length": 40960
+    },
+    "qwen/qwen3-14b": {
+      "name": "Qwen: Qwen3 14B",
+      "slug": "qwen-qwen3-14b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.12,
+      "completion_price_per_m": 0.24,
+      "context_length": 40960
+    },
+    "qwen/qwen3-32b": {
+      "name": "Qwen: Qwen3 32B",
+      "slug": "qwen-qwen3-32b",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.08,
+      "completion_price_per_m": 0.28,
+      "context_length": 131072
+    },
+    "openai/o3": {
+      "name": "OpenAI: o3",
+      "slug": "openai-o3",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 8.0,
+      "context_length": 200000
+    },
+    "openai/o3:batch": {
+      "name": "OpenAI: o3 (batch)",
+      "slug": "openai-o3-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 4.0,
+      "context_length": 200000
+    },
+    "openai/o4-mini:batch": {
+      "name": "OpenAI: o4 Mini (batch)",
+      "slug": "openai-o4-mini-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.55,
+      "completion_price_per_m": 2.2,
+      "context_length": 200000
+    },
+    "openai/gpt-4.1": {
+      "name": "OpenAI: GPT-4.1",
+      "slug": "openai-gpt-4-1",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 8.0,
+      "context_length": 1047576
+    },
+    "openai/gpt-4.1:batch": {
+      "name": "OpenAI: GPT-4.1 (batch)",
+      "slug": "openai-gpt-4-1-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 4.0,
+      "context_length": 1047576
+    },
+    "openai/gpt-4.1-mini": {
+      "name": "OpenAI: GPT-4.1 Mini",
+      "slug": "openai-gpt-4-1-mini",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.4,
+      "completion_price_per_m": 1.6,
+      "context_length": 1047576
+    },
+    "openai/gpt-4.1-mini:batch": {
+      "name": "OpenAI: GPT-4.1 Mini (batch)",
+      "slug": "openai-gpt-4-1-mini-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 0.8,
+      "context_length": 1047576
+    },
+    "openai/gpt-4.1-nano": {
+      "name": "OpenAI: GPT-4.1 Nano",
+      "slug": "openai-gpt-4-1-nano",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.4,
+      "context_length": 1047576
+    },
+    "openai/gpt-4.1-nano:batch": {
+      "name": "OpenAI: GPT-4.1 Nano (batch)",
+      "slug": "openai-gpt-4-1-nano-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.2,
+      "context_length": 1047576
+    },
+    "meta-llama/llama-4-maverick": {
+      "name": "Meta: Llama 4 Maverick",
+      "slug": "meta-llama-llama-4-maverick",
+      "provider": "Meta Llama",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.35,
+      "completion_price_per_m": 1.0,
+      "context_length": 524288
+    },
+    "meta-llama/llama-4-scout": {
+      "name": "Meta: Llama 4 Scout",
+      "slug": "meta-llama-llama-4-scout",
+      "provider": "Meta Llama",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.3,
+      "context_length": 1310720
+    },
+    "deepseek/deepseek-chat-v3-0324": {
+      "name": "DeepSeek: DeepSeek V3 0324",
+      "slug": "deepseek-deepseek-chat-v3-0324",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.25,
+      "completion_price_per_m": 1.0,
+      "context_length": 163840
+    },
+    "mistralai/mistral-small-3.1-24b-instruct": {
+      "name": "Mistral: Mistral Small 3.1 24B",
+      "slug": "mistralai-mistral-small-3-1-24b-instruct",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.351,
+      "completion_price_per_m": 0.555,
+      "context_length": 128000
+    },
+    "google/gemma-3-4b-it": {
+      "name": "Google: Gemma 3 4B",
+      "slug": "google-gemma-3-4b-it",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.04,
+      "completion_price_per_m": 0.05,
+      "context_length": 131072
+    },
+    "google/gemma-3-12b-it": {
+      "name": "Google: Gemma 3 12B",
+      "slug": "google-gemma-3-12b-it",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.15,
+      "context_length": 131072
+    },
+    "cohere/command-a": {
+      "name": "Cohere: Command A",
+      "slug": "cohere-command-a",
+      "provider": "Cohere",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 10.0,
+      "context_length": 256000
+    },
+    "rekaai/reka-flash-3": {
+      "name": "Reka Flash 3",
+      "slug": "rekaai-reka-flash-3",
+      "provider": "Rekaai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.1,
+      "completion_price_per_m": 0.2,
+      "context_length": 65536
+    },
+    "google/gemma-3-27b-it": {
+      "name": "Google: Gemma 3 27B",
+      "slug": "google-gemma-3-27b-it",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.08,
+      "completion_price_per_m": 0.16,
+      "context_length": 131072
+    },
+    "thedrummer/skyfall-36b-v2": {
+      "name": "TheDrummer: Skyfall 36B V2",
+      "slug": "thedrummer-skyfall-36b-v2",
+      "provider": "Thedrummer",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.55,
+      "completion_price_per_m": 0.8,
+      "context_length": 32768
+    },
+    "perplexity/sonar-reasoning-pro": {
+      "name": "Perplexity: Sonar Reasoning Pro",
+      "slug": "perplexity-sonar-reasoning-pro",
+      "provider": "Perplexity",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 8.0,
+      "context_length": 128000
+    },
+    "perplexity/sonar-pro": {
+      "name": "Perplexity: Sonar Pro",
+      "slug": "perplexity-sonar-pro",
+      "provider": "Perplexity",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 15.0,
+      "context_length": 200000
+    },
+    "perplexity/sonar-deep-research": {
+      "name": "Perplexity: Sonar Deep Research",
+      "slug": "perplexity-sonar-deep-research",
+      "provider": "Perplexity",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 8.0,
+      "context_length": 128000
+    },
+    "mistralai/mistral-saba": {
+      "name": "Mistral: Saba",
+      "slug": "mistralai-mistral-saba",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2,
+      "completion_price_per_m": 0.6,
+      "context_length": 32768
+    },
+    "aion-labs/aion-rp-llama-3.1-8b": {
+      "name": "AionLabs: Aion-RP 1.0 (8B)",
+      "slug": "aion-labs-aion-rp-llama-3-1-8b",
+      "provider": "Aion Labs",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.8,
+      "completion_price_per_m": 1.6,
+      "context_length": 32768
+    },
+    "qwen/qwen2.5-vl-72b-instruct": {
+      "name": "Qwen: Qwen2.5 VL 72B Instruct",
+      "slug": "qwen-qwen2-5-vl-72b-instruct",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.8,
+      "completion_price_per_m": 1.0,
+      "context_length": 128000
+    },
+    "qwen/qwen-plus": {
+      "name": "Qwen: Qwen-Plus",
+      "slug": "qwen-qwen-plus",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.26,
+      "completion_price_per_m": 0.78,
+      "context_length": 1000000
+    },
+    "openai/o3-mini:batch": {
+      "name": "OpenAI: o3 Mini (batch)",
+      "slug": "openai-o3-mini-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.55,
+      "completion_price_per_m": 2.2,
+      "context_length": 200000
+    },
+    "mistralai/mistral-small-24b-instruct-2501": {
+      "name": "Mistral: Mistral Small 3",
+      "slug": "mistralai-mistral-small-24b-instruct-2501",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.08,
+      "context_length": 32768
+    },
+    "perplexity/sonar": {
+      "name": "Perplexity: Sonar",
+      "slug": "perplexity-sonar",
+      "provider": "Perplexity",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 1.0,
+      "context_length": 127072
+    },
+    "microsoft/phi-4": {
+      "name": "Microsoft: Phi 4",
+      "slug": "microsoft-phi-4",
+      "provider": "Microsoft",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.07,
+      "completion_price_per_m": 0.14,
+      "context_length": 16384
+    },
+    "deepseek/deepseek-chat": {
+      "name": "DeepSeek: DeepSeek V3",
+      "slug": "deepseek-deepseek-chat",
+      "provider": "Deepseek",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.2574,
+      "completion_price_per_m": 1.0287,
+      "context_length": 163840
+    },
+    "cohere/command-r7b-12-2024": {
+      "name": "Cohere: Command R7B (12-2024)",
+      "slug": "cohere-command-r7b-12-2024",
+      "provider": "Cohere",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.0375,
+      "completion_price_per_m": 0.15,
+      "context_length": 128000
+    },
+    "meta-llama/llama-3.3-70b-instruct": {
+      "name": "Meta: Llama 3.3 70B Instruct",
+      "slug": "meta-llama-llama-3-3-70b-instruct",
+      "provider": "Meta Llama",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.71,
+      "completion_price_per_m": 0.71,
+      "context_length": 131072
+    },
+    "amazon/nova-lite-v1": {
+      "name": "Amazon: Nova Lite 1.0",
+      "slug": "amazon-nova-lite-v1",
+      "provider": "Amazon",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.06,
+      "completion_price_per_m": 0.24,
+      "context_length": 300000
+    },
+    "amazon/nova-micro-v1": {
+      "name": "Amazon: Nova Micro 1.0",
+      "slug": "amazon-nova-micro-v1",
+      "provider": "Amazon",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.035,
+      "completion_price_per_m": 0.14,
+      "context_length": 128000
+    },
+    "amazon/nova-pro-v1": {
+      "name": "Amazon: Nova Pro 1.0",
+      "slug": "amazon-nova-pro-v1",
+      "provider": "Amazon",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.8,
+      "completion_price_per_m": 3.2,
+      "context_length": 300000
+    },
+    "openai/gpt-4o-2024-11-20": {
+      "name": "OpenAI: GPT-4o (2024-11-20)",
+      "slug": "openai-gpt-4o-2024-11-20",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 10.0,
+      "context_length": 128000
+    },
+    "mistralai/mistral-large-2407": {
+      "name": "Mistral Large 2407",
+      "slug": "mistralai-mistral-large-2407",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 131072
+    },
+    "qwen/qwen-2.5-coder-32b-instruct": {
+      "name": "Qwen2.5 Coder 32B Instruct",
+      "slug": "qwen-qwen-2-5-coder-32b-instruct",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.66,
+      "completion_price_per_m": 1.0,
+      "context_length": 32768
+    },
+    "thedrummer/unslopnemo-12b": {
+      "name": "TheDrummer: UnslopNemo 12B",
+      "slug": "thedrummer-unslopnemo-12b",
+      "provider": "Thedrummer",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.4,
+      "completion_price_per_m": 0.4,
+      "context_length": 1024000
+    },
+    "anthracite-org/magnum-v4-72b": {
+      "name": "Magnum v4 72B",
+      "slug": "anthracite-org-magnum-v4-72b",
+      "provider": "Anthracite Org",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 5.0,
+      "context_length": 32768
+    },
+    "meta-llama/llama-3.2-3b-instruct": {
+      "name": "Meta: Llama 3.2 3B Instruct",
+      "slug": "meta-llama-llama-3-2-3b-instruct",
+      "provider": "Meta Llama",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.33,
+      "context_length": 131072
+    },
+    "qwen/qwen-2.5-72b-instruct": {
+      "name": "Qwen2.5 72B Instruct",
+      "slug": "qwen-qwen-2-5-72b-instruct",
+      "provider": "Qwen",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.36,
+      "completion_price_per_m": 0.4,
+      "context_length": 32768
+    },
+    "cohere/command-r-08-2024": {
+      "name": "Cohere: Command R (08-2024)",
+      "slug": "cohere-command-r-08-2024",
+      "provider": "Cohere",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.6,
+      "context_length": 128000
+    },
+    "cohere/command-r-plus-08-2024": {
+      "name": "Cohere: Command R+ (08-2024)",
+      "slug": "cohere-command-r-plus-08-2024",
+      "provider": "Cohere",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 10.0,
+      "context_length": 128000
+    },
+    "sao10k/l3.1-euryale-70b": {
+      "name": "Sao10K: Llama 3.1 Euryale 70B v2.2",
+      "slug": "sao10k-l3-1-euryale-70b",
+      "provider": "Sao10K",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.85,
+      "completion_price_per_m": 0.85,
+      "context_length": 131072
+    },
+    "sao10k/l3-lunaris-8b": {
+      "name": "Sao10K: Llama 3 8B Lunaris",
+      "slug": "sao10k-l3-lunaris-8b",
+      "provider": "Sao10K",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.04,
+      "completion_price_per_m": 0.05,
+      "context_length": 8192
+    },
+    "openai/gpt-4o-2024-08-06": {
+      "name": "OpenAI: GPT-4o (2024-08-06)",
+      "slug": "openai-gpt-4o-2024-08-06",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 10.0,
+      "context_length": 128000
+    },
+    "meta-llama/llama-3.1-70b-instruct": {
+      "name": "Meta: Llama 3.1 70B Instruct",
+      "slug": "meta-llama-llama-3-1-70b-instruct",
+      "provider": "Meta Llama",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.72,
+      "completion_price_per_m": 0.72,
+      "context_length": 131072
+    },
+    "meta-llama/llama-3.1-8b-instruct": {
+      "name": "Meta: Llama 3.1 8B Instruct",
+      "slug": "meta-llama-llama-3-1-8b-instruct",
+      "provider": "Meta Llama",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.05,
+      "completion_price_per_m": 0.08,
+      "context_length": 131072
+    },
+    "mistralai/mistral-nemo": {
+      "name": "Mistral: Mistral Nemo",
+      "slug": "mistralai-mistral-nemo",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.029,
+      "completion_price_per_m": 0.03,
+      "context_length": 131072
+    },
+    "openai/gpt-4o-mini": {
+      "name": "OpenAI: GPT-4o-mini",
+      "slug": "openai-gpt-4o-mini",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.6,
+      "context_length": 128000
+    },
+    "openai/gpt-4o-mini-2024-07-18": {
+      "name": "OpenAI: GPT-4o-mini (2024-07-18)",
+      "slug": "openai-gpt-4o-mini-2024-07-18",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.15,
+      "completion_price_per_m": 0.6,
+      "context_length": 128000
+    },
+    "openai/gpt-4o-mini:batch": {
+      "name": "OpenAI: GPT-4o-mini (batch)",
+      "slug": "openai-gpt-4o-mini-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 0.075,
+      "completion_price_per_m": 0.3,
+      "context_length": 128000
+    },
+    "google/gemma-2-27b-it": {
+      "name": "Google: Gemma 2 27B",
+      "slug": "google-gemma-2-27b-it",
+      "provider": "Google",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.65,
+      "completion_price_per_m": 0.65,
+      "context_length": 8192
+    },
+    "openai/gpt-4o": {
+      "name": "OpenAI: GPT-4o",
+      "slug": "openai-gpt-4o",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.5,
+      "completion_price_per_m": 10.0,
+      "context_length": 128000
+    },
+    "openai/gpt-4o-2024-05-13": {
+      "name": "OpenAI: GPT-4o (2024-05-13)",
+      "slug": "openai-gpt-4o-2024-05-13",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 15.0,
+      "context_length": 128000
+    },
+    "openai/gpt-4o:batch": {
+      "name": "OpenAI: GPT-4o (batch)",
+      "slug": "openai-gpt-4o-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 1.25,
+      "completion_price_per_m": 5.0,
+      "context_length": 128000
+    },
+    "mistralai/mixtral-8x22b-instruct": {
+      "name": "Mistral: Mixtral 8x22B Instruct",
+      "slug": "mistralai-mixtral-8x22b-instruct",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 65536
+    },
+    "openai/gpt-4-turbo:batch": {
+      "name": "OpenAI: GPT-4 Turbo (batch)",
+      "slug": "openai-gpt-4-turbo-batch",
+      "provider": "Openai",
+      "pricing_type": "batch",
+      "prompt_price_per_m": 5.0,
+      "completion_price_per_m": 15.0,
+      "context_length": 128000
+    },
+    "mistralai/mistral-large": {
+      "name": "Mistral Large",
+      "slug": "mistralai-mistral-large",
+      "provider": "Mistralai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 2.0,
+      "completion_price_per_m": 6.0,
+      "context_length": 128000
+    },
+    "openai/gpt-3.5-turbo-0613": {
+      "name": "OpenAI: GPT-3.5 Turbo (older v0613)",
+      "slug": "openai-gpt-3-5-turbo-0613",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 1.0,
+      "completion_price_per_m": 2.0,
+      "context_length": 4095
+    },
+    "openai/gpt-3.5-turbo-16k": {
+      "name": "OpenAI: GPT-3.5 Turbo 16k",
+      "slug": "openai-gpt-3-5-turbo-16k",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 3.0,
+      "completion_price_per_m": 4.0,
+      "context_length": 16385
+    },
+    "mancer/weaver": {
+      "name": "Mancer: Weaver (alpha)",
+      "slug": "mancer-weaver",
+      "provider": "Mancer",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 0.5,
+      "context_length": 8000
+    },
+    "undi95/remm-slerp-l2-13b": {
+      "name": "ReMM SLERP 13B",
+      "slug": "undi95-remm-slerp-l2-13b",
+      "provider": "Undi95",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 0.5,
+      "context_length": 6144
+    },
+    "gryphe/mythomax-l2-13b": {
+      "name": "MythoMax 13B",
+      "slug": "gryphe-mythomax-l2-13b",
+      "provider": "Gryphe",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 0.3,
+      "completion_price_per_m": 0.5,
+      "context_length": 8192
+    },
+    "openai/gpt-4": {
+      "name": "OpenAI: GPT-4",
+      "slug": "openai-gpt-4",
+      "provider": "Openai",
+      "pricing_type": "paid",
+      "prompt_price_per_m": 30.0,
+      "completion_price_per_m": 60.0,
+      "context_length": 8191
+    },
+    "openrouter/auto": {
+      "name": "Auto Router",
+      "slug": "openrouter-auto",
+      "provider": "Openrouter",
+      "pricing_type": "variable",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 2000000
+    },
+    "openrouter/auto-code": {
+      "name": "Auto Code",
+      "slug": "openrouter-auto-code",
+      "provider": "Openrouter",
+      "pricing_type": "variable",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 2000000
+    },
+    "typesafe/jev-router": {
+      "name": "TypeSafe: Jev Router",
+      "slug": "typesafe-jev-router",
+      "provider": "Typesafe",
+      "pricing_type": "variable",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 1000000
+    },
+    "nvidia/switchyard": {
+      "name": "NVIDIA: Switchyard",
+      "slug": "nvidia-switchyard",
+      "provider": "Nvidia",
+      "pricing_type": "variable",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 1000000
+    },
+    "openrouter/auto-beta": {
+      "name": "Auto Router (Beta)",
+      "slug": "openrouter-auto-beta",
+      "provider": "Openrouter",
+      "pricing_type": "variable",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 2000000
+    },
+    "openrouter/fusion": {
+      "name": "OpenRouter: Fusion",
+      "slug": "openrouter-fusion",
+      "provider": "Openrouter",
+      "pricing_type": "variable",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 1000000
+    },
+    "openrouter/pareto-code": {
+      "name": "Pareto Code Router",
+      "slug": "openrouter-pareto-code",
+      "provider": "Openrouter",
+      "pricing_type": "variable",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 2000000
+    },
+    "openrouter/free": {
+      "name": "Free Models Router",
+      "slug": "openrouter-free",
+      "provider": "Openrouter",
+      "pricing_type": "free_router",
+      "prompt_price_per_m": 0.0,
+      "completion_price_per_m": 0.0,
+      "context_length": 200000
+    },
+    "openrouter/bodybuilder": {
+      "name": "Body Builder (beta)",
+      "slug": "openrouter-bodybuilder",
+      "provider": "Openrouter",
+      "pricing_type": "variable",
+      "prompt_price_per_m": null,
+      "completion_price_per_m": null,
+      "context_length": 128000
+    }
+  }
+}

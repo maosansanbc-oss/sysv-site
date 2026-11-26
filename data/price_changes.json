@@ -1,9 +1,180 @@
 {
-  "updated_at": "2026-11-25",
-  "snapshot_days": 2,
+  "updated_at": "2026-11-26",
+  "snapshot_days": 3,
   "first_snapshot_date": "2026-11-24",
-  "latest_total_endpoints": 472,
+  "latest_total_endpoints": 474,
   "events": [
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "minimax/minimax-m3.1-flash",
+      "name": "MiniMax: MiniMax M3.1 Flash",
+      "slug": "minimax-minimax-m3-1-flash",
+      "detail": "Input $0.075 -> $0.15, Output $0.3 -> $0.6 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "deepseek/deepseek-v4.1-flash-1017",
+      "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+      "slug": "deepseek-deepseek-v4-1-flash-1017",
+      "detail": "Input $0.15 -> $0.3, Output $0.6 -> $1.2 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "reflection/beam-1.0-501b-a23b",
+      "name": "Reflection: Beam 1.0 501B A23B",
+      "slug": "reflection-beam-1-0-501b-a23b",
+      "detail": "Input $0.25 -> $0.3, Output $1.0 -> $1.0 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "tier_change",
+      "model_id": "~unbiased/pareto-latest",
+      "name": "Pareto Latest",
+      "slug": "unbiased-pareto-latest",
+      "detail": "Pricing tier changed: paid -> variable"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "name": "DeepSeek: DeepSeek V4.1 Flash",
+      "slug": "deepseek-deepseek-v4-1-flash",
+      "detail": "Input $0.0507 -> $0.14, Output $0.2028 -> $0.42 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "tencent/hy4-preview",
+      "name": "Tencent: Hy4 preview",
+      "slug": "tencent-hy4-preview",
+      "detail": "Input $0.7506 -> $0.834, Output $2.2509 -> $2.501 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "~deepseek/deepseek-v4-flash-latest",
+      "name": "DeepSeek: DeepSeek V4 Flash Latest",
+      "slug": "deepseek-deepseek-v4-flash-latest",
+      "detail": "Input $0.04532 -> $0.047, Output $0.13596 -> $0.3 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4-flash-0731",
+      "name": "DeepSeek: DeepSeek V4 Flash 0731",
+      "slug": "deepseek-deepseek-v4-flash-0731",
+      "detail": "Input $0.0456 -> $0.06, Output $0.3 -> $0.18 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "tencent/hy3",
+      "name": "Tencent: Hy3",
+      "slug": "tencent-hy3",
+      "detail": "Input $0.0825 -> $0.132, Output $0.33 -> $0.528 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro 0423",
+      "slug": "deepseek-deepseek-v4-pro",
+      "detail": "Input $0.777524 -> $0.888188, Output $1.5629 -> $1.5082 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "google/gemma-4-26b-a4b-it",
+      "name": "Google: Gemma 4 26B A4B",
+      "slug": "google-gemma-4-26b-a4b-it",
+      "detail": "Input $0.09 -> $0.0765, Output $0.3 -> $0.255 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "new_model",
+      "model_id": "mistralai/mistral-small-2603:batch",
+      "name": "Mistral: Mistral Small 4 (batch)",
+      "slug": "mistralai-mistral-small-2603-batch",
+      "detail": "Added (batch) — In: 0.075 / Out: 0.3 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_drop",
+      "model_id": "qwen/qwen3.5-9b",
+      "name": "Qwen: Qwen3.5-9B",
+      "slug": "qwen-qwen3-5-9b",
+      "detail": "Input $0.17 -> $0.1, Output $0.25 -> $0.25 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "qwen/qwen3.5-397b-a17b",
+      "name": "Qwen: Qwen3.5 397B A17B",
+      "slug": "qwen-qwen3-5-397b-a17b",
+      "detail": "Input $0.45 -> $0.5, Output $3.0 -> $3.6 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "new_model",
+      "model_id": "mistralai/ministral-8b-2512:batch",
+      "name": "Mistral: Ministral 3 8B 2512 (batch)",
+      "slug": "mistralai-ministral-8b-2512-batch",
+      "detail": "Added (batch) — In: 0.075 / Out: 0.075 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "new_model",
+      "model_id": "mistralai/mistral-large-2512:batch",
+      "name": "Mistral: Mistral Large 3 2512 (batch)",
+      "slug": "mistralai-mistral-large-2512-batch",
+      "detail": "Added (batch) — In: 0.25 / Out: 0.75 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "new_model",
+      "model_id": "mistralai/codestral-2508:batch",
+      "name": "Mistral: Codestral 2508 (batch)",
+      "slug": "mistralai-codestral-2508-batch",
+      "detail": "Added (batch) — In: 0.15 / Out: 0.45 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "price_hike",
+      "model_id": "z-ai/glm-4.5-air",
+      "name": "Z.ai: GLM 4.5 Air",
+      "slug": "z-ai-glm-4-5-air",
+      "detail": "Input $0.14 -> $0.2, Output $0.86 -> $1.1 per 1M"
+    },
+    {
+      "date": "2026-11-26",
+      "compared_to": "2026-11-25",
+      "type": "new_model",
+      "model_id": "tngtech/deepseek-r1t2-chimera",
+      "name": "TNG: DeepSeek R1T2 Chimera",
+      "slug": "tngtech-deepseek-r1t2-chimera",
+      "detail": "Added (paid) — In: 1.0 / Out: 2.625 per 1M"
+    },
     {
       "date": "2026-11-25",
       "compared_to": "2026-11-24",

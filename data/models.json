@@ -25,7 +25,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -43,9 +43,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Particle-1 is a limited free tier model on OpenRouter with $0 listed input/output pricing, a 1,048,576-token context, and text+image-to-text support. It is a token-efficient agentic coding model post-trained on DeepSeek V4.1 Flash, with tools, structured outputs, and reasoning enabled.",
       "best_for": [
@@ -88,7 +88,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -106,9 +106,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Ling 3.2 Flash is a limited-free OpenRouter endpoint ($0 input/output) with a 1M-token context, text+image input, and tool, structured-output, and reasoning support. The :free tier is rate-capped at 20 RPM and 50 RPD without credits, rising to 1,000 RPD after a $10 lifetime credit purchase.",
       "best_for": [
@@ -151,7 +151,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -169,9 +169,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "ERNIE-5.5-Flash-Preview is a limited free tier text-to-text model on OpenRouter with a 1,024,000-token context window and support for tools, structured outputs, and reasoning. It is priced at $0 per 1M input/output tokens but is subject to OpenRouter :free tier rate limits of 20 RPM and 50 RPD without credits.",
       "best_for": [
@@ -214,7 +214,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -232,9 +232,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "NVIDIA Nemotron 3 Ultra is a limited free tier text-to-text model with a 1M-token context and reasoning plus tool support. The :free tier is rate-limited to 20 RPM and 50 RPD without credits, rising to 1,000 RPD after a $10 lifetime credit purchase.",
       "best_for": [
@@ -277,7 +277,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -295,9 +295,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "NVIDIA Nemotron 3.5 Lightning is a limited free tier ($0 input/output) text-to-text MoE model with 3B active of 30B total parameters and a 1M-token context. It supports tool use and reasoning in real-time interactive mode, but structured outputs are not available.",
       "best_for": [
@@ -340,7 +340,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -358,9 +358,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model (12B active of 120B total) available on a limited free tier at $0 per 1M tokens. It supports text, image, and video inputs to text output with a 1M context, plus tools, structured outputs, and reasoning.",
       "best_for": [
@@ -403,7 +403,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -421,9 +421,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Gemma 4 26B A4B IT is an instruction-tuned MoE model on OpenRouter's limited free tier at $0 per 1M tokens, with a 262,144-token context and text+image+video input. It supports tools and reasoning but not structured outputs, and the free tier is rate-limited to 20 RPM and 50 RPD without credits (1,000 RPD after a $10+ lifetime credit purchase).",
       "best_for": [
@@ -466,7 +466,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -484,9 +484,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Gemma 4 31B Instruct is a 30.7B dense multimodal model from Google DeepMind with a 262K context window and text, image, and video input support. It is offered on a limited free tier at $0 per 1M tokens, with rate limits of 20 RPM and 50 RPD without credits.",
       "best_for": [
@@ -529,7 +529,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -547,9 +547,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "LiquidAI LFM3-1.7B is a compact 1.7B-parameter text-to-text model with a 262K-token context, post-trained for agents, tool calling, structured outputs, and reasoning. It is offered on a limited free tier at $0 per 1M input/output tokens, subject to OpenRouter :free rate caps.",
       "best_for": [
@@ -592,7 +592,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -610,9 +610,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Flint is a limited free tier text-to-text model on OpenRouter with a 262,144-token context window and $0 listed input/output pricing. It supports tools and reasoning but not structured outputs, and the :free tier is rate-capped at 20 RPM and 50 RPD without credits (1,000 RPD after a $10+ lifetime credit purchase).",
       "best_for": [
@@ -655,7 +655,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -673,9 +673,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "NVIDIA Nemotron 3 Nano Omni is a 30B-A3B open multimodal model offered on a limited free tier ($0 per 1M input/output tokens) with a 256K context window. It accepts text, image, audio, and video inputs and outputs text, supporting tools and reasoning but not structured outputs.",
       "best_for": [
@@ -718,7 +718,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0",
@@ -736,9 +736,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "The Free Models Router (openrouter/free) is a rate-limited free router that randomly selects among active $0 endpoints on OpenRouter, with $0.00 per 1M input/output pricing and a 200K context window. It supports text+image input to text output with tools, structured outputs, and reasoning capabilities.",
       "best_for": [
@@ -781,7 +781,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000029",
@@ -799,9 +799,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Mistral Nemo is a paid real-time text-to-text model with a 131072-token context and per-token pricing of 0.029 input / 0.03 output per 1M tokens. It supports tools and structured outputs but not reasoning, and is multilingual across English, French, German, Spanish, Italian, Portuguese, Chinese, Japanese, and more.",
       "best_for": [
@@ -844,7 +844,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000004",
@@ -862,13 +862,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f15570ef81345128",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemma 3 4B is a real-time paid endpoint billed at $0.04/1M input and $0.05/1M output tokens (estimated $0.42 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -907,7 +907,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000005",
@@ -925,13 +925,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "08a76bea79a54873",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Mistral: Mistral Small 3 is a real-time paid endpoint billed at $0.05/1M input and $0.08/1M output tokens (estimated $0.56 for 8M input + 2M output tokens) with a 32K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -970,7 +970,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000003",
@@ -988,9 +988,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.7 Flash is a paid, tiered vision-language reasoning model from Alibaba with a 1M-token context and text+image+video input. It supports tool use and reasoning but not structured outputs, and long-context prompts incur tiered price surcharges above a threshold.",
       "best_for": [
@@ -1033,7 +1033,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000003",
@@ -1051,9 +1051,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "gpt-oss-20b is a paid, real-time text-to-text endpoint with a 131,072-token context window and per-token pricing of 0.03 input / 0.13 output per 1M tokens. It is an open-weight 21B MoE model (3.6B active parameters) supporting tools, structured outputs, and reasoning.",
       "best_for": [
@@ -1096,7 +1096,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -1114,9 +1114,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Mistral: Ministral 3 3B 2512 is a paid real-time interactive endpoint priced at 0.1 per 1M input and output tokens. It supports text+image input with a 131072 context, tools, and structured outputs, but no reasoning.",
       "best_for": [
@@ -1159,7 +1159,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000005",
@@ -1177,18 +1177,81 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "17f42f6bee05c7d1",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemma 3 12B is a real-time paid endpoint billed at $0.05/1M input and $0.15/1M output tokens (estimated $0.7 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
         "Strict JSON / structured extraction",
         "Long-context inputs up to 131K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
+    }
+  },
+  {
+    "id": "deepseek/deepseek-v4-flash-0731",
+    "slug": "deepseek-deepseek-v4-flash-0731",
+    "name": "DeepSeek: DeepSeek V4 Flash 0731",
+    "provider": "Deepseek",
+    "context_length": 1048576,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.06,
+    "completion_price_per_m": 0.18,
+    "cache_read_price_per_m": 0.015,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "0.00000006",
+      "completion": "0.00000018",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.000000015",
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text->text",
+    "task_category": "reasoning",
+    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows....",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "22e4474197e712a3",
+      "enriched_at": "2026-11-26",
+      "summary": "DeepSeek: DeepSeek V4 Flash 0731 is a real-time paid endpoint billed at $0.06/1M input and $0.18/1M output tokens (estimated $0.84 for 8M input + 2M output tokens) with a 1048K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 1048K tokens"
       ],
       "watch_outs": [
         "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
@@ -1222,7 +1285,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000008",
@@ -1240,13 +1303,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "14eddf5f71ffdcda",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemma 3 27B is a real-time paid endpoint billed at $0.08/1M input and $0.16/1M output tokens (estimated $0.96 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1257,69 +1320,6 @@
         "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
         "Cache repeated prompts by content hash to prevent duplicate spend"
       ]
-    }
-  },
-  {
-    "id": "deepseek/deepseek-v4.1-flash",
-    "slug": "deepseek-deepseek-v4-1-flash",
-    "name": "DeepSeek: DeepSeek V4.1 Flash",
-    "provider": "Deepseek",
-    "context_length": 1048576,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.0507,
-    "completion_price_per_m": 0.2028,
-    "cache_read_price_per_m": 0.001014,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.0000000507",
-      "completion": "0.0000002028",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.000000001014",
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image->text",
-    "task_category": "reasoning",
-    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "summary": "DeepSeek V4.1 Flash is a paid real-time text+image-to-text model priced at 0.0507 per 1M input tokens and 0.2028 per 1M output tokens, with a 1,048,576-token context. It supports tools, structured outputs, and reasoning, and uses standard per-token API pricing plus OpenRouter top-up fees unless BYOK.",
-      "best_for": [
-        "Long-context text and image inputs up to 1M tokens",
-        "Tool-calling and structured-output workflows",
-        "Reasoning-heavy interactive applications"
-      ],
-      "watch_outs": [
-        "Paid per-token pricing applies; OpenRouter adds 5.5% card or 5% crypto top-up fees unless BYOK",
-        "Sparse MoE architecture with 8B input/16B output activation may behave differently from dense models"
-      ],
-      "source": "deepseek",
-      "cache_hash": "fcd665202f48aebe",
-      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -1348,7 +1348,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000009",
@@ -1366,9 +1366,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "DeepSeek V4 Flash 0423 is a paid, real-time text-to-text model priced at 0.09 per 1M input tokens and 0.18 per 1M output tokens. It offers a 1M-token context window with tool use, structured outputs, and reasoning support.",
       "best_for": [
@@ -1411,7 +1411,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000075",
@@ -1429,9 +1429,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Mistral Small 3.2 24B is a paid real-time interactive endpoint priced at 0.075 per 1M input tokens and 0.2 per 1M output tokens. It supports a 256K context, text+image input to text output, tools, and structured outputs, but not reasoning.",
       "best_for": [
@@ -1474,7 +1474,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000015",
@@ -1492,13 +1492,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8aadaa2431c198f2",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Mistral: Ministral 3 8B 2512 is a real-time paid endpoint billed at $0.15/1M input and $0.15/1M output tokens (estimated $1.5 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1537,7 +1537,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000005",
@@ -1555,9 +1555,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "OpenAI gpt-oss-120b is a paid, real-time text-to-text endpoint priced at 0.05 per 1M input tokens and 0.25 per 1M output tokens. It is an open-weight 117B-parameter MoE model with a 131072-token context and support for tools, structured outputs, and reasoning.",
       "best_for": [
@@ -1600,7 +1600,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -1618,13 +1618,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "997df8daf38074c6",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Meta: Muse Spark 1.3 Contributor is a real-time paid endpoint billed at $0.1/1M input and $0.2/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1663,7 +1663,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -1681,9 +1681,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Muse Spark 1.2 Contributor is a paid, real-time reasoning model from Meta with input/output pricing of 0.1/0.2 per 1M tokens and a 1,048,576-token context window. It accepts text, image, file, and video inputs and supports tools, structured outputs, and reasoning.",
       "best_for": [
@@ -1726,7 +1726,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000065",
@@ -1744,40 +1744,40 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "fcd8c14a499ec019",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen3.5-Flash is a real-time paid endpoint billed at $0.065/1M input and $0.26/1M output tokens (estimated $1.04 for 8M input + 2M output tokens) with a 1000K context window.",
+      "summary": "Qwen3.5-Flash is a paid, real-time multimodal endpoint (text+image+video to text) with a 1M-token context and per-token pricing of 0.065/0.26 per 1M input/output. It supports tools, structured outputs, and reasoning, built on a hybrid linear-attention and sparse MoE architecture for higher inference efficiency.",
       "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 1000K tokens"
+        "Long-context multimodal tasks up to 1M tokens",
+        "Real-time interactive applications needing tools and structured outputs",
+        "Cost-sensitive high-volume text/image/video inference"
       ],
       "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
+        "Paid per-token pricing; OpenRouter adds 5.5% card or 5% crypto top-up fees unless BYOK",
+        "Output tokens cost notably more than input tokens, so verbose generations raise cost"
+      ],
+      "source": "deepseek",
+      "cache_hash": "fcd8c14a499ec019",
+      "enriched_at": "2026-11-26"
     }
   },
   {
-    "id": "deepseek/deepseek-v4-flash-0731",
-    "slug": "deepseek-deepseek-v4-flash-0731",
-    "name": "DeepSeek: DeepSeek V4 Flash 0731",
-    "provider": "Deepseek",
-    "context_length": 1048576,
+    "id": "google/gemma-4-26b-a4b-it",
+    "slug": "google-gemma-4-26b-a4b-it",
+    "name": "Google: Gemma 4 26B A4B",
+    "provider": "Google",
+    "context_length": 262144,
     "pricing_type": "paid",
     "pricing_label": "Paid",
     "is_free": false,
     "is_realtime": true,
     "has_tiered_overrides": false,
     "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.0456,
-    "completion_price_per_m": 0.3,
-    "cache_read_price_per_m": 0.035,
+    "prompt_price_per_m": 0.0765,
+    "completion_price_per_m": 0.255,
+    "cache_read_price_per_m": 0.0425,
     "cache_write_price_per_m": null,
     "capabilities": {
       "tools": true,
@@ -1789,41 +1789,104 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
-      "prompt": "0.0000000456",
-      "completion": "0.0000003",
+      "prompt": "0.0000000765",
+      "completion": "0.000000255",
       "request": null,
       "image": null,
-      "input_cache_read": "0.000000035",
+      "input_cache_read": "0.0000000425",
       "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
-    "modality": "text->text",
+    "modality": "text+image+video->text",
     "task_category": "reasoning",
-    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows....",
+    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference — delivering near-31B quality at...",
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
-      "summary": "DeepSeek V4 Flash 0731 is a paid, real-time text-to-text endpoint with a 1,048,576-token context and per-token pricing of 0.0456 input / 0.3 output per 1M tokens. It is a sparse mixture-of-experts model with 13B active of 284B total parameters, supporting tools, structured outputs, and reasoning.",
+      "summary": "Gemma 4 26B A4B IT is a paid, real-time interactive MoE model priced at 0.0765 per 1M input tokens and 0.255 per 1M output tokens. It supports a 262144-token context with text, image, and video inputs to text output, plus tools, structured outputs, and reasoning.",
       "best_for": [
-        "Coding and agent workflows",
-        "Long-context reasoning tasks",
-        "Tool and structured-output integrations"
+        "Long-context multimodal tasks combining text, image, and video inputs",
+        "Cost-sensitive real-time workloads needing MoE efficiency with ~3.8B active parameters",
+        "Applications requiring tool use, structured outputs, and reasoning"
       ],
       "watch_outs": [
-        "Paid per-token pricing applies; OpenRouter top-up fees add 5.5% card / 5% crypto unless BYOK",
-        "Very large context window may increase token costs on long inputs"
+        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
+        "Real-time interactive serving only; no free or batch tier is indicated"
       ],
       "source": "deepseek",
-      "cache_hash": "36dfd19d4879e087",
-      "enriched_at": "2026-11-25"
+      "cache_hash": "96fecbbebbe42099",
+      "enriched_at": "2026-11-26"
+    }
+  },
+  {
+    "id": "qwen/qwen3.5-9b",
+    "slug": "qwen-qwen3-5-9b",
+    "name": "Qwen: Qwen3.5-9B",
+    "provider": "Qwen",
+    "context_length": 262144,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.1,
+    "completion_price_per_m": 0.25,
+    "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "0.0000001",
+      "completion": "0.00000025",
+      "request": null,
+      "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image+video->text",
+    "task_category": "reasoning",
+    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "61df975a4bf6cc4b",
+      "enriched_at": "2026-11-26",
+      "summary": "Qwen: Qwen3.5-9B is a real-time paid endpoint billed at $0.1/1M input and $0.25/1M output tokens (estimated $1.3 for 8M input + 2M output tokens) with a 262K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 262K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
     }
   },
   {
@@ -1852,7 +1915,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000007",
@@ -1870,13 +1933,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "68376e2fca828999",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Qwen: Qwen3 Coder 30B A3B Instruct is a real-time paid endpoint billed at $0.07/1M input and $0.28/1M output tokens (estimated $1.12 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1915,7 +1978,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000012",
@@ -1933,13 +1996,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "05be25c206610c9b",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Qwen: Qwen3 14B is a real-time paid endpoint billed at $0.12/1M input and $0.24/1M output tokens (estimated $1.44 for 8M input + 2M output tokens) with a 40K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -1978,7 +2041,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000008",
@@ -1996,13 +2059,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "43e855e29fff9191",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Qwen: Qwen3 32B is a real-time paid endpoint billed at $0.08/1M input and $0.28/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2041,7 +2104,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000075",
@@ -2059,9 +2122,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "OpenAI gpt-oss-safeguard-20b is a paid, real-time text-to-text safety reasoning model with a 131072-token context window and per-token pricing of 0.075 input / 0.3 output per 1M tokens. It supports tools, structured outputs, and reasoning, and is built for lower-latency safety tasks such as content classification and LLM filtering.",
       "best_for": [
@@ -2076,69 +2139,6 @@
       "source": "deepseek",
       "cache_hash": "5561508f4ee86710",
       "enriched_at": "2026-11-25"
-    }
-  },
-  {
-    "id": "google/gemma-4-26b-a4b-it",
-    "slug": "google-gemma-4-26b-a4b-it",
-    "name": "Google: Gemma 4 26B A4B",
-    "provider": "Google",
-    "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.09,
-    "completion_price_per_m": 0.3,
-    "cache_read_price_per_m": 0.05,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.00000009",
-      "completion": "0.0000003",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.00000005",
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+video->text",
-    "task_category": "reasoning",
-    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference — delivering near-31B quality at...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "ebf35bb533355afb",
-      "enriched_at": "2026-11-25",
-      "summary": "Google: Gemma 4 26B A4B is a real-time paid endpoint billed at $0.09/1M input and $0.3/1M output tokens (estimated $1.32 for 8M input + 2M output tokens) with a 262K context window.",
-      "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
     }
   },
   {
@@ -2167,7 +2167,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000002",
@@ -2185,9 +2185,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Mistral: Ministral 3 14B 2512 is a paid real-time text-and-image-to-text endpoint priced at 0.2 per 1M input and output tokens. It offers a 262144-token context with tool use and structured outputs, but no reasoning mode.",
       "best_for": [
@@ -2230,7 +2230,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -2248,13 +2248,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "c0760e3d4fae8b3d",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Qwen: Qwen3 30B A3B Instruct 2507 is a real-time paid endpoint billed at $0.1/1M input and $0.3/1M output tokens (estimated $1.4 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2293,7 +2293,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -2311,81 +2311,18 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "3ac6c23b9abd7ad9",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Mistral: Voxtral Small 24B 2507 is a real-time paid endpoint billed at $0.1/1M input and $0.3/1M output tokens (estimated $1.4 for 8M input + 2M output tokens) with a 32K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
         "Strict JSON / structured extraction",
         "Cost-controlled production API workloads"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    }
-  },
-  {
-    "id": "qwen/qwen3.5-9b",
-    "slug": "qwen-qwen3-5-9b",
-    "name": "Qwen: Qwen3.5-9B",
-    "provider": "Qwen",
-    "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.17,
-    "completion_price_per_m": 0.25,
-    "cache_read_price_per_m": null,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.00000017",
-      "completion": "0.00000025",
-      "request": null,
-      "image": null,
-      "input_cache_read": null,
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+video->text",
-    "task_category": "reasoning",
-    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "55ed71dee5d6b7c1",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen3.5-9B is a real-time paid endpoint billed at $0.17/1M input and $0.25/1M output tokens (estimated $1.86 for 8M input + 2M output tokens) with a 262K context window.",
-      "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
       ],
       "watch_outs": [
         "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
@@ -2419,7 +2356,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000005",
@@ -2437,13 +2374,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "102b4905ec2a25c3",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-5 Nano is a real-time paid endpoint billed at $0.05/1M input and $0.4/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2482,7 +2419,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -2500,9 +2437,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Gemini 2.5 Flash Lite is a paid real-time model priced at 0.1 per 1M input tokens and 0.4 per 1M output tokens. It supports text, image, file, audio, and video inputs to text output with a 1,048,576-token context and tools, structured outputs, and reasoning.",
       "best_for": [
@@ -2545,7 +2482,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -2563,9 +2500,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-4.1 Nano is a paid real-time text, image, and file-to-text endpoint priced at 0.1 per 1M input tokens and 0.4 per 1M output tokens, with a 1,047,576-token context. It supports tools and structured outputs but not reasoning, and is positioned as the fastest and cheapest model in the GPT-4.1 series for low-latency tasks.",
       "best_for": [
@@ -2580,6 +2517,69 @@
       "source": "deepseek",
       "cache_hash": "011b92e912a90084",
       "enriched_at": "2026-11-25"
+    }
+  },
+  {
+    "id": "deepseek/deepseek-v4.1-flash",
+    "slug": "deepseek-deepseek-v4-1-flash",
+    "name": "DeepSeek: DeepSeek V4.1 Flash",
+    "provider": "Deepseek",
+    "context_length": 1048576,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.14,
+    "completion_price_per_m": 0.42,
+    "cache_read_price_per_m": 0.0042,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "0.00000014",
+      "completion": "0.00000042",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.0000000042",
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image->text",
+    "task_category": "reasoning",
+    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "3a0b711d69f19454",
+      "enriched_at": "2026-11-26",
+      "summary": "DeepSeek: DeepSeek V4.1 Flash is a real-time paid endpoint billed at $0.14/1M input and $0.42/1M output tokens (estimated $1.96 for 8M input + 2M output tokens) with a 1048K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 1048K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
     }
   },
   {
@@ -2608,7 +2608,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -2626,9 +2626,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-6 Luna Pro is a paid, tiered, real-time interactive endpoint using the same underlying model as GPT-6 Luna but served with reasoning.mode set to pro for higher-quality responses on complex tasks. It supports text, image, and file inputs to text output with a 1,050,000-token context, tools, structured outputs, and reasoning, priced at 0.1 input / 0.5 output per 1M tokens.",
       "best_for": [
@@ -2671,7 +2671,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -2689,9 +2689,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-6 Luna is a paid, tiered, real-time interactive model priced at 0.1 input / 0.5 output per 1M tokens with a 1,050,000-token context and text+image+file-to-text modality. It supports tools, structured outputs, and reasoning, and is positioned as the fast, cost-efficient option below GPT-6 Sol for high-volume, latency-sensitive workloads.",
       "best_for": [
@@ -2734,7 +2734,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -2752,9 +2752,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Meta: Muse Ember is a paid, real-time interactive model priced at 0.1 per 1M input tokens and 0.5 per 1M output tokens, with a 1,048,576-token context window. It accepts text, image, file, audio, and video inputs and supports tools, structured outputs, and reasoning.",
       "best_for": [
@@ -2797,7 +2797,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -2815,9 +2815,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Claude Haiku 5.5 is a paid, tiered, real-time interactive model priced at 0.1 per 1M input and 0.5 per 1M output tokens, with a 1M context window and text+image+file to text modality. It supports tools, structured outputs, and reasoning, and is positioned for high-volume, cost-sensitive work.",
       "best_for": [
@@ -2860,7 +2860,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000002",
@@ -2878,13 +2878,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a0954d903e130f48",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemma 4 31B is a real-time paid endpoint billed at $0.2/1M input and $0.4/1M output tokens (estimated $2.4 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -2923,7 +2923,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000015",
@@ -2941,9 +2941,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.8 Omni Flash is a paid, real-time interactive omni-modal model accepting text, image, audio, and video inputs with a 1M-token context. It supports tools, structured outputs, and reasoning, priced at 0.15 per 1M input tokens and 0.47 per 1M output tokens.",
       "best_for": [
@@ -2986,7 +2986,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000015",
@@ -3004,9 +3004,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.8 Flash is a paid real-time multimodal reasoning model priced at 0.15 per 1M input tokens and 0.47 per 1M output tokens. It supports text, image, and video inputs with a 1,000,000-token context window, plus tools, structured outputs, and reasoning.",
       "best_for": [
@@ -3049,7 +3049,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000012",
@@ -3067,9 +3067,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3 30B A3B is a paid, real-time text-to-text endpoint with a 40,960-token context window and per-token pricing of 0.12 per 1M input and 0.5 per 1M output. It supports tools, structured outputs, and reasoning, and is billed at standard real-time per-token rates plus OpenRouter top-up fees unless using BYOK.",
       "best_for": [
@@ -3112,7 +3112,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000026",
@@ -3130,9 +3130,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "DeepSeek V3.2 is a paid, real-time text-to-text model priced at 0.26 per 1M input tokens and 0.38 per 1M output tokens, with a 163,840-token context window. It supports tools, structured outputs, and reasoning, and is described as balancing computational efficiency with strong reasoning and agentic tool-use performance.",
       "best_for": [
@@ -3175,7 +3175,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000027",
@@ -3193,13 +3193,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f147a345ee190565",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "DeepSeek: DeepSeek V3.2 Exp is a real-time paid endpoint billed at $0.27/1M input and $0.41/1M output tokens (estimated $2.98 for 8M input + 2M output tokens) with a 163K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3210,69 +3210,6 @@
         "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
         "Cache repeated prompts by content hash to prevent duplicate spend"
       ]
-    }
-  },
-  {
-    "id": "deepseek/deepseek-v4.1-flash-1017",
-    "slug": "deepseek-deepseek-v4-1-flash-1017",
-    "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
-    "provider": "Deepseek",
-    "context_length": 1048576,
-    "pricing_type": "paid",
-    "pricing_label": "Paid (Tiered)",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": true,
-    "rate_limit_note": "Includes tiered long-context price surcharges above threshold prompt length.",
-    "prompt_price_per_m": 0.15,
-    "completion_price_per_m": 0.6,
-    "cache_read_price_per_m": 0.003,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.00000015",
-      "completion": "0.0000006",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.000000003",
-      "has_overrides": true,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image->text",
-    "task_category": "reasoning",
-    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "summary": "DeepSeek V4.1 Flash 1017 is a paid, tiered, real-time interactive text-and-image-to-text endpoint with a 1,048,576-token context window. It supports tools, structured outputs, and reasoning, priced at 0.15 per 1M input tokens and 0.6 per 1M output tokens.",
-      "best_for": [
-        "Long-context text and image analysis",
-        "Tool-augmented and structured-output workflows",
-        "Reasoning-heavy interactive applications"
-      ],
-      "watch_outs": [
-        "Tiered long-context surcharges apply above the prompt-length threshold",
-        "Paid endpoint with per-token costs, not a free or unlimited tier"
-      ],
-      "source": "deepseek",
-      "cache_hash": "ee672f98db54e379",
-      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -3301,7 +3238,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000015",
@@ -3319,13 +3256,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b11ac31e110c43ae",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Mistral: Mistral Small 4 is a real-time paid endpoint billed at $0.15/1M input and $0.6/1M output tokens (estimated $2.4 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3364,7 +3301,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000015",
@@ -3382,9 +3319,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3 VL 30B A3B Instruct is a paid, real-time multimodal endpoint supporting text and image inputs with a 262,144-token context window. It offers tool use and structured outputs but no reasoning mode, priced at 0.15/0.6 per 1M input/output tokens.",
       "best_for": [
@@ -3427,7 +3364,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000015",
@@ -3445,9 +3382,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-4o-mini is a paid real-time interactive model supporting text, image, and file inputs with text output at 0.15/0.6 per 1M input/output tokens. It offers a 128K context window with tools and structured outputs enabled, but no reasoning capability.",
       "best_for": [
@@ -3490,7 +3427,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000015",
@@ -3508,9 +3445,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-4o-mini (2024-07-18) is a paid, real-time interactive model supporting text, image, and file inputs with text output and a 128K context window. It offers tools and structured outputs but no reasoning mode, priced at 0.15 per 1M input tokens and 0.6 per 1M output tokens.",
       "best_for": [
@@ -3553,7 +3490,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000036",
@@ -3571,9 +3508,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen2.5 72B Instruct is a paid, real-time text-to-text endpoint priced at 0.36 per 1M input tokens and 0.4 per 1M output tokens, with a 32,768-token context. It supports tool use and structured outputs but does not expose a reasoning mode.",
       "best_for": [
@@ -3616,7 +3553,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000002",
@@ -3634,9 +3571,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Mistral Saba is a paid, real-time interactive text+file-to-text model priced at 0.2 per 1M input tokens and 0.6 per 1M output tokens, with a 32,768-token context. It is a 24B-parameter model designed for Middle East and South Asia use cases, supporting tools and structured outputs but not reasoning.",
       "best_for": [
@@ -3679,7 +3616,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000351",
@@ -3697,9 +3634,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Mistral Small 3.1 24B Instruct is a paid real-time interactive endpoint with a 128K context window and text+image-to-text modality. It supports tools and structured outputs but not reasoning, priced at 0.351 per 1M input and 0.555 per 1M output tokens.",
       "best_for": [
@@ -3742,7 +3679,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000012",
@@ -3760,13 +3697,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "6a2fc75c06c76d39",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Qwen: Qwen3 Coder Next is a real-time paid endpoint billed at $0.12/1M input and $0.8/1M output tokens (estimated $2.56 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -3805,7 +3742,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000014",
@@ -3823,9 +3760,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3 235B A22B Instruct 2507 is a paid, real-time text-to-text MoE model with 22B active parameters and a 262144-token context window. It supports tools and structured outputs but not reasoning, priced at 0.14 per 1M input and 0.8 per 1M output tokens.",
       "best_for": [
@@ -3868,7 +3805,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -3886,9 +3823,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.6-35B-A3B is a paid, real-time multimodal model accepting text, image, and video input with a 262,144-token context. It supports tools, structured outputs, and reasoning, priced at 0.1 per 1M input and 0.89 per 1M output tokens.",
       "best_for": [
@@ -3931,7 +3868,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000025",
@@ -3949,9 +3886,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3 VL 8B Instruct is a paid real-time multimodal endpoint accepting text and image input with a 262,144-token context and per-1M pricing of 0.25 input / 0.75 output. It supports tools and structured outputs but not reasoning, and standard per-token pricing applies plus OpenRouter top-up fees unless using BYOK.",
       "best_for": [
@@ -3994,7 +3931,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000026",
@@ -4012,9 +3949,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen-Plus is a paid, tiered text-to-text endpoint priced at 0.26 per 1M input tokens and 0.78 per 1M output tokens, with a stated 1,000,000-token context. It supports tools and structured outputs but not reasoning, and is positioned for balanced performance, speed, and cost.",
       "best_for": [
@@ -4057,7 +3994,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000014",
@@ -4075,13 +4012,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "00fb427d295df4b9",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Qwen: Qwen3.5-35B-A3B is a real-time paid endpoint billed at $0.14/1M input and $1.0/1M output tokens (estimated $3.12 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4120,7 +4057,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000195",
@@ -4138,9 +4075,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3 Coder Flash is a paid, tiered text-to-text coding agent model priced at 0.195 per 1M input and 0.975 per 1M output tokens. It supports tool calling for autonomous programming with a 1,000,000-token context window and real-time interactive use.",
       "best_for": [
@@ -4183,7 +4120,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000003",
@@ -4201,9 +4138,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Codestral 2508 is a paid, real-time text-and-file-to-text coding model priced at 0.3 per 1M input tokens and 0.9 per 1M output tokens, with a 256K context window. It supports tools and structured outputs but not reasoning, and is positioned for low-latency, high-frequency coding tasks such as fill-in-the-middle, code correction, and test generation.",
       "best_for": [
@@ -4246,7 +4183,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000025",
@@ -4264,13 +4201,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "120601bd2d8eaec0",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "DeepSeek: DeepSeek V3.1 is a real-time paid endpoint billed at $0.25/1M input and $0.95/1M output tokens (estimated $3.9 for 8M input + 2M output tokens) with a 163K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4309,7 +4246,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001",
@@ -4327,9 +4264,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3 Next 80B A3B Instruct is a paid, real-time text-to-text chat model with a 262,144-token context window and per-token pricing of 0.1 input / 1.1 output per 1M tokens. It is instruction-tuned for fast, stable responses without thinking traces, and supports tools and structured outputs.",
       "best_for": [
@@ -4372,7 +4309,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000025",
@@ -4390,9 +4327,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "DeepSeek V3 0324 is a paid, real-time text-to-text chat model with a 163,840-token context window and per-token pricing of 0.25 input / 1.0 output per 1M tokens. It supports tool use and structured outputs but does not expose reasoning mode.",
       "best_for": [
@@ -4435,7 +4372,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000027",
@@ -4453,13 +4390,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b148908198d578d7",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "DeepSeek: DeepSeek V3.1 Terminus is a real-time paid endpoint billed at $0.27/1M input and $1.0/1M output tokens (estimated $4.16 for 8M input + 2M output tokens) with a 163K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -4498,7 +4435,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000002574",
@@ -4516,9 +4453,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "DeepSeek V3 (deepseek/deepseek-chat) is a paid, real-time text-to-text endpoint priced at 0.2574 per 1M input tokens and 1.0287 per 1M output tokens. It offers a 163,840-token context with tool use and structured outputs, but no reasoning mode.",
       "best_for": [
@@ -4561,7 +4498,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000003",
@@ -4579,9 +4516,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3 Coder 480B A35B is a paid, real-time text-to-text MoE code generation model priced at 0.3 per 1M input tokens and 1.0 per 1M output tokens. It supports a 262144-token context, tool use, and structured outputs, and is optimized for agentic coding tasks such as function calling and long-context reasoning.",
       "best_for": [
@@ -4624,7 +4561,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000001875",
@@ -4642,9 +4579,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.6 Flash is a paid, tiered-pricing model supporting text, image, and video input with a 1M-token context window. It offers tools, structured outputs, and reasoning, with input/output pricing of 0.1875/1.125 per 1M tokens.",
       "best_for": [
@@ -4687,7 +4624,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000002",
@@ -4705,9 +4642,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-5.6 Luna Pro is a paid, tiered, real-time interactive endpoint with a 1,050,000-token context window and text+image+file input to text output. It supports tools, structured outputs, and reasoning, with pro mode spending far more than the base Luna model.",
       "best_for": [
@@ -4750,7 +4687,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000002",
@@ -4768,9 +4705,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-5.6 Luna is a paid, tiered, real-time interactive endpoint priced at 0.2/1.2 per 1M input/output tokens with a 1,050,000-token context and text+image+file-to-text modality. It supports tools, structured outputs, and reasoning, and is positioned as a fast, cost-efficient model for high-volume, latency-sensitive work.",
       "best_for": [
@@ -4813,7 +4750,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000002",
@@ -4831,9 +4768,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-5.4 Nano is a paid, real-time interactive endpoint priced at 0.2 per 1M input tokens and 1.25 per 1M output tokens, with a 400K context window. It accepts text, image, and file inputs and supports tools, structured outputs, and reasoning.",
       "best_for": [
@@ -4848,6 +4785,69 @@
       "source": "deepseek",
       "cache_hash": "cb9b2d0c0e365b4d",
       "enriched_at": "2026-11-25"
+    }
+  },
+  {
+    "id": "deepseek/deepseek-v4.1-flash-1017",
+    "slug": "deepseek-deepseek-v4-1-flash-1017",
+    "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+    "provider": "Deepseek",
+    "context_length": 1048576,
+    "pricing_type": "paid",
+    "pricing_label": "Paid (Tiered)",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": true,
+    "rate_limit_note": "Includes tiered long-context price surcharges above threshold prompt length.",
+    "prompt_price_per_m": 0.3,
+    "completion_price_per_m": 1.2,
+    "cache_read_price_per_m": 0.006,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "0.0000003",
+      "completion": "0.0000012",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.000000006",
+      "has_overrides": true,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image->text",
+    "task_category": "reasoning",
+    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "03ac46153daf64fa",
+      "enriched_at": "2026-11-26",
+      "summary": "DeepSeek: DeepSeek V4.1 Flash 1017 is a real-time paid endpoint billed at $0.3/1M input and $1.2/1M output tokens (estimated $4.8 for 8M input + 2M output tokens) with a 1048K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 1048K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Check tiered long-context price surcharges"
+      ]
     }
   },
   {
@@ -4876,7 +4876,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000035",
@@ -4894,9 +4894,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.8 27B is a paid, real-time interactive open-weight dense vision-language model supporting text, image, and video inputs with a 1,024,000-token context. It offers tools, structured outputs, and reasoning, priced at 0.035 per 1M input tokens and 1.5 per 1M output tokens.",
       "best_for": [
@@ -4939,7 +4939,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000032",
@@ -4957,9 +4957,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.7 Plus is a paid, tiered-pricing model supporting text and image input with text output, a 1M-token context, and tools, structured outputs, and reasoning. It is positioned as a cost-effective option in Alibaba's Qwen3.7 series with real-time interactive support.",
       "best_for": [
@@ -5002,7 +5002,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000066",
@@ -5020,9 +5020,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen2.5 Coder 32B Instruct is a paid, real-time text-to-text code-focused model with a 32,768-token context window. It is priced at 0.66 per 1M input tokens and 1.0 per 1M output tokens, with OpenRouter top-up fees unless using BYOK.",
       "best_for": [
@@ -5065,7 +5065,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000025",
@@ -5083,13 +5083,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8ec29198dc0332b9",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemini 3.1 Flash Lite is a real-time paid endpoint billed at $0.25/1M input and $1.5/1M output tokens (estimated $5.0 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5128,7 +5128,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000025",
@@ -5146,13 +5146,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e39fb8075d344627",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemini 3.1 Flash Lite Preview is a real-time paid endpoint billed at $0.25/1M input and $1.5/1M output tokens (estimated $5.0 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5191,7 +5191,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000044",
@@ -5209,9 +5209,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "DeepSeek V4 Flash Vision Exp is a paid, real-time interactive endpoint with text+image-to-text input and a 1,048,576-token context window. It supports tools, structured outputs, and reasoning, priced at 0.44 per 1M input tokens and 1.32 per 1M output tokens.",
       "best_for": [
@@ -5254,7 +5254,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000008",
@@ -5272,9 +5272,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen2.5 VL 72B Instruct is a paid, real-time interactive multimodal endpoint accepting text and images with a 128K context window. It supports structured outputs but not tools or reasoning, priced at 0.8 per 1M input and 1.0 per 1M output tokens.",
       "best_for": [
@@ -5317,7 +5317,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000026",
@@ -5335,9 +5335,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.5 Plus 2026-02-15 is a paid, tiered real-time endpoint priced at 0.26 input and 1.56 output per 1M tokens with a 1M-token context window. It accepts text, image, and video input and supports tools, structured outputs, and reasoning.",
       "best_for": [
@@ -5380,7 +5380,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000035",
@@ -5398,9 +5398,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Muse Glimmer 30B is a paid, real-time multimodal endpoint (text+image to text) with a 131,072-token context and per-token pricing of 0.35/1.5 per 1M input/output tokens. It supports tools, structured outputs, and reasoning, and is described as a dense open-weight model optimized for autonomous agents.",
       "best_for": [
@@ -5443,7 +5443,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000004",
@@ -5461,13 +5461,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8e0664b5ad393eee",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-4.1 Mini is a real-time paid endpoint billed at $0.4/1M input and $1.6/1M output tokens (estimated $6.4 for 8M input + 2M output tokens) with a 1047K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5506,7 +5506,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000005",
@@ -5524,13 +5524,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "90d497d7d40ac4c5",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Mistral: Mistral Large 3 2512 is a real-time paid endpoint billed at $0.5/1M input and $1.5/1M output tokens (estimated $7.0 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5569,7 +5569,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000003",
@@ -5587,9 +5587,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.5 Plus 2026-04-20 is a paid, tiered multimodal model accepting text, image, and video input with text output and a 1M token context window. It supports tools, structured outputs, and reasoning, priced at 0.3 per 1M input and 1.8 per 1M output tokens.",
       "best_for": [
@@ -5632,7 +5632,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000021",
@@ -5650,9 +5650,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3 VL 235B A22B Instruct is a paid, real-time multimodal endpoint supporting text+image input to text output with a 262144-token context. It offers tools and structured outputs but no reasoning mode, priced at 0.21 input and 1.9 output per 1M tokens.",
       "best_for": [
@@ -5695,7 +5695,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000025",
@@ -5713,9 +5713,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-5.1-Codex-Mini is a paid real-time interactive text-and-image-to-text endpoint priced at 0.25 per 1M input tokens and 2.0 per 1M output tokens, with a 400000-token context. It supports tools, structured outputs, and reasoning, and is described as a smaller and faster version of GPT-5.1-Codex.",
       "best_for": [
@@ -5758,7 +5758,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000025",
@@ -5776,9 +5776,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-5 Mini is a paid real-time interactive endpoint priced at 0.25 per 1M input tokens and 2.0 per 1M output tokens, with a 400K context window. It accepts text, image, and file inputs and supports tools, structured outputs, and reasoning.",
       "best_for": [
@@ -5821,7 +5821,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000325",
@@ -5839,9 +5839,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.6 Plus is a paid, tiered-pricing endpoint with a 1M-token context and text+image+video-to-text input. It supports tools, structured outputs, and reasoning for real-time interactive use.",
       "best_for": [
@@ -5884,7 +5884,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000026",
@@ -5902,13 +5902,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d0036e23c77f3c58",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Qwen: Qwen3.5-122B-A10B is a real-time paid endpoint billed at $0.26/1M input and $2.08/1M output tokens (estimated $6.24 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -5933,8 +5933,8 @@
     "is_realtime": true,
     "has_tiered_overrides": false,
     "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.777524,
-    "completion_price_per_m": 1.5629,
+    "prompt_price_per_m": 0.888188,
+    "completion_price_per_m": 1.5082,
     "cache_read_price_per_m": 0.2,
     "cache_write_price_per_m": null,
     "capabilities": {
@@ -5947,11 +5947,11 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
-      "prompt": "0.000000777524",
-      "completion": "0.0000015629",
+      "prompt": "0.000000888188",
+      "completion": "0.0000015082",
       "request": null,
       "image": null,
       "input_cache_read": "0.0000002",
@@ -5965,23 +5965,23 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
-      "summary": "DeepSeek V4 Pro 0423 is a paid, real-time text-to-text endpoint priced at 0.777524 per 1M input tokens and 1.5629 per 1M output tokens. It offers a 1M-token context window with tools, structured outputs, and reasoning support.",
+      "source": "deterministic-fallback",
+      "cache_hash": "5400fb99c4975c00",
+      "enriched_at": "2026-11-26",
+      "summary": "DeepSeek: DeepSeek V4 Pro 0423 is a real-time paid endpoint billed at $0.888188/1M input and $1.5082/1M output tokens (estimated $10.12 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
-        "Advanced reasoning tasks",
-        "Coding workflows",
-        "Long-context text processing"
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 1048K tokens"
       ],
       "watch_outs": [
-        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless BYOK",
-        "Large context window does not imply unlimited usage; standard real-time rate limits apply"
-      ],
-      "source": "deepseek",
-      "cache_hash": "6261aef5310af409",
-      "enriched_at": "2026-11-25"
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
     }
   },
   {
@@ -6010,7 +6010,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000004",
@@ -6028,13 +6028,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "094b1f1050a19bd7",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Mistral: Devstral 2 2512 is a real-time paid endpoint billed at $0.4/1M input and $2.0/1M output tokens (estimated $7.2 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6073,7 +6073,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000007",
@@ -6091,9 +6091,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Mistral Large 4 is a paid, real-time multimodal model accepting text and image input with a 1M-token context window. It supports tools, structured outputs, and reasoning, priced at 0.7 per 1M input and 2.1 per 1M output tokens.",
       "best_for": [
@@ -6136,7 +6136,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000003",
@@ -6154,13 +6154,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "841624c0397cd0d3",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemini 3.5 Flash Lite is a real-time paid endpoint billed at $0.3/1M input and $2.5/1M output tokens (estimated $7.4 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6199,7 +6199,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000003",
@@ -6217,13 +6217,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8b0d7cda90b0c0c1",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemini 2.5 Flash is a real-time paid endpoint billed at $0.3/1M input and $2.5/1M output tokens (estimated $7.4 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6262,7 +6262,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000571",
@@ -6280,9 +6280,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "DeepSeek R1 0528 is a paid, real-time text-to-text endpoint priced at 0.571 per 1M input tokens and 2.286 per 1M output tokens, with a 163840-token context window. It supports tools, structured outputs, and reasoning, and is described as an open-sourced May 28th update to the original DeepSeek R1 with fully open reasoning tokens.",
       "best_for": [
@@ -6325,7 +6325,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000026",
@@ -6343,9 +6343,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.5-27B is a paid real-time interactive API with per-token pricing of 0.26 per 1M input and 2.6 per 1M output. It is a native vision-language dense model supporting text, image, and video inputs with a 262144-token context, tools, structured outputs, and reasoning.",
       "best_for": [
@@ -6360,69 +6360,6 @@
       "source": "deepseek",
       "cache_hash": "696561bdf4f3a166",
       "enriched_at": "2026-11-25"
-    }
-  },
-  {
-    "id": "qwen/qwen3.5-397b-a17b",
-    "slug": "qwen-qwen3-5-397b-a17b",
-    "name": "Qwen: Qwen3.5 397B A17B",
-    "provider": "Qwen",
-    "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.45,
-    "completion_price_per_m": 3.0,
-    "cache_read_price_per_m": 0.22,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "0.00000045",
-      "completion": "0.000003",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.00000022",
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+video->text",
-    "task_category": "reasoning",
-    "description": "The Qwen3.5 series 397B-A17B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. It delivers...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "b95567cb5ec9dccf",
-      "enriched_at": "2026-11-25",
-      "summary": "Qwen: Qwen3.5 397B A17B is a real-time paid endpoint billed at $0.45/1M input and $3.0/1M output tokens (estimated $9.6 for 8M input + 2M output tokens) with a 262K context window.",
-      "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 262K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
     }
   },
   {
@@ -6451,7 +6388,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000005",
@@ -6469,13 +6406,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "5d374c6ac2adb186",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemini 3 Flash Preview is a real-time paid endpoint billed at $0.5/1M input and $3.0/1M output tokens (estimated $10.0 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6514,7 +6451,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000032",
@@ -6532,9 +6469,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.6 27B is a paid real-time per-token endpoint priced at 0.32 per 1M input tokens and 3.2 per 1M output tokens. It is a dense 27B multimodal model accepting text, image, and video inputs with a 262144-token context and support for tools, structured outputs, and reasoning.",
       "best_for": [
@@ -6577,7 +6514,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000045",
@@ -6595,9 +6532,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3 235B A22B Thinking 2507 is a paid, real-time text-to-text MoE model with reasoning and tool support, priced at 0.45 per 1M input tokens and 3.5 per 1M output tokens. It offers a 128,000-token context window and does not support structured outputs.",
       "best_for": [
@@ -6612,6 +6549,69 @@
       "source": "deepseek",
       "cache_hash": "e0c996f7c59dfbca",
       "enriched_at": "2026-11-25"
+    }
+  },
+  {
+    "id": "qwen/qwen3.5-397b-a17b",
+    "slug": "qwen-qwen3-5-397b-a17b",
+    "name": "Qwen: Qwen3.5 397B A17B",
+    "provider": "Qwen",
+    "context_length": 262144,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.5,
+    "completion_price_per_m": 3.6,
+    "cache_read_price_per_m": 0.3,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "0.0000005",
+      "completion": "0.0000036",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.0000003",
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image+video->text",
+    "task_category": "reasoning",
+    "description": "The Qwen3.5 series 397B-A17B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. It delivers...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "33a3134ca116fefc",
+      "enriched_at": "2026-11-26",
+      "summary": "Qwen: Qwen3.5 397B A17B is a real-time paid endpoint billed at $0.5/1M input and $3.6/1M output tokens (estimated $11.2 for 8M input + 2M output tokens) with a 262K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 262K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
     }
   },
   {
@@ -6640,7 +6640,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000075",
@@ -6658,13 +6658,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "7907758546074a48",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemini 3.7 Flash is a real-time paid endpoint billed at $0.75/1M input and $3.75/1M output tokens (estimated $13.5 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6703,7 +6703,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000075",
@@ -6721,13 +6721,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "fb22301f23e49490",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemini 3.6 Flash is a real-time paid endpoint billed at $0.75/1M input and $3.75/1M output tokens (estimated $13.5 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6766,7 +6766,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000111",
@@ -6784,9 +6784,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "DeepSeek V4 Pro 0813 is a paid, real-time text-to-text mixture-of-experts model with a 1,048,576-token context window and per-token pricing of 0.111 input / 4.44 output per 1M tokens. It supports tools, structured outputs, and reasoning, with standard real-time per-token API pricing plus OpenRouter top-up fees unless using BYOK.",
       "best_for": [
@@ -6829,7 +6829,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000825",
@@ -6847,13 +6847,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a934e573b11ab2c0",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Google: Gemini 3.8 Flash is a real-time paid endpoint billed at $0.825/1M input and $4.125/1M output tokens (estimated $14.85 for 8M input + 2M output tokens) with a 1048K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6892,7 +6892,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000075",
@@ -6910,13 +6910,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "94ef23d7c4135455",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-5.4 Mini is a real-time paid endpoint billed at $0.75/1M input and $4.5/1M output tokens (estimated $15.0 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time tool calling & agent loops",
@@ -6955,7 +6955,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000125",
@@ -6973,9 +6973,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Muse Spark Open is a paid, real-time per-token API priced at $1.25 per 1M input tokens and $4.25 per 1M output tokens. It is a coding-optimized open-weight model with a 1,048,576-token context window supporting text, image, file, audio, and video inputs, plus tools, structured outputs, and reasoning.",
       "best_for": [
@@ -7018,7 +7018,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000125",
@@ -7036,9 +7036,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Meta: Muse Spark 1.3 is a paid, real-time multimodal reasoning model priced at $1.25 per 1M input tokens and $4.25 per 1M output tokens. It supports text, image, file, and video inputs with a 1,048,576-token context window plus tools, structured outputs, and reasoning.",
       "best_for": [
@@ -7081,7 +7081,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000125",
@@ -7099,9 +7099,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Meta: Muse Spark 1.2 is a paid real-time reasoning model priced at $1.25 per 1M input tokens and $4.25 per 1M output tokens. It supports text, image, file, and video inputs with a 1M-token context window, plus tools, structured outputs, and reasoning.",
       "best_for": [
@@ -7144,7 +7144,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000125",
@@ -7162,9 +7162,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Meta: Muse Spark 1.1 is a paid real-time multimodal reasoning model priced at $1.25 per 1M input tokens and $4.25 per 1M output tokens. It accepts text, image, file, and video inputs and returns text, with a 1,048,576-token context window and support for tools, structured outputs, and reasoning.",
       "best_for": [
@@ -7207,7 +7207,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000001425",
@@ -7225,9 +7225,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen4 Max is a paid real-time API endpoint priced at $1.425 per 1M input tokens and $4.275 per 1M output tokens. It accepts text, image, and video input, returns text, and supports a 1M-token context with reasoning, tools, and structured outputs.",
       "best_for": [
@@ -7270,7 +7270,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000001475",
@@ -7288,9 +7288,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "Qwen3.7-Max is a paid, real-time text-to-text flagship model from Alibaba's Qwen3.7 series, priced at $1.475 per 1M input tokens and $4.425 per 1M output tokens. It offers a 1M-token context window with tool use, structured outputs, and reasoning support, targeting agent-centric workloads.",
       "best_for": [
@@ -7333,7 +7333,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000001",
@@ -7351,9 +7351,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-6.1 Terra Pro is a paid, tiered, real-time interactive endpoint with a 1,050,000-token context and text+image+file-to-text modality. It uses pro reasoning mode for higher-quality responses on complex tasks, with input/output pricing of 1.0/5.0 per 1M tokens.",
       "best_for": [
@@ -7396,7 +7396,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000001",
@@ -7414,9 +7414,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "summary": "GPT-6.1 Terra is a paid, tiered mid-tier model in OpenAI's GPT-6.1 series, priced at $1.0 input and $5.0 output per 1M tokens. It supports real-time interactive use with a 1,050,000-token context window and text+image+file-to-text modalities.",
       "best_for": [
@@ -7459,7 +7459,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000001",
@@ -7477,9 +7477,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "442e068de8d16a13",
@@ -7522,7 +7522,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000002",
@@ -7540,9 +7540,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "fc53a4f22376bcb2",
@@ -7585,7 +7585,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000002",
@@ -7603,9 +7603,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "4674221743acbba7",
@@ -7648,7 +7648,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000002",
@@ -7666,9 +7666,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "86cfefaeedf3342b",
@@ -7711,7 +7711,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000002",
@@ -7729,9 +7729,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b7a53e9f430dd419",
@@ -7774,7 +7774,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000002",
@@ -7792,9 +7792,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b68a062ff36a5dd0",
@@ -7837,7 +7837,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000002",
@@ -7855,9 +7855,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "dd37990d9395356d",
@@ -7900,7 +7900,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000015",
@@ -7918,9 +7918,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "367f45eff80132ba",
@@ -7963,7 +7963,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000015",
@@ -7981,9 +7981,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "53cc9537dff6c373",
@@ -8026,7 +8026,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000002",
@@ -8044,9 +8044,9 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "cdf387547c8a47fe",
@@ -8089,7 +8089,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000023",
@@ -8107,13 +8107,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "c5c9c36cd22b528c",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Z.ai: GLM 5.3 Flash (batch) is an asynchronous batch-only endpoint billed at $0.023/1M input and $0.068/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8152,7 +8152,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000024",
@@ -8170,14 +8170,77 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "7960532ffedce688",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: gpt-oss-20b (batch) is an asynchronous batch-only endpoint billed at $0.024/1M input and $0.112/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
+  },
+  {
+    "id": "mistralai/ministral-8b-2512:batch",
+    "slug": "mistralai-ministral-8b-2512-batch",
+    "name": "Mistral: Ministral 3 8B 2512 (batch)",
+    "provider": "Mistralai",
+    "context_length": 262144,
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
+    "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
+    "prompt_price_per_m": 0.075,
+    "completion_price_per_m": 0.075,
+    "cache_read_price_per_m": 0.0075,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": false
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "0.000000075",
+      "completion": "0.000000075",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.0000000075",
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image->text",
+    "task_category": "batch",
+    "description": "A balanced model in the Ministral 3 family, Ministral 3 8B is a powerful, efficient tiny language model with vision capabilities.",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-26",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "305c7a720cd20087",
+      "enriched_at": "2026-11-26",
+      "summary": "Mistral: Ministral 3 8B 2512 (batch) is an asynchronous batch-only endpoint billed at $0.075/1M input and $0.075/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
         "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
@@ -8215,7 +8278,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.0000000296",
@@ -8233,13 +8296,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "2dc304d6f624e1f9",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: gpt-oss-120b (batch) is an asynchronous batch-only endpoint billed at $0.0296/1M input and $0.136/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8278,7 +8341,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000035",
@@ -8296,13 +8359,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f576d82c6afbe4ca",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch) is an asynchronous batch-only endpoint billed at $0.035/1M input and $0.149/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8341,7 +8404,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000048",
@@ -8359,13 +8422,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "9a6b96e3073f83d7",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "DeepSeek: DeepSeek V4 Flash 0731 (batch) is an asynchronous batch-only endpoint billed at $0.048/1M input and $0.144/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8404,7 +8467,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.00000005",
@@ -8422,13 +8485,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "aae65eea18e73850",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "DeepSeek: DeepSeek V4.1 Flash (batch) is an asynchronous batch-only endpoint billed at $0.05/1M input and $0.15/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8467,7 +8530,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-26"
     },
     "raw_pricing": {
       "prompt": "0.000000025",
@@ -8485,13 +8548,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-26",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f181d22dc03310b2",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-5 Nano (batch) is an asynchronous batch-only endpoint billed at $0.025/1M input and $0.2/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8501,6 +8564,258 @@
       "watch_outs": [
         "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
         "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
+  },
+  {
+    "id": "~unbiased/pareto-latest",
+    "slug": "unbiased-pareto-latest",
+    "name": "Pareto Latest",
+    "provider": "~Unbiased",
+    "context_length": 262144,
+    "pricing_type": "variable",
+    "pricing_label": "Variable (Routed)",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Dynamic routing (raw price -1): billed at whichever downstream paid model handles the request.",
+    "prompt_price_per_m": null,
+    "completion_price_per_m": null,
+    "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": false,
+      "structured_outputs": false,
+      "response_format": false,
+      "reasoning": false
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "-1",
+      "completion": "-1",
+      "request": null,
+      "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image->text",
+    "task_category": "router",
+    "description": "This model always redirects to the latest model in the Pareto family.",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-26",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "4671e01e5c8bc92b",
+      "enriched_at": "2026-11-26",
+      "summary": "Pareto Latest is a dynamically routed endpoint with variable billing (OpenRouter raw price = -1). Routing adds no markup, but you pay the actual rate of whichever downstream paid model handles each request.",
+      "best_for": [
+        "Mixed-complexity workloads where automatic model routing beats hardcoding a single model",
+        "Unified endpoint abstraction across multiple model tiers",
+        "Evaluating automated quality-vs-cost routing behavior"
+      ],
+      "watch_outs": [
+        "NOT a free model: downstream paid models bill normally per token",
+        "Spend can spike unexpectedly if complex prompts route to frontier models"
+      ]
+    }
+  },
+  {
+    "id": "openrouter/auto",
+    "slug": "openrouter-auto",
+    "name": "Auto Router",
+    "provider": "Openrouter",
+    "context_length": 2000000,
+    "pricing_type": "variable",
+    "pricing_label": "Variable (Routed)",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Dynamic routing (raw price -1): billed at whichever downstream paid model handles the request.",
+    "prompt_price_per_m": null,
+    "completion_price_per_m": null,
+    "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "-1",
+      "completion": "-1",
+      "request": null,
+      "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image+file+audio+video->text+image",
+    "task_category": "router",
+    "description": "Auto is OpenRouter’s flagship model router, built for general-purpose usage. It adapts to each request, choosing cost-optimal models and adjusting reasoning effort. It balances task difficulty, benchmark results, live prices,...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "90689a9a7f973a12",
+      "enriched_at": "2026-11-24",
+      "summary": "Auto Router is a dynamically routed endpoint with variable billing (OpenRouter raw price = -1). Routing adds no markup, but you pay the actual rate of whichever downstream paid model handles each request.",
+      "best_for": [
+        "Mixed-complexity workloads where automatic model routing beats hardcoding a single model",
+        "Unified endpoint abstraction across multiple model tiers",
+        "Evaluating automated quality-vs-cost routing behavior"
+      ],
+      "watch_outs": [
+        "NOT a free model: downstream paid models bill normally per token",
+        "Spend can spike unexpectedly if complex prompts route to frontier models"
+      ]
+    }
+  },
+  {
+    "id": "openrouter/auto-code",
+    "slug": "openrouter-auto-code",
+    "name": "Auto Code",
+    "provider": "Openrouter",
+    "context_length": 2000000,
+    "pricing_type": "variable",
+    "pricing_label": "Variable (Routed)",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Dynamic routing (raw price -1): billed at whichever downstream paid model handles the request.",
+    "prompt_price_per_m": null,
+    "completion_price_per_m": null,
+    "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "-1",
+      "completion": "-1",
+      "request": null,
+      "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image+file+audio+video->text+image",
+    "task_category": "router",
+    "description": "Auto Code is OpenRouter’s router built specifically for coding agents and harnesses. It uses the same routing engine as the [Auto Router](https://openrouter.ai/openrouter/auto), with every request treated as part of an...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "da7c8cd87601fd53",
+      "enriched_at": "2026-11-24",
+      "summary": "Auto Code is a dynamically routed endpoint with variable billing (OpenRouter raw price = -1). Routing adds no markup, but you pay the actual rate of whichever downstream paid model handles each request.",
+      "best_for": [
+        "Mixed-complexity workloads where automatic model routing beats hardcoding a single model",
+        "Unified endpoint abstraction across multiple model tiers",
+        "Evaluating automated quality-vs-cost routing behavior"
+      ],
+      "watch_outs": [
+        "NOT a free model: downstream paid models bill normally per token",
+        "Spend can spike unexpectedly if complex prompts route to frontier models"
+      ]
+    }
+  },
+  {
+    "id": "typesafe/jev-router",
+    "slug": "typesafe-jev-router",
+    "name": "TypeSafe: Jev Router",
+    "provider": "Typesafe",
+    "context_length": 1000000,
+    "pricing_type": "variable",
+    "pricing_label": "Variable (Routed)",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Dynamic routing (raw price -1): billed at whichever downstream paid model handles the request.",
+    "prompt_price_per_m": null,
+    "completion_price_per_m": null,
+    "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-26"
+    },
+    "raw_pricing": {
+      "prompt": "-1",
+      "completion": "-1",
+      "request": null,
+      "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image+file+audio+video->text",
+    "task_category": "router",
+    "description": "Jev Router picks the best model and reasoning effort for each request, balancing quality, speed, and cost. It runs on [Jev](https://openrouter.ai/~typesafe/jev-latest), TypeSafe's first System One model, and adapts as your...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-26",
+    "delisted_at": null,
+    "updated_at": "2026-11-26",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "ddfa71c80ea9a491",
+      "enriched_at": "2026-11-24",
+      "summary": "TypeSafe: Jev Router is a dynamically routed endpoint with variable billing (OpenRouter raw price = -1). Routing adds no markup, but you pay the actual rate of whichever downstream paid model handles each request.",
+      "best_for": [
+        "Mixed-complexity workloads where automatic model routing beats hardcoding a single model",
+        "Unified endpoint abstraction across multiple model tiers",
+        "Evaluating automated quality-vs-cost routing behavior"
+      ],
+      "watch_outs": [
+        "NOT a free model: downstream paid models bill normally per token",
+        "Spend can spike unexpectedly if complex prompts route to frontier models"
       ]
     }
   },
@@ -8548,13 +8863,13 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8a8eb69d700fa775",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-4.1 Nano (batch) is an asynchronous batch-only endpoint billed at $0.05/1M input and $0.2/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
       "best_for": [
         "Overnight bulk translation, document indexing, or offline dataset labeling",
@@ -8564,195 +8879,6 @@
       "watch_outs": [
         "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
         "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
-      ]
-    }
-  },
-  {
-    "id": "openrouter/auto",
-    "slug": "openrouter-auto",
-    "name": "Auto Router",
-    "provider": "Openrouter",
-    "context_length": 2000000,
-    "pricing_type": "variable",
-    "pricing_label": "Variable (Routed)",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Dynamic routing (raw price -1): billed at whichever downstream paid model handles the request.",
-    "prompt_price_per_m": null,
-    "completion_price_per_m": null,
-    "cache_read_price_per_m": null,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "-1",
-      "completion": "-1",
-      "request": null,
-      "image": null,
-      "input_cache_read": null,
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+file+audio+video->text+image",
-    "task_category": "router",
-    "description": "Auto is OpenRouter’s flagship model router, built for general-purpose usage. It adapts to each request, choosing cost-optimal models and adjusting reasoning effort. It balances task difficulty, benchmark results, live prices,...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "90689a9a7f973a12",
-      "enriched_at": "2026-11-24",
-      "summary": "Auto Router is a dynamically routed endpoint with variable billing (OpenRouter raw price = -1). Routing adds no markup, but you pay the actual rate of whichever downstream paid model handles each request.",
-      "best_for": [
-        "Mixed-complexity workloads where automatic model routing beats hardcoding a single model",
-        "Unified endpoint abstraction across multiple model tiers",
-        "Evaluating automated quality-vs-cost routing behavior"
-      ],
-      "watch_outs": [
-        "NOT a free model: downstream paid models bill normally per token",
-        "Spend can spike unexpectedly if complex prompts route to frontier models"
-      ]
-    }
-  },
-  {
-    "id": "openrouter/auto-code",
-    "slug": "openrouter-auto-code",
-    "name": "Auto Code",
-    "provider": "Openrouter",
-    "context_length": 2000000,
-    "pricing_type": "variable",
-    "pricing_label": "Variable (Routed)",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Dynamic routing (raw price -1): billed at whichever downstream paid model handles the request.",
-    "prompt_price_per_m": null,
-    "completion_price_per_m": null,
-    "cache_read_price_per_m": null,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "-1",
-      "completion": "-1",
-      "request": null,
-      "image": null,
-      "input_cache_read": null,
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+file+audio+video->text+image",
-    "task_category": "router",
-    "description": "Auto Code is OpenRouter’s router built specifically for coding agents and harnesses. It uses the same routing engine as the [Auto Router](https://openrouter.ai/openrouter/auto), with every request treated as part of an...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "da7c8cd87601fd53",
-      "enriched_at": "2026-11-24",
-      "summary": "Auto Code is a dynamically routed endpoint with variable billing (OpenRouter raw price = -1). Routing adds no markup, but you pay the actual rate of whichever downstream paid model handles each request.",
-      "best_for": [
-        "Mixed-complexity workloads where automatic model routing beats hardcoding a single model",
-        "Unified endpoint abstraction across multiple model tiers",
-        "Evaluating automated quality-vs-cost routing behavior"
-      ],
-      "watch_outs": [
-        "NOT a free model: downstream paid models bill normally per token",
-        "Spend can spike unexpectedly if complex prompts route to frontier models"
-      ]
-    }
-  },
-  {
-    "id": "typesafe/jev-router",
-    "slug": "typesafe-jev-router",
-    "name": "TypeSafe: Jev Router",
-    "provider": "Typesafe",
-    "context_length": 1000000,
-    "pricing_type": "variable",
-    "pricing_label": "Variable (Routed)",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Dynamic routing (raw price -1): billed at whichever downstream paid model handles the request.",
-    "prompt_price_per_m": null,
-    "completion_price_per_m": null,
-    "cache_read_price_per_m": null,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
-    },
-    "raw_pricing": {
-      "prompt": "-1",
-      "completion": "-1",
-      "request": null,
-      "image": null,
-      "input_cache_read": null,
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+file+audio+video->text",
-    "task_category": "router",
-    "description": "Jev Router picks the best model and reasoning effort for each request, balancing quality, speed, and cost. It runs on [Jev](https://openrouter.ai/~typesafe/jev-latest), TypeSafe's first System One model, and adapts as your...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
-    "delisted_at": null,
-    "updated_at": "2026-11-25",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "ddfa71c80ea9a491",
-      "enriched_at": "2026-11-24",
-      "summary": "TypeSafe: Jev Router is a dynamically routed endpoint with variable billing (OpenRouter raw price = -1). Routing adds no markup, but you pay the actual rate of whichever downstream paid model handles each request.",
-      "best_for": [
-        "Mixed-complexity workloads where automatic model routing beats hardcoding a single model",
-        "Unified endpoint abstraction across multiple model tiers",
-        "Evaluating automated quality-vs-cost routing behavior"
-      ],
-      "watch_outs": [
-        "NOT a free model: downstream paid models bill normally per token",
-        "Spend can spike unexpectedly if complex prompts route to frontier models"
       ]
     }
   },
@@ -8800,7 +8926,7 @@
     "status": "active",
     "missing_days": 0,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-25",
+    "last_seen": "2026-11-26",
     "delisted_at": null,
     "updated_at": "2026-11-25",
     "enrichment": {
@@ -8888,7 +9014,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "55d0481522429fea",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-6 Luna Pro (batch) is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -8902,7 +9028,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-6-luna:batch",
@@ -8931,7 +9057,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "4acc4a273b873f39",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-6 Luna (batch) is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -8945,7 +9071,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "anthropic/claude-haiku-5.5:batch",
@@ -8974,7 +9100,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "267dac112fbb2088",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Anthropic: Claude Haiku 5.5 (batch) is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -8988,7 +9114,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-4o-mini:batch",
@@ -9017,7 +9143,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "168bf7f5252d3878",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-4o-mini (batch) is a real-time paid endpoint billed at $0.075/1M input and $0.3/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 128K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9031,7 +9157,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-5.6-luna-pro:batch",
@@ -9060,7 +9186,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e33d3d4bb0e95920",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-5.6 Luna Pro (batch) is a real-time paid endpoint billed at $0.1/1M input and $0.6/1M output tokens (estimated $2.0 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9074,7 +9200,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-5.6-luna:batch",
@@ -9103,7 +9229,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "6b9976b4d094dcc1",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-5.6 Luna (batch) is a real-time paid endpoint billed at $0.1/1M input and $0.6/1M output tokens (estimated $2.0 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9117,7 +9243,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-5.4-nano:batch",
@@ -9146,7 +9272,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "aa44c1dd0a98df65",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-5.4 Nano (batch) is a real-time paid endpoint billed at $0.1/1M input and $0.625/1M output tokens (estimated $2.05 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9160,7 +9286,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-4.1-mini:batch",
@@ -9189,7 +9315,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "1ce95bfa8e5df7c3",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-4.1 Mini (batch) is a real-time paid endpoint billed at $0.2/1M input and $0.8/1M output tokens (estimated $3.2 for 8M input + 2M output tokens) with a 1047K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9203,7 +9329,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-5-mini:batch",
@@ -9232,7 +9358,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "268120817f8f2b73",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-5 Mini (batch) is a real-time paid endpoint billed at $0.125/1M input and $1.0/1M output tokens (estimated $3.0 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9246,7 +9372,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "qwen/qwen3.7-plus:batch",
@@ -9275,7 +9401,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "ac9418c03a5e83fe",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Qwen: Qwen3.7 Plus (batch) is a real-time paid endpoint billed at $0.23/1M input and $0.92/1M output tokens (estimated $3.68 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9289,7 +9415,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "meta/muse-glimmer-30b:batch",
@@ -9318,7 +9444,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "7bc0e0c10d650c49",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Meta: Muse Glimmer 30B (batch) is a real-time paid endpoint billed at $0.24/1M input and $0.96/1M output tokens (estimated $3.84 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9332,7 +9458,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "qwen/qwen3.8-27b:batch",
@@ -9361,7 +9487,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "77396c8761e8de50",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Qwen: Qwen3.8 27B (batch) is a real-time paid endpoint billed at $0.16/1M input and $2.0/1M output tokens (estimated $5.28 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9375,7 +9501,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-5.4-mini:batch",
@@ -9404,7 +9530,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a4f0863cab997cab",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-5.4 Mini (batch) is a real-time paid endpoint billed at $0.375/1M input and $2.25/1M output tokens (estimated $7.5 for 8M input + 2M output tokens) with a 400K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9418,7 +9544,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "mistralai/mistral-medium-3.1",
@@ -9447,7 +9573,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "68fa088aca2164c9",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Mistral: Mistral Medium 3.1 is a real-time paid endpoint billed at $0.44/1M input and $2.2/1M output tokens (estimated $7.92 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9489,7 +9615,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "76ab1005ba9794ce",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Mistral: Mistral Medium 3 is a real-time paid endpoint billed at $0.44/1M input and $2.2/1M output tokens (estimated $7.92 for 8M input + 2M output tokens) with a 131K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9531,7 +9657,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e6ee219ff39d8038",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: o4 Mini (batch) is a real-time paid endpoint billed at $0.55/1M input and $2.2/1M output tokens (estimated $8.8 for 8M input + 2M output tokens) with a 200K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9545,7 +9671,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/o3-mini:batch",
@@ -9574,7 +9700,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8e0802249bc7c481",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: o3 Mini (batch) is a real-time paid endpoint billed at $0.55/1M input and $2.2/1M output tokens (estimated $8.8 for 8M input + 2M output tokens) with a 200K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9588,7 +9714,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-6.1-terra-pro:batch",
@@ -9617,7 +9743,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "dce6e31ccd078122",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-6.1 Terra Pro (batch) is a real-time paid endpoint billed at $0.5/1M input and $2.5/1M output tokens (estimated $9.0 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9631,7 +9757,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-6.1-terra:batch",
@@ -9660,7 +9786,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "374332f1a97424bf",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "OpenAI: GPT-6.1 Terra (batch) is a real-time paid endpoint billed at $0.5/1M input and $2.5/1M output tokens (estimated $9.0 for 8M input + 2M output tokens) with a 1050K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9674,7 +9800,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "anthropic/claude-haiku-4.5:batch",
@@ -9703,7 +9829,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "6bf509c5d763a66d",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Anthropic: Claude Haiku 4.5 (batch) is a real-time paid endpoint billed at $0.5/1M input and $2.5/1M output tokens (estimated $9.0 for 8M input + 2M output tokens) with a 200K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9717,7 +9843,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "mistralai/mistral-medium-3-5:batch",
@@ -9746,7 +9872,7 @@
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "5f0b580a6fcd53ae",
-      "enriched_at": "2026-11-25",
+      "enriched_at": "2026-11-26",
       "summary": "Mistral: Mistral Medium 3.5 (batch) is a real-time paid endpoint billed at $0.75/1M input and $3.75/1M output tokens (estimated $13.5 for 8M input + 2M output tokens) with a 262K context window.",
       "best_for": [
         "Real-time text generation and analysis",
@@ -9760,7 +9886,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "qwen/qwen3.8-max-0902:batch",
@@ -9803,7 +9929,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/gpt-4.1:batch",
@@ -9846,7 +9972,7 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   },
   {
     "id": "openai/o3:batch",
@@ -9889,6 +10015,6 @@
     },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-25"
+    "last_seen": "2026-11-26"
   }
 ]

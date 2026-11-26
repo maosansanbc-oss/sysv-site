@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-11-25T19:16:31Z",
+  "updated_utc": "2026-11-26T03:00:21Z",
   "note": "Structured cross-provider Free LLM API policy database. Distinguishes permanently free, credit-unlocked free tiers, and time-limited free trials. Never claim verified when stale or unverified.",
   "providers": [
     {
@@ -30,12 +30,15 @@
       "source_url": "https://openrouter.ai/docs/api-reference/limits",
       "last_verified_date": "2026-11-25",
       "max_freshness_days": 14,
-      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "verification_status": "DOC_CHANGED_NEEDS_REVIEW",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "0f63dbe565a3fb4d",
-      "last_checked_utc": "2026-11-25T19:16:31Z",
-      "verification_reason": "confirmed_reverified",
-      "policy_signal_hash": "8f5ac553e273a077"
+      "last_checked_utc": "2026-11-26T03:00:21Z",
+      "verification_reason": "doc_text_hash_changed_signals_stable",
+      "policy_signal_hash": "8f5ac553e273a077",
+      "pending_source_hash": "5e4dbc6bdfaa28d0",
+      "pending_signal_hash": "8f5ac553e273a077",
+      "drift_detected_utc": "2026-11-26T03:00:21Z"
     },
     {
       "id": "google_gemini",
@@ -63,11 +66,11 @@
       "source_url": "https://ai.google.dev/gemini-api/docs/rate-limits",
       "last_verified_date": "2026-11-25",
       "max_freshness_days": 14,
-      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "verification_status": "FETCH_ERROR",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "f849843c103ea67e",
-      "last_checked_utc": "2026-11-25T19:14:38Z",
-      "verification_reason": "ok",
+      "last_checked_utc": "2026-11-26T03:00:21Z",
+      "verification_reason": "upstream_doc_unreachable",
       "policy_signal_hash": "8fb8fef5cc524b1e"
     },
     {
@@ -107,12 +110,15 @@
       "source_url": "https://console.groq.com/docs/rate-limits",
       "last_verified_date": "2026-11-25",
       "max_freshness_days": 14,
-      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "verification_status": "DOC_CHANGED_NEEDS_REVIEW",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "3dd424f8a8fecd3d",
-      "last_checked_utc": "2026-11-25T19:14:38Z",
-      "verification_reason": "ok",
-      "policy_signal_hash": "e3b0c44298fc1c14"
+      "last_checked_utc": "2026-11-26T03:00:21Z",
+      "verification_reason": "doc_text_hash_changed_signals_stable",
+      "policy_signal_hash": "e3b0c44298fc1c14",
+      "pending_source_hash": "e5919df579be0423",
+      "pending_signal_hash": "e3b0c44298fc1c14",
+      "drift_detected_utc": "2026-11-26T03:00:21Z"
     },
     {
       "id": "cloudflare_workers_ai",
@@ -142,12 +148,15 @@
       "source_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
       "last_verified_date": "2026-11-25",
       "max_freshness_days": 14,
-      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "verification_status": "DOC_CHANGED_NEEDS_REVIEW",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "f79e1a973a7bdf05",
-      "last_checked_utc": "2026-11-25T19:14:38Z",
-      "verification_reason": "ok",
-      "policy_signal_hash": "50537845453cdc1b"
+      "last_checked_utc": "2026-11-26T03:00:21Z",
+      "verification_reason": "doc_text_hash_changed_signals_stable",
+      "policy_signal_hash": "50537845453cdc1b",
+      "pending_source_hash": "44c02782efd6b6ca",
+      "pending_signal_hash": "50537845453cdc1b",
+      "drift_detected_utc": "2026-11-26T03:00:21Z"
     },
     {
       "id": "cerebras",
@@ -176,12 +185,15 @@
       "source_url": "https://inference-docs.cerebras.ai/support/rate-limits",
       "last_verified_date": "2026-11-25",
       "max_freshness_days": 14,
-      "verification_status": "OFFICIAL_DOCS_VERIFIED",
+      "verification_status": "DOC_CHANGED_NEEDS_REVIEW",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "e2e9a89c8becae41",
-      "last_checked_utc": "2026-11-25T19:14:38Z",
-      "verification_reason": "ok",
-      "policy_signal_hash": "07ea1874c07c5656"
+      "last_checked_utc": "2026-11-26T03:00:21Z",
+      "verification_reason": "doc_text_hash_changed_signals_stable",
+      "policy_signal_hash": "07ea1874c07c5656",
+      "pending_source_hash": "af30062d54eb841e",
+      "pending_signal_hash": "07ea1874c07c5656",
+      "drift_detected_utc": "2026-11-26T03:00:21Z"
     }
   ],
   "policy_history": [

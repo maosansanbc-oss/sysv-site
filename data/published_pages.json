@@ -5,8 +5,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "3d32c8b2cf35139d",
-    "lastmod": "2026-11-25T16:07:20Z"
+    "semantic_hash": "2b79d3e779929156",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/about/": {
     "url": "/about/",
@@ -14,8 +14,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "7dbcfd7176b751ed",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "a637a12c73c363da",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/compare/": {
     "url": "/compare/",
@@ -401,8 +401,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "06ddb571e9cffe92",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "ebd244e0e1446bf7",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/free-llm-apis/": {
     "url": "/free-llm-apis/",
@@ -410,8 +410,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "904895eb2449332e",
-    "lastmod": "2026-11-25T17:57:03Z"
+    "semantic_hash": "60c10d4bf56c9633",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/": {
     "url": "/models/",
@@ -419,8 +419,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "c8d4079254bd9489",
-    "lastmod": "2026-11-25T16:07:20Z"
+    "semantic_hash": "857e33a4b56a2d51",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/anthropic-claude-haiku-4-5-batch/": {
     "url": "/models/anthropic-claude-haiku-4-5-batch/",
@@ -545,8 +545,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "dd4aae85318d33ba",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "bdea8ddb5d9c3604",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/deepseek-deepseek-v4-1-flash-batch/": {
     "url": "/models/deepseek-deepseek-v4-1-flash-batch/",
@@ -563,8 +563,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "fdc63eac02f0a4fa",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "fa168c1767f50d76",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/deepseek-deepseek-v4-flash-0731-batch/": {
     "url": "/models/deepseek-deepseek-v4-flash-0731-batch/",
@@ -581,8 +581,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d4ec31189317cc93",
-    "lastmod": "2026-11-25T13:03:51Z"
+    "semantic_hash": "d49babc775fefae8",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/deepseek-deepseek-v4-flash-vision-exp/": {
     "url": "/models/deepseek-deepseek-v4-flash-vision-exp/",
@@ -617,8 +617,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "347fedc3a6a0e41b",
-    "lastmod": "2026-11-25T16:07:20Z"
+    "semantic_hash": "bad7288820d6513f",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/dots-studio-dots-3-note-preview-free/": {
     "url": "/models/dots-studio-dots-3-note-preview-free/",
@@ -761,8 +761,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d15b0803752aee3c",
-    "lastmod": "2026-11-25T07:23:34Z"
+    "semantic_hash": "f19243e45ac42803",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/google-gemma-4-31b-it-free/": {
     "url": "/models/google-gemma-4-31b-it-free/",
@@ -916,6 +916,15 @@
     "first_published": "2026-11-24",
     "semantic_hash": "8d665636c987cc95",
     "lastmod": "2026-11-25T15:20:02Z"
+  },
+  "/models/mistralai-ministral-8b-2512-batch/": {
+    "url": "/models/mistralai-ministral-8b-2512-batch/",
+    "page_type": "model_detail",
+    "status": "active",
+    "index_policy": "index",
+    "first_published": "2026-11-26",
+    "semantic_hash": "6040973c46151cbc",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/mistralai-ministral-8b-2512/": {
     "url": "/models/mistralai-ministral-8b-2512/",
@@ -1625,8 +1634,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "9d71b043bff34d54",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "59ce34e7c975cb98",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/qwen-qwen3-5-9b/": {
     "url": "/models/qwen-qwen3-5-9b/",
@@ -1634,8 +1643,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "6da487bef35c2c01",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "994898c68aafe547",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/qwen-qwen3-5-flash-02-23/": {
     "url": "/models/qwen-qwen3-5-flash-02-23/",
@@ -1643,8 +1652,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "f0aca823f7919814",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "c453df7a71131c3e",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/models/qwen-qwen3-5-plus-02-15/": {
     "url": "/models/qwen-qwen3-5-plus-02-15/",
@@ -1898,6 +1907,15 @@
     "semantic_hash": "a2013c172997082a",
     "lastmod": "2026-11-25T02:16:34Z"
   },
+  "/models/unbiased-pareto-latest/": {
+    "url": "/models/unbiased-pareto-latest/",
+    "page_type": "model_detail",
+    "status": "active",
+    "index_policy": "index",
+    "first_published": "2026-11-26",
+    "semantic_hash": "8b643278f9ec8d03",
+    "lastmod": "2026-11-26T03:00:45Z"
+  },
   "/models/z-ai-glm-5-3-flash-batch/": {
     "url": "/models/z-ai-glm-5-3-flash-batch/",
     "page_type": "model_detail",
@@ -1913,8 +1931,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "7671188fee7139a5",
-    "lastmod": "2026-11-25T16:07:20Z"
+    "semantic_hash": "0a415fa0426136a7",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/privacy/": {
     "url": "/privacy/",
@@ -2075,8 +2093,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ac5dd89a7b805709",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "82816d67cdfc3064",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/repos/harry0703-moneyprinterturbo/": {
     "url": "/repos/harry0703-moneyprinterturbo/",
@@ -2255,8 +2273,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a262187d3d6b3e51",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "dfd1aba272b436cd",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/repos/portkey-ai-gateway/": {
     "url": "/repos/portkey-ai-gateway/",
@@ -2363,8 +2381,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "30334b6fe64763f9",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "5dc88c5ddfbeac41",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/terms/": {
     "url": "/terms/",
@@ -2381,8 +2399,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "23e31372e203ff26",
-    "lastmod": "2026-11-25T16:07:20Z"
+    "semantic_hash": "997666d969c65b68",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/tools/api-vs-local-llm-calculator/": {
     "url": "/tools/api-vs-local-llm-calculator/",
@@ -2390,8 +2408,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "7b1a109875671791",
-    "lastmod": "2026-11-25T16:07:20Z"
+    "semantic_hash": "8f8bf1211a1ffd6f",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/tools/llm-translation-cost-calculator/": {
     "url": "/tools/llm-translation-cost-calculator/",
@@ -2399,8 +2417,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "9d8744a8d7cebc61",
-    "lastmod": "2026-11-25T16:07:20Z"
+    "semantic_hash": "c9f9afac8b916814",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/tools/n8n-ai-workflow-cost-calculator/": {
     "url": "/tools/n8n-ai-workflow-cost-calculator/",
@@ -2408,8 +2426,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "1fe82aadb1e4884c",
-    "lastmod": "2026-11-25T16:07:20Z"
+    "semantic_hash": "cb7e4334a027127f",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/tools/openrouter-cost-calculator/": {
     "url": "/tools/openrouter-cost-calculator/",
@@ -2417,8 +2435,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "cb7b3ecfdbb8dd96",
-    "lastmod": "2026-11-25T16:07:20Z"
+    "semantic_hash": "ccdd02afb32cf2f3",
+    "lastmod": "2026-11-26T03:00:45Z"
   },
   "/zero-cost-stack/": {
     "url": "/zero-cost-stack/",
