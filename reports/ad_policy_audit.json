@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-11-27T07:41:27Z",
+  "passed": true,
+  "runtime": {
+    "configured_ad_mode": "verification",
+    "effective_ad_mode": "verification",
+    "preview_mode": false,
+    "mock_ads": false,
+    "client_id": "ca-pub-7981084270242721",
+    "verification_enabled": true,
+    "verification_method": "ads_txt_and_meta",
+    "allow_live_ad_requests": false
+  },
+  "counts": {
+    "total_pages": 279,
+    "built_html_files": 279,
+    "ads_eligible_pages": 0,
+    "ads_enabled_pages": 0,
+    "approved_pages": 0,
+    "unreviewed_pages": 279,
+    "needs_review_pages": 0,
+    "rejected_pages": 0,
+    "no_ad_pages": 279,
+    "factual_conflicts": 0
+  },
+  "checks": {
+    "ads_txt_valid": true,
+    "ads_txt_errors": [],
+    "robots_txt_valid": true,
+    "privacy_disclosures_valid": true,
+    "missing_privacy_markers": [],
+    "ad_script_leaks": [],
+    "unreviewed_ad_leaks": [],
+    "unknown_pub_leaks": [],
+    "affiliate_issues": []
+  },
+  "errors": [],
+  "warnings": [
+    "Zero pages currently approved for live ads (expected until owner completes manual review)."
+  ],
+  "pending_owner_confirmations": [
+    {
+      "item": "AdSense Sites review verdict & rejection verbatim (if any)",
+      "status": "Unknown (owner screenshot on 2026-11-27 showed 'Getting ready' / '正在准备')"
+    },
+    {
+      "item": "AdSense Policy Center violations check",
+      "status": "Unknown (must verify in AdSense Policy Center)"
+    },
+    {
+      "item": "AdSense Payment / Identity / Tax verification",
+      "status": "Unknown (must verify in AdSense Payments)"
+    },
+    {
+      "item": "AdSense CMP live consent/reject/withdraw end-to-end test after live approval",
+      "status": "Unknown (owner screenshots on 2026-11-27 showed GDPR & US messages published; live runtime pending AdSense approval)"
+    },
+    {
+      "item": "AdSense Auto Ads excluded pages rule (/embed/*, /404.html, /privacy/, /terms/, /contact/, /repos/)",
+      "status": "Unknown (must verify in AdSense Ads -> Overview)"
+    },
+    {
+      "item": "Cloudflare real Googlebot / Mediapartners-Google / Google-Display-Ads-Bot crawler logs",
+      "status": "Unknown (simulated probes cannot prove real Google crawler traffic; verify in Cloudflare Security Events & GSC Crawl Stats)"
+    },
+    {
+      "item": "Cloudflare Email Routing forwarding for hello@sysv.cn",
+      "status": "Unknown (must verify real inbox delivery)"
+    },
+    {
+      "item": "Manual review approval in config/content_review.json before switching ad_mode to 'live'",
+      "status": "Pending human review"
+    }
+  ]
+}

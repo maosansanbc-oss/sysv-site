@@ -128,6 +128,21 @@ def run_quality_gate(data_dir: Path = DATA_DIR, dist_dir: Path = DIST_DIR, repo_
     if ads_policy_violations:
         errors.append(f"AdSense policy violation: adsbygoogle loaded on non-content/noindex pages: {ads_policy_violations[:10]}")
 
+    # 3c. Verify root ads.txt format & publisher ID match when adsense_client_id is configured
+    cfg_path = repo_root / "site.config.json"
+    if cfg_path.exists():
+        site_cfg = load_json(cfg_path, default={})
+        client_id = str((site_cfg.get("monetization") or {}).get("adsense_client_id") or "").strip()
+        if client_id:
+            ads_txt_p = dist_dir / "ads.txt"
+            if not ads_txt_p.exists():
+                errors.append("Missing required dist/ads.txt for configured adsense_client_id")
+            else:
+                ads_raw = ads_txt_p.read_text(encoding="utf-8").strip()
+                expected_pub = client_id.replace("ca-", "")
+                if "<html" in ads_raw.lower() or f"google.com, {expected_pub}, DIRECT, f08c47fec0942fa0" not in ads_raw:
+                    errors.append(f"Invalid dist/ads.txt content (expected publisher {expected_pub})")
+
     # 4. Zero secret leak check
     if repo_root.exists():
         for p in repo_root.rglob("*"):

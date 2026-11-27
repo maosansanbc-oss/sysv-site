@@ -441,17 +441,30 @@ class TestAdSenseComplianceRegression(unittest.TestCase):
             "domain": "sysv.cn",
             "base_url": "https://sysv.cn",
             "tagline": "Radar",
-            "monetization": {"adsense_client_id": "ca-pub-7981084270242721"},
+            "monetization": {
+                "ad_mode": "verification",
+                "verification_enabled": True,
+                "verification_method": "ads_txt_and_meta",
+                "adsense_client_id": "ca-pub-7981084270242721",
+            },
         }
-        home = build_site.render_layout(
+        # In verification mode, homepage emits verification meta ONLY (zero live ad requests)
+        home_ver = build_site.render_layout(
             cfg, title="Home", description="Desc", canonical_path="/", body_html="<h1>Home</h1>", git_commit="abc", index_policy="index"
         )
-        self.assertIn("adsbygoogle.js", home)
-        self.assertIn("google-adsense-account", home)
+        self.assertIn("google-adsense-account", home_ver)
+        self.assertNotIn("adsbygoogle.js", home_ver)
+
+        # In live mode with explicit ads_enabled=True, homepage emits both meta and adsbygoogle.js
+        home_live = build_site.render_layout(
+            cfg, title="Home", description="Desc", canonical_path="/", body_html="<h1>Home</h1>", git_commit="abc", index_policy="index", ads_enabled=True, verification_enabled=True
+        )
+        self.assertIn("adsbygoogle.js", home_live)
+        self.assertIn("google-adsense-account", home_live)
 
         for path, pol in [("/404.html", "noindex"), ("/repos/", "noindex"), ("/privacy/", "noindex"), ("/terms/", "noindex"), ("/contact/", "noindex"), ("/models/missing/", "noindex"), ("/models/delisted/", "archived")]:
             out = build_site.render_layout(
-                cfg, title="T", description="D", canonical_path=path, body_html="<h1>T</h1>", git_commit="abc", index_policy=pol
+                cfg, title="T", description="D", canonical_path=path, body_html="<h1>T</h1>", git_commit="abc", index_policy=pol, ads_enabled=True, verification_enabled=True
             )
             self.assertNotIn("adsbygoogle", out, f"AdSense script must not render on {path} ({pol})")
             self.assertNotIn("google-adsense-account", out, f"AdSense meta must not render on {path} ({pol})")

@@ -201,7 +201,7 @@ const badBatch = publicModels.filter(
 assert.equal(badBatch.length, 0, `Misclassified batch models in dist/data/models.json: ${badBatch.map((m) => m.id).join(", ")}`);
 console.log("[runtime_js] homepage calculator state preservation & dist/data/models.json consistency PASSED");
 
-// 2. Verify all 4 ad-free /embed/ pages strictly exclude AdSense & trackers
+// 2. Verify all 4 ad-free /embed/ pages + prohibited non-content pages strictly exclude AdSense scripts
 const embedPaths = [
   "embed/openrouter-cost-calculator/index.html",
   "embed/n8n-ai-workflow-cost-calculator/index.html",
@@ -214,7 +214,12 @@ for (const ep of embedPaths) {
   assert.equal(html.includes("google-adsense-account"), false, `AdSense meta leaked into ${ep}`);
   assert.equal(html.includes('content="noindex, follow"'), true, `Missing noindex on ${ep}`);
 }
-console.log("[runtime_js] 4 ad-free /embed/ pages verified clean");
+for (const noAdPath of ["404.html", "repos/index.html", "privacy/index.html", "terms/index.html", "contact/index.html"]) {
+  const html = fs.readFileSync(path.join(DIST, noAdPath), "utf8");
+  assert.equal(html.includes("adsbygoogle"), false, `AdSense script leaked into prohibited page ${noAdPath}`);
+  assert.equal(html.includes("google-adsense-account"), false, `AdSense meta leaked into prohibited page ${noAdPath}`);
+}
+console.log("[runtime_js] 4 ad-free /embed/ pages & 5 prohibited non-content pages verified clean");
 
 // 3. Real Headless Chrome (375x812 mobile viewport) DOM execution check on all 4 calculators + 1 embed
 let chromeBin = null;

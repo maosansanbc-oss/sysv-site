@@ -11,11 +11,21 @@ on:
         required: false
         default: true
         type: boolean
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "scripts/**"
+      - "tests/**"
+      - "config/**"
+      - "site.config.json"
+      - "data/free_provider_policies.json"
+      - ".github/workflows/daily-auto.yml"
   push:
     branches: ["main"]
     paths:
       - "scripts/**"
       - "tests/**"
+      - "config/**"
       - "site.config.json"
       - "data/free_provider_policies.json"
       - ".github/workflows/daily-auto.yml"
@@ -109,6 +119,7 @@ jobs:
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           DEPLOY_TARGET: ${{ steps.target.outputs.host }}
+          SYSV_PREVIEW_MODE: ${{ github.event_name == 'pull_request' && '1' || '0' }}
         run: python3 -m scripts.build_site
 
       - name: Run Technical Quality Gate (health_check)
@@ -120,11 +131,16 @@ jobs:
       - name: Run Independent SEO Indexing Quality Gate (seo_gate)
         run: python3 -m scripts.seo_gate
 
+      - name: Run Phase 2 Advertising Policy & Monetization Readiness Gate (ad_policy_gate)
+        env:
+          SYSV_PREVIEW_MODE: ${{ github.event_name == 'pull_request' && '1' || '0' }}
+        run: python3 -m scripts.ad_policy_gate
+
       - name: Run real JS engine + Headless Chrome mobile (375px) interactive calculator verification
         run: node tests/test_calculators_runtime.mjs
 
       - name: Deploy dist/ to Cloudflare Pages (exclusive when configured)
-        if: steps.target.outputs.host == 'cloudflare-pages'
+        if: github.event_name != 'pull_request' && steps.target.outputs.host == 'cloudflare-pages'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -132,17 +148,17 @@ jobs:
           command: pages deploy dist --project-name=sysv-site
 
       - name: Setup GitHub Pages (exclusive fallback when Cloudflare Pages not configured)
-        if: steps.target.outputs.host == 'github-pages'
+        if: github.event_name != 'pull_request' && steps.target.outputs.host == 'github-pages'
         uses: actions/configure-pages@v5
 
       - name: Upload static site artifact
-        if: steps.target.outputs.host == 'github-pages'
+        if: github.event_name != 'pull_request' && steps.target.outputs.host == 'github-pages'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
       - name: Upload updated data snapshots & ops ledger (always, so LLM spend is never lost on failure)
-        if: always()
+        if: always() && github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: sysv-data-snapshot
@@ -151,7 +167,7 @@ jobs:
 
   deploy-pages:
     needs: build
-    if: needs.build.outputs.deploy_target == 'github-pages'
+    if: github.event_name != 'pull_request' && needs.build.outputs.deploy_target == 'github-pages'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -163,7 +179,7 @@ jobs:
 
   finalize:
     needs: [build, deploy-pages]
-    if: always() && needs.build.result == 'success' && (needs.deploy-pages.result == 'success' || needs.deploy-pages.result == 'skipped')
+    if: always() && github.event_name != 'pull_request' && needs.build.result == 'success' && (needs.deploy-pages.result == 'success' || needs.deploy-pages.result == 'skipped')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
