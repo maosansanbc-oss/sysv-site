@@ -5,8 +5,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "2b79d3e779929156",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "e7511d65085056d3",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/about/": {
     "url": "/about/",
@@ -14,8 +14,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a637a12c73c363da",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "0d30004c00692984",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/compare/": {
     "url": "/compare/",
@@ -140,8 +140,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a4fa84f31396abfe",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "ec0c96335e5ac071",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-14b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-14b-2512/",
@@ -149,8 +149,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "dc3e05320d567ceb",
-    "lastmod": "2026-11-25T07:23:34Z"
+    "semantic_hash": "1a95237506ebb818",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-3b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-3b-2512/",
@@ -158,8 +158,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "e52a5d77f74995ba",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "e450bef69becaabf",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512/",
@@ -167,8 +167,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "243e69fec13d8c45",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "838d98f03de7397d",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-nemo/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-nemo/",
@@ -176,8 +176,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "c1f1f84d6b18aeac",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "22b24943b1ef6d1a",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-24b-instruct-2501/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-24b-instruct-2501/",
@@ -185,8 +185,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "000d8956612a6702",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "03499af118550696",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-3-2-24b-instruct/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-3-2-24b-instruct/",
@@ -194,8 +194,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "de9cd41a3b374339",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "a8c494c9d6a586d9",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/compare/google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507/": {
     "url": "/compare/google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507/",
@@ -203,8 +203,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "59a22e86cdb6df9f",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "dca4d4f35dcb8c9f",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/compare/google-gemma-4-26b-a4b-it-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/google-gemma-4-26b-a4b-it-free-vs-particle-ai-particle-1-free/",
@@ -401,8 +401,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ebd244e0e1446bf7",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "34d6e95f84620738",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/free-llm-apis/": {
     "url": "/free-llm-apis/",
@@ -410,8 +410,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "4c2f128e031ab0d1",
-    "lastmod": "2026-11-26T03:29:07Z"
+    "semantic_hash": "4b390172c4464f7c",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/models/": {
     "url": "/models/",
@@ -419,8 +419,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "857e33a4b56a2d51",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "1bf56d3b7659ebc0",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/models/anthropic-claude-haiku-4-5-batch/": {
     "url": "/models/anthropic-claude-haiku-4-5-batch/",
@@ -581,8 +581,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d49babc775fefae8",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "5619fdd787dc61ac",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/models/deepseek-deepseek-v4-flash-vision-exp/": {
     "url": "/models/deepseek-deepseek-v4-flash-vision-exp/",
@@ -608,8 +608,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "10f8ef4bc77be603",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "2366cce82391ae06",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/models/deepseek-deepseek-v4-pro/": {
     "url": "/models/deepseek-deepseek-v4-pro/",
@@ -734,8 +734,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "04528e2a281c0222",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "81bc470f7c25fd51",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/models/google-gemma-3-4b-it/": {
     "url": "/models/google-gemma-3-4b-it/",
@@ -743,8 +743,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "03e9c06807a68317",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "3b5616c4f61daa26",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/models/google-gemma-4-26b-a4b-it-free/": {
     "url": "/models/google-gemma-4-26b-a4b-it-free/",
@@ -824,8 +824,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "33039d30cc3615a4",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "6e035252cdf25515",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/models/meta-muse-spark-1-1/": {
     "url": "/models/meta-muse-spark-1-1/",
@@ -1769,8 +1769,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "9ea70cfd0345a254",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "ef11686eba0ebefa",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/models/qwen-qwen3-8-flash/": {
     "url": "/models/qwen-qwen3-8-flash/",
@@ -1931,8 +1931,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "0a415fa0426136a7",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "2b5cdbc26e043782",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/privacy/": {
     "url": "/privacy/",
@@ -2174,8 +2174,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "36f99989a7edf991",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "722be6452ebf5c12",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/repos/modsetter-surfsense/": {
     "url": "/repos/modsetter-surfsense/",
@@ -2183,8 +2183,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "1b735648e7baf2a3",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "68d62b9b55d67d00",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/repos/mozilla-ai-llamafile/": {
     "url": "/repos/mozilla-ai-llamafile/",
@@ -2220,15 +2220,6 @@
     "index_policy": "index",
     "first_published": "2026-11-24",
     "semantic_hash": "cf86010d5c072408",
-    "lastmod": "2026-11-25T02:16:34Z"
-  },
-  "/repos/nocobase-nocobase/": {
-    "url": "/repos/nocobase-nocobase/",
-    "page_type": "repo_detail",
-    "status": "active",
-    "index_policy": "index",
-    "first_published": "2026-11-24",
-    "semantic_hash": "3e2e2bcaf3d072c2",
     "lastmod": "2026-11-25T02:16:34Z"
   },
   "/repos/nya-foundation-nyaproxy/": {
@@ -2303,6 +2294,15 @@
     "semantic_hash": "f9a34873c2e0a079",
     "lastmod": "2026-11-25T02:16:34Z"
   },
+  "/repos/rocketride-org-rocketride-server/": {
+    "url": "/repos/rocketride-org-rocketride-server/",
+    "page_type": "repo_detail",
+    "status": "active",
+    "index_policy": "index",
+    "first_published": "2026-11-27",
+    "semantic_hash": "c6034992675af8cd",
+    "lastmod": "2026-11-27T03:02:43Z"
+  },
   "/repos/stirling-tools-stirling-pdf/": {
     "url": "/repos/stirling-tools-stirling-pdf/",
     "page_type": "repo_detail",
@@ -2339,15 +2339,6 @@
     "semantic_hash": "221f3aca1b310064",
     "lastmod": "2026-11-25T02:16:34Z"
   },
-  "/repos/tyktechnologies-tyk/": {
-    "url": "/repos/tyktechnologies-tyk/",
-    "page_type": "repo_detail",
-    "status": "active",
-    "index_policy": "index",
-    "first_published": "2026-11-24",
-    "semantic_hash": "b725f6bca652987e",
-    "lastmod": "2026-11-25T02:16:34Z"
-  },
   "/repos/usememos-memos/": {
     "url": "/repos/usememos-memos/",
     "page_type": "repo_detail",
@@ -2375,14 +2366,23 @@
     "semantic_hash": "4ea89d167094a3c2",
     "lastmod": "2026-11-25T02:16:34Z"
   },
+  "/repos/yetone-magpie/": {
+    "url": "/repos/yetone-magpie/",
+    "page_type": "repo_detail",
+    "status": "active",
+    "index_policy": "index",
+    "first_published": "2026-11-27",
+    "semantic_hash": "974a8ff4032df6c3",
+    "lastmod": "2026-11-27T03:02:43Z"
+  },
   "/self-hosting/": {
     "url": "/self-hosting/",
     "page_type": "self_hosting_hub",
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5dc88c5ddfbeac41",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "4ebf4e09dfef9e3e",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/terms/": {
     "url": "/terms/",
@@ -2399,8 +2399,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "997666d969c65b68",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "e94aebccbc19a4c5",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/tools/api-vs-local-llm-calculator/": {
     "url": "/tools/api-vs-local-llm-calculator/",
@@ -2408,8 +2408,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "8f8bf1211a1ffd6f",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "ccfff52fca69f1fd",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/tools/llm-translation-cost-calculator/": {
     "url": "/tools/llm-translation-cost-calculator/",
@@ -2417,8 +2417,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "c9f9afac8b916814",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "c8b245d3c51276c7",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/tools/n8n-ai-workflow-cost-calculator/": {
     "url": "/tools/n8n-ai-workflow-cost-calculator/",
@@ -2426,8 +2426,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "cb7e4334a027127f",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "ea249d6a774f230b",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/tools/openrouter-cost-calculator/": {
     "url": "/tools/openrouter-cost-calculator/",
@@ -2435,8 +2435,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ccdd02afb32cf2f3",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "e1f6b563b800f1dd",
+    "lastmod": "2026-11-27T03:02:43Z"
   },
   "/zero-cost-stack/": {
     "url": "/zero-cost-stack/",
@@ -2446,5 +2446,23 @@
     "first_published": "2026-11-24",
     "semantic_hash": "6665f1d33b17d723",
     "lastmod": "2026-11-24T17:29:15Z"
+  },
+  "/repos/nocobase-nocobase/": {
+    "url": "/repos/nocobase-nocobase/",
+    "page_type": "repo_detail",
+    "status": "gone",
+    "index_policy": "noindex",
+    "first_published": "2026-11-24",
+    "semantic_hash": "3e2e2bcaf3d072c2",
+    "lastmod": "2026-11-25T02:16:34Z"
+  },
+  "/repos/tyktechnologies-tyk/": {
+    "url": "/repos/tyktechnologies-tyk/",
+    "page_type": "repo_detail",
+    "status": "gone",
+    "index_policy": "noindex",
+    "first_published": "2026-11-24",
+    "semantic_hash": "b725f6bca652987e",
+    "lastmod": "2026-11-25T02:16:34Z"
   }
 }

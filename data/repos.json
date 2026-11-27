@@ -8,10 +8,10 @@
     "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
     "category": "Workflow Automation",
     "language": "TypeScript",
-    "stars": 212159,
-    "star_delta": 58,
-    "forks": 61666,
-    "open_issues": 1262,
+    "stars": 212336,
+    "star_delta": 177,
+    "forks": 61683,
+    "open_issues": 1310,
     "license": "NOASSERTION",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
@@ -21,7 +21,7 @@
     "docker_status": "No Root Dockerfile / Compose Found",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai",
@@ -36,9 +36,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/n8n-io/n8n",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "27403f912efcd554",
@@ -64,10 +64,10 @@
     "description": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
     "category": "Local LLM Runtime",
     "language": "Go",
-    "stars": 188147,
-    "star_delta": 43,
-    "forks": 19208,
-    "open_issues": 4776,
+    "stars": 188252,
+    "star_delta": 105,
+    "forks": 19220,
+    "open_issues": 4784,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -94,9 +94,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/ollama/ollama",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d23be6efffd565a4",
@@ -122,10 +122,10 @@
     "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
     "category": "Local LLM Runtime",
     "language": "Svelte",
-    "stars": 159581,
-    "star_delta": 50,
-    "forks": 23156,
-    "open_issues": 216,
+    "stars": 159650,
+    "star_delta": 69,
+    "forks": 23165,
+    "open_issues": 223,
     "license": "NOASSERTION",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
@@ -138,7 +138,7 @@
     "docker_status": "Verified (Dockerfile, docker-compose.yaml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai",
@@ -153,9 +153,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/open-webui/open-webui",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "02bcc2e685b650c3",
@@ -181,10 +181,10 @@
     "description": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.",
     "category": "Workflow Automation",
     "language": "Python",
-    "stars": 145733,
-    "star_delta": 85,
-    "forks": 23457,
-    "open_issues": 93,
+    "stars": 145879,
+    "star_delta": 146,
+    "forks": 23489,
+    "open_issues": 94,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -197,7 +197,7 @@
     "docker_status": "Verified (Dockerfile, docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai-video-generator",
@@ -212,9 +212,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/harry0703/MoneyPrinterTurbo",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "7d6b5b8931c82ea2",
@@ -240,10 +240,10 @@
     "description": "The open-source app everyone uses to manage agents at work",
     "category": "Workflow Automation",
     "language": "TypeScript",
-    "stars": 117082,
-    "star_delta": 121,
-    "forks": 19459,
-    "open_issues": 6775,
+    "stars": 117411,
+    "star_delta": 329,
+    "forks": 19525,
+    "open_issues": 6808,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -270,9 +270,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/paperclipai/paperclip",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "faeac62192fb912a",
@@ -298,10 +298,10 @@
     "description": "#1 PDF Application on GitHub that lets you edit PDFs on any device anywhere",
     "category": "Self-Hosted Infra",
     "language": "TypeScript",
-    "stars": 97476,
-    "star_delta": 32,
-    "forks": 9363,
-    "open_issues": 464,
+    "stars": 97547,
+    "star_delta": 71,
+    "forks": 9372,
+    "open_issues": 465,
     "license": "NOASSERTION",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
@@ -311,7 +311,7 @@
     "docker_status": "No Root Dockerfile / Compose Found",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "docker",
@@ -326,9 +326,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/Stirling-Tools/Stirling-PDF",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e6bab3ecb40716d7",
@@ -354,10 +354,10 @@
     "description": "A fancy self-hosted monitoring tool",
     "category": "Self-Hosted Infra",
     "language": "JavaScript",
-    "stars": 94899,
-    "star_delta": 31,
-    "forks": 8893,
-    "open_issues": 868,
+    "stars": 94935,
+    "star_delta": 36,
+    "forks": 8896,
+    "open_issues": 871,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -369,7 +369,7 @@
     "docker_status": "Verified (compose.yaml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "docker",
@@ -384,9 +384,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/louislam/uptime-kuma",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f112f9407819bffb",
@@ -412,10 +412,10 @@
     "description": "Never stop coding. Free MIT AI gateway: one endpoint, 375 providers (150+ free), 1,400+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 900+ ",
     "category": "AI Gateway & Proxy",
     "language": "TypeScript",
-    "stars": 90351,
-    "star_delta": 94,
-    "forks": 14055,
-    "open_issues": 879,
+    "stars": 90581,
+    "star_delta": 230,
+    "forks": 14102,
+    "open_issues": 947,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -428,7 +428,7 @@
     "docker_status": "Verified (Dockerfile, docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "a2a",
@@ -443,9 +443,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/cheaper-inference/OmniRoute",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "764aa232495ed57c",
@@ -471,9 +471,9 @@
     "description": "✨ Zero-config AI chat assistant. No API key needed — sign up and instantly chat with GPT-5, Claude 4, Gemini 2.5, DeepSeek & 100+ top models. Pay-as-you-go saves you more. Available on Web, iOS, macOS, Android, Linux, Windows.",
     "category": "Local LLM Runtime",
     "language": "TypeScript",
-    "stars": 88988,
-    "star_delta": 7,
-    "forks": 58428,
+    "stars": 88982,
+    "star_delta": -6,
+    "forks": 58412,
     "open_issues": 870,
     "license": "MIT",
     "license_tier": "permissive",
@@ -502,9 +502,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/ChatGPTNextWeb/NextChat",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a232d63811b388a0",
@@ -530,10 +530,10 @@
     "description": "Full-stack observability · Metrics · Logs · Traces · Flows · Topology · Infrastructure · APM · NPM · DBM · RUM · Synthetics · Cloud · AI SRE · OpenTelemetry · SNMP · NetFlow/IPFIX/sFlow · IPMI · Redfish · 2000+ integrations",
     "category": "Self-Hosted Infra",
     "language": "Go",
-    "stars": 81648,
-    "star_delta": 12,
-    "forks": 6743,
-    "open_issues": 488,
+    "stars": 81657,
+    "star_delta": 9,
+    "forks": 6740,
+    "open_issues": 484,
     "license": "GPL-3.0",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS obligations; Source Verified)",
@@ -545,7 +545,7 @@
     "docker_status": "Verified (Dockerfile)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai",
@@ -560,9 +560,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/netdata/netdata",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "ddf556fef030b4b7",
@@ -588,10 +588,10 @@
     "description": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
     "category": "Workflow Automation",
     "language": "Python",
-    "stars": 80326,
-    "star_delta": 43,
-    "forks": 9886,
-    "open_issues": 1926,
+    "stars": 80399,
+    "star_delta": 73,
+    "forks": 9912,
+    "open_issues": 1932,
     "license": "Unknown",
     "license_tier": "unknown",
     "license_note": "Verify LICENSE file directly (Unknown)",
@@ -616,9 +616,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "4159c4dcfd0e14f6",
@@ -644,10 +644,10 @@
     "description": "An open-source, self-hostable PaaS alternative to Vercel, Heroku & Netlify that lets you easily deploy static sites, databases, full-stack applications and 360+ one-click services on your own servers.",
     "category": "Self-Hosted Infra",
     "language": "PHP",
-    "stars": 66467,
-    "star_delta": 12,
-    "forks": 6030,
-    "open_issues": 51,
+    "stars": 66609,
+    "star_delta": 142,
+    "forks": 6037,
+    "open_issues": 46,
     "license": "Apache-2.0",
     "license_tier": "permissive",
     "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
@@ -659,7 +659,7 @@
     "docker_status": "Verified (docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-26",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "coolify",
@@ -674,9 +674,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/coollabsio/coolify",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "3a3741d9c5018278",
@@ -702,10 +702,10 @@
     "description": "Memos is an open-source, self-hosted note-taking app that brings your everyday thoughts together in a personal timeline. Your data stays yours, and you choose what to keep private or share.",
     "category": "Self-Hosted Infra",
     "language": "Go",
-    "stars": 64698,
-    "star_delta": 6,
-    "forks": 4992,
-    "open_issues": 77,
+    "stars": 64720,
+    "star_delta": 22,
+    "forks": 4998,
+    "open_issues": 74,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -715,7 +715,7 @@
     "docker_status": "No Root Dockerfile / Compose Found",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "docker",
@@ -730,9 +730,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/usememos/memos",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d00ff0226d50166a",
@@ -758,10 +758,10 @@
     "description": "The fastest, litest AI Gateway. Rust core with Python SDK. Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging [Bedrock, Azure, OpenAI, Anthropic, OpenAI, VertexAI, vLLM, Nvidia NIM]",
     "category": "AI Gateway & Proxy",
     "language": "Python",
-    "stars": 63924,
-    "star_delta": 26,
-    "forks": 13577,
-    "open_issues": 5527,
+    "stars": 63976,
+    "star_delta": 52,
+    "forks": 13607,
+    "open_issues": 5560,
     "license": "NOASSERTION",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
@@ -771,7 +771,7 @@
     "docker_status": "No Root Dockerfile / Compose Found",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai-gateway",
@@ -786,9 +786,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/BerriAI/litellm",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "2b491cf05ccebbe4",
@@ -814,10 +814,10 @@
     "description": "The open-source cloud for agents & devs. Including Auth, Databases, Storage, Functions, Messaging, Hosting, Realtime, WAF and more",
     "category": "Self-Hosted Infra",
     "language": "TypeScript",
-    "stars": 58643,
-    "star_delta": 25,
+    "stars": 58673,
+    "star_delta": 30,
     "forks": 5921,
-    "open_issues": 601,
+    "open_issues": 598,
     "license": "BSD-3-Clause",
     "license_tier": "permissive",
     "license_note": "Permissive (BSD-3-Clause — attribution/notice required; Source Verified via GitHub API)",
@@ -830,7 +830,7 @@
     "docker_status": "Verified (Dockerfile, docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "android",
@@ -845,9 +845,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/appwrite/appwrite",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "ff1fe6fe2010161c",
@@ -873,10 +873,10 @@
     "description": "Your AI workspace for models, agents, and productivity.",
     "category": "Local LLM Runtime",
     "language": "TypeScript",
-    "stars": 53886,
-    "star_delta": 13,
-    "forks": 5273,
-    "open_issues": 3023,
+    "stars": 53911,
+    "star_delta": 25,
+    "forks": 5278,
+    "open_issues": 3067,
     "license": "AGPL-3.0",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS obligations; Source Verified)",
@@ -886,7 +886,7 @@
     "docker_status": "No Root Dockerfile / Compose Found",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "agent-skills",
@@ -901,9 +901,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/CherryHQ/cherry-studio",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d7f2e1e562438eef",
@@ -929,10 +929,10 @@
     "description": "Open-source AI gateway. Self-hosted LLM gateway with OpenAI-, Claude- and Gemini-compatible APIs, model routing, access control, usage tracking and cost accounting.",
     "category": "AI Gateway & Proxy",
     "language": "Go",
-    "stars": 52550,
-    "star_delta": 32,
-    "forks": 12850,
-    "open_issues": 1501,
+    "stars": 52618,
+    "star_delta": 68,
+    "forks": 12875,
+    "open_issues": 1510,
     "license": "AGPL-3.0",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS obligations; Source Verified)",
@@ -945,7 +945,7 @@
     "docker_status": "Verified (Dockerfile, docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-26",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai-gateway",
@@ -960,9 +960,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/QuantumNous/new-api",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "b7a6326439e2ae1b",
@@ -988,10 +988,10 @@
     "description": "Your lightweight open-source personal agent.",
     "category": "Local LLM Runtime",
     "language": "Python",
-    "stars": 50336,
-    "star_delta": 16,
-    "forks": 8771,
-    "open_issues": 864,
+    "stars": 50370,
+    "star_delta": 34,
+    "forks": 8776,
+    "open_issues": 868,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -1004,7 +1004,7 @@
     "docker_status": "Verified (Dockerfile, docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "agent-framework",
@@ -1019,9 +1019,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/HKUDS/nanobot",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "3a6c9a6c0ef56a18",
@@ -1047,7 +1047,7 @@
     "description": "The painless way to host your own Git service",
     "category": "Self-Hosted Infra",
     "language": "Go",
-    "stars": 48001,
+    "stars": 48005,
     "star_delta": 4,
     "forks": 5078,
     "open_issues": 758,
@@ -1062,7 +1062,7 @@
     "docker_status": "Verified (Dockerfile)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-26",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "agent-orchestration",
@@ -1077,9 +1077,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/gogs/gogs",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "65c3c7ee21b3a9f3",
@@ -1105,9 +1105,9 @@
     "description": "🦍 The API and AI Gateway",
     "category": "AI Gateway & Proxy",
     "language": "Lua",
-    "stars": 44418,
-    "star_delta": 2,
-    "forks": 5252,
+    "stars": 44421,
+    "star_delta": 3,
+    "forks": 5253,
     "open_issues": 239,
     "license": "Apache-2.0",
     "license_tier": "permissive",
@@ -1133,9 +1133,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/Kong/kong",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "c5b2cc1c40a08279",
@@ -1161,10 +1161,10 @@
     "description": "Powerful AI Client",
     "category": "Local LLM Runtime",
     "language": "TypeScript",
-    "stars": 42547,
-    "star_delta": 10,
-    "forks": 4369,
-    "open_issues": 1385,
+    "stars": 42551,
+    "star_delta": 4,
+    "forks": 4371,
+    "open_issues": 1387,
     "license": "GPL-3.0",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (GPL-3.0 — review hosted/SaaS obligations; Source Verified)",
@@ -1189,9 +1189,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/chatboxai/chatbox",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d4a0e3beb6f3928d",
@@ -1209,6 +1209,64 @@
     }
   },
   {
+    "full_name": "yetone/magpie",
+    "slug": "yetone-magpie",
+    "name": "magpie",
+    "owner": "yetone",
+    "html_url": "https://github.com/yetone/magpie",
+    "description": "Pool every plan you pay for — Claude, ChatGPT, Copilot, GLM Coding Plan, Kimi Code and more — and use them in any agent: Claude Code, Codex, Claude Desktop… When one runs out, the next takes over.",
+    "category": "AI Gateway & Proxy",
+    "language": "Go",
+    "stars": 42093,
+    "star_delta": 0,
+    "forks": 3868,
+    "open_issues": 5279,
+    "license": "MIT",
+    "license_tier": "permissive",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": true,
+    "docker_files": [
+      "Dockerfile"
+    ],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "Verified (Dockerfile)",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
+    "pushed_at": "2026-11-27",
+    "maintenance_status": "Active (<30d)",
+    "topics": [
+      "ai-agents",
+      "chatgpt",
+      "claude",
+      "claude-code",
+      "codex",
+      "deepseek"
+    ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/yetone/magpie",
+      "verified_at": "2026-11-27"
+    },
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "3d7633e9c8ec5d50",
+      "enriched_at": "2026-11-27",
+      "summary": "yetone/magpie is a AI Gateway & Proxy repository in Go (Active (<30d), License: MIT). Docker root check: Verified (Dockerfile).",
+      "best_for": [
+        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
+        "Deploying with repository Docker files",
+        "Tracking active maintenance status and license terms before adoption"
+      ],
+      "watch_outs": [
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
+      ]
+    }
+  },
+  {
     "full_name": "ToolJet/ToolJet",
     "slug": "tooljet-tooljet",
     "name": "ToolJet",
@@ -1217,10 +1275,10 @@
     "description": "Open-source foundation of ToolJet AI - the enterprise app generation platform for internal tools, dashboards, business applications, workflows and AI agents. Build visually, from a prompt, or from Claude Code, Codex and Cursor over MCP 🚀",
     "category": "Workflow Automation",
     "language": "HTML",
-    "stars": 41305,
-    "star_delta": 3,
-    "forks": 5525,
-    "open_issues": 969,
+    "stars": 41310,
+    "star_delta": 5,
+    "forks": 5526,
+    "open_issues": 978,
     "license": "AGPL-3.0",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (AGPL-3.0 — review hosted/SaaS obligations; Source Verified)",
@@ -1232,7 +1290,7 @@
     "docker_status": "Verified (docker-compose.yaml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai-app-builder",
@@ -1247,9 +1305,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/ToolJet/ToolJet",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "65e20587173833ee",
@@ -1275,10 +1333,10 @@
     "description": "Open-source Rust coding agent for terminal, web, and desktop. Any model, multi-agent fleets, MCP & plugins, OS sandboxing, and session receipts.",
     "category": "Local LLM Runtime",
     "language": "Rust",
-    "stars": 41210,
-    "star_delta": 4,
+    "stars": 41218,
+    "star_delta": 8,
     "forks": 3579,
-    "open_issues": 67,
+    "open_issues": 69,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -1305,9 +1363,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/codewhale-hq/Codewhale",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "6bc7f11148940bd2",
@@ -1333,10 +1391,10 @@
     "description": "Open-source LLM knowledge platform: turn raw documents into a queryable RAG, an autonomous reasoning agent, and a self-maintaining Wiki.",
     "category": "Local LLM Runtime",
     "language": "Go",
-    "stars": 38234,
-    "star_delta": 25,
-    "forks": 5368,
-    "open_issues": 964,
+    "stars": 38310,
+    "star_delta": 76,
+    "forks": 5386,
+    "open_issues": 1036,
     "license": "NOASSERTION",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
@@ -1363,9 +1421,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/Tencent/WeKnora",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "f2d7040f69f701bf",
@@ -1391,10 +1449,10 @@
     "description": "Your Personal AI Assistant; easy to install, deploy on your own machine or on the cloud; supports multiple chat apps with easily extensible capabilities.",
     "category": "AI Agent Infra",
     "language": "Python",
-    "stars": 38208,
-    "star_delta": 14,
+    "stars": 38236,
+    "star_delta": 28,
     "forks": 3315,
-    "open_issues": 1194,
+    "open_issues": 1180,
     "license": "Apache-2.0",
     "license_tier": "permissive",
     "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
@@ -1406,7 +1464,7 @@
     "docker_status": "Verified (docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "agent",
@@ -1421,9 +1479,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/agentscope-ai/QwenPaw",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "900d379d9a4c19ca",
@@ -1449,10 +1507,10 @@
     "description": "🪢 Open source AI engineering platform: AI Gateway, agent observability, evals, and prompt/skill management, built on OpenTelemetry. One open platform for every AI call and every agent. Self-host or use Langfuse Cloud.",
     "category": "AI Gateway & Proxy",
     "language": "TypeScript",
-    "stars": 37855,
-    "star_delta": 15,
-    "forks": 4324,
-    "open_issues": 1225,
+    "stars": 37901,
+    "star_delta": 46,
+    "forks": 4333,
+    "open_issues": 1230,
     "license": "NOASSERTION",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
@@ -1464,7 +1522,7 @@
     "docker_status": "Verified (docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-26",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai-gateway",
@@ -1479,9 +1537,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/langfuse/langfuse",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a1e0a1b09dd279db",
@@ -1507,9 +1565,9 @@
     "description": "Prompt as Code | GPT Image 2 / 2.5 提示词与案例库，530+ 个案例、20+ 套工业级模板与可复用 Skills，新增 2.5 同提示词对比专区，附完整提示词与生成记录，持续更新。",
     "category": "Workflow Automation",
     "language": "JavaScript",
-    "stars": 36141,
-    "star_delta": 9,
-    "forks": 3420,
+    "stars": 36171,
+    "star_delta": 30,
+    "forks": 3422,
     "open_issues": 11,
     "license": "MIT",
     "license_tier": "permissive",
@@ -1535,9 +1593,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/freestylefly/awesome-gpt-image-2",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "839638607b856a1b",
@@ -1563,10 +1621,10 @@
     "description": "Fully autonomous AI Agents system capable of performing complex penetration testing tasks",
     "category": "AI Agent Infra",
     "language": "Go",
-    "stars": 35050,
-    "star_delta": 39,
-    "forks": 5620,
-    "open_issues": 78,
+    "stars": 35119,
+    "star_delta": 69,
+    "forks": 5643,
+    "open_issues": 79,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -1594,9 +1652,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/vxcontrol/pentagi",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "29ba58363ce80dcd",
@@ -1622,10 +1680,10 @@
     "description": "Unlimited FREE AI coding. Connect Claude Code, Codex, Cursor, Cline, Copilot, Antigravity to FREE Claude/GPT/Gemini via 40+ providers. Auto-fallback, RTK -40% tokens, never hit limits.",
     "category": "AI Gateway & Proxy",
     "language": "JavaScript",
-    "stars": 32852,
-    "star_delta": 13,
-    "forks": 6429,
-    "open_issues": 2906,
+    "stars": 32889,
+    "star_delta": 37,
+    "forks": 6445,
+    "open_issues": 2923,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -1653,9 +1711,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/decolua/9router",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "a1201719dc24de66",
@@ -1681,10 +1739,10 @@
     "description": "Conductor is an event driven agentic workflow engine providing durable and highly resilient execution engine for applications and AI Agents",
     "category": "Workflow Automation",
     "language": "Java",
-    "stars": 32511,
-    "star_delta": 3,
-    "forks": 1087,
-    "open_issues": 300,
+    "stars": 32515,
+    "star_delta": 4,
+    "forks": 1089,
+    "open_issues": 303,
     "license": "Apache-2.0",
     "license_tier": "permissive",
     "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
@@ -1709,9 +1767,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/conductor-oss/conductor",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e3ccbbbd52d1595b",
@@ -1737,10 +1795,10 @@
     "description": "Your own always-on AI assistant: self-hosted, open source, lightweight. Each agent runs in its own container on your machine, on the harness you choose (Claude Code, Codex, Cursor, OpenCode). Talk to it from Slack, WhatsApp, Telegram, Discord and more.",
     "category": "AI Agent Infra",
     "language": "TypeScript",
-    "stars": 31164,
-    "star_delta": 3,
-    "forks": 12624,
-    "open_issues": 1067,
+    "stars": 31170,
+    "star_delta": 6,
+    "forks": 12618,
+    "open_issues": 1062,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -1750,7 +1808,7 @@
     "docker_status": "No Root Dockerfile / Compose Found",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai-agents",
@@ -1765,9 +1823,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/nanocoai/nanoclaw",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "e7d26ab23254d93e",
@@ -1793,10 +1851,10 @@
     "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
     "category": "AI Agent Infra",
     "language": "TypeScript",
-    "stars": 27875,
-    "star_delta": 102,
-    "forks": 3979,
-    "open_issues": 1376,
+    "stars": 28197,
+    "star_delta": 322,
+    "forks": 4021,
+    "open_issues": 1429,
     "license": "Apache-2.0",
     "license_tier": "permissive",
     "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
@@ -1809,7 +1867,7 @@
     "docker_status": "Verified (Dockerfile, compose.yaml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai-agents",
@@ -1824,9 +1882,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/milind-soni/OpenMausBot",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "581ce8d126bb46ab",
@@ -1852,9 +1910,9 @@
     "description": "Distribute and run LLMs with a single file.",
     "category": "Local LLM Runtime",
     "language": "C++",
-    "stars": 26723,
-    "star_delta": 2,
-    "forks": 1682,
+    "stars": 26729,
+    "star_delta": 6,
+    "forks": 1683,
     "open_issues": 208,
     "license": "NOASSERTION",
     "license_tier": "restricted",
@@ -1880,9 +1938,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/mozilla-ai/llamafile",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d9f879c32004631a",
@@ -1908,10 +1966,10 @@
     "description": "280+ free n8n automation templates — ready-to-use workflows for Gmail, Telegram, Slack, Discord, WhatsApp, Google Drive, Notion, OpenAI, and more. AI agents, RAG chatbots, email automation, social media, DevOps, and document processing. The largest open-source n8n template collection.",
     "category": "AI Agent Infra",
     "language": "Multi",
-    "stars": 26575,
+    "stars": 26585,
     "star_delta": 10,
-    "forks": 6655,
-    "open_issues": 123,
+    "forks": 6657,
+    "open_issues": 125,
     "license": "NOASSERTION",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
@@ -1936,70 +1994,14 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/enescingoz/awesome-n8n-templates",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "111ecaa9b97a1389",
       "enriched_at": "2026-11-24",
       "summary": "enescingoz/awesome-n8n-templates is a AI Agent Infra repository in Multi (Maintained (<6m), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
-      "best_for": [
-        "Evaluating open-source self-hosted tooling in AI Agent Infra",
-        "Reviewing upstream installation docs for runtime requirements",
-        "Tracking active maintenance status and license terms before adoption"
-      ],
-      "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
-        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
-      ]
-    }
-  },
-  {
-    "full_name": "nocobase/nocobase",
-    "slug": "nocobase-nocobase",
-    "name": "nocobase",
-    "owner": "nocobase",
-    "html_url": "https://github.com/nocobase/nocobase",
-    "description": "NocoBase is the open-source platform for building, running, and evolving business systems with AI. Agents write the code and do the work, NocoBase provides the foundation and governance, and people make the decisions.",
-    "category": "AI Agent Infra",
-    "language": "TypeScript",
-    "stars": 25012,
-    "star_delta": 5,
-    "forks": 2957,
-    "open_issues": 298,
-    "license": "NOASSERTION",
-    "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
-    "has_docker": false,
-    "docker_files": [],
-    "docker_evidence": "Repository Verified",
-    "docker_status": "No Root Dockerfile / Compose Found",
-    "hardware_requirements": "Not Verified (Check Repo Docs)",
-    "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
-    "maintenance_status": "Active (<30d)",
-    "topics": [
-      "admin-dashboard",
-      "agent-skills",
-      "agentic-ai",
-      "ai-agent",
-      "ai-agents",
-      "ai-governance"
-    ],
-    "evidence": {
-      "metadata": "Source Verified",
-      "docker": "Repository Verified",
-      "hardware": "Not Verified",
-      "source_url": "https://github.com/nocobase/nocobase",
-      "verified_at": "2026-11-26"
-    },
-    "updated_at": "2026-11-26",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "dafe3348ccd45528",
-      "enriched_at": "2026-11-24",
-      "summary": "nocobase/nocobase is a AI Agent Infra repository in TypeScript (Active (<30d), License: NOASSERTION). Docker root check: No Root Dockerfile / Compose Found.",
       "best_for": [
         "Evaluating open-source self-hosted tooling in AI Agent Infra",
         "Reviewing upstream installation docs for runtime requirements",
@@ -2020,10 +2022,10 @@
     "description": "Kortix CompanyOS – the open-source operating system for the AI-native company. Connect every data source, orchestrate agents, and keep their skills, memory and connectors in one git repo you own. Any model, in our cloud or yours.",
     "category": "AI Agent Infra",
     "language": "TypeScript",
-    "stars": 20801,
-    "star_delta": 3,
+    "stars": 20808,
+    "star_delta": 7,
     "forks": 3477,
-    "open_issues": 75,
+    "open_issues": 82,
     "license": "NOASSERTION",
     "license_tier": "restricted",
     "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
@@ -2033,7 +2035,7 @@
     "docker_status": "No Root Dockerfile / Compose Found",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai",
@@ -2048,9 +2050,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/kortix-ai/CompanyOS",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "15c2db7368381ab7",
@@ -2068,6 +2070,62 @@
     }
   },
   {
+    "full_name": "rocketride-org/rocketride-server",
+    "slug": "rocketride-org-rocketride-server",
+    "name": "rocketride-server",
+    "owner": "rocketride-org",
+    "html_url": "https://github.com/rocketride-org/rocketride-server",
+    "description": "RocketRide is an open source AI meta-harness with the only enterprise-grade runtime built on C++. Build, test and publish durable agents that scale in production.",
+    "category": "AI Agent Infra",
+    "language": "Python",
+    "stars": 19975,
+    "star_delta": 0,
+    "forks": 8648,
+    "open_issues": 610,
+    "license": "MIT",
+    "license_tier": "permissive",
+    "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+    "has_docker": false,
+    "docker_files": [],
+    "docker_evidence": "Repository Verified",
+    "docker_status": "No Root Dockerfile / Compose Found",
+    "hardware_requirements": "Not Verified (Check Repo Docs)",
+    "hardware_evidence": "Not Verified",
+    "pushed_at": "2026-11-26",
+    "maintenance_status": "Active (<30d)",
+    "topics": [
+      "agent-framework",
+      "agent-harness",
+      "agent-orchestration",
+      "agentic-ai",
+      "ai-agents",
+      "ai-observability"
+    ],
+    "evidence": {
+      "metadata": "Source Verified",
+      "docker": "Repository Verified",
+      "hardware": "Not Verified",
+      "source_url": "https://github.com/rocketride-org/rocketride-server",
+      "verified_at": "2026-11-27"
+    },
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "009f7da7e68adba9",
+      "enriched_at": "2026-11-27",
+      "summary": "rocketride-org/rocketride-server is a AI Agent Infra repository in Python (Active (<30d), License: MIT). Docker root check: No Root Dockerfile / Compose Found.",
+      "best_for": [
+        "Evaluating open-source self-hosted tooling in AI Agent Infra",
+        "Reviewing upstream installation docs for runtime requirements",
+        "Tracking active maintenance status and license terms before adoption"
+      ],
+      "watch_outs": [
+        "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
+        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
+      ]
+    }
+  },
+  {
     "full_name": "MODSetter/SurfSense",
     "slug": "modsetter-surfsense",
     "name": "SurfSense",
@@ -2076,10 +2134,10 @@
     "description": "Air-gapped, private AI for confidential documents. Open-source NotebookLM alternative that runs on your computer. Join our Discord: https://discord.gg/ejRNvftDp9",
     "category": "Local LLM Runtime",
     "language": "Python",
-    "stars": 16957,
-    "star_delta": 6,
-    "forks": 1621,
-    "open_issues": 68,
+    "stars": 17034,
+    "star_delta": 77,
+    "forks": 1649,
+    "open_issues": 63,
     "license": "Apache-2.0",
     "license_tier": "permissive",
     "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
@@ -2089,7 +2147,7 @@
     "docker_status": "No Root Dockerfile / Compose Found",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-24",
+    "pushed_at": "2026-11-26",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "air-gapped",
@@ -2104,9 +2162,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/MODSetter/SurfSense",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "90eb6e57f8a1023c",
@@ -2132,10 +2190,10 @@
     "description": "A blazing fast AI Gateway with integrated guardrails. Route to 1,600+ LLMs, 50+ AI Guardrails with 1 fast & friendly API.",
     "category": "AI Gateway & Proxy",
     "language": "TypeScript",
-    "stars": 13449,
-    "star_delta": 7,
-    "forks": 1396,
-    "open_issues": 353,
+    "stars": 13455,
+    "star_delta": 6,
+    "forks": 1402,
+    "open_issues": 358,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -2163,9 +2221,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/Portkey-AI/gateway",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "9376828023323937",
@@ -2183,65 +2241,6 @@
     }
   },
   {
-    "full_name": "TykTechnologies/tyk",
-    "slug": "tyktechnologies-tyk",
-    "name": "tyk",
-    "owner": "TykTechnologies",
-    "html_url": "https://github.com/TykTechnologies/tyk",
-    "description": "Open Source API and AI Gateway supporting REST, GraphQL, TCP, gRPC and MCP (Model Context Protocol)",
-    "category": "AI Gateway & Proxy",
-    "language": "Go",
-    "stars": 10896,
-    "star_delta": -1,
-    "forks": 1172,
-    "open_issues": 552,
-    "license": "NOASSERTION",
-    "license_tier": "restricted",
-    "license_note": "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
-    "has_docker": true,
-    "docker_files": [
-      "Dockerfile",
-      "docker-compose.yml"
-    ],
-    "docker_evidence": "Repository Verified",
-    "docker_status": "Verified (Dockerfile, docker-compose.yml)",
-    "hardware_requirements": "Not Verified (Check Repo Docs)",
-    "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
-    "maintenance_status": "Active (<30d)",
-    "topics": [
-      "ai",
-      "ai-gateway",
-      "api",
-      "api-gateway",
-      "api-management",
-      "cloudnative"
-    ],
-    "evidence": {
-      "metadata": "Source Verified",
-      "docker": "Repository Verified",
-      "hardware": "Not Verified",
-      "source_url": "https://github.com/TykTechnologies/tyk",
-      "verified_at": "2026-11-26"
-    },
-    "updated_at": "2026-11-26",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "d84138aef5909b14",
-      "enriched_at": "2026-11-24",
-      "summary": "TykTechnologies/tyk is a AI Gateway & Proxy repository in Go (Active (<30d), License: NOASSERTION). Docker root check: Verified (Dockerfile, docker-compose.yml).",
-      "best_for": [
-        "Evaluating open-source self-hosted tooling in AI Gateway & Proxy",
-        "Deploying with repository Docker files",
-        "Tracking active maintenance status and license terms before adoption"
-      ],
-      "watch_outs": [
-        "Copyleft / Source-Available (NOASSERTION — review hosted/SaaS obligations; Source Verified)",
-        "RAM/GPU requirements are not runtime-tested here—verify official repository documentation before provisioning servers"
-      ]
-    }
-  },
-  {
     "full_name": "MakazhanAlpamys/Soup",
     "slug": "makazhanalpamys-soup",
     "name": "Soup",
@@ -2250,10 +2249,10 @@
     "description": "Fine-tune LLMs from one YAML. Layer streaming trains an 8B model on a 4 GB laptop GPU.",
     "category": "Local LLM Runtime",
     "language": "Python",
-    "stars": 10786,
-    "star_delta": 12,
-    "forks": 1792,
-    "open_issues": 275,
+    "stars": 10801,
+    "star_delta": 15,
+    "forks": 1794,
+    "open_issues": 287,
     "license": "Apache-2.0",
     "license_tier": "permissive",
     "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
@@ -2266,7 +2265,7 @@
     "docker_status": "Verified (Dockerfile, docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-26",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "cli",
@@ -2281,9 +2280,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/MakazhanAlpamys/Soup",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "d17348c99b81cc1d",
@@ -2309,10 +2308,10 @@
     "description": "~95% on SimpleQA (e.g. Qwen3.6-27B on a 3090). Supports all local and cloud LLMs (llama.cpp, Ollama, Google, ...). 10+ search engines - arXiv, PubMed, your private documents. Everything Local & Encrypted.",
     "category": "Local LLM Runtime",
     "language": "Python",
-    "stars": 9654,
-    "star_delta": 4,
-    "forks": 953,
-    "open_issues": 1716,
+    "stars": 9671,
+    "star_delta": 17,
+    "forks": 956,
+    "open_issues": 1831,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -2325,7 +2324,7 @@
     "docker_status": "Verified (Dockerfile, docker-compose.yml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-26",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "academia",
@@ -2340,9 +2339,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/LearningCircuit/local-deep-research",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "85ac69e6a7c898b9",
@@ -2368,10 +2367,10 @@
     "description": "Self-hosted TypeScript agent runtime with durable approvals and verifiable run records. Own it, approve it, audit it.",
     "category": "Local LLM Runtime",
     "language": "TypeScript",
-    "stars": 7080,
-    "star_delta": 1,
-    "forks": 2435,
-    "open_issues": 12,
+    "stars": 7084,
+    "star_delta": 4,
+    "forks": 2436,
+    "open_issues": 20,
     "license": "MIT",
     "license_tier": "permissive",
     "license_note": "Permissive (MIT — attribution/notice required; Source Verified via GitHub API)",
@@ -2396,9 +2395,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/open-multi-agent/open-multi-agent",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "026e7b25f0a86e40",
@@ -2424,9 +2423,9 @@
     "description": "Open source voice AI platform. Self-hosted alternative to Vapi and Retell. On Prem, BYOK across Speech to Speech or LLM/STT/TTS, with a visual workflow builder, MCP native and telephony support.",
     "category": "Local LLM Runtime",
     "language": "Python",
-    "stars": 6271,
-    "star_delta": 3,
-    "forks": 1623,
+    "stars": 6277,
+    "star_delta": 6,
+    "forks": 1621,
     "open_issues": 126,
     "license": "BSD-2-Clause",
     "license_tier": "permissive",
@@ -2439,7 +2438,7 @@
     "docker_status": "Verified (docker-compose.yaml)",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-16",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai-calling",
@@ -2454,9 +2453,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/dograh-hq/dograh",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "ac7d7512124de672",
@@ -2482,10 +2481,10 @@
     "description": "Open-source LLM gateway in Rust. One endpoint for OpenAI, Anthropic, Gemini and every other vendor. Any SDK, any model, any tool.",
     "category": "AI Gateway & Proxy",
     "language": "Rust",
-    "stars": 1064,
-    "star_delta": 5,
-    "forks": 166,
-    "open_issues": 80,
+    "stars": 1087,
+    "star_delta": 23,
+    "forks": 170,
+    "open_issues": 81,
     "license": "Apache-2.0",
     "license_tier": "permissive",
     "license_note": "Permissive (Apache-2.0 — attribution/notice required; Source Verified via GitHub API)",
@@ -2512,9 +2511,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/respanai/respan-gateway",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "bf65c229c96f4156",
@@ -2541,7 +2540,7 @@
     "category": "AI Gateway & Proxy",
     "language": "Multi",
     "stars": 992,
-    "star_delta": 1,
+    "star_delta": 0,
     "forks": 83,
     "open_issues": 1,
     "license": "Unknown",
@@ -2568,9 +2567,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/xing61/zzz-api",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "4230273389ed2f14",
@@ -2627,9 +2626,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/Nya-Foundation/NyaProxy",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "7bc5bb80d734be95",
@@ -2656,7 +2655,7 @@
     "category": "AI Gateway & Proxy",
     "language": "Rust",
     "stars": 817,
-    "star_delta": -1,
+    "star_delta": 0,
     "forks": 23,
     "open_issues": 9,
     "license": "NOASSERTION",
@@ -2668,7 +2667,7 @@
     "docker_status": "No Root Dockerfile / Compose Found",
     "hardware_requirements": "Not Verified (Check Repo Docs)",
     "hardware_evidence": "Not Verified",
-    "pushed_at": "2026-11-25",
+    "pushed_at": "2026-11-27",
     "maintenance_status": "Active (<30d)",
     "topics": [
       "ai-gateway",
@@ -2683,9 +2682,9 @@
       "docker": "Repository Verified",
       "hardware": "Not Verified",
       "source_url": "https://github.com/ThinkWatchProject/ThinkWatch",
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-27"
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "eedc0ce38bbb85dd",

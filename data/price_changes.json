@@ -1,9 +1,117 @@
 {
-  "updated_at": "2026-11-26",
-  "snapshot_days": 3,
+  "updated_at": "2026-11-27",
+  "snapshot_days": 4,
   "first_snapshot_date": "2026-11-24",
-  "latest_total_endpoints": 474,
+  "latest_total_endpoints": 477,
   "events": [
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "new_model",
+      "model_id": "inclusionai/lingsante-3.1-air-vl",
+      "name": "inclusionAI: LingSante 3.1 Air VL",
+      "slug": "inclusionai-lingsante-3-1-air-vl",
+      "detail": "Added (paid) — In: 0.06 / Out: 0.18 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "price_hike",
+      "model_id": "z-ai/glm-5.3-flash",
+      "name": "Z.ai: GLM 5.3 Flash",
+      "slug": "z-ai-glm-5-3-flash",
+      "detail": "Input $0.12 -> $0.15, Output $0.38 -> $0.5 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "price_hike",
+      "model_id": "qwen/qwen3.8-27b",
+      "name": "Qwen: Qwen3.8 27B",
+      "slug": "qwen-qwen3-8-27b",
+      "detail": "Input $0.035 -> $0.06, Output $1.5 -> $1.96 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "price_hike",
+      "model_id": "deepseek/deepseek-v4-pro-0813",
+      "name": "DeepSeek: DeepSeek V4 Pro 0813",
+      "slug": "deepseek-deepseek-v4-pro-0813",
+      "detail": "Input $0.111 -> $0.0999, Output $4.44 -> $5.0 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "price_drop",
+      "model_id": "meta/muse-glimmer-30b",
+      "name": "Meta: Muse Glimmer 30B",
+      "slug": "meta-muse-glimmer-30b",
+      "detail": "Input $0.35 -> $0.3, Output $1.5 -> $1.2 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "price_hike",
+      "model_id": "deepseek/deepseek-v4-flash-0731",
+      "name": "DeepSeek: DeepSeek V4 Flash 0731",
+      "slug": "deepseek-deepseek-v4-flash-0731",
+      "detail": "Input $0.06 -> $0.047, Output $0.18 -> $0.3 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "price_hike",
+      "model_id": "moonshotai/kimi-k2.5",
+      "name": "MoonshotAI: Kimi K2.5",
+      "slug": "moonshotai-kimi-k2-5",
+      "detail": "Input $0.5 -> $0.6, Output $2.5 -> $3.0 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "new_model",
+      "model_id": "moonshotai/kimi-k2-0905",
+      "name": "MoonshotAI: Kimi K2 0905",
+      "slug": "moonshotai-kimi-k2-0905",
+      "detail": "Added (paid) — In: 0.6 / Out: 2.5 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "new_model",
+      "model_id": "moonshotai/kimi-k2",
+      "name": "MoonshotAI: Kimi K2 0711",
+      "slug": "moonshotai-kimi-k2",
+      "detail": "Added (paid) — In: 0.57 / Out: 2.3 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "price_hike",
+      "model_id": "google/gemma-3-4b-it",
+      "name": "Google: Gemma 3 4B",
+      "slug": "google-gemma-3-4b-it",
+      "detail": "Input $0.04 -> $0.05, Output $0.05 -> $0.1 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "price_hike",
+      "model_id": "google/gemma-3-27b-it",
+      "name": "Google: Gemma 3 27B",
+      "slug": "google-gemma-3-27b-it",
+      "detail": "Input $0.08 -> $0.08, Output $0.16 -> $0.45 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-26",
+      "type": "price_drop",
+      "model_id": "meta-llama/llama-3.3-70b-instruct",
+      "name": "Meta: Llama 3.3 70B Instruct",
+      "slug": "meta-llama-llama-3-3-70b-instruct",
+      "detail": "Input $0.71 -> $0.59, Output $0.71 -> $0.79 per 1M"
+    },
     {
       "date": "2026-11-26",
       "compared_to": "2026-11-25",
