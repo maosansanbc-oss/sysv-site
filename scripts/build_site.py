@@ -539,7 +539,7 @@ def render_layout(
     verification_enabled: bool = False,
     runtime_cfg: dict[str, Any] | None = None,
     breadcrumbs: list[tuple[str, str]] | None = None,
-    extra_json_ld: dict[str, Any] | None = None,
+    extra_json_ld: dict[str, Any] | list[dict[str, Any]] | None = None,
 ) -> str:
     base = cfg["base_url"].rstrip("/")
     canonical = base + canonical_path
@@ -604,7 +604,9 @@ def render_layout(
         }
         ld_blocks.append(f'<script type="application/ld+json">{json.dumps(bc_ld, ensure_ascii=False)}</script>')
     if extra_json_ld:
-        ld_blocks.append(f'<script type="application/ld+json">{json.dumps(extra_json_ld, ensure_ascii=False)}</script>')
+        extra_list = extra_json_ld if isinstance(extra_json_ld, list) else [extra_json_ld]
+        for ld_obj in extra_list:
+            ld_blocks.append(f'<script type="application/ld+json">{json.dumps(ld_obj, ensure_ascii=False)}</script>')
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -622,6 +624,9 @@ def render_layout(
   <meta property="og:description" content="{e(description)}" />
   <meta property="og:url" content="{e(canonical)}" />
   <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{e(title)}" />
+  <meta name="twitter:description" content="{e(description)}" />
   <style>{CSS}</style>
   {adsense_head}
   {"".join(ld_blocks)}
@@ -1056,6 +1061,56 @@ def main(
     )
 
     from pathlib import Path as _Path  # noqa: F401
+    # Deterministic live cheapest-by-workload snapshot (0 LLM calls; strictly derived from verified calc_models)
+    def _cheapest_for_workload(task_key: str, m_in: float, m_out: float, include_batch: bool = False) -> tuple[dict[str, Any] | None, float | None]:
+        cands = []
+        for cm in calc_models:
+            if cm["pricing_type"] not in (("paid", "batch") if include_batch else ("paid",)):
+                continue
+            if task_key == "coding" and not (cm["is_realtime"] and cm["tools"] and cm["ctx"] >= 64000):
+                continue
+            if task_key == "autosite" and not (cm["is_realtime"] and cm["structured"]):
+                continue
+            if task_key == "rag" and not (cm["is_realtime"] and cm["ctx"] >= 100000):
+                continue
+            if task_key == "translation" and not (include_batch or cm["is_realtime"]):
+                continue
+            cands.append((cm["in"] * m_in + cm["out"] * m_out, cm))
+        if not cands:
+            return None, None
+        cands.sort(key=lambda x: (x[0], x[1]["slug"]))
+        return cands[0][1], cands[0][0]
+
+    workload_rows_html = []
+    for w_label, w_vol, w_task, w_in, w_out, w_batch, w_tool_href, w_tool_lbl in [
+        ("AI Coding Agent (Tools + >=64K)", "18M in / 3.5M out", "coding", 18.0, 3.5, False, "/tools/openrouter-cost-calculator/", "OpenRouter Fee Calc"),
+        ("n8n / Structured JSON Pipeline", "1.2M in / 0.4M out", "autosite", 1.2, 0.4, False, "/tools/n8n-ai-workflow-cost-calculator/", "n8n Workflow Calc"),
+        ("Bulk Translation (1M Words, Async Batch)", "2.5M in / 2.5M out", "translation", 2.5, 2.5, True, "/tools/llm-translation-cost-calculator/", "Translation Calc"),
+        ("Long-Context RAG (>=100K ctx)", "12M in / 1.0M out", "rag", 12.0, 1.0, False, "/tools/api-vs-local-llm-calculator/", "API vs Local GPU"),
+    ]:
+        win_m, win_cost = _cheapest_for_workload(w_task, w_in, w_out, include_batch=w_batch)
+        if win_m is not None and win_cost is not None:
+            tier_tag = ' <span class="badge badge-purple">Async Batch</span>' if win_m["pricing_type"] == "batch" else ""
+            workload_rows_html.append(
+                f'<tr><td><strong>{e(w_label)}</strong><br><span class="muted small">{e(w_vol)}</span></td>'
+                f'<td><a href="/models/{e(win_m["slug"])}/" translate="no"><strong>{e(win_m["name"])}</strong></a>{tier_tag}</td>'
+                f'<td class="num-col"><strong>${win_cost:.2f}/mo</strong></td>'
+                f'<td><a href="{w_tool_href}">{e(w_tool_lbl)} &rarr;</a></td></tr>'
+            )
+
+    home_decision_html = f"""
+    <section>
+      <h2>Lowest Verified LLM API Cost by Real Workload ({e(today)})</h2>
+      <p class="muted small">Auto-computed from today's verified per-1M token pricing snapshot with strict capability gates. Looking for <code>$0</code> prototyping? Check <a href="/free-llm-apis/">verified Free LLM APIs ({len(free_models)} active)</a> or track <a href="/price-changes/">daily price drops</a>.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Workload &amp; Volume</th><th>Lowest-Cost Verified Model</th><th class="num-col">Est. Base Spend</th><th>Deep-Dive Calculator</th></tr></thead>
+          <tbody>{"".join(workload_rows_html)}</tbody>
+        </table>
+      </div>
+    </section>
+    """
+
     home_methodology_html = f"""
     <section>
       <h2>How SysV Calculates Costs &amp; Filters Models</h2>
@@ -1066,12 +1121,13 @@ def main(
           <li><strong>Base Token Formula:</strong> <code>Monthly Spend = (Input_M &times; Input_Rate_per_1M) + (Output_M &times; Output_Rate_per_1M)</code>. Example: <code>18M input &times; $0.20 + 3.5M output &times; $0.80 = $6.40/mo</code>.</li>
           <li><strong>Capability Gates:</strong> Coding Agent requires real-time + verified <code>tools</code> + &ge;64K context; Structured Pipeline requires real-time + <code>structured_outputs</code>; RAG requires real-time + &ge;100K context. Editing token numbers preserves your chosen gate.</li>
           <li><strong>Known Limitations:</strong> Excludes OpenRouter top-up fees (model them in the <a href="/tools/openrouter-cost-calculator/">OpenRouter Fee Calculator</a>), prompt-cache hit discounts, tiered long-context surcharges, and unmeasured output quality or latency. Variable routers (<code>-1</code>) and missing prices are never coerced to <code>$0</code>.</li>
+          <li><strong>Open Data &amp; Ad-Free Embeds:</strong> Export the live pricing feed as <a href="/data/models.json">JSON</a> or <a href="/data/price-history.csv">30-day CSV</a>, or embed any ad-free calculator via <a href="/data/">/data/</a>.</li>
         </ul>
       </div>
     </section>
     """
     home_editorial_for_fp = (
-        "LLM API Pricing & Token Cost Calculator "
+        "LLM API Pricing Calculator & Live Token Cost Comparison "
         "Compare live AI API pricing per 1M tokens, run capability-gated workload estimates, and separate rate-limited free tiers, async batch endpoints, and variable routers. "
         + home_methodology_html
     )
@@ -1089,8 +1145,8 @@ def main(
     )
     home_body = f"""
     <section class="hero-open">
-      <h1>LLM API Pricing &amp; Token Cost Calculator</h1>
-      <p class="lead">Compare live AI API pricing per 1M tokens, run capability-gated workload estimates, and separate rate-limited free tiers, async batch endpoints, and variable routers.</p>
+      <h1>LLM API Pricing Calculator &amp; Live Token Cost Comparison</h1>
+      <p class="lead">Compare daily-verified AI API pricing per 1M tokens, run capability-gated monthly workload estimates, and separate rate-limited free tiers, async <code>:batch</code> endpoints, and dynamic routers.</p>
       <div class="metrics-strip">
         <span><strong>{len(free_models)}</strong> Rate-Limited Free ($0)</span>
         <span><strong>{len(paid_models)}</strong> Real-Time Paid</span>
@@ -1101,7 +1157,7 @@ def main(
     </section>
 
     <section class="calc-panel" id="task-calculator">
-      <h2>AI API Token Cost Calculator</h2>
+      <h2>Interactive LLM API Token Cost Calculator</h2>
       <p class="muted small">Computes base input and output token spend in USD per 1M tokens from OpenRouter public pricing metadata. Excludes tiered long-context surcharges, prompt-cache discounts, and dynamic routers (<code translate="no">-1</code>).</p>
       <div class="calc-grid">
         <div>
@@ -1128,13 +1184,16 @@ def main(
       </div>
       <div class="calc-result" id="task-ranking" aria-live="polite"></div>
       <div class="tool-strip">
-        <span>Specialized calculators:</span>
+        <span>Specialized calculators &amp; guides:</span>
+        <a href="/free-llm-apis/">Free LLM APIs</a>
         <a href="/tools/openrouter-cost-calculator/">OpenRouter Fees</a>
         <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Workflow</a>
-        <a href="/tools/llm-translation-cost-calculator/">1,000-Doc Translation</a>
+        <a href="/tools/llm-translation-cost-calculator/">LLM Translation Cost</a>
         <a href="/tools/api-vs-local-llm-calculator/">API vs Local GPU</a>
       </div>
     </section>
+
+    {home_decision_html}
 
     {render_ad_slot(cfg, "adsense_slot_top", ads_enabled=home_elig["ads_enabled"], mock_ads=runtime_cfg["mock_ads"], runtime_cfg=runtime_cfg)}
 
@@ -1250,6 +1309,50 @@ def main(
       }})();
     </script>
     """
+    home_json_ld = [
+        {"@context": "https://schema.org", "@type": "WebSite", "name": "SysV", "url": cfg["base_url"]},
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "SysV LLM API Pricing Calculator",
+            "url": cfg["base_url"].rstrip("/") + "/",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "All",
+            "isAccessibleForFree": True,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+            "description": "Interactive LLM API pricing calculator comparing daily-verified per-1M token costs with capability gates for coding agents, RAG, n8n workflows, and bulk translation.",
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How is monthly LLM API token cost calculated?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Monthly base token spend equals (Input Millions x Input USD per 1M tokens) + (Output Millions x Output USD per 1M tokens). Output tokens usually cost 3x to 5x more than input tokens, and payment top-up fees (such as OpenRouter's 5.5% card fee with $0.80 minimum) are modeled separately.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is the difference between real-time paid, :batch, and :free LLM API endpoints?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Real-time paid endpoints return interactive responses immediately. Async :batch endpoints discount token rates for non-urgent offline jobs and are excluded from interactive presets unless checked. :free endpoints bill $0 per token under strict RPM and RPD caps.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    "name": "How often is SysV LLM API pricing updated?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "SysV syncs pricing and capability metadata daily at 02:15 UTC from the OpenRouter Public Models API and archives daily history as open JSON and CSV under /data/.",
+                    },
+                },
+            ],
+        },
+    ]
     register_page(
         "index.html",
         "/",
@@ -1258,8 +1361,8 @@ def main(
         sem_hash(["home", TEMPLATE_VERSION, models_sem_sig]),
         render_layout(
             cfg,
-            title="LLM API Pricing & Token Cost Calculator | SysV",
-            description=cfg["description"],
+            title="LLM API Pricing Calculator — Live Token Cost & Free APIs (2026) | SysV",
+            description="Free interactive LLM API pricing calculator with daily-verified per-1M token rates, capability gates (tools, JSON, context), rate-limited free tiers, and async :batch savings.",
             canonical_path="/",
             body_html=home_body,
             git_commit=git_commit,
@@ -1267,7 +1370,7 @@ def main(
             ads_enabled=home_elig["ads_enabled"],
             verification_enabled=home_elig["verification_enabled"],
             runtime_cfg=runtime_cfg,
-            extra_json_ld={"@context": "https://schema.org", "@type": "WebSite", "name": "SysV", "url": cfg["base_url"]},
+            extra_json_ld=home_json_ld,
         ),
     )
 
@@ -1405,8 +1508,8 @@ def main(
 
     free_hub_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / Free LLM APIs</div>
-    <h1>Free LLM APIs With Tool Calling &amp; Real Rate Limits</h1>
-    <p class="lead">Compare permanently free tiers vs. time-limited trials, credit-card rules, burst RPM/TPM ceilings, and Cloudflare Workers AI Neurons across providers.</p>
+    <h1>Free LLM API List: Verified Rate Limits &amp; Daily Quota Calculator</h1>
+    <p class="lead">Compare permanently free LLM API tiers vs. time-limited trials, credit-card requirements, burst RPM/TPM limits, and Cloudflare Workers AI Neurons across providers. Last synced: <strong>{e(today)}</strong>.</p>
 
     <section class="calc-panel" style="margin:18px 0 24px">
       <h2>Free LLM API Quota &amp; Burst Calculator</h2>
@@ -1448,7 +1551,22 @@ def main(
         </div>
       </div>
       <div class="calc-result" id="fq-out" aria-live="polite"></div>
-      <p class="muted small" style="margin-top:10px">Evaluates both <strong>daily volume (RPD / TPD / Neurons)</strong> and <strong>peak minute throughput (RPM / TPM)</strong>. Need paid fallback pricing? Open the <a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a> or <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Workflow Calculator</a>.</p>
+      <p class="muted small" style="margin-top:10px">Evaluates both <strong>daily volume (RPD / TPD / Neurons)</strong> and <strong>peak minute throughput (RPM / TPM)</strong>. Need paid fallback pricing? Open the <a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a>, <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Workflow Calculator</a>, or <a href="/">LLM API Pricing Calculator</a>.</p>
+    </section>
+
+    <section>
+      <h2>Which Free LLM API Fits Your Use Case?</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Scenario</th><th>Verified Free Option</th><th>Key Constraint</th><th>When to Switch to Paid</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Zero-Card Prototyping</strong></td><td>OpenRouter <code translate="no">:free</code> or Groq Free</td><td>50 RPD / 20 RPM on OpenRouter; model-specific TPM/TPD caps on Groq</td><td>Estimate exact fallback spend on <a href="/">SysV Pricing Calculator</a></td></tr>
+            <tr><td><strong>Daily Personal Automation / n8n</strong></td><td>OpenRouter Credit-Unlocked (<code translate="no">:free</code>)</td><td>&ge;$10 one-time credit purchase unlocks 1,000 RPD (still 20 RPM burst)</td><td>Model retries &amp; VPS hosting in <a href="/tools/n8n-ai-workflow-cost-calculator/">n8n Cost Calculator</a></td></tr>
+            <tr><td><strong>Edge Lightweight Classification</strong></td><td>Cloudflare Workers AI</td><td>10,000 free Neurons/day; frontier models require Workers Paid ($5/mo)</td><td>Compare exact GPU/API crossover in <a href="/tools/api-vs-local-llm-calculator/">API vs Local LLM</a></td></tr>
+            <tr><td><strong>Bulk Offline Document Translation</strong></td><td>Paid Async <code translate="no">:batch</code> (not free tier)</td><td>Free RPM/RPD caps stall multi-thousand-doc jobs</td><td>Calculate per-1,000-doc cost in <a href="/tools/llm-translation-cost-calculator/">LLM Translation Calculator</a></td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section>
@@ -1607,15 +1725,57 @@ def main(
         fact_version=free_fact_ver,
         factual_conflicts=free_conflicts,
     )
+    free_json_ld = [
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "SysV Free LLM API Quota & Burst Calculator",
+            "url": cfg["base_url"].rstrip("/") + "/free-llm-apis/",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "All",
+            "isAccessibleForFree": True,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Which LLM APIs offer a permanently free tier without a credit card?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "OpenRouter (:free models at 50 RPD and 20 RPM), Groq Free (model-specific RPM/TPM/RPD/TPD limits), Google Gemini Developer API free tier, and Cloudflare Workers AI (10,000 free Neurons/day) publish permanently free tiers, subject to upstream rate limits and data-use policies documented on this page.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    "name": "How does OpenRouter's 50 vs 1,000 free requests per day limit work?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "OpenRouter accounts without paid credit history are capped at 50 free requests per day (20 RPM). Accounts with at least $10 in lifetime credits unlock up to 1,000 free requests per day while keeping the 20 RPM burst limit.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    "name": "Why is Cerebras separated from permanently free LLM APIs?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "SysV tracks Cerebras under Time-Limited Free Trial because its verified developer offer uses expiring promotional credits and requires a verified payment method rather than a permanently free allowance.",
+                    },
+                },
+            ],
+        },
+    ]
     register_page(
         "free-llm-apis/index.html",
         "/free-llm-apis/",
         "free_hub",
         "index",
-        sem_hash(["free_hub_v2.2.3", TEMPLATE_VERSION, policy_sem_sig, len(policy_history), [model_semantic_fingerprint(m) for m in free_models + routers]]),
+        sem_hash(["free_hub_v2.3", TEMPLATE_VERSION, policy_sem_sig, len(policy_history), [model_semantic_fingerprint(m) for m in free_models + routers]]),
         render_layout(
             cfg,
-            title="Free LLM APIs With Tool Calling & Real Rate Limits (2026) | SysV",
+            title="Free LLM API List & Daily Quota Calculator (2026 Verified Limits) | SysV",
             description=f"Compare permanently free LLM APIs vs. free trials (OpenRouter, Gemini, Groq, Cloudflare Workers AI Neurons, Cerebras), calculate RPM/RPD/TPM limits, and filter {len(free_models)} verified $0 endpoints.",
             canonical_path="/free-llm-apis/",
             body_html=free_hub_body,
@@ -1625,8 +1785,15 @@ def main(
             verification_enabled=free_elig["verification_enabled"],
             runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Free LLM APIs", "/free-llm-apis/")],
+            extra_json_ld=free_json_ld,
         ),
     )
+
+    # Map active comparison slugs per model ID so model pages link directly to their comparisons
+    model_compare_links: dict[str, list[tuple[str, str]]] = {}
+    for ca, cb, cslug, _, _ in active_pairs:
+        model_compare_links.setdefault(ca["id"], []).append((f"{ca['name']} vs {cb['name']}", f"/compare/{cslug}/"))
+        model_compare_links.setdefault(cb["id"], []).append((f"{ca['name']} vs {cb['name']}", f"/compare/{cslug}/"))
 
     # --- 4. /models/<slug>/ Detail Pages (Fixed Breadcrumbs + True Cross-Day Semantic Hash!) ---
     for m in models:
@@ -1702,6 +1869,28 @@ def main(
             has_auto_generated_copy=True,
         )
 
+        model_comps = model_compare_links.get(m["id"], [])[:4]
+        comp_links_html = (
+            '<h3 style="margin-top:14px">Side-by-Side Comparisons</h3><ul>'
+            + "".join(f'<li><a href="{e(curl)}">{e(clbl)}</a></li>' for clbl, curl in model_comps)
+            + "</ul>"
+            if model_comps
+            else ""
+        )
+        calc_links = [
+            ('<a href="/">LLM API Pricing Calculator</a>', "estimate custom monthly input/output token spend"),
+            ('<a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a>', "include 5.5% card fee ($0.80 min), 5% crypto, or BYOK"),
+        ]
+        if ptype in ("limited_free", "free", "free_router"):
+            calc_links.insert(0, ('<a href="/free-llm-apis/">Free LLM API Quota Calculator</a>', "check RPM/RPD/TPM limits against your daily volume"))
+        if caps.get("tools") and m.get("is_realtime"):
+            calc_links.append(('<a href="/tools/n8n-ai-workflow-cost-calculator/">n8n AI Workflow Cost Calculator</a>', "combine tool-calling token spend with VPS or n8n Cloud"))
+        if ptype in ("paid", "batch"):
+            calc_links.append(('<a href="/tools/llm-translation-cost-calculator/">LLM Translation Cost Calculator</a>', "convert 1,000+ documents and word counts into token spend"))
+        if ptype == "paid" and m.get("is_realtime"):
+            calc_links.append(('<a href="/tools/api-vs-local-llm-calculator/">API vs Local LLM Break-Even</a>', "compare recurring API bills against local GPU payback"))
+        calc_links_html = "".join(f"<li>{lnk} &mdash; {desc}</li>" for lnk, desc in calc_links)
+
         m_body = f"""
         <div class="breadcrumb"><a href="/">Home</a> / <a href="{parent_path}">{parent_lbl}</a> / {e(m["name"])}</div>
         {status_banner}
@@ -1738,6 +1927,11 @@ def main(
           <p class="muted small">Notes above reflect upstream API metadata and deterministic capability rules; actual output quality and latency are not measured here.</p>
         </div>
         {render_ad_slot(cfg, "adsense_slot_in_article", ads_enabled=m_elig["ads_enabled"], mock_ads=(runtime_cfg["mock_ads"] and pol == "index"), runtime_cfg=runtime_cfg)}
+        <div class="card">
+          <h2>Estimate Your Spend &amp; Related Comparisons</h2>
+          <ul>{calc_links_html}</ul>
+          {comp_links_html}
+        </div>
         <div class="card">
           <h2>Active Same-Cohort Alternatives</h2>
           <ul>{rel_html}</ul>
