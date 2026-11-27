@@ -447,10 +447,43 @@ class TestTask02And05GateProvenanceAndWorkflowIsolation(unittest.TestCase):
         self.assertIn("sha256sum -c", pr_wf)
         self.assertIn("pr-preview-audit-reports", pr_wf)
 
-        # Production workflow MUST NOT trigger on pull_request and MUST set explicit prod env
+        # Production workflow MUST NOT trigger on pull_request and MUST restrict ALL 4 jobs to refs/heads/main
         self.assertNotIn("pull_request:", prod_wf)
         self.assertIn("DEPLOY_ENV: production", prod_wf)
         self.assertIn("SYSV_PROD_BUILD: \"1\"", prod_wf)
+
+        import re
+        for job_name in ("build", "deploy-pages", "finalize", "notify-failure"):
+            m = re.search(rf"(?ms)^  {re.escape(job_name)}:\n(.*?)(?=^  [a-z0-9_-]+:|\Z)", prod_wf)
+            self.assertIsNotNone(m, f"Job {job_name} missing from daily-auto.yml")
+            job_block = m.group(1)
+            self.assertIn("github.ref == 'refs/heads/main'", job_block, f"Job {job_name} must be restricted to refs/heads/main")
+
+        # PR preview workflow MUST explicitly set bash shell & pipefail on every tee step so failures are never masked
+        self.assertIn("defaults:\n  run:\n    shell: bash", pr_wf)
+        tee_steps = [blk for blk in pr_wf.split("- name:") if "| tee " in blk]
+        self.assertEqual(len(tee_steps), 2, "Expected exactly 2 tee test steps in pr-preview.yml")
+        for blk in tee_steps:
+            self.assertIn("set -euo pipefail", blk, f"tee step missing pipefail: {blk[:120]}")
+
+    def test_pipefail_preserves_nonzero_test_exit_code_through_tee(self):
+        import subprocess
+        # Prove a failing command piped into tee returns non-zero under bash + set -euo pipefail
+        res_fail = subprocess.run(
+            ["bash", "-c", "set -euo pipefail; (exit 7) 2>&1 | tee /dev/null"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(res_fail.returncode, 7, "tee must NEVER mask non-zero test exit code under pipefail")
+
+        res_ok = subprocess.run(
+            ["bash", "-c", "set -euo pipefail; (exit 0) 2>&1 | tee /dev/null"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(res_ok.returncode, 0)
 
     def test_mock_ad_placeholder_has_zero_google_network_tags(self):
         cfg = {"monetization": {"adsense_client_id": "ca-pub-7981084270242721", "adsense_slot_top": "111"}}

@@ -33,6 +33,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     outputs:
       deploy_target: ${{ steps.target.outputs.host }}
@@ -162,7 +163,7 @@ jobs:
 
   deploy-pages:
     needs: build
-    if: needs.build.outputs.deploy_target == 'github-pages'
+    if: github.ref == 'refs/heads/main' && needs.build.outputs.deploy_target == 'github-pages'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -174,7 +175,7 @@ jobs:
 
   finalize:
     needs: [build, deploy-pages]
-    if: always() && needs.build.result == 'success' && (needs.deploy-pages.result == 'success' || needs.deploy-pages.result == 'skipped')
+    if: always() && github.ref == 'refs/heads/main' && needs.build.result == 'success' && (needs.deploy-pages.result == 'success' || needs.deploy-pages.result == 'skipped')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -208,7 +209,7 @@ jobs:
 
   notify-failure:
     needs: [build, deploy-pages, finalize]
-    if: failure()
+    if: failure() && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
