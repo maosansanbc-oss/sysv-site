@@ -9,3 +9,6 @@ data/private_*.json
 data/gsc_raw_*.json
 data/gsc_weekly_report.json
 data/gsc_history/
+# Transient build & preview audit reports (generated per build / uploaded as CI artifacts)
+reports/
+preview_reports/
