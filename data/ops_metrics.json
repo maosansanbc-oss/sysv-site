@@ -13,8 +13,8 @@
       "llm_cost_usd": 0.001562,
       "llm_unknown_cost_reserve_usd": 0.0,
       "commercial_data_location": "private/commercial_ledger.json (excluded from public repo)",
-      "last_deploy_utc": "2026-11-27T06:22:02Z",
-      "last_deploy_commit": "d49c6f6"
+      "last_deploy_utc": "2026-11-27T06:32:21Z",
+      "last_deploy_commit": "4df168e"
     },
     {
       "date": "2026-11-26",
