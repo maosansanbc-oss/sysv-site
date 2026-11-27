@@ -67,8 +67,13 @@ def run_quality_gate(data_dir: Path = DATA_DIR, dist_dir: Path = DIST_DIR, repo_
             errors.append(f"P0 violation: router/media/batch model '{mid}' classified as {ptype}!")
         if ptype == "variable" and (m.get("prompt_price_per_m") == 0 or m.get("completion_price_per_m") == 0):
             errors.append(f"P0 violation: variable router '{mid}' has $0 price!")
-        if ptype == "batch" and m.get("is_realtime") is True:
-            errors.append(f"P0 violation: batch endpoint '{mid}' marked as real-time interactive!")
+        is_batch_id_or_name = (":batch" in mid) or ("(batch)" in str(m.get("name", "")).lower())
+        if is_batch_id_or_name and ptype != "batch":
+            errors.append(f"P0 violation: batch endpoint '{mid}' misclassified as pricing_type={ptype}!")
+        if (ptype == "batch" or is_batch_id_or_name) and m.get("is_realtime") is not False:
+            errors.append(f"P0 violation: batch endpoint '{mid}' marked as real-time interactive (is_realtime={m.get('is_realtime')})!")
+        if m.get("status", "active") == "active" and m.get("is_realtime") is None:
+            errors.append(f"P0 violation: active endpoint '{mid}' missing boolean is_realtime!")
 
     # 2. Required production files & valid XML/JSON
     for req_file in ["index.html", "sitemap.xml", "robots.txt", "feed.xml", "favicon.svg", "404.html", "CNAME", "version.json"]:

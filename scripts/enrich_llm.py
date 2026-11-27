@@ -10,6 +10,7 @@ Guarantees:
 
 import hashlib
 import json
+import re
 import time
 from typing import Any
 
@@ -195,26 +196,298 @@ def _deterministic_repo_enrichment(r: dict[str, Any], cache_hash: str) -> dict[s
     }
 
 
-def _valid_enrichment(data: dict[str, Any] | None, pricing_type: str | None = None) -> bool:
+_NEG_PREFIX_RE = re.compile(
+    r"\b(?:no|not|without|lacks?|lacking|missing|never|cannot|can't|does\s+not|doesn't|do\s+not|don't|unable\s+to|excluding)\b",
+    re.I,
+)
+_POS_PIVOT_RE = re.compile(r"\b(?:but|however|while|whereas)\s+(?:it\s+)?(?:supports?|offers?|includes?|provides?|enables?)\b", re.I)
+_NEG_SUFFIX_RE = re.compile(
+    r"^\s*(?:is|are)?\s*(?:not\s+(?:supported|available|enabled|included|suitable)|unavailable|unsupported|disabled)\b",
+    re.I,
+)
+_DOLLAR_RE = re.compile(r"\$(\d+(?:,\d{3})*(?:\.\d+)?)")
+_PER_M_PRICE_RE = re.compile(
+    r"(?:priced\s+at|pricing\s+of|billed\s+at|input/output\s+pricing\s+of|at)\s+\$?(\d+(?:\.\d+)?)(?:\s*(?:/|and)\s*\$?(\d+(?:\.\d+)?))?\s*(?:per\s*1m|/1m|input|output)",
+    re.I,
+)
+_CTX_BEFORE_RE = re.compile(
+    r"(?<![a-z0-9.])(\d+(?:,\d{3})+|\d+(?:\.\d+)?)\s*([km])?\s*(?:-?\s*tokens?\s+)?(?:context(?:\s+window|\s+length)?|ctx\b)",
+    re.I,
+)
+_CTX_AFTER_RE = re.compile(
+    r"(?:context(?:\s+window|\s+length)?\s*(?:of|is|:)\s*(?:up\s+to\s+|~)?|up\s+to\s+~?)(\d+(?:,\d{3})+|\d+(?:\.\d+)?)\s*([km])?\s*(?:-?\s*tokens?)\b",
+    re.I,
+)
+_PLATFORM_FEE_KEYWORDS = (
+    "credit",
+    "lifetime",
+    "1,000 rpd",
+    "1000 rpd",
+    "top-up",
+    "top up",
+    "unlock",
+    "minimum",
+    "min fee",
+    "card fee",
+    "byok",
+)
+
+
+def _is_negated_match(text: str, start: int, end: int) -> bool:
+    """Return True when the matched span is negated within its local sentence/clause."""
+    sent_start = max(
+        text.rfind(".", 0, start),
+        text.rfind(";", 0, start),
+        text.rfind("\n", 0, start),
+        text.rfind("!", 0, start),
+        text.rfind("?", 0, start),
+    )
+    sent_end_candidates = [pos for pos in (text.find(".", end), text.find(";", end), text.find("\n", end)) if pos != -1]
+    sent_end = min(sent_end_candidates) if sent_end_candidates else len(text)
+    prefix = text[sent_start + 1 : start]
+    suffix = text[end:sent_end]
+
+    # If a negation occurred before the match and was not overturned by an affirmative pivot
+    neg_matches = list(_NEG_PREFIX_RE.finditer(prefix))
+    if neg_matches:
+        after_last_neg = prefix[neg_matches[-1].end() :]
+        if not _POS_PIVOT_RE.search(after_last_neg):
+            return True
+    if _NEG_SUFFIX_RE.search(suffix):
+        return True
+    return False
+
+
+def _price_matches_structured(val: float, refs: list[float]) -> bool:
+    for ref in refs:
+        tol = max(0.005, abs(ref) * 0.02)
+        if abs(val - ref) <= tol:
+            return True
+    return False
+
+
+def _validate_prices_against_model(all_text: str, summary: str, pricing_type: str | None, model: dict[str, Any] | None) -> bool:
+    # 1. Free-claim guards on paid/batch/variable endpoints (without falsely blocking $0.05!)
+    if pricing_type in ("variable", "paid", "batch"):
+        for phrase in ("completely free", "zero-cost", "free tier", "free model"):
+            for m in re.finditer(re.escape(phrase), all_text, re.I):
+                if not _is_negated_match(all_text, m.start(), m.end()):
+                    return False
+
+    # 2. Unlimited-claim guard on rate-limited free endpoints (allows "not unlimited")
+    if pricing_type in ("limited_free", "free", "free_router"):
+        for m in re.finditer(r"\bunlimited\b", all_text, re.I):
+            if not _is_negated_match(all_text, m.start(), m.end()):
+                return False
+
+    # Build allowed structured reference prices when model dict is supplied
+    allowed_refs: list[float] = []
+    est_10m_ref: float | None = None
+    if model is not None:
+        p_in = model.get("prompt_price_per_m")
+        p_out = model.get("completion_price_per_m")
+        for candidate in (p_in, p_out, model.get("cache_read_price_per_m"), model.get("cache_write_price_per_m")):
+            if isinstance(candidate, (int, float)):
+                allowed_refs.append(float(candidate))
+        if isinstance(p_in, (int, float)) and isinstance(p_out, (int, float)):
+            est_10m_ref = round(float(p_in) * 8.0 + float(p_out) * 2.0, 2)
+
+    # 3. Inspect all explicit dollar amounts ($X or $X.YY)
+    for dm in _DOLLAR_RE.finditer(all_text):
+        val = float(dm.group(1).replace(",", ""))
+        ctx_win = all_text[max(0, dm.start() - 40) : min(len(all_text), dm.end() + 45)].lower()
+        if any(k in ctx_win for k in _PLATFORM_FEE_KEYWORDS):
+            if val in (0.8, 9.0, 10.0, 25000.0):
+                continue
+
+        if pricing_type in ("variable", "paid", "batch") and val == 0.0:
+            if not _is_negated_match(all_text, dm.start(), dm.end()):
+                return False
+            continue
+
+        if model is None:
+            continue
+
+        if pricing_type in ("limited_free", "free", "free_router"):
+            if val != 0.0 and not _is_negated_match(all_text, dm.start(), dm.end()):
+                return False
+            continue
+
+        if pricing_type in ("variable", "unknown", "media") and not allowed_refs:
+            if not _is_negated_match(all_text, dm.start(), dm.end()):
+                return False
+            continue
+
+        if allowed_refs:
+            refs_for_check = list(allowed_refs)
+            if est_10m_ref is not None and ("8m" in ctx_win or "estimated" in ctx_win):
+                refs_for_check.append(est_10m_ref)
+            if not _price_matches_structured(val, refs_for_check):
+                return False
+
+    # 4. Directional input/output price checks when model has distinct numeric prices
+    if model is not None:
+        p_in = model.get("prompt_price_per_m")
+        p_out = model.get("completion_price_per_m")
+        if isinstance(p_in, (int, float)):
+            in_refs = [float(p_in)]
+            for c_ref in (model.get("cache_read_price_per_m"), model.get("cache_write_price_per_m")):
+                if isinstance(c_ref, (int, float)):
+                    in_refs.append(float(c_ref))
+            for pat in (
+                r"\$(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:per\s*1m|/1m)?\s*(?:prompt|input)\b",
+                r"\b(?:prompt|input)\s*(?:price|pricing|rate)?\s*(?:is|of|at|:)?\s*\$(\d+(?:,\d{3})*(?:\.\d+)?)",
+            ):
+                for m in re.finditer(pat, all_text, re.I):
+                    val = float(m.group(1).replace(",", ""))
+                    win = all_text[max(0, m.start() - 25) : min(len(all_text), m.end() + 25)].lower()
+                    refs = in_refs if "cache" in win else [float(p_in)]
+                    if not _price_matches_structured(val, refs):
+                        return False
+        if isinstance(p_out, (int, float)):
+            for pat in (
+                r"\$(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:per\s*1m|/1m)?\s*(?:completion|output)\b",
+                r"\b(?:completion|output)\s*(?:price|pricing|rate)?\s*(?:is|of|at|:)?\s*\$(\d+(?:,\d{3})*(?:\.\d+)?)",
+            ):
+                for m in re.finditer(pat, all_text, re.I):
+                    val = float(m.group(1).replace(",", ""))
+                    if not _price_matches_structured(val, [float(p_out)]):
+                        return False
+
+    # 5. Also check unit-explicit non-dollar per-1M token prices when model is supplied (e.g. "priced at 0.50 per 1M")
+    if model is not None and allowed_refs:
+        for pm in _PER_M_PRICE_RE.finditer(summary):
+            for grp in (pm.group(1), pm.group(2)):
+                if grp is None:
+                    continue
+                val = float(grp)
+                if pricing_type in ("variable", "paid", "batch") and val == 0.0:
+                    return False
+                if not _price_matches_structured(val, allowed_refs):
+                    return False
+
+    return True
+
+
+def _validate_context_against_model(all_text: str, model: dict[str, Any]) -> bool:
+    ctx = int(model.get("context_length") or 0)
+    if ctx <= 0:
+        return True
+    for pat in (_CTX_BEFORE_RE, _CTX_AFTER_RE):
+        for cm in pat.finditer(all_text):
+            raw_num = float(cm.group(1).replace(",", ""))
+            unit = (cm.group(2) or "").lower()
+            if unit == "k":
+                claimed = raw_num * 1_000
+            elif unit == "m":
+                claimed = raw_num * 1_000_000
+            else:
+                if raw_num < 1_000:
+                    continue
+                claimed = raw_num
+            if abs(claimed - ctx) / max(ctx, 1) > 0.08:
+                return False
+    return True
+
+
+def _validate_capabilities_against_model(all_text: str, model: dict[str, Any]) -> bool:
+    caps = model.get("capabilities") or {}
+    ptype = model.get("pricing_type")
+    is_realtime = model.get("is_realtime")
+
+    if caps.get("tools") is False:
+        pat = re.compile(
+            r"\b(?:tool[- ]?calling|tool[- ]?use|tool[- ]?using|function[- ]?calling|supports?\s+tools?|with\s+tools?|tools?\s+(?:enabled|support))\b",
+            re.I,
+        )
+        for m in pat.finditer(all_text):
+            if not _is_negated_match(all_text, m.start(), m.end()):
+                return False
+
+    if caps.get("structured_outputs") is False:
+        pat = re.compile(
+            r"\b(?:structured[- ]?outputs?|supports?\s+(?:strict\s+)?json\s+schema)\b",
+            re.I,
+        )
+        for m in pat.finditer(all_text):
+            if not _is_negated_match(all_text, m.start(), m.end()):
+                return False
+
+    if caps.get("reasoning") is False:
+        pat = re.compile(
+            r"\b(?:supports?\s+reasoning|reasoning\s+(?:support|enabled|mode|model|capability|capabilities)|with\s+reasoning|extended\s+thinking)\b",
+            re.I,
+        )
+        for m in pat.finditer(all_text):
+            if not _is_negated_match(all_text, m.start(), m.end()):
+                return False
+
+    if caps.get("tools") is True:
+        pat = re.compile(
+            r"\b(?:no\s+tool[- ]?(?:calling|use)|does\s+not\s+support\s+tools?|tools?\s+(?:are|is)\s+not\s+(?:supported|available))\b",
+            re.I,
+        )
+        if pat.search(all_text):
+            return False
+
+    if caps.get("structured_outputs") is True:
+        pat = re.compile(
+            r"\b(?:no\s+structured[- ]?outputs?|does\s+not\s+support\s+structured[- ]?outputs?|structured[- ]?outputs?\s+(?:are|is)\s+not\s+(?:supported|available))\b",
+            re.I,
+        )
+        if pat.search(all_text):
+            return False
+
+    if caps.get("reasoning") is True:
+        pat = re.compile(
+            r"\b(?:no\s+reasoning\s+(?:support|capability)|does\s+not\s+support\s+reasoning|reasoning\s+(?:is)\s+not\s+(?:supported|available))\b",
+            re.I,
+        )
+        if pat.search(all_text):
+            return False
+
+    if ptype == "batch" or is_realtime is False:
+        pat = re.compile(
+            r"\b(?:real[- ]time|interactive\s+(?:chat|agent|agents|use|mode|application|applications|workflow|workflows|coding))\b",
+            re.I,
+        )
+        for m in pat.finditer(all_text):
+            if not _is_negated_match(all_text, m.start(), m.end()):
+                return False
+
+    return True
+
+
+def _valid_enrichment(
+    data: dict[str, Any] | None,
+    pricing_type: str | None = None,
+    model: dict[str, Any] | None = None,
+) -> bool:
     if not data:
         return False
     if not (
         isinstance(data.get("summary"), str)
+        and data["summary"].strip()
         and isinstance(data.get("best_for"), list)
+        and len(data["best_for"]) > 0
         and isinstance(data.get("watch_outs"), list)
+        and len(data["watch_outs"]) > 0
     ):
         return False
+    effective_ptype = pricing_type or (model.get("pricing_type") if model else None)
     all_text = " ".join(
         [data["summary"]] + [str(x) for x in data["best_for"]] + [str(x) for x in data["watch_outs"]]
-    ).lower()
-    if any(w in all_text for w in ("benchmark", "runtime tested")):
+    )
+    all_low = all_text.lower()
+    if any(w in all_low for w in ("benchmark", "runtime tested")):
         return False
-    s_low = data["summary"].lower()
-    if pricing_type in ("variable", "paid", "batch"):
-        if "$0" in s_low or "completely free" in s_low or "zero-cost" in s_low:
+    if not _validate_prices_against_model(all_text, data["summary"], effective_ptype, model):
+        return False
+    if model is not None:
+        if not _validate_context_against_model(all_text, model):
             return False
-    if pricing_type in ("limited_free", "free", "free_router") and "unlimited" in s_low:
-        return False
+        if not _validate_capabilities_against_model(all_text, model):
+            return False
     return True
 
 
@@ -269,7 +542,7 @@ def run_enrichment(
     for m in models:
         c_hash = compute_model_hash(m, prompt_ver)
         existing = m.get("enrichment") or {}
-        existing_valid = _valid_enrichment(existing, pricing_type=m.get("pricing_type"))
+        existing_valid = _valid_enrichment(existing, pricing_type=m.get("pricing_type"), model=m)
         hash_matches = existing.get("cache_hash") == c_hash and existing_valid
         already_llm = hash_matches and existing.get("source") not in (None, "deterministic-fallback")
         if already_llm:
@@ -279,7 +552,7 @@ def run_enrichment(
 
         if has_live_llm and guard.can_attempt() and m.get("status") == "active":
             parsed, provider, _usage = generate_json_with_fallback(_build_model_prompt(m), budget_guard=guard)
-            if _valid_enrichment(parsed, pricing_type=m.get("pricing_type")):
+            if _valid_enrichment(parsed, pricing_type=m.get("pricing_type"), model=m):
                 parsed["source"] = provider
                 parsed["cache_hash"] = c_hash
                 parsed["enriched_at"] = utc_today()

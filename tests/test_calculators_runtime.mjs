@@ -97,6 +97,110 @@ assert.equal(fqStale.cfCovered, null);
 
 console.log("[runtime_js] calc-engine.js boundary assertions PASSED");
 
+// 1b. Execute ACTUAL generated homepage calculator script from dist/index.html to verify
+//     editing token inputs (#calc-in / #calc-out) preserves selected workload gate (RAG / Coding / Autosite)
+//     and never silently resets #task-preset to 'custom' or leaks async :batch / short-ctx models.
+const indexHtml = fs.readFileSync(path.join(DIST, "index.html"), "utf8");
+const inlineScripts = [...indexHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
+const homeCalcScript = inlineScripts.find((s) => s.includes("document.getElementById('task-preset')"));
+assert.ok(homeCalcScript, "Homepage calculator inline script must exist in dist/index.html");
+
+function makeMockEl(initial = {}) {
+  const listeners = {};
+  return {
+    value: initial.value ?? "",
+    checked: Boolean(initial.checked),
+    innerHTML: "",
+    style: {},
+    dataset: initial.dataset || {},
+    options: initial.options || [],
+    selectedIndex: initial.selectedIndex ?? 0,
+    addEventListener(type, fn) {
+      (listeners[type] ||= []).push(fn);
+    },
+    dispatch(type) {
+      for (const fn of listeners[type] || []) fn({ target: this });
+    },
+    querySelectorAll() {
+      return [];
+    },
+    appendChild() {},
+  };
+}
+
+const presetOpts = [
+  { value: "coding", dataset: { in: "18.0", out: "3.5" } },
+  { value: "autosite", dataset: { in: "1.2", out: "0.4" } },
+  { value: "translation", dataset: { in: "2.5", out: "2.5" } },
+  { value: "rag", dataset: { in: "12.0", out: "1.0" } },
+  { value: "custom", dataset: { in: "5.0", out: "1.0" } },
+];
+const mockEls = {
+  "task-preset": makeMockEl({ value: "coding", options: presetOpts, selectedIndex: 0 }),
+  "calc-in": makeMockEl({ value: "18.0" }),
+  "calc-out": makeMockEl({ value: "3.5" }),
+  "include-batch": makeMockEl({ checked: false }),
+  "task-ranking": makeMockEl(),
+  "model-search": makeMockEl({ value: "" }),
+  "tier-filter": makeMockEl({ value: "all" }),
+  "model-sort": makeMockEl({ value: "default" }),
+  "model-tbody": makeMockEl(),
+};
+const domSandbox = {
+  window: { SysVCalc: calc },
+  document: { getElementById: (id) => mockEls[id] || makeMockEl() },
+  Array,
+  Math,
+  Number,
+  parseFloat,
+  parseInt,
+};
+vm.runInNewContext(homeCalcScript, domSandbox);
+
+// Select RAG (Real-Time + >=100K ctx), check include-batch, then edit token counts!
+mockEls["task-preset"].value = "rag";
+mockEls["task-preset"].selectedIndex = 3;
+mockEls["task-preset"].dispatch("change");
+assert.equal(mockEls["calc-in"].value, "12.0");
+assert.equal(mockEls["calc-out"].value, "1.0");
+const ragCountBefore = mockEls["task-ranking"].innerHTML.match(/\((\d+) capability-matched models\)/)?.[1];
+assert.ok(ragCountBefore, "RAG ranking must report capability-matched count");
+
+mockEls["include-batch"].checked = true;
+mockEls["include-batch"].dispatch("change");
+mockEls["calc-in"].value = "25.0";
+mockEls["calc-in"].dispatch("input");
+mockEls["calc-out"].value = "4.0";
+mockEls["calc-out"].dispatch("input");
+
+assert.equal(mockEls["task-preset"].value, "rag", "Editing token inputs must NOT reset #task-preset to 'custom'!");
+assert.ok(mockEls["task-ranking"].innerHTML.includes("25.0M in / 4.0M out"), "Updated token volume must render");
+const ragCountAfter = mockEls["task-ranking"].innerHTML.match(/\((\d+) capability-matched models\)/)?.[1];
+assert.equal(ragCountAfter, ragCountBefore, "RAG capability-matched model count must stay identical after editing tokens");
+assert.equal(mockEls["task-ranking"].innerHTML.includes("Async Batch"), false, "RAG real-time gate must NEVER leak Async Batch endpoints");
+
+// Repeat for Coding Agent (Real-Time + Tools + >=64K ctx)
+mockEls["task-preset"].value = "coding";
+mockEls["task-preset"].selectedIndex = 0;
+mockEls["task-preset"].dispatch("change");
+const codingCountBefore = mockEls["task-ranking"].innerHTML.match(/\((\d+) capability-matched models\)/)?.[1];
+mockEls["calc-in"].value = "40.0";
+mockEls["calc-in"].dispatch("input");
+assert.equal(mockEls["task-preset"].value, "coding", "Editing tokens must preserve Coding Agent preset");
+assert.equal(
+  mockEls["task-ranking"].innerHTML.match(/\((\d+) capability-matched models\)/)?.[1],
+  codingCountBefore,
+  "Coding Agent capability gate must stay intact after editing tokens"
+);
+
+// Verify generated /data/models.json has zero misclassified :batch models
+const publicModels = JSON.parse(fs.readFileSync(path.join(DIST, "data/models.json"), "utf8")).models || [];
+const badBatch = publicModels.filter(
+  (m) => (m.id.toLowerCase().includes(":batch") || m.name.toLowerCase().includes("(batch)")) && (m.pricing_type !== "batch" || m.is_realtime !== false)
+);
+assert.equal(badBatch.length, 0, `Misclassified batch models in dist/data/models.json: ${badBatch.map((m) => m.id).join(", ")}`);
+console.log("[runtime_js] homepage calculator state preservation & dist/data/models.json consistency PASSED");
+
 // 2. Verify all 4 ad-free /embed/ pages strictly exclude AdSense & trackers
 const embedPaths = [
   "embed/openrouter-cost-calculator/index.html",

@@ -703,7 +703,17 @@ def reconcile_comparison_registry(
     for pkey, rec in registry.items():
         ma = models_by_id.get(rec["model_a_id"])
         mb = models_by_id.get(rec["model_b_id"])
-        if ma and mb and ma.get("status", "active") == "active" and mb.get("status", "active") == "active":
+        valid_realtime_pair = (
+            ma is not None
+            and mb is not None
+            and ma.get("status", "active") == "active"
+            and mb.get("status", "active") == "active"
+            and ma.get("pricing_type") in ("limited_free", "free", "paid")
+            and mb.get("pricing_type") in ("limited_free", "free", "paid")
+            and bool(ma.get("is_realtime"))
+            and bool(mb.get("is_realtime"))
+        )
+        if valid_realtime_pair:
             rec["status"] = "active"
             active_count += 1
         else:
@@ -1052,7 +1062,10 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
           if (opt.value !== 'custom') {{ inEl.value = opt.dataset.in; outEl.value = opt.dataset.out; }}
           renderRanking();
         }});
-        [inEl, outEl].forEach(el => el.addEventListener('input', () => {{ presetEl.value = 'custom'; renderRanking(); }}));
+        [inEl, outEl].forEach(el => {{
+          el.addEventListener('input', renderRanking);
+          el.addEventListener('change', renderRanking);
+        }});
         batchEl.addEventListener('change', renderRanking);
         renderRanking();
 

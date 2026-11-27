@@ -1258,8 +1258,8 @@
       "slug": "deepseek-deepseek-v4-flash-vision-exp",
       "provider": "Deepseek",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.44,
-      "completion_price_per_m": 1.32,
+      "prompt_price_per_m": 0.2156,
+      "completion_price_per_m": 0.6468,
       "context_length": 1048576
     },
     "tencent/hy-mt2-1.8b": {
@@ -2284,8 +2284,8 @@
       "slug": "google-gemma-4-26b-a4b-it",
       "provider": "Google",
       "pricing_type": "paid",
-      "prompt_price_per_m": 0.0765,
-      "completion_price_per_m": 0.255,
+      "prompt_price_per_m": 0.09,
+      "completion_price_per_m": 0.3,
       "context_length": 262144
     },
     "google/gemma-4-26b-a4b-it:free": {
@@ -3770,7 +3770,7 @@
       "provider": "Google",
       "pricing_type": "paid",
       "prompt_price_per_m": 0.08,
-      "completion_price_per_m": 0.45,
+      "completion_price_per_m": 0.16,
       "context_length": 131072
     },
     "thedrummer/skyfall-36b-v2": {

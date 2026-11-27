@@ -105,7 +105,7 @@ def classify_model(item: dict[str, Any], today: str | None = None) -> dict[str, 
     supports_response_format = "response_format" in params
     supports_reasoning = ("reasoning" in params) or ("include_reasoning" in params)
 
-    is_batch_endpoint = lower_id.endswith(":batch") or ":batch" in lower_id
+    is_batch_endpoint = lower_id.endswith(":batch") or ":batch" in lower_id or "(batch)" in lower_name
     is_free_suffix = lower_id.endswith(":free")
     is_router_name = (
         lower_id.startswith("openrouter/")
@@ -365,52 +365,83 @@ def reconcile_model_lifecycle(
     all_live_ids: set[str],
     existing_models: list[dict[str, Any]],
     *,
+    all_live_models: dict[str, dict[str, Any]] | list[dict[str, Any]] | None = None,
     is_full_healthy_fetch: bool,
     today: str | None = None,
 ) -> list[dict[str, Any]]:
-    """Merge live models with existing records while preserving permanent SEO URLs."""
+    """Merge live models with existing records while syncing latest facts for all still-live endpoints."""
     today = today or utc_today()
     existing_map = {m["id"]: m for m in existing_models if "id" in m}
+    live_map: dict[str, dict[str, Any]] = {}
+    if isinstance(all_live_models, dict):
+        live_map.update(all_live_models)
+    elif isinstance(all_live_models, list):
+        live_map.update({m["id"]: m for m in all_live_models if "id" in m})
+    for m in selected_active:
+        if "id" in m:
+            live_map[m["id"]] = m
+    effective_live_ids = set(all_live_ids) | set(live_map.keys())
+
     merged: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
 
+    def _sync_live_record(fresh_src: dict[str, Any], prev: dict[str, Any] | None) -> dict[str, Any]:
+        rec = dict(fresh_src)
+        if prev:
+            rec["first_seen"] = prev.get("first_seen") or today
+            if prev.get("slug"):
+                rec["slug"] = prev["slug"]
+            if "enrichment" in prev:
+                rec["enrichment"] = prev["enrichment"]
+        rec["status"] = "active"
+        rec["missing_days"] = 0
+        rec["last_seen"] = today
+        rec["delisted_at"] = None
+        rec["updated_at"] = today
+        rec.pop("missing_checked_at", None)
+        return rec
+
     for m in selected_active:
         prev = existing_map.get(m["id"])
-        if prev:
-            m["first_seen"] = prev.get("first_seen") or today
-            if "enrichment" in prev:
-                m["enrichment"] = prev["enrichment"]
-        m["status"] = "active"
-        m["missing_days"] = 0
-        m["last_seen"] = today
-        m["delisted_at"] = None
-        merged.append(m)
+        merged.append(_sync_live_record(m, prev))
         seen_ids.add(m["id"])
 
     for prev_id, prev in existing_map.items():
         if prev_id in seen_ids:
             continue
-        if prev_id in all_live_ids:
-            prev["status"] = "active"
-            prev["missing_days"] = 0
-            prev["last_seen"] = today
-            merged.append(prev)
+        if prev_id in live_map:
+            merged.append(_sync_live_record(live_map[prev_id], prev))
+            seen_ids.add(prev_id)
+            continue
+        if prev_id in effective_live_ids:
+            rec = dict(prev)
+            rec["status"] = "active"
+            rec["missing_days"] = 0
+            rec["last_seen"] = today
+            rec["delisted_at"] = None
+            rec.pop("missing_checked_at", None)
+            merged.append(rec)
+            seen_ids.add(prev_id)
             continue
 
+        rec = dict(prev)
         if is_full_healthy_fetch:
-            prev_last = prev.get("last_seen", today)
-            miss = int(prev.get("missing_days", 0))
-            if prev_last != today:
-                miss += 1
-            elif miss == 0:
-                miss = 1
-            prev["missing_days"] = miss
+            prev_last = rec.get("last_seen", today)
+            prev_checked = rec.get("missing_checked_at")
+            miss = int(rec.get("missing_days", 0))
+            if prev_checked != today:
+                if prev_last != today:
+                    miss += 1
+                elif miss == 0:
+                    miss = 1
+                rec["missing_checked_at"] = today
+            rec["missing_days"] = miss
             if miss >= 3:
-                prev["status"] = "delisted"
-                prev["delisted_at"] = prev.get("delisted_at") or today
+                rec["status"] = "delisted"
+                rec["delisted_at"] = rec.get("delisted_at") or today
             else:
-                prev["status"] = "temporarily_missing"
-        merged.append(prev)
+                rec["status"] = "temporarily_missing"
+        merged.append(rec)
 
     return merged
 
@@ -467,10 +498,12 @@ def fetch_openrouter_models(max_models: int, min_floor: int, existing_models: li
     save_json(DATA_DIR / "selection_audit.json", audit_info)
 
     all_live_ids = {m["id"] for m in all_classified}
+    all_live_models = {m["id"]: m for m in all_classified}
     return reconcile_model_lifecycle(
         selected,
         all_live_ids,
         existing_models,
+        all_live_models=all_live_models,
         is_full_healthy_fetch=(len(all_classified) >= 250),
         today=today,
     )

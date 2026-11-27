@@ -113,6 +113,33 @@
       "detail": "Input $0.71 -> $0.59, Output $0.71 -> $0.79 per 1M"
     },
     {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
+      "slug": "deepseek-deepseek-v4-flash-vision-exp",
+      "detail": "Input $0.44 -> $0.2156, Output $1.32 -> $0.6468 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-27",
+      "type": "price_hike",
+      "model_id": "google/gemma-4-26b-a4b-it",
+      "name": "Google: Gemma 4 26B A4B",
+      "slug": "google-gemma-4-26b-a4b-it",
+      "detail": "Input $0.0765 -> $0.09, Output $0.255 -> $0.3 per 1M"
+    },
+    {
+      "date": "2026-11-27",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "google/gemma-3-27b-it",
+      "name": "Google: Gemma 3 27B",
+      "slug": "google-gemma-3-27b-it",
+      "detail": "Input $0.08 -> $0.08, Output $0.45 -> $0.16 per 1M"
+    },
+    {
       "date": "2026-11-26",
       "compared_to": "2026-11-25",
       "type": "price_hike",

@@ -330,7 +330,7 @@
     "model_b_id": "qwen/qwen2.5-vl-72b-instruct",
     "cohort": "Flagship & Long-Context APIs",
     "first_published": "2026-11-24",
-    "status": "active"
+    "status": "archived"
   },
   "mistralai-mistral-large-2512::qwen-qwen3-vl-235b-a22b-instruct": {
     "pair_key": "mistralai-mistral-large-2512::qwen-qwen3-vl-235b-a22b-instruct",
@@ -357,6 +357,24 @@
     "model_b_id": "qwen/qwen3.8-27b:batch",
     "cohort": "Flagship & Long-Context APIs",
     "first_published": "2026-11-24",
+    "status": "archived"
+  },
+  "anthropic-claude-haiku-5-5::deepseek-deepseek-v3-1-terminus": {
+    "pair_key": "anthropic-claude-haiku-5-5::deepseek-deepseek-v3-1-terminus",
+    "slug": "anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-1-terminus",
+    "model_a_id": "anthropic/claude-haiku-5.5",
+    "model_b_id": "deepseek/deepseek-v3.1-terminus",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-27",
+    "status": "active"
+  },
+  "anthropic-claude-haiku-5-5::qwen-qwen3-coder": {
+    "pair_key": "anthropic-claude-haiku-5-5::qwen-qwen3-coder",
+    "slug": "anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder",
+    "model_a_id": "anthropic/claude-haiku-5.5",
+    "model_b_id": "qwen/qwen3-coder",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-27",
     "status": "active"
   }
 }

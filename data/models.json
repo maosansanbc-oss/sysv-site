@@ -1197,6 +1197,69 @@
     }
   },
   {
+    "id": "google/gemma-3-27b-it",
+    "slug": "google-gemma-3-27b-it",
+    "name": "Google: Gemma 3 27B",
+    "provider": "Google",
+    "context_length": 131072,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.08,
+    "completion_price_per_m": 0.16,
+    "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": false
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
+    "raw_pricing": {
+      "prompt": "0.00000008",
+      "completion": "0.00000016",
+      "request": null,
+      "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image->text",
+    "task_category": "budget_general",
+    "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "14eddf5f71ffdcda",
+      "enriched_at": "2026-11-27",
+      "summary": "Google: Gemma 3 27B is a real-time paid endpoint billed at $0.08/1M input and $0.16/1M output tokens (estimated $0.96 for 8M input + 2M output tokens) with a 131K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 131K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
+    }
+  },
+  {
     "id": "deepseek/deepseek-v4-flash",
     "slug": "deepseek-deepseek-v4-flash",
     "name": "DeepSeek: DeepSeek V4 Flash 0423",
@@ -1638,69 +1701,6 @@
     }
   },
   {
-    "id": "google/gemma-4-26b-a4b-it",
-    "slug": "google-gemma-4-26b-a4b-it",
-    "name": "Google: Gemma 4 26B A4B",
-    "provider": "Google",
-    "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.0765,
-    "completion_price_per_m": 0.255,
-    "cache_read_price_per_m": 0.0425,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-27"
-    },
-    "raw_pricing": {
-      "prompt": "0.0000000765",
-      "completion": "0.000000255",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.0000000425",
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image+video->text",
-    "task_category": "reasoning",
-    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference — delivering near-31B quality at...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-27",
-    "delisted_at": null,
-    "updated_at": "2026-11-27",
-    "enrichment": {
-      "summary": "Gemma 4 26B A4B IT is a paid, real-time interactive MoE model priced at 0.0765 per 1M input tokens and 0.255 per 1M output tokens. It supports a 262144-token context with text, image, and video inputs to text output, plus tools, structured outputs, and reasoning.",
-      "best_for": [
-        "Long-context multimodal tasks combining text, image, and video inputs",
-        "Cost-sensitive real-time workloads needing MoE efficiency with ~3.8B active parameters",
-        "Applications requiring tool use, structured outputs, and reasoning"
-      ],
-      "watch_outs": [
-        "Paid per-token pricing applies; OpenRouter adds a 5.5% card or 5% crypto top-up fee unless using BYOK",
-        "Real-time interactive serving only; no free or batch tier is indicated"
-      ],
-      "source": "deepseek",
-      "cache_hash": "96fecbbebbe42099",
-      "enriched_at": "2026-11-26"
-    }
-  },
-  {
     "id": "deepseek/deepseek-v4-flash-0731",
     "slug": "deepseek-deepseek-v4-flash-0731",
     "name": "DeepSeek: DeepSeek V4 Flash 0731",
@@ -2079,6 +2079,69 @@
     }
   },
   {
+    "id": "google/gemma-4-26b-a4b-it",
+    "slug": "google-gemma-4-26b-a4b-it",
+    "name": "Google: Gemma 4 26B A4B",
+    "provider": "Google",
+    "context_length": 262144,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.09,
+    "completion_price_per_m": 0.3,
+    "cache_read_price_per_m": 0.05,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
+    "raw_pricing": {
+      "prompt": "0.00000009",
+      "completion": "0.0000003",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.00000005",
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image+video->text",
+    "task_category": "reasoning",
+    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference — delivering near-31B quality at...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "ebf35bb533355afb",
+      "enriched_at": "2026-11-27",
+      "summary": "Google: Gemma 4 26B A4B is a real-time paid endpoint billed at $0.09/1M input and $0.3/1M output tokens (estimated $1.32 for 8M input + 2M output tokens) with a 262K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 262K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
+    }
+  },
+  {
     "id": "mistralai/ministral-14b-2512",
     "slug": "mistralai-ministral-14b-2512",
     "name": "Mistral: Ministral 3 14B 2512",
@@ -2454,69 +2517,6 @@
       "source": "deepseek",
       "cache_hash": "011b92e912a90084",
       "enriched_at": "2026-11-25"
-    }
-  },
-  {
-    "id": "google/gemma-3-27b-it",
-    "slug": "google-gemma-3-27b-it",
-    "name": "Google: Gemma 3 27B",
-    "provider": "Google",
-    "context_length": 131072,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.08,
-    "completion_price_per_m": 0.45,
-    "cache_read_price_per_m": 0.04,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": false
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-27"
-    },
-    "raw_pricing": {
-      "prompt": "0.00000008",
-      "completion": "0.00000045",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.00000004",
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image->text",
-    "task_category": "budget_general",
-    "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-27",
-    "delisted_at": null,
-    "updated_at": "2026-11-27",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "63dea2bc4caabe77",
-      "enriched_at": "2026-11-27",
-      "summary": "Google: Gemma 3 27B is a real-time paid endpoint billed at $0.08/1M input and $0.45/1M output tokens (estimated $1.54 for 8M input + 2M output tokens) with a 131K context window.",
-      "best_for": [
-        "Real-time tool calling & agent loops",
-        "Strict JSON / structured extraction",
-        "Long-context inputs up to 131K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
     }
   },
   {
@@ -3591,6 +3591,69 @@
     }
   },
   {
+    "id": "deepseek/deepseek-v4-flash-vision-exp",
+    "slug": "deepseek-deepseek-v4-flash-vision-exp",
+    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
+    "provider": "Deepseek",
+    "context_length": 1048576,
+    "pricing_type": "paid",
+    "pricing_label": "Paid",
+    "is_free": false,
+    "is_realtime": true,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
+    "prompt_price_per_m": 0.2156,
+    "completion_price_per_m": 0.6468,
+    "cache_read_price_per_m": 0.00686,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
+    "raw_pricing": {
+      "prompt": "0.0000002156",
+      "completion": "0.0000006468",
+      "request": null,
+      "image": null,
+      "input_cache_read": "0.00000000686",
+      "has_overrides": false,
+      "unit": "USD per token (displayed per 1M tokens)",
+      "source": "OpenRouter Public Models API"
+    },
+    "modality": "text+image->text",
+    "task_category": "reasoning",
+    "description": "DeepSeek V4 Flash Vision Exp is an experimental vision-enabled version of [DeepSeek V4 Flash 0731](https://openrouter.ai/deepseek/deepseek-v4-flash-0731) from DeepSeek, adding image understanding while matching the base model on text capabilities including agents,...",
+    "status": "active",
+    "missing_days": 0,
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "98f7cf08fd297e7c",
+      "enriched_at": "2026-11-27",
+      "summary": "DeepSeek: DeepSeek V4 Flash Vision Exp is a real-time paid endpoint billed at $0.2156/1M input and $0.6468/1M output tokens (estimated $3.02 for 8M input + 2M output tokens) with a 1048K context window.",
+      "best_for": [
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 1048K tokens"
+      ],
+      "watch_outs": [
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Cache repeated prompts by content hash to prevent duplicate spend"
+      ]
+    }
+  },
+  {
     "id": "mistralai/mistral-small-3.1-24b-instruct",
     "slug": "mistralai-mistral-small-3-1-24b-instruct",
     "name": "Mistral: Mistral Small 3.1 24B",
@@ -3953,19 +4016,19 @@
     "delisted_at": null,
     "updated_at": "2026-11-27",
     "enrichment": {
-      "summary": "Qwen-Plus is a paid, tiered text-to-text endpoint priced at 0.26 per 1M input tokens and 0.78 per 1M output tokens, with a stated 1,000,000-token context. It supports tools and structured outputs but not reasoning, and is positioned for balanced performance, speed, and cost.",
+      "source": "deterministic-fallback",
+      "cache_hash": "b4f71adf55735993",
+      "enriched_at": "2026-11-27",
+      "summary": "Qwen: Qwen-Plus is a real-time paid endpoint billed at $0.26/1M input and $0.78/1M output tokens (estimated $3.64 for 8M input + 2M output tokens) with a 1000K context window.",
       "best_for": [
-        "Tool-calling and structured-output text workflows",
-        "Cost-sensitive interactive applications",
-        "Long-context text processing within the stated context window"
+        "Real-time tool calling & agent loops",
+        "Strict JSON / structured extraction",
+        "Long-context inputs up to 1000K tokens"
       ],
       "watch_outs": [
-        "Paid tiered pricing includes long-context surcharges above a prompt-length threshold",
-        "No reasoning capability; official description cites a 131K context versus the listed 1M context"
-      ],
-      "source": "deepseek",
-      "cache_hash": "b4f71adf55735993",
-      "enriched_at": "2026-11-25"
+        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
+        "Check tiered long-context price surcharges"
+      ]
     }
   },
   {
@@ -5163,69 +5226,6 @@
         "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
         "Cache repeated prompts by content hash to prevent duplicate spend"
       ]
-    }
-  },
-  {
-    "id": "deepseek/deepseek-v4-flash-vision-exp",
-    "slug": "deepseek-deepseek-v4-flash-vision-exp",
-    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
-    "provider": "Deepseek",
-    "context_length": 1048576,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
-    "is_free": false,
-    "is_realtime": true,
-    "has_tiered_overrides": false,
-    "rate_limit_note": "Standard real-time per-token API pricing (plus OpenRouter 5.5% card / 5% crypto top-up fee unless BYOK).",
-    "prompt_price_per_m": 0.44,
-    "completion_price_per_m": 1.32,
-    "cache_read_price_per_m": 0.028,
-    "cache_write_price_per_m": null,
-    "capabilities": {
-      "tools": true,
-      "structured_outputs": true,
-      "response_format": true,
-      "reasoning": true
-    },
-    "evidence": {
-      "pricing": "Source Verified",
-      "capabilities": "Source Verified",
-      "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-27"
-    },
-    "raw_pricing": {
-      "prompt": "0.00000044",
-      "completion": "0.00000132",
-      "request": null,
-      "image": null,
-      "input_cache_read": "0.000000028",
-      "has_overrides": false,
-      "unit": "USD per token (displayed per 1M tokens)",
-      "source": "OpenRouter Public Models API"
-    },
-    "modality": "text+image->text",
-    "task_category": "reasoning",
-    "description": "DeepSeek V4 Flash Vision Exp is an experimental vision-enabled version of [DeepSeek V4 Flash 0731](https://openrouter.ai/deepseek/deepseek-v4-flash-0731) from DeepSeek, adding image understanding while matching the base model on text capabilities including agents,...",
-    "status": "active",
-    "missing_days": 0,
-    "first_seen": "2026-11-24",
-    "last_seen": "2026-11-27",
-    "delisted_at": null,
-    "updated_at": "2026-11-27",
-    "enrichment": {
-      "summary": "DeepSeek V4 Flash Vision Exp is a paid, real-time interactive endpoint with text+image-to-text input and a 1,048,576-token context window. It supports tools, structured outputs, and reasoning, priced at 0.44 per 1M input tokens and 1.32 per 1M output tokens.",
-      "best_for": [
-        "Image understanding combined with text tasks",
-        "Agentic workflows requiring tool use",
-        "Long-context multimodal inputs"
-      ],
-      "watch_outs": [
-        "Experimental vision variant; behavior may change",
-        "Paid per-token pricing plus OpenRouter top-up fees unless BYOK"
-      ],
-      "source": "deepseek",
-      "cache_hash": "37e4eb52e4f1ee0c",
-      "enriched_at": "2026-11-25"
     }
   },
   {
@@ -8845,7 +8845,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-27"
     },
     "raw_pricing": {
       "prompt": "0.00000005",
@@ -8865,7 +8865,7 @@
     "first_seen": "2026-11-24",
     "last_seen": "2026-11-27",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "8a8eb69d700fa775",
@@ -8908,7 +8908,7 @@
       "pricing": "Source Verified",
       "capabilities": "Source Verified",
       "source_url": "https://openrouter.ai/api/v1/models",
-      "verified_at": "2026-11-25"
+      "verified_at": "2026-11-27"
     },
     "raw_pricing": {
       "prompt": "-1",
@@ -8928,7 +8928,7 @@
     "first_seen": "2026-11-24",
     "last_seen": "2026-11-27",
     "delisted_at": null,
-    "updated_at": "2026-11-25",
+    "updated_at": "2026-11-27",
     "enrichment": {
       "source": "deterministic-fallback",
       "cache_hash": "c26c28a674e21057",
@@ -8985,7 +8985,8 @@
       ]
     },
     "missing_days": 1,
-    "status": "temporarily_missing"
+    "status": "temporarily_missing",
+    "missing_checked_at": "2026-11-27"
   },
   {
     "id": "openai/gpt-6-luna-pro:batch",
@@ -8993,42 +8994,62 @@
     "name": "OpenAI: GPT-6 Luna Pro (batch)",
     "provider": "Openai",
     "context_length": 1050000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": true,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.05,
     "completion_price_per_m": 0.25,
     "cache_read_price_per_m": 0.005,
+    "cache_write_price_per_m": 0.0625,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000005",
       "completion": "0.00000025",
       "request": null,
       "image": null,
+      "input_cache_read": "0.000000005",
+      "has_overrides": true,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "GPT-6 Luna Pro is the same underlying model as [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "55d0481522429fea",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-6 Luna Pro (batch) is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 1050K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 1050K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "37cb7650f3409145",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-6 Luna Pro (batch) is an asynchronous batch-only endpoint billed at $0.05/1M input and $0.25/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-6-luna:batch",
@@ -9036,42 +9057,62 @@
     "name": "OpenAI: GPT-6 Luna (batch)",
     "provider": "Openai",
     "context_length": 1050000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": true,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.05,
     "completion_price_per_m": 0.25,
     "cache_read_price_per_m": 0.005,
+    "cache_write_price_per_m": 0.0625,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000005",
       "completion": "0.00000025",
       "request": null,
       "image": null,
+      "input_cache_read": "0.000000005",
+      "has_overrides": true,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "GPT-6 Luna is the fast, cost-efficient model in OpenAI's GPT-6 series, positioned below GPT-6 Sol. It is suited for high-volume and latency-sensitive workloads such as chat, classification, and lightweight agentic...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "4acc4a273b873f39",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-6 Luna (batch) is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 1050K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 1050K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "99078c9e710a7613",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-6 Luna (batch) is an asynchronous batch-only endpoint billed at $0.05/1M input and $0.25/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "anthropic/claude-haiku-5.5:batch",
@@ -9079,42 +9120,62 @@
     "name": "Anthropic: Claude Haiku 5.5 (batch)",
     "provider": "Anthropic",
     "context_length": 1000000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": true,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.05,
     "completion_price_per_m": 0.25,
     "cache_read_price_per_m": 0.005,
+    "cache_write_price_per_m": 0.0625,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000005",
       "completion": "0.00000025",
       "request": null,
       "image": null,
+      "input_cache_read": "0.000000005",
+      "has_overrides": true,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "coding",
+    "task_category": "batch",
     "description": "Claude Haiku 5.5 is Anthropic's small, fast model for high-volume, cost-sensitive work such as summarization, subagents, and browser use. It succeeds Claude Haiku 4.5 with stronger coding, computer use, and...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "267dac112fbb2088",
-      "enriched_at": "2026-11-27",
-      "summary": "Anthropic: Claude Haiku 5.5 (batch) is a real-time paid endpoint billed at $0.05/1M input and $0.25/1M output tokens (estimated $0.9 for 8M input + 2M output tokens) with a 1000K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 1000K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "fd8f7d1b5b44c23a",
+      "enriched_at": "2026-11-27",
+      "summary": "Anthropic: Claude Haiku 5.5 (batch) is an asynchronous batch-only endpoint billed at $0.05/1M input and $0.25/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-4o-mini:batch",
@@ -9122,42 +9183,62 @@
     "name": "OpenAI: GPT-4o-mini (batch)",
     "provider": "Openai",
     "context_length": 128000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.075,
     "completion_price_per_m": 0.3,
     "cache_read_price_per_m": 0.0375,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": false
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.000000075",
       "completion": "0.0000003",
       "request": null,
       "image": null,
+      "input_cache_read": "0.0000000375",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "GPT-4o mini is OpenAI's newest model after [GPT-4 Omni](/models/openai/gpt-4o), supporting both text and image inputs with text outputs. As their most advanced small model, it is many multiples more affordable...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "168bf7f5252d3878",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-4o-mini (batch) is a real-time paid endpoint billed at $0.075/1M input and $0.3/1M output tokens (estimated $1.2 for 8M input + 2M output tokens) with a 128K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 128K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "7ea26b821f13924e",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-4o-mini (batch) is an asynchronous batch-only endpoint billed at $0.075/1M input and $0.3/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-5.6-luna-pro:batch",
@@ -9165,42 +9246,62 @@
     "name": "OpenAI: GPT-5.6 Luna Pro (batch)",
     "provider": "Openai",
     "context_length": 1050000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": true,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.1,
     "completion_price_per_m": 0.6,
     "cache_read_price_per_m": 0.01,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.0000001",
       "completion": "0.0000006",
       "request": null,
       "image": null,
+      "input_cache_read": "0.00000001",
+      "has_overrides": true,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "e33d3d4bb0e95920",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-5.6 Luna Pro (batch) is a real-time paid endpoint billed at $0.1/1M input and $0.6/1M output tokens (estimated $2.0 for 8M input + 2M output tokens) with a 1050K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 1050K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "b430ebf7b06a0540",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-5.6 Luna Pro (batch) is an asynchronous batch-only endpoint billed at $0.1/1M input and $0.6/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-5.6-luna:batch",
@@ -9208,42 +9309,62 @@
     "name": "OpenAI: GPT-5.6 Luna (batch)",
     "provider": "Openai",
     "context_length": 1050000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": true,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.1,
     "completion_price_per_m": 0.6,
     "cache_read_price_per_m": 0.01,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.0000001",
       "completion": "0.0000006",
       "request": null,
       "image": null,
+      "input_cache_read": "0.00000001",
+      "has_overrides": true,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series. It is suited for high-volume, latency-sensitive tasks such as chat, classification, and lightweight agentic workflows, providing capable reasoning for...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "6b9976b4d094dcc1",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-5.6 Luna (batch) is a real-time paid endpoint billed at $0.1/1M input and $0.6/1M output tokens (estimated $2.0 for 8M input + 2M output tokens) with a 1050K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 1050K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "df12e5fd4451e325",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-5.6 Luna (batch) is an asynchronous batch-only endpoint billed at $0.1/1M input and $0.6/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-5.4-nano:batch",
@@ -9251,42 +9372,62 @@
     "name": "OpenAI: GPT-5.4 Nano (batch)",
     "provider": "Openai",
     "context_length": 400000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.1,
     "completion_price_per_m": 0.625,
     "cache_read_price_per_m": 0.01,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.0000001",
       "completion": "0.000000625",
       "request": null,
       "image": null,
+      "input_cache_read": "0.00000001",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks. It supports text and image inputs and is designed for low-latency...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "aa44c1dd0a98df65",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-5.4 Nano (batch) is a real-time paid endpoint billed at $0.1/1M input and $0.625/1M output tokens (estimated $2.05 for 8M input + 2M output tokens) with a 400K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 400K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "77b1baebbd1ccc38",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-5.4 Nano (batch) is an asynchronous batch-only endpoint billed at $0.1/1M input and $0.625/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-4.1-mini:batch",
@@ -9294,42 +9435,62 @@
     "name": "OpenAI: GPT-4.1 Mini (batch)",
     "provider": "Openai",
     "context_length": 1047576,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.2,
     "completion_price_per_m": 0.8,
     "cache_read_price_per_m": 0.05,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": false
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.0000002",
       "completion": "0.0000008",
       "request": null,
       "image": null,
+      "input_cache_read": "0.00000005",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost. It retains a 1 million token context window and scores 45.1% on hard...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "1ce95bfa8e5df7c3",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-4.1 Mini (batch) is a real-time paid endpoint billed at $0.2/1M input and $0.8/1M output tokens (estimated $3.2 for 8M input + 2M output tokens) with a 1047K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 1047K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "e2434e25f0633c8c",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-4.1 Mini (batch) is an asynchronous batch-only endpoint billed at $0.2/1M input and $0.8/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-5-mini:batch",
@@ -9337,42 +9498,62 @@
     "name": "OpenAI: GPT-5 Mini (batch)",
     "provider": "Openai",
     "context_length": 400000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.125,
     "completion_price_per_m": 1.0,
     "cache_read_price_per_m": 0.0125,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.000000125",
       "completion": "0.000001",
       "request": null,
       "image": null,
+      "input_cache_read": "0.0000000125",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks. It provides the same instruction-following and safety-tuning benefits as GPT-5, but with reduced latency and cost....",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "268120817f8f2b73",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-5 Mini (batch) is a real-time paid endpoint billed at $0.125/1M input and $1.0/1M output tokens (estimated $3.0 for 8M input + 2M output tokens) with a 400K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 400K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "7e7cdb61ac0ade5e",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-5 Mini (batch) is an asynchronous batch-only endpoint billed at $0.125/1M input and $1.0/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "qwen/qwen3.7-plus:batch",
@@ -9380,42 +9561,62 @@
     "name": "Qwen: Qwen3.7 Plus (batch)",
     "provider": "Qwen",
     "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.23,
     "completion_price_per_m": 0.92,
     "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000023",
       "completion": "0.00000092",
       "request": null,
       "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "Qwen3.7-Plus is a cost-effective model in Alibaba's Qwen3.7 series. It supports text and image input with text output, building on the series' text capabilities with a comprehensive upgrade to its...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "ac9418c03a5e83fe",
-      "enriched_at": "2026-11-27",
-      "summary": "Qwen: Qwen3.7 Plus (batch) is a real-time paid endpoint billed at $0.23/1M input and $0.92/1M output tokens (estimated $3.68 for 8M input + 2M output tokens) with a 262K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 262K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "2c4c9ad53fb733d1",
+      "enriched_at": "2026-11-27",
+      "summary": "Qwen: Qwen3.7 Plus (batch) is an asynchronous batch-only endpoint billed at $0.23/1M input and $0.92/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "meta/muse-glimmer-30b:batch",
@@ -9423,42 +9624,62 @@
     "name": "Meta: Muse Glimmer 30B (batch)",
     "provider": "Meta",
     "context_length": 131072,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.24,
     "completion_price_per_m": 0.96,
     "cache_read_price_per_m": 0.032,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000024",
       "completion": "0.00000096",
       "request": null,
       "image": null,
+      "input_cache_read": "0.000000032",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image->text",
-    "task_category": "budget_general",
+    "task_category": "batch",
     "description": "Muse Glimmer 30B is a dense, open-weight multimodal model from Meta Superintelligence Labs, distilled from Muse Spark and optimized for autonomous agents on consumer hardware. It is suited for long-horizon...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "7bc0e0c10d650c49",
-      "enriched_at": "2026-11-27",
-      "summary": "Meta: Muse Glimmer 30B (batch) is a real-time paid endpoint billed at $0.24/1M input and $0.96/1M output tokens (estimated $3.84 for 8M input + 2M output tokens) with a 131K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 131K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "416937606a0ce4d2",
+      "enriched_at": "2026-11-27",
+      "summary": "Meta: Muse Glimmer 30B (batch) is an asynchronous batch-only endpoint billed at $0.24/1M input and $0.96/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "qwen/qwen3.8-27b:batch",
@@ -9466,42 +9687,62 @@
     "name": "Qwen: Qwen3.8 27B (batch)",
     "provider": "Qwen",
     "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.16,
     "completion_price_per_m": 2.0,
     "cache_read_price_per_m": 0.04,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000016",
       "completion": "0.000002",
       "request": null,
       "image": null,
+      "input_cache_read": "0.00000004",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+video->text",
-    "task_category": "long_context",
+    "task_category": "batch",
     "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "77396c8761e8de50",
-      "enriched_at": "2026-11-27",
-      "summary": "Qwen: Qwen3.8 27B (batch) is a real-time paid endpoint billed at $0.16/1M input and $2.0/1M output tokens (estimated $5.28 for 8M input + 2M output tokens) with a 262K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 262K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "ce47b946d1c7af06",
+      "enriched_at": "2026-11-27",
+      "summary": "Qwen: Qwen3.8 27B (batch) is an asynchronous batch-only endpoint billed at $0.16/1M input and $2.0/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-5.4-mini:batch",
@@ -9509,42 +9750,62 @@
     "name": "OpenAI: GPT-5.4 Mini (batch)",
     "provider": "Openai",
     "context_length": 400000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.375,
     "completion_price_per_m": 2.25,
     "cache_read_price_per_m": 0.0375,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.000000375",
       "completion": "0.00000225",
       "request": null,
       "image": null,
+      "input_cache_read": "0.0000000375",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "long_context",
+    "task_category": "batch",
     "description": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads. It supports text and image inputs with strong performance across reasoning, coding,...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "a4f0863cab997cab",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-5.4 Mini (batch) is a real-time paid endpoint billed at $0.375/1M input and $2.25/1M output tokens (estimated $7.5 for 8M input + 2M output tokens) with a 400K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 400K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "11401c2e1896b1e3",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-5.4 Mini (batch) is an asynchronous batch-only endpoint billed at $0.375/1M input and $2.25/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "mistralai/mistral-medium-3.1",
@@ -9586,7 +9847,8 @@
       ]
     },
     "missing_days": 1,
-    "status": "temporarily_missing"
+    "status": "temporarily_missing",
+    "missing_checked_at": "2026-11-27"
   },
   {
     "id": "mistralai/mistral-medium-3",
@@ -9628,7 +9890,8 @@
       ]
     },
     "missing_days": 1,
-    "status": "temporarily_missing"
+    "status": "temporarily_missing",
+    "missing_checked_at": "2026-11-27"
   },
   {
     "id": "openai/o4-mini:batch",
@@ -9636,42 +9899,62 @@
     "name": "OpenAI: o4 Mini (batch)",
     "provider": "Openai",
     "context_length": 200000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.55,
     "completion_price_per_m": 2.2,
     "cache_read_price_per_m": 0.1375,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000055",
       "completion": "0.0000022",
       "request": null,
       "image": null,
+      "input_cache_read": "0.0000001375",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "reasoning",
+    "task_category": "batch",
     "description": "OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining strong multimodal and agentic capabilities. It supports tool use and demonstrates competitive reasoning...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "e6ee219ff39d8038",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: o4 Mini (batch) is a real-time paid endpoint billed at $0.55/1M input and $2.2/1M output tokens (estimated $8.8 for 8M input + 2M output tokens) with a 200K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 200K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "a336953da617b9f5",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: o4 Mini (batch) is an asynchronous batch-only endpoint billed at $0.55/1M input and $2.2/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/o3-mini:batch",
@@ -9679,42 +9962,62 @@
     "name": "OpenAI: o3 Mini (batch)",
     "provider": "Openai",
     "context_length": 200000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.55,
     "completion_price_per_m": 2.2,
     "cache_read_price_per_m": 0.275,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000055",
       "completion": "0.0000022",
       "request": null,
       "image": null,
+      "input_cache_read": "0.000000275",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+file->text",
-    "task_category": "reasoning",
+    "task_category": "batch",
     "description": "OpenAI o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and coding. This model supports the `reasoning_effort` parameter, which can be set to...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "8e0802249bc7c481",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: o3 Mini (batch) is a real-time paid endpoint billed at $0.55/1M input and $2.2/1M output tokens (estimated $8.8 for 8M input + 2M output tokens) with a 200K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 200K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "634329cd847177df",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: o3 Mini (batch) is an asynchronous batch-only endpoint billed at $0.55/1M input and $2.2/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-6.1-terra-pro:batch",
@@ -9722,42 +10025,62 @@
     "name": "OpenAI: GPT-6.1 Terra Pro (batch)",
     "provider": "Openai",
     "context_length": 1050000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": true,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.5,
     "completion_price_per_m": 2.5,
     "cache_read_price_per_m": 0.025,
+    "cache_write_price_per_m": 0.625,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.0000005",
       "completion": "0.0000025",
       "request": null,
       "image": null,
+      "input_cache_read": "0.000000025",
+      "has_overrides": true,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "long_context",
+    "task_category": "batch",
     "description": "GPT-6.1 Terra Pro is the same underlying model as [GPT-6.1 Terra](https://openrouter.ai/openai/gpt-6.1-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "dce6e31ccd078122",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-6.1 Terra Pro (batch) is a real-time paid endpoint billed at $0.5/1M input and $2.5/1M output tokens (estimated $9.0 for 8M input + 2M output tokens) with a 1050K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 1050K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "5cb37b1f2570ef4a",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-6.1 Terra Pro (batch) is an asynchronous batch-only endpoint billed at $0.5/1M input and $2.5/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-6.1-terra:batch",
@@ -9765,42 +10088,62 @@
     "name": "OpenAI: GPT-6.1 Terra (batch)",
     "provider": "Openai",
     "context_length": 1050000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": true,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.5,
     "completion_price_per_m": 2.5,
     "cache_read_price_per_m": 0.025,
+    "cache_write_price_per_m": 0.625,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.0000005",
       "completion": "0.0000025",
       "request": null,
       "image": null,
+      "input_cache_read": "0.000000025",
+      "has_overrides": true,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "long_context",
+    "task_category": "batch",
     "description": "GPT-6.1 Terra is the mid-tier model in OpenAI's GPT-6.1 series, priced below GPT-6.1 Sol. It is suited for everyday agentic, coding, and writing work, is particularly strong at understanding screenshots...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "374332f1a97424bf",
-      "enriched_at": "2026-11-27",
-      "summary": "OpenAI: GPT-6.1 Terra (batch) is a real-time paid endpoint billed at $0.5/1M input and $2.5/1M output tokens (estimated $9.0 for 8M input + 2M output tokens) with a 1050K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 1050K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "a0e28477f1421282",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-6.1 Terra (batch) is an asynchronous batch-only endpoint billed at $0.5/1M input and $2.5/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "anthropic/claude-haiku-4.5:batch",
@@ -9808,42 +10151,62 @@
     "name": "Anthropic: Claude Haiku 4.5 (batch)",
     "provider": "Anthropic",
     "context_length": 200000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.5,
     "completion_price_per_m": 2.5,
     "cache_read_price_per_m": 0.05,
+    "cache_write_price_per_m": 0.625,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.0000005",
       "completion": "0.0000025",
       "request": null,
       "image": null,
+      "input_cache_read": "0.00000005",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "coding",
+    "task_category": "batch",
     "description": "Claude Haiku 4.5 is Anthropic’s fastest and most efficient model, delivering near-frontier intelligence at a fraction of the cost and latency of larger Claude models. Matching Claude Sonnet 4’s performance...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "6bf509c5d763a66d",
-      "enriched_at": "2026-11-27",
-      "summary": "Anthropic: Claude Haiku 4.5 (batch) is a real-time paid endpoint billed at $0.5/1M input and $2.5/1M output tokens (estimated $9.0 for 8M input + 2M output tokens) with a 200K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 200K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "98063afc0442fbbe",
+      "enriched_at": "2026-11-27",
+      "summary": "Anthropic: Claude Haiku 4.5 (batch) is an asynchronous batch-only endpoint billed at $0.5/1M input and $2.5/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "mistralai/mistral-medium-3-5:batch",
@@ -9851,42 +10214,62 @@
     "name": "Mistral: Mistral Medium 3.5 (batch)",
     "provider": "Mistralai",
     "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 0.75,
     "completion_price_per_m": 3.75,
     "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000075",
       "completion": "0.00000375",
       "request": null,
       "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "long_context",
+    "task_category": "batch",
     "description": "Mistral Medium 3.5 is a dense 128B instruction-following model from Mistral AI. It supports text and image inputs with text output, and is designed for agentic workflows, coding, and complex...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "5f0b580a6fcd53ae",
-      "enriched_at": "2026-11-27",
-      "summary": "Mistral: Mistral Medium 3.5 (batch) is a real-time paid endpoint billed at $0.75/1M input and $3.75/1M output tokens (estimated $13.5 for 8M input + 2M output tokens) with a 262K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 262K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "948815ed8e07666d",
+      "enriched_at": "2026-11-27",
+      "summary": "Mistral: Mistral Medium 3.5 (batch) is an asynchronous batch-only endpoint billed at $0.75/1M input and $3.75/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "qwen/qwen3.8-max-0902:batch",
@@ -9894,42 +10277,62 @@
     "name": "Qwen: Qwen3.8 Max (0902) (batch)",
     "provider": "Qwen",
     "context_length": 262144,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 1.15,
     "completion_price_per_m": 3.45,
     "cache_read_price_per_m": null,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.00000115",
       "completion": "0.00000345",
       "request": null,
       "image": null,
+      "input_cache_read": null,
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+video->text",
-    "task_category": "long_context",
+    "task_category": "batch",
     "description": "Qwen3.8 Max 0902 is an updated snapshot of Qwen3.8 Max from Alibaba's Qwen team. It is a 2.4-trillion-parameter mixture-of-experts model that accepts text, image, and video input and returns text,...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "0157d6a2df484567",
-      "enriched_at": "2026-11-24",
-      "summary": "Qwen: Qwen3.8 Max (0902) (batch) is a real-time paid endpoint billed at $1.15/1M input and $3.45/1M output tokens (estimated $16.1 for 8M input + 2M output tokens) with a 262K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 262K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "05be10142e9f678d",
+      "enriched_at": "2026-11-27",
+      "summary": "Qwen: Qwen3.8 Max (0902) (batch) is an asynchronous batch-only endpoint billed at $1.15/1M input and $3.45/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/gpt-4.1:batch",
@@ -9937,42 +10340,62 @@
     "name": "OpenAI: GPT-4.1 (batch)",
     "provider": "Openai",
     "context_length": 1047576,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 1.0,
     "completion_price_per_m": 4.0,
     "cache_read_price_per_m": 0.25,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": false
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.000001",
       "completion": "0.000004",
       "request": null,
       "image": null,
+      "input_cache_read": "0.00000025",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "long_context",
+    "task_category": "batch",
     "description": "GPT-4.1 is a flagship large language model optimized for advanced instruction following, real-world software engineering, and long-context reasoning. It supports a 1 million token context window and outperforms GPT-4o and...",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "b27532493fe5cd7d",
-      "enriched_at": "2026-11-24",
-      "summary": "OpenAI: GPT-4.1 (batch) is a real-time paid endpoint billed at $1.0/1M input and $4.0/1M output tokens (estimated $16.0 for 8M input + 2M output tokens) with a 1047K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 1047K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "2bd2374c316c6399",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: GPT-4.1 (batch) is an asynchronous batch-only endpoint billed at $1.0/1M input and $4.0/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   },
   {
     "id": "openai/o3:batch",
@@ -9980,41 +10403,61 @@
     "name": "OpenAI: o3 (batch)",
     "provider": "Openai",
     "context_length": 200000,
-    "pricing_type": "paid",
-    "pricing_label": "Paid",
+    "pricing_type": "batch",
+    "pricing_label": "Batch (Async Only)",
     "is_free": false,
+    "is_realtime": false,
+    "has_tiered_overrides": false,
+    "rate_limit_note": "Asynchronous batch endpoint (typically up to 24h turnaround, ~50% off sync rates); NOT for real-time agents.",
     "prompt_price_per_m": 1.0,
     "completion_price_per_m": 4.0,
     "cache_read_price_per_m": 0.25,
+    "cache_write_price_per_m": null,
+    "capabilities": {
+      "tools": true,
+      "structured_outputs": true,
+      "response_format": true,
+      "reasoning": true
+    },
+    "evidence": {
+      "pricing": "Source Verified",
+      "capabilities": "Source Verified",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "verified_at": "2026-11-27"
+    },
     "raw_pricing": {
       "prompt": "0.000001",
       "completion": "0.000004",
       "request": null,
       "image": null,
+      "input_cache_read": "0.00000025",
+      "has_overrides": false,
       "unit": "USD per token (displayed per 1M tokens)",
       "source": "OpenRouter Public Models API"
     },
     "modality": "text+image+file->text",
-    "task_category": "reasoning",
+    "task_category": "batch",
     "description": "o3 is a well-rounded and powerful model across domains. It sets a new standard for math, science, coding, and visual reasoning tasks. It also excels at technical writing and instruction-following....",
-    "updated_at": "2026-11-24",
-    "enrichment": {
-      "source": "deterministic-fallback",
-      "cache_hash": "c93fd09e8aad52f6",
-      "enriched_at": "2026-11-24",
-      "summary": "OpenAI: o3 (batch) is a real-time paid endpoint billed at $1.0/1M input and $4.0/1M output tokens (estimated $16.0 for 8M input + 2M output tokens) with a 200K context window.",
-      "best_for": [
-        "Real-time text generation and analysis",
-        "General API automation",
-        "Long-context inputs up to 200K tokens"
-      ],
-      "watch_outs": [
-        "Actual task cost also depends on turn count, retries, output length, and cache hit rate",
-        "Cache repeated prompts by content hash to prevent duplicate spend"
-      ]
-    },
     "status": "active",
     "missing_days": 0,
-    "last_seen": "2026-11-27"
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "delisted_at": null,
+    "updated_at": "2026-11-27",
+    "enrichment": {
+      "source": "deterministic-fallback",
+      "cache_hash": "cada08626265bca5",
+      "enriched_at": "2026-11-27",
+      "summary": "OpenAI: o3 (batch) is an asynchronous batch-only endpoint billed at $1.0/1M input and $4.0/1M output tokens. It trades immediate latency for discounted bulk processing and is NOT suitable for live interactive agents.",
+      "best_for": [
+        "Overnight bulk translation, document indexing, or offline dataset labeling",
+        "Non-urgent scheduled pipelines that tolerate asynchronous turnaround",
+        "Cutting token costs on large static backfills"
+      ],
+      "watch_outs": [
+        "Asynchronous batch only—do NOT wire into interactive chat or synchronous agent loops",
+        "Verify batch job queue SLA and tiered long-prompt surcharges before bulk runs"
+      ]
+    }
   }
 ]
