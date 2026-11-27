@@ -114,6 +114,20 @@ def run_quality_gate(data_dir: Path = DATA_DIR, dist_dir: Path = DIST_DIR, repo_
     if broken_links:
         errors.append(f"Found {len(broken_links)} broken internal links: {broken_links[:5]}")
 
+    # 3b. AdSense policy compliance: NEVER load adsbygoogle.js on error, redirect, legal, embed, or noindex pages
+    no_ad_rel_paths = {"404.html", "repos/index.html", "privacy/index.html", "terms/index.html", "contact/index.html"}
+    ads_policy_violations: list[str] = []
+    for f in html_files:
+        rel = f.relative_to(dist_dir).as_posix()
+        raw_html = f.read_text(encoding="utf-8")
+        if "adsbygoogle" not in raw_html:
+            continue
+        is_noindex = bool(re.search(r'<meta\s+name="robots"\s+content="[^"]*noindex', raw_html, re.I))
+        if rel in no_ad_rel_paths or rel.startswith("embed/") or is_noindex:
+            ads_policy_violations.append(rel)
+    if ads_policy_violations:
+        errors.append(f"AdSense policy violation: adsbygoogle loaded on non-content/noindex pages: {ads_policy_violations[:10]}")
+
     # 4. Zero secret leak check
     if repo_root.exists():
         for p in repo_root.rglob("*"):

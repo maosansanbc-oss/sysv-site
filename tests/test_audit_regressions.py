@@ -418,5 +418,44 @@ class TestProductionDataConsistencyRegression(unittest.TestCase):
                 self.assertTrue(mb.get("is_realtime"), f"Active comparison contains non-realtime model: {pkey}")
 
 
+class TestAdSenseComplianceRegression(unittest.TestCase):
+    def test_health_check_blocks_adsense_on_404_and_noindex_pages(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            data_dir = root / "data"
+            dist_dir = root / "dist"
+            data_dir.mkdir()
+            dist_dir.mkdir()
+            (data_dir / "models.json").write_text("[]", encoding="utf-8")
+            (data_dir / "repos.json").write_text("[]", encoding="utf-8")
+            (dist_dir / "404.html").write_text(
+                '<html><head><meta name="robots" content="noindex, follow"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body>404</body></html>',
+                encoding="utf-8",
+            )
+            errs = health_check.run_quality_gate(data_dir=data_dir, dist_dir=dist_dir, repo_root=root)
+            self.assertIn("AdSense policy violation", "\n".join(errs))
+
+    def test_render_layout_excludes_adsense_on_404_legal_and_noindex_but_keeps_on_content(self):
+        cfg = {
+            "site_name": "SysV",
+            "domain": "sysv.cn",
+            "base_url": "https://sysv.cn",
+            "tagline": "Radar",
+            "monetization": {"adsense_client_id": "ca-pub-7981084270242721"},
+        }
+        home = build_site.render_layout(
+            cfg, title="Home", description="Desc", canonical_path="/", body_html="<h1>Home</h1>", git_commit="abc", index_policy="index"
+        )
+        self.assertIn("adsbygoogle.js", home)
+        self.assertIn("google-adsense-account", home)
+
+        for path, pol in [("/404.html", "noindex"), ("/repos/", "noindex"), ("/privacy/", "noindex"), ("/terms/", "noindex"), ("/contact/", "noindex"), ("/models/missing/", "noindex"), ("/models/delisted/", "archived")]:
+            out = build_site.render_layout(
+                cfg, title="T", description="D", canonical_path=path, body_html="<h1>T</h1>", git_commit="abc", index_policy=pol
+            )
+            self.assertNotIn("adsbygoogle", out, f"AdSense script must not render on {path} ({pol})")
+            self.assertNotIn("google-adsense-account", out, f"AdSense meta must not render on {path} ({pol})")
+
+
 if __name__ == "__main__":
     unittest.main()

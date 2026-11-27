@@ -504,6 +504,7 @@ def render_layout(
     body_html: str,
     git_commit: str,
     index_policy: str = "index",
+    allow_ads: bool | None = None,
     breadcrumbs: list[tuple[str, str]] | None = None,
     extra_json_ld: dict[str, Any] | None = None,
 ) -> str:
@@ -511,11 +512,13 @@ def render_layout(
     canonical = base + canonical_path
     client_id = str(cfg.get("monetization", {}).get("adsense_client_id") or "").strip()
     robots_meta = '<meta name="robots" content="noindex, follow" />' if index_policy == "noindex" else ""
+    no_ad_paths = {"/404.html", "/repos/", "/privacy/", "/terms/", "/contact/"}
+    ads_allowed = (index_policy == "index" and canonical_path not in no_ad_paths) if allow_ads is None else bool(allow_ads)
     adsense_head = (
         f'<meta name="google-adsense-account" content="{e(client_id)}" />\n'
         f'  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={e(client_id)}" '
         f'crossorigin="anonymous"></script>'
-        if client_id
+        if (client_id and ads_allowed)
         else ""
     )
 
@@ -1562,6 +1565,60 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             if comp_status != "active"
             else ""
         )
+        # Deterministic structured decision summary (0 LLM calls; strictly derived from verified model metadata)
+        summary_bullets: list[str] = []
+        a_in, a_out = a.get("prompt_price_per_m"), a.get("completion_price_per_m")
+        b_in, b_out = b.get("prompt_price_per_m"), b.get("completion_price_per_m")
+        if a["pricing_type"] in ("limited_free", "free") and b["pricing_type"] in ("limited_free", "free"):
+            summary_bullets.append(
+                f"Both {a['name']} and {b['name']} are listed at $0/1M tokens under rate-limited free tiers "
+                f"(OpenRouter :free shares a global 20 RPM and 50 RPD cap, or 1,000 RPD after a >=$10 lifetime credit purchase)."
+            )
+        elif all(isinstance(v, (int, float)) for v in (a_in, a_out, b_in, b_out)):
+            a_ref = a_in * 8.0 + a_out * 2.0
+            b_ref = b_in * 8.0 + b_out * 2.0
+            if abs(a_ref - b_ref) < 0.01:
+                summary_bullets.append(
+                    f"For an 8M input + 2M output monthly workload, both models cost roughly ${a_ref:.2f}/mo in base upstream tokens "
+                    f"(before OpenRouter 5.5% card or 5.0% crypto top-up fees unless using BYOK)."
+                )
+            else:
+                cheaper, pricier, c_cost, p_cost = (a, b, a_ref, b_ref) if a_ref < b_ref else (b, a, b_ref, a_ref)
+                diff = p_cost - c_cost
+                pct = (diff / p_cost * 100.0) if p_cost > 0 else 0.0
+                summary_bullets.append(
+                    f"On a reference 8M input + 2M output monthly workload, {cheaper['name']} (${c_cost:.2f}/mo) is "
+                    f"${diff:.2f}/mo ({pct:.0f}%) less expensive in base token spend than {pricier['name']} (${p_cost:.2f}/mo)."
+                )
+        ctx_a, ctx_b = int(a.get("context_length") or 0), int(b.get("context_length") or 0)
+        if ctx_a == ctx_b:
+            summary_bullets.append(
+                f"Context capacity is identical at {ctx_a:,} tokens ({fmt_ctx(ctx_a)}), so long-document retrieval eligibility is tied."
+            )
+        else:
+            larger, smaller, l_ctx, s_ctx = (a, b, ctx_a, ctx_b) if ctx_a > ctx_b else (b, a, ctx_b, ctx_a)
+            summary_bullets.append(
+                f"{larger['name']} provides a larger context window ({l_ctx:,} vs. {s_ctx:,} tokens, +{l_ctx - s_ctx:,} tokens) "
+                f"for long-context RAG or multi-file coding sessions."
+            )
+        cap_diffs: list[str] = []
+        for cap_key, cap_lbl in [("tools", "tool calling"), ("structured_outputs", "structured JSON outputs"), ("reasoning", "explicit reasoning")]:
+            va, vb = bool(a_caps.get(cap_key)), bool(b_caps.get(cap_key))
+            if va and not vb:
+                cap_diffs.append(f"{a['name']} supports {cap_lbl} while {b['name']} does not")
+            elif vb and not va:
+                cap_diffs.append(f"{b['name']} supports {cap_lbl} while {a['name']} does not")
+        if cap_diffs:
+            summary_bullets.append("Capability differences (Source Verified): " + "; ".join(cap_diffs) + ".")
+        else:
+            summary_bullets.append(
+                f"Both endpoints expose identical Source Verified API flags: "
+                f"Tools={'Yes' if a_caps.get('tools') else 'No'}, "
+                f"Structured JSON={'Yes' if a_caps.get('structured_outputs') else 'No'}, "
+                f"Reasoning={'Yes' if a_caps.get('reasoning') else 'No'}."
+            )
+        summary_html = "".join(f"<li>{e(item)}</li>" for item in summary_bullets)
+
         c_body = f"""
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/compare/">Compare</a> / {e(a["name"])} vs {e(b["name"])}</div>
         {archive_banner}
@@ -1583,6 +1640,11 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             </tbody>
           </table>
         </div>
+        <div class="card" style="margin-top:18px">
+          <h2>Key Engineering Takeaways</h2>
+          <ul>{summary_html}</ul>
+          <p class="muted small">Need custom token volumes, retry multipliers, or OpenRouter payment fee modeling? Run your exact workload in the <a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a> or the <a href="/">main token calculator</a>.</p>
+        </div>
         {render_ad_slot(cfg, "adsense_slot_in_article")}
         """
         register_page(
@@ -1590,7 +1652,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             rel_url,
             "comparison",
             pol,
-            sem_hash([model_semantic_fingerprint(a), model_semantic_fingerprint(b), cohort_label, comp_status]),
+            sem_hash(["comp-v2.2.2", model_semantic_fingerprint(a), model_semantic_fingerprint(b), cohort_label, comp_status]),
             render_layout(
                 cfg,
                 title=f"{a['name']} vs {b['name']}: Cost, Limits & Capabilities | SysV",
@@ -1782,7 +1844,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             breadcrumbs=[("Home", "/"), ("Self-Hosting", "/self-hosting/")],
         ),
     )
-    # Keep legacy /repos/ alive with canonical pointing to /self-hosting/ (noindex duplicate protection!)
+    # Keep legacy /repos/ alive with canonical pointing to /self-hosting/ (noindex duplicate protection & zero ads!)
     repos_alias_html = render_layout(
         cfg,
         title="Self-Hosted AI Infrastructure Archive Alias | SysV",
@@ -1791,6 +1853,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         body_html='<div class="hero"><h1>Self-Hosted Infrastructure Directory Moved</h1><p class="muted">This directory now lives at <a href="/self-hosting/">/self-hosting/</a>.</p><p><a class="btn" href="/self-hosting/">Open Self-Hosting Directory &rarr;</a></p></div>',
         git_commit=git_commit,
         index_policy="noindex",
+        allow_ads=False,
     )
     register_page("repos/index.html", "/repos/", "alias", "noindex", sem_hash(["repos-alias"]), repos_alias_html)
 
@@ -1845,34 +1908,81 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             "/about/",
             "About & Data Methodology | SysV",
             f"<h1>About SysV &amp; Verification Methodology</h1>"
-            f"<div class='card'><p>SysV ({e(domain)}) tracks public LLM API pricing, capability flags, daily price history, and self-hosted AI infrastructure.</p>"
-            f"<h2>Evidence Levels</h2><ul>"
-            f"<li><strong>Source Verified:</strong> Retrieved directly from official OpenRouter or GitHub APIs.</li>"
-            f"<li><strong>Repository Verified:</strong> Confirmed by inspecting actual repository root files (e.g., <code>Dockerfile</code>, <code>compose.yml</code>).</li>"
-            f"<li><strong>Not Verified:</strong> Hardware RAM/GPU requirements and runtime speeds are never guessed or presented as measured performance scores.</li></ul>"
+            f"<div class='card'>"
+            f"<p><strong>SysV ({e(domain)})</strong> is an independent developer reference and cost-estimation tool that tracks live LLM API token pricing, capability flags, cross-provider free-tier limits, daily price history, and self-hosted AI infrastructure.</p>"
+            f"<p>SysV is not affiliated with, sponsored by, or endorsed by OpenRouter, OpenAI, Anthropic, Google, Groq, Cloudflare, Cerebras, or GitHub. All trademarks and model names belong to their respective owners.</p>"
+            f"<h2>Evidence &amp; Verification Standards</h2><ul>"
+            f"<li><strong>Source Verified:</strong> Retrieved daily via automated pipelines directly from the OpenRouter Public Models API and GitHub Public API, then validated by deterministic quality gates before publication.</li>"
+            f"<li><strong>Repository Verified:</strong> Self-hosting Docker support is checked directly against actual repository root files (<code>Dockerfile</code>, <code>docker-compose.yml</code>, <code>compose.yml</code>) rather than guessed from descriptions.</li>"
+            f"<li><strong>Official Docs Verified (Free-Tier Policies):</strong> Free-tier vs. time-limited trial rules (RPM, RPD, TPM, TPD, credit-card gates, and Cloudflare Workers AI Neurons) are audited against vendor documentation and monitored daily for policy drift.</li>"
+            f"<li><strong>Not Verified:</strong> Hardware RAM/GPU requirements and runtime latency are never fabricated or displayed as synthetic scores; users should confirm runtime sizing directly in upstream documentation.</li></ul>"
             f"<h2 id='selection'>Endpoint Selection ({selection_audit.get('selected_for_display', 140)} of {selection_audit.get('total_raw_endpoints', 470)})</h2>"
             f"<p class='muted'>{e(selection_audit.get('selection_rationale', ''))}</p><ul>{breakdown_rows}</ul>"
+            f"<h2>Open Data &amp; Ad-Free Embeds</h2>"
+            f"<p>Machine-readable JSON snapshots, 30-day CSV price history, and RSS feeds are published openly under <a href='/data/'>/data/</a>. Embeddable calculator widgets under <code>/embed/</code> contain zero advertisements and zero third-party analytics.</p>"
             f"<h2 id='partners'>Advertising &amp; Affiliate Disclosure</h2>"
-            f"<p class='muted'>Pages may show Google AdSense ads or clearly marked <code>sponsored</code> affiliate links. Rankings are computed purely from public data.</p></div>",
+            f"<p class='muted'>To keep SysV free to use, content pages may display Google AdSense advertisements or clearly labeled <code>sponsored</code> infrastructure affiliate links (such as Vultr and DMIT). Model rankings, calculator outputs, and capability gates are computed strictly from public pricing and API metadata and are never influenced by commercial partnerships.</p>"
+            f"<p>Spotted an outdated limit or pricing discrepancy? Reach us via our <a href='/contact/'>Contact page</a> or email <a href='mailto:{e(email)}'>{e(email)}</a>.</p>"
+            f"</div>",
         ),
         (
             "/privacy/",
             "Privacy Policy | SysV",
-            f"<h1>Privacy Policy</h1><div class='card'><p>Effective Date: 2026-11-24</p>"
-            f"<p>SysV ({e(domain)}) is a static informational site requiring no user login. We do not collect or sell personal profiles.</p>"
-            f"<h2>Third-Party Advertising &amp; Consent</h2>"
-            f"<p>Google and third-party ad partners may use cookies to serve ads. Users in the EEA/UK/Switzerland are presented applicable consent choices via Google's consent management platform when ads are active; all users may manage ad personalization at Google Ads Settings.</p>"
-            f"<h2>Contact</h2><p>Email <a href='mailto:{e(email)}'>{e(email)}</a>.</p></div>",
+            f"<h1>Privacy Policy</h1><div class='card'>"
+            f"<p><strong>Effective Date:</strong> 2026-11-24 &middot; <strong>Last Updated:</strong> 2026-11-27</p>"
+            f"<p>SysV (<strong>{e(domain)}</strong>) is a static, read-only informational website and client-side cost calculator. We do not offer user accounts, logins, comment forms, or server-side databases, and all calculator inputs are processed locally inside your web browser without being transmitted to our servers.</p>"
+            f"<h2>1. Google AdSense &amp; Third-Party Advertising Cookies</h2>"
+            f"<p>Content pages on {e(domain)} use <strong>Google AdSense</strong> to display advertisements. Third-party vendors, including Google, use cookies to serve ads based on a user&rsquo;s prior visits to this website or other websites on the internet. Google&rsquo;s use of advertising cookies enables Google and its partners to serve ads based on your visit to {e(domain)} and/or other sites.</p>"
+            f"<ul>"
+            f"<li>You may opt out of personalized advertising at any time by visiting <a href='https://adssettings.google.com/' target='_blank' rel='noopener noreferrer'>Google Ads Settings</a>.</li>"
+            f"<li>You can also opt out of a third-party vendor&rsquo;s use of cookies for personalized advertising via <a href='https://www.aboutads.info/choices/' target='_blank' rel='noopener noreferrer'>aboutads.info</a>.</li>"
+            f"<li>Learn more about how Google uses data when you use partner sites at <a href='https://policies.google.com/technologies/partner-sites' target='_blank' rel='noopener noreferrer'>Google&rsquo;s Privacy &amp; Terms</a>.</li>"
+            f"</ul>"
+            f"<p>AdSense scripts are intentionally excluded from error pages (<code>404</code>), legal pages, and ad-free calculator embeds under <code>/embed/</code>.</p>"
+            f"<h2>2. Consent Management (EEA, UK, Switzerland &amp; US States)</h2>"
+            f"<p>For visitors in the European Economic Area (EEA), the United Kingdom, and Switzerland, {e(domain)} uses Google&rsquo;s certified Consent Management Platform (CMP) to request and record your consent choices under GDPR and ePrivacy rules. For visitors in applicable US states (including California under CCPA/CPRA), privacy notice and opt-out controls are presented via Google&rsquo;s US state regulations framework. You can review or withdraw your consent at any time using the privacy link provided at the bottom of eligible pages.</p>"
+            f"<h2>3. Privacy-First Analytics &amp; Hosting Logs</h2>"
+            f"<p>We use <strong>Cloudflare Web Analytics</strong> to measure aggregate page views and Core Web Vitals performance without setting client-side tracking cookies or collecting personally identifiable user profiles. Our static hosting and CDN providers (GitHub Pages and Cloudflare) may process standard HTTP request metadata (such as IP address and user agent) temporarily to deliver content and prevent abuse.</p>"
+            f"<h2>4. Outbound Affiliate &amp; External Links</h2>"
+            f"<p>Selected infrastructure recommendations are marked <code>rel=&quot;sponsored&quot;</code> (including Vultr and DMIT). Clicking an external or affiliate link navigates you to a third-party website governed by that provider&rsquo;s own privacy policy and cookie practices.</p>"
+            f"<h2>5. Contact &amp; Privacy Requests</h2>"
+            f"<p>If you have questions about this Privacy Policy or wish to submit a privacy inquiry regarding {e(domain)}, please email <a href='mailto:{e(email)}'>{e(email)}</a>.</p>"
+            f"</div>",
         ),
         (
             "/terms/",
             "Terms of Use | SysV",
-            f"<h1>Terms of Use</h1><div class='card'><p>All token cost estimates, price snapshots, and repository notes on {e(domain)} are provided &ldquo;as-is&rdquo; for informational comparison. Always confirm live rates, rate limits, and LICENSE terms with upstream providers.</p></div>",
+            f"<h1>Terms of Use</h1><div class='card'>"
+            f"<p><strong>Effective Date:</strong> 2026-11-24 &middot; <strong>Last Updated:</strong> 2026-11-27</p>"
+            f"<p>By accessing or using SysV (<strong>{e(domain)}</strong>), you agree to these Terms of Use. If you do not agree, please discontinue use of the site.</p>"
+            f"<h2>1. Informational Purpose &amp; Pricing Accuracy</h2>"
+            f"<p>All LLM API token prices, fee simulations, free-tier quota summaries, comparison tables, and self-hosting profiles published on {e(domain)} are provided strictly &ldquo;as-is&rdquo; for informational comparison. Upstream AI vendors frequently change token rates, rate limits, trial terms, and tiered context surcharges without notice. Always verify live pricing, billing policies, and open-source <code>LICENSE</code> files directly with the upstream provider before making production or financial commitments.</p>"
+            f"<h2>2. Independence &amp; Trademarks</h2>"
+            f"<p>SysV operates independently and is not affiliated with OpenRouter, OpenAI, Anthropic, Google, Groq, Cloudflare, Cerebras, GitHub, Vultr, or DMIT. All product names, model identifiers, and trademarks remain the property of their respective holders.</p>"
+            f"<h2>3. Open Datasets &amp; Embeddable Calculators</h2>"
+            f"<p>Public JSON and CSV files published under <a href='/data/'>/data/</a> are made available under CC-BY-4.0 attribution terms (subject to upstream API data policies). Ad-free widgets under <code>/embed/</code> may be embedded via <code>&lt;iframe&gt;</code> on external documentation or blogs provided you do not misrepresent SysV data or inject deceptive overlays.</p>"
+            f"<h2>4. Affiliate &amp; Advertising Disclosure</h2>"
+            f"<p>SysV may earn advertising revenue via Google AdSense and referral commissions from clearly labeled <code>sponsored</code> affiliate links at no additional cost to you.</p>"
+            f"<h2>5. Limitation of Liability</h2>"
+            f"<p>To the maximum extent permitted by applicable law, SysV and its operators shall not be liable for any direct, indirect, incidental, or consequential damages (including unexpected API billing overages or service downtime) arising from reliance on estimates or data displayed on this website.</p>"
+            f"<p>Questions regarding these terms may be directed to <a href='mailto:{e(email)}'>{e(email)}</a>.</p>"
+            f"</div>",
         ),
         (
             "/contact/",
             "Contact | SysV",
-            f"<h1>Contact SysV</h1><div class='card'><p>For data corrections, licensing notices, or compliance inquiries regarding {e(domain)}, email <a href='mailto:{e(email)}'>{e(email)}</a>.</p></div>",
+            f"<h1>Contact SysV</h1><div class='card'>"
+            f"<p>We welcome factual corrections, free-tier policy updates, licensing notices, and privacy or compliance inquiries regarding <strong>{e(domain)}</strong>.</p>"
+            f"<h2>Direct Email</h2>"
+            f"<p><strong>Primary Contact:</strong> <a href='mailto:{e(email)}'>{e(email)}</a></p>"
+            f"<h2>What to Include in Data &amp; Policy Reports</h2>"
+            f"<ul>"
+            f"<li><strong>Pricing or Capability Discrepancies:</strong> Include the model endpoint ID (e.g., <code>provider/model-name</code>), the SysV URL, and a link to the official provider pricing or documentation page.</li>"
+            f"<li><strong>Free-Tier Policy Changes:</strong> Include the provider name (OpenRouter, Gemini, Groq, Cloudflare Workers AI, Cerebras, etc.), the official rate-limit documentation URL, and the updated quota or credit-card rule.</li>"
+            f"<li><strong>Privacy, Advertising, or Licensing Notices:</strong> Clearly state the affected URL on {e(domain)} and the requested action so we can review and respond promptly.</li>"
+            f"</ul>"
+            f"<p class='muted small'>Note: SysV is an independent pricing radar and does not provide customer support, API keys, or billing refunds for OpenRouter or third-party AI model providers.</p>"
+            f"</div>",
         ),
     ]
     for path, title, body in trust_defs:
@@ -1882,7 +1992,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             path,
             "trust",
             pol,
-            sem_hash([path, TEMPLATE_VERSION, breakdown if path == "/about/" else "static"]),
+            sem_hash([path, "trust-v2.2.2", TEMPLATE_VERSION, breakdown if path == "/about/" else "static"]),
             render_layout(
                 cfg,
                 title=title,
@@ -1895,7 +2005,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             ),
         )
 
-    # --- 10. 404 Page (noindex) ---
+    # --- 10. 404 Page (noindex & strictly ad-free per AdSense policy) ---
     not_found_html = render_layout(
         cfg,
         title="404 Page Not Found | SysV",
@@ -1904,6 +2014,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         body_html="<div class='hero'><h1>404 — Page Not Found</h1><p class='muted'>The requested URL was not found. Delisted model pages remain archived under <a href='/models/'>/models/</a>.</p><p><a class='btn' href='/'>Back to LLM Pricing &amp; Calculator &rarr;</a></p></div>",
         git_commit=git_commit,
         index_policy="noindex",
+        allow_ads=False,
     )
     write_page("404.html", not_found_html)
 

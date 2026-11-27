@@ -14,8 +14,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "0d30004c00692984",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "40d32fa7238b770d",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/": {
     "url": "/compare/",
@@ -32,8 +32,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-27",
-    "semantic_hash": "2dbf8ad8f343f511",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "b9e2520dea002da7",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-2-exp/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-2-exp/",
@@ -41,8 +41,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "eff80dd009a54ead",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "07d3a6e0928a7637",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-2/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-2/",
@@ -50,8 +50,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "4231a6fc64c34e70",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "dbd6a137fca3182f",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-mistralai-codestral-2508/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-mistralai-codestral-2508/",
@@ -59,8 +59,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "b3bd52b87acaf2f7",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "e1c5f605ad1d48de",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -68,8 +68,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "eb4999a8c8343d7f",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "700a9ee21086b063",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-flash/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-flash/",
@@ -77,8 +77,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "bf3e93fc2192dfce",
-    "lastmod": "2026-11-25T15:26:47Z"
+    "semantic_hash": "4cc90820c5859607",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-next/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-next/",
@@ -86,8 +86,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "4d839f3f9823cd5f",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "6a88cd9d5869fa26",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder/",
@@ -95,8 +95,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-27",
-    "semantic_hash": "ee8c8cc197358f06",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "09eea846839fa3bc",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/baidu-ernie-5-5-flash-preview-free-vs-inclusionai-ling-3-2-flash-free/": {
     "url": "/compare/baidu-ernie-5-5-flash-preview-free-vs-inclusionai-ling-3-2-flash-free/",
@@ -104,8 +104,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "879b9a93da36d120",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "4a916e7bb54afc4d",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/baidu-ernie-5-5-flash-preview-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/baidu-ernie-5-5-flash-preview-free-vs-particle-ai-particle-1-free/",
@@ -113,8 +113,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5c6da9f4a1809d85",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "88f6f8841b1045a9",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/deepseek-deepseek-v3-1-terminus-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/deepseek-deepseek-v3-1-terminus-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -122,8 +122,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d65a2324829c0f58",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "60a548f4feb92e07",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/deepseek-deepseek-v3-2-exp-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/deepseek-deepseek-v3-2-exp-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -131,8 +131,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "81c8e4058c1188b6",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "dcf4b62e34120bb7",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/deepseek-deepseek-v3-2-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/deepseek-deepseek-v3-2-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -140,8 +140,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "bfe80a565a43a294",
-    "lastmod": "2026-11-25T07:23:34Z"
+    "semantic_hash": "ecb96e1eed271f39",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-3-12b-it-vs-mistralai-mistral-nemo/": {
     "url": "/compare/google-gemma-3-12b-it-vs-mistralai-mistral-nemo/",
@@ -149,8 +149,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "4dc692937a6af4a7",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "8a152c5bf879c0ad",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-3-27b-it-vs-mistralai-mistral-nemo/": {
     "url": "/compare/google-gemma-3-27b-it-vs-mistralai-mistral-nemo/",
@@ -158,8 +158,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a4fa84f31396abfe",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "708c4f56870d13b4",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-14b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-14b-2512/",
@@ -167,8 +167,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "1a95237506ebb818",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "ec1f73c49d44c1e0",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-3b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-3b-2512/",
@@ -176,8 +176,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "e450bef69becaabf",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "574c0b5c0ff87dba",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512/",
@@ -185,8 +185,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "838d98f03de7397d",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "eb0d6c67f5871ae9",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-nemo/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-nemo/",
@@ -194,8 +194,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "22b24943b1ef6d1a",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "edcfa26e59f19401",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-24b-instruct-2501/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-24b-instruct-2501/",
@@ -203,8 +203,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "03499af118550696",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "3cb011724417fb19",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-3-2-24b-instruct/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-3-2-24b-instruct/",
@@ -212,8 +212,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a8c494c9d6a586d9",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "7bc94ee0ea1f6b25",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507/": {
     "url": "/compare/google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507/",
@@ -221,8 +221,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "dca4d4f35dcb8c9f",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "d1a424aa1f639349",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-4-26b-a4b-it-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/google-gemma-4-26b-a4b-it-free-vs-particle-ai-particle-1-free/",
@@ -230,8 +230,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "931468239a183953",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "adfdf8925af33e8d",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/google-gemma-4-31b-it-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/google-gemma-4-31b-it-free-vs-particle-ai-particle-1-free/",
@@ -239,8 +239,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "16cf8fab2e6728e0",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "d9f6e17f75826abc",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/inclusionai-ling-3-2-flash-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/inclusionai-ling-3-2-flash-free-vs-particle-ai-particle-1-free/",
@@ -248,8 +248,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d2a81d4b36c297bd",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "1cc097a3421b9cd6",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/liquid-lfm-3-1-7b-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/liquid-lfm-3-1-7b-free-vs-particle-ai-particle-1-free/",
@@ -257,8 +257,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "99c4d37fe3ae3434",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "a4f77f02184514a5",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-codestral-2508-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/mistralai-codestral-2508-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -266,8 +266,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d723cb4c62251c1d",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "7f12415569392765",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-mistral-large-2407-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/mistralai-mistral-large-2407-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -275,8 +275,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "41dd7e874ec77c57",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "0a454ef5afdc7363",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-mistral-large-2512-vs-openai-gpt-4-1/": {
     "url": "/compare/mistralai-mistral-large-2512-vs-openai-gpt-4-1/",
@@ -284,8 +284,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "c467c1f03c9b1ed5",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "f1d6e5e653ad98c6",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-mistral-large-2512-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/mistralai-mistral-large-2512-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -293,8 +293,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "e5a102ae23044b25",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "ea2c502806e72c8b",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-mistral-large-2512-vs-qwen-qwen3-8-27b-batch/": {
     "url": "/compare/mistralai-mistral-large-2512-vs-qwen-qwen3-8-27b-batch/",
@@ -302,8 +302,8 @@
     "status": "archived",
     "index_policy": "archived",
     "first_published": "2026-11-24",
-    "semantic_hash": "74305b7588804943",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "a73137ca866222ee",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-mistral-large-2512-vs-qwen-qwen3-vl-235b-a22b-instruct/": {
     "url": "/compare/mistralai-mistral-large-2512-vs-qwen-qwen3-vl-235b-a22b-instruct/",
@@ -311,8 +311,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "41cb52efa54eda81",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "ec6ee3530152b6e8",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-mistral-large-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/mistralai-mistral-large-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -320,8 +320,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "85ec1a9c43be6fc6",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "9c9afb083ede9cd4",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-mistral-nemo-vs-qwen-qwen3-30b-a3b-instruct-2507/": {
     "url": "/compare/mistralai-mistral-nemo-vs-qwen-qwen3-30b-a3b-instruct-2507/",
@@ -329,8 +329,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "b5e057a5f53ca1cc",
-    "lastmod": "2026-11-25T09:29:44Z"
+    "semantic_hash": "bf07c6b3122a7b5a",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-mixtral-8x22b-instruct-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/mistralai-mixtral-8x22b-instruct-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -338,8 +338,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "b1a589f2ce029604",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "15607ae8b86dcd3e",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/mistralai-pixtral-large-2502-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/mistralai-pixtral-large-2502-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -347,8 +347,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "3f71523962d53df8",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "e6567ba22697e2e8",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/nvidia-nemotron-3-5-lightning-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/nvidia-nemotron-3-5-lightning-free-vs-particle-ai-particle-1-free/",
@@ -356,8 +356,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "0ca2305b7e79f1e0",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "6006ee09331134da",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/nvidia-nemotron-3-5-super-vl-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/nvidia-nemotron-3-5-super-vl-free-vs-particle-ai-particle-1-free/",
@@ -365,8 +365,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "1804eba9500a4346",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "121c4a0e7e60a6f3",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/nvidia-nemotron-3-ultra-550b-a55b-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/nvidia-nemotron-3-ultra-550b-a55b-free-vs-particle-ai-particle-1-free/",
@@ -374,8 +374,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "7a92bccb04b6aec0",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "eb33295352a16721",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/openai-gpt-4-1-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/openai-gpt-4-1-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -383,8 +383,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "847dd1d5a7b6466b",
-    "lastmod": "2026-11-25T15:20:02Z"
+    "semantic_hash": "a7f79b483ab708ef",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/openai-gpt-5-4-mini-batch-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/openai-gpt-5-4-mini-batch-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -392,8 +392,8 @@
     "status": "archived",
     "index_policy": "archived",
     "first_published": "2026-11-24",
-    "semantic_hash": "c0b296a848983132",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "6545466b3e197e4d",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/compare/particle-ai-particle-1-free-vs-recursive-flint-v1-0-free/": {
     "url": "/compare/particle-ai-particle-1-free-vs-recursive-flint-v1-0-free/",
@@ -401,8 +401,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "2fa3ed476c942295",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "6227e5e76a23ecb8",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/contact/": {
     "url": "/contact/",
@@ -410,8 +410,8 @@
     "status": "active",
     "index_policy": "noindex",
     "first_published": "2026-11-24",
-    "semantic_hash": "82b670b1956aa2d6",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "489579b031788f33",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/data/": {
     "url": "/data/",
@@ -1958,8 +1958,8 @@
     "status": "active",
     "index_policy": "noindex",
     "first_published": "2026-11-24",
-    "semantic_hash": "1e206dac73bc5584",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "e11cca599d354ba1",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/repos/": {
     "url": "/repos/",
@@ -2408,8 +2408,8 @@
     "status": "active",
     "index_policy": "noindex",
     "first_published": "2026-11-24",
-    "semantic_hash": "6c935ac1c1fa98b3",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "444f42df804f2e49",
+    "lastmod": "2026-11-27T07:05:32Z"
   },
   "/tools/": {
     "url": "/tools/",
