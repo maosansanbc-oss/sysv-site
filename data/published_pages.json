@@ -14,8 +14,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "40d32fa7238b770d",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "192bceab8c919038",
+    "lastmod": "2026-11-27T07:41:24Z"
   },
   "/compare/": {
     "url": "/compare/",
@@ -406,12 +406,12 @@
   },
   "/contact/": {
     "url": "/contact/",
-    "page_type": "trust",
+    "page_type": "legal",
     "status": "active",
     "index_policy": "noindex",
     "first_published": "2026-11-24",
-    "semantic_hash": "489579b031788f33",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "bb055f80ccfe20e4",
+    "lastmod": "2026-11-27T07:41:24Z"
   },
   "/data/": {
     "url": "/data/",
@@ -1954,12 +1954,12 @@
   },
   "/privacy/": {
     "url": "/privacy/",
-    "page_type": "trust",
+    "page_type": "legal",
     "status": "active",
     "index_policy": "noindex",
     "first_published": "2026-11-24",
-    "semantic_hash": "e11cca599d354ba1",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "4638025eaea39212",
+    "lastmod": "2026-11-27T07:41:24Z"
   },
   "/repos/": {
     "url": "/repos/",
@@ -2404,12 +2404,12 @@
   },
   "/terms/": {
     "url": "/terms/",
-    "page_type": "trust",
+    "page_type": "legal",
     "status": "active",
     "index_policy": "noindex",
     "first_published": "2026-11-24",
-    "semantic_hash": "444f42df804f2e49",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "4cba138fca7c9075",
+    "lastmod": "2026-11-27T07:41:24Z"
   },
   "/tools/": {
     "url": "/tools/",
@@ -2426,8 +2426,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ac6f0130e2ce3918",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "a3351bff26003b61",
+    "lastmod": "2026-11-27T07:41:24Z"
   },
   "/tools/llm-translation-cost-calculator/": {
     "url": "/tools/llm-translation-cost-calculator/",
@@ -2435,8 +2435,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "f2a97e10349a251c",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "825449ba0993b55c",
+    "lastmod": "2026-11-27T07:41:24Z"
   },
   "/tools/n8n-ai-workflow-cost-calculator/": {
     "url": "/tools/n8n-ai-workflow-cost-calculator/",
@@ -2444,8 +2444,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "12f7e235897578f5",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "93209e0f37b372fe",
+    "lastmod": "2026-11-27T07:41:24Z"
   },
   "/tools/openrouter-cost-calculator/": {
     "url": "/tools/openrouter-cost-calculator/",
@@ -2453,8 +2453,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ad85042aed686bac",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "74a12fe6da56d645",
+    "lastmod": "2026-11-27T07:41:24Z"
   },
   "/zero-cost-stack/": {
     "url": "/zero-cost-stack/",
