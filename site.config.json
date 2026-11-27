@@ -28,6 +28,13 @@
         "description": "Deploy self-hosted n8n workflows, AI gateways, or on-demand Cloud GPU instances across global regions with hourly billing.",
         "cta": "Explore Vultr VPS & GPU",
         "url": "https://www.vultr.com/?ref=9938124"
+      },
+      {
+        "name": "DMIT Premium Network VPS",
+        "badge": "Low-Latency VPS",
+        "description": "High-reliability KVM cloud instances across Los Angeles, Hong Kong, and Tokyo with optimized Asia-Pacific routing for self-hosted n8n and AI gateways.",
+        "cta": "Explore DMIT VPS",
+        "url": "https://www.dmit.io/aff.php?aff=19077"
       }
     ]
   }
