@@ -17,6 +17,19 @@
     "verify_repo_docker_files": true
   },
   "monetization": {
+    "ad_mode": "verification",
+    "verification_enabled": true,
+    "verification_method": "ads_txt_and_meta",
+    "keep_verification_when_off": true,
+    "owner_live_ads_approved": false,
+    "owner_approved_live_at": null,
+    "adsense_ready_confirmation": {
+      "confirmed": false,
+      "confirmed_by": null,
+      "confirmed_at": null,
+      "source": "manual_owner_dashboard_check",
+      "note": "Manual owner confirmation only; does NOT represent automated Google AdSense backend verification."
+    },
     "adsense_client_id": "ca-pub-7981084270242721",
     "adsense_slot_top": "",
     "adsense_slot_in_article": "",

@@ -1,0 +1,82 @@
+name: PR Read-Only Preview & Compliance Check (sysv.cn)
+
+# Strictly isolated from production deployment, secrets, upstream fetch, LLM enrichment, and ops ledger mutation.
+on:
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "pr-preview-${{ github.event.pull_request.number || github.ref }}"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  preview-verify:
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_ENV: preview
+      SYSV_PREVIEW_MODE: "1"
+      SYSV_PROD_BUILD: "0"
+      SYSV_REPORTS_DIR: preview_reports
+    steps:
+      - name: Checkout PR branch (read-only)
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install cryptography for GSC auth unit tests
+        run: python3 -m pip install --quiet cryptography
+
+      - name: Verify required cached data files exist (never trigger live upstream fetch or LLM calls in PR)
+        run: |
+          for f in data/models.json data/repos.json data/free_provider_policies.json config/content_review.json; do
+            if [ ! -f "$f" ]; then
+              echo "ERROR: Required cached file missing in PR preview: $f"
+              exit 1
+            fi
+          done
+          mkdir -p preview_reports
+          sha256sum config/content_review.json data/ops_metrics.json > preview_reports/pre_hashes.sha256
+
+      - name: Run full Python unit & regression test suite (0 live API / 0 LLM calls)
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s tests -v 2>&1 | tee preview_reports/unit_tests.txt
+
+      - name: Build preview static site into dist/ (ads strictly disabled)
+        run: python3 -m scripts.build_site
+
+      - name: Run Technical Quality Gate (health_check)
+        run: python3 -m scripts.health_check
+
+      - name: Run Independent SEO Indexing Quality Gate (seo_gate)
+        run: python3 -m scripts.seo_gate
+
+      - name: Run Phase 2.1 Advertising Policy & Monetization Readiness Gate (ad_policy_gate)
+        run: python3 -m scripts.ad_policy_gate
+
+      - name: Run real JS engine + Headless Chrome mobile (375px) interactive calculator verification
+        run: |
+          set -euo pipefail
+          node tests/test_calculators_runtime.mjs 2>&1 | tee preview_reports/runtime_js.txt
+
+      - name: Verify PR preview did not mutate review ledger or ops metrics
+        run: |
+          sha256sum -c preview_reports/pre_hashes.sha256
+
+      - name: Upload preview test & machine-readable ad eligibility audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-preview-audit-reports
+          path: preview_reports/
+          retention-days: 7

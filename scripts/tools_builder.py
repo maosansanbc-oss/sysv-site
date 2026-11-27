@@ -14,6 +14,7 @@ import io
 import json
 from typing import Any
 
+from scripts import content_quality_gate
 from scripts.utils import DATA_DIR
 
 CALC_ENGINE_JS = """/* SysV Shared LLM Cost Calculation Engine (v2.2.1)
@@ -431,12 +432,53 @@ def build_tools_and_data_assets(
     render_embed_layout_fn,
     register_page_fn,
     esc,
+    *,
+    eval_page_fn=None,
+    render_ad_slot_fn=None,
+    runtime_cfg: dict[str, Any] | None = None,
+    today: str = "",
 ) -> list[str]:
     """Generate /assets/calc-engine.js, /tools/* pages, ad-free /embed/* pages, and /data/* assets."""
     write_page_fn("assets/calc-engine.js", CALC_ENGINE_JS)
     urls: list[str] = []
     models_json_literal = json.dumps(calc_models, ensure_ascii=False)
     calc_sig = _sem_hash([(m["slug"], m["in"], m["out"], m["pricing_type"], m["tools"], m["structured"]) for m in calc_models])
+    rt = runtime_cfg or {"mock_ads": False}
+    date_lbl = today or changelog.get("updated_at") or "latest snapshot"
+
+    def _eval(url_path: str, page_type: str, index_policy: str, cver: str) -> dict[str, Any]:
+        if eval_page_fn is not None:
+            return eval_page_fn(url_path, page_type, index_policy, content_version=cver, fact_version=calc_sig)
+        return {"ads_enabled": False, "verification_enabled": False, "ads_eligible": False}
+
+    def _ad_slot(slot_key: str, elig: dict[str, Any]) -> str:
+        if render_ad_slot_fn is not None:
+            return render_ad_slot_fn(
+                cfg,
+                slot_key,
+                ads_enabled=bool(elig.get("ads_enabled")),
+                mock_ads=bool(rt.get("mock_ads")),
+                runtime_cfg=runtime_cfg,
+            )
+        return ""
+
+    def _register_embed(rel_path: str, url_path: str, html_str: str) -> None:
+        write_page_fn(rel_path, html_str)
+        if eval_page_fn is not None:
+            eval_page_fn(
+                url_path,
+                "embed",
+                "noindex",
+                content_version=content_quality_gate.compute_content_fingerprint(editorial_html=url_path, formula_sources=[CALC_ENGINE_JS]),
+                fact_version=calc_sig,
+            )
+
+    def _tool_cver(editorial_html: str, formula_extras: list[str] | None = None, policies: Any = None) -> str:
+        return content_quality_gate.compute_content_fingerprint(
+            editorial_html=editorial_html,
+            formula_sources=[CALC_ENGINE_JS] + list(formula_extras or []),
+            policy_payload=policies,
+        )
 
     # 1. /tools/ Hub
     tools_hub_body = """
@@ -466,6 +508,7 @@ def build_tools_and_data_assets(
       </div>
     </div>
     """
+    tools_hub_elig = _eval("/tools/", "tool_hub", "index", _tool_cver(tools_hub_body))
     urls.append("/tools/")
     register_page_fn(
         "tools/index.html",
@@ -481,6 +524,9 @@ def build_tools_and_data_assets(
             body_html=tools_hub_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=tools_hub_elig["ads_enabled"],
+            verification_enabled=tools_hub_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Tools", "/tools/")],
         ),
     )
@@ -564,11 +610,17 @@ def build_tools_and_data_assets(
       }})();
     </script>
     """
-    or_body = f"""
-    <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / OpenRouter Cost Calculator</div>
-    <h1>OpenRouter Pricing &amp; Cost Calculator</h1>
-    <p class="muted">Compare upstream token inference costs against OpenRouter's exact top-up fee rules (<strong>5.5% card fee with $0.80 minimum</strong>, <strong>5.0% crypto</strong>, or <strong>BYOK 0% up to $25k/mo</strong>).</p>
-    {or_widget}
+    or_notes_html = f"""
+    <div class="card">
+      <h2>Formula, Worked Example &amp; Data Scope</h2>
+      <ul>
+        <li><strong>Input vs. Output Tokens:</strong> Prompts, system instructions, and retrieved context count as <em>input tokens</em>; model completions and reasoning traces count as <em>output tokens</em> (typically 3&times;&ndash;5&times; pricier per 1M tokens).</li>
+        <li><strong>Billing Formula:</strong> <code>Inference = (Input_M &times; Input_Rate) + (Output_M &times; Output_Rate)</code>; Card Top-Up Fee = <code>max($0.80, Charge_Base &times; 5.5%)</code>; Crypto Fee = <code>Charge_Base &times; 5.0%</code>; BYOK = <code>$0</code> up to <code>$25,000/mo</code> list inference, then <code>5%</code> on overage.</li>
+        <li><strong>Worked Example:</strong> At <code>10M input &times; $0.20 + 2M output &times; $0.80 = $3.60</code> inference spend on a card with exact spend, <code>5.5%</code> is <code>$0.198</code>, which triggers the <code>$0.80</code> minimum fee &rarr; <code>$4.40</code> total cash outlay. Topping up <code>$25.00</code> at once drops the effective card fee to <code>5.5%</code> (<code>$1.38</code>).</li>
+        <li><strong>Free vs. Paid vs. Batch:</strong> <code>:free</code> models bill <code>$0</code> under strict RPM/RPD caps; paid models bill real-time per token; <code>:batch</code> endpoints run asynchronously (not for interactive chat). Unknown or dynamic router prices (<code>-1</code> / <code>null</code>) are excluded rather than coerced to <code>$0</code>.</li>
+        <li><strong>Source &amp; Limits:</strong> Token rates come from the <a href="https://openrouter.ai/api/v1/models" target="_blank" rel="noopener noreferrer">OpenRouter Public Models API</a> ({esc(date_lbl)}). Excludes prompt-cache discounts and long-context tiered surcharges.</li>
+      </ul>
+    </div>
     <div class="card">
       <h2>OpenRouter Free-Tier Limits Quick Reference</h2>
       <ul>
@@ -580,13 +632,27 @@ def build_tools_and_data_assets(
       <p><a href="/free-llm-apis/">Inspect all verified rate-limited free endpoints &rarr;</a></p>
     </div>
     """
+    or_elig = _eval(
+        "/tools/openrouter-cost-calculator/",
+        "tool",
+        "index",
+        _tool_cver(or_notes_html, policies={"card_pct": 0.055, "card_min": 0.80, "crypto_pct": 0.05, "byok_free_cap": 25000}),
+    )
+    or_body = f"""
+    <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / OpenRouter Cost Calculator</div>
+    <h1>OpenRouter Pricing &amp; Cost Calculator</h1>
+    <p class="muted">Compare upstream token inference costs against OpenRouter's exact top-up fee rules (<strong>5.5% card fee with $0.80 minimum</strong>, <strong>5.0% crypto</strong>, or <strong>BYOK 0% up to $25k/mo</strong>). Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
+    {or_widget}
+    {_ad_slot("adsense_slot_in_article", or_elig)}
+    {or_notes_html}
+    """
     urls.append("/tools/openrouter-cost-calculator/")
     register_page_fn(
         "tools/openrouter-cost-calculator/index.html",
         "/tools/openrouter-cost-calculator/",
         "tool",
         "index",
-        _sem_hash(["or-tool-v2.2.1", calc_sig]),
+        _sem_hash(["or-tool-v2.3", calc_sig]),
         render_layout_fn(
             cfg,
             title="OpenRouter Pricing & Cost Calculator (5.5% Fee, $0.80 Min & BYOK) | SysV",
@@ -595,12 +661,16 @@ def build_tools_and_data_assets(
             body_html=or_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=or_elig["ads_enabled"],
+            verification_enabled=or_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Tools", "/tools/"), ("OpenRouter Cost Calculator", "/tools/openrouter-cost-calculator/")],
         ),
     )
     # Ad-free embed version!
-    write_page_fn(
+    _register_embed(
         "embed/openrouter-cost-calculator/index.html",
+        "/embed/openrouter-cost-calculator/",
         render_embed_layout_fn(
             cfg,
             title="OpenRouter Pricing & Cost Calculator (Embed) | SysV",
@@ -684,11 +754,29 @@ def build_tools_and_data_assets(
       }})();
     </script>
     """
+    n8n_notes_html = f"""
+    <div class="card">
+      <h2>Formula, Worked Example &amp; Data Scope</h2>
+      <ul>
+        <li><strong>Formula:</strong> <code>Input_M = (Executions &times; Input_Tokens &times; Retry_Mult) / 1,000,000</code>; <code>Output_M = (Executions &times; Output_Tokens &times; Retry_Mult) / 1,000,000</code>; <code>Total = Token_Cost + Hosting_Cost</code>.</li>
+        <li><strong>Worked Example:</strong> <code>10,000</code> monthly runs &times; <code>1,800</code> input / <code>400</code> output tokens &times; <code>1.35x</code> retry factor = <code>24.30M</code> input and <code>5.40M</code> output tokens. At <code>$0.10/1M</code> in and <code>$0.40/1M</code> out, token cost is <code>$4.59/mo</code> &rarr; <code>$10.59/mo</code> on a <code>$6</code> VPS vs. <code>$28.59/mo</code> on a <code>$24</code> cloud plan.</li>
+        <li><strong>Real-Time &amp; Pricing Filters:</strong> Excludes async <code>:batch</code> queues (unsuitable for interactive webhook workflows), non-tool models, and unknown/variable (<code>-1</code>) endpoints. Source: <a href="https://openrouter.ai/api/v1/models" target="_blank" rel="noopener noreferrer">OpenRouter Public Models API</a> ({esc(date_lbl)}).</li>
+      </ul>
+    </div>
+    """
+    n8n_elig = _eval(
+        "/tools/n8n-ai-workflow-cost-calculator/",
+        "tool",
+        "index",
+        _tool_cver(n8n_notes_html, policies={"affiliates": [a.get("url") for a in cfg.get("monetization", {}).get("affiliates", []) if a.get("url")]}),
+    )
     n8n_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / n8n AI Workflow Cost Calculator</div>
     <h1>n8n AI Workflow Cost Calculator: Self-Hosted vs. Cloud</h1>
-    <p class="muted">Compare self-hosted VPS hosting vs. n8n Cloud alongside live real-time tool-calling LLM token spend and retry multipliers.</p>
+    <p class="muted">Compare self-hosted VPS hosting vs. n8n Cloud alongside live real-time tool-calling LLM token spend and retry multipliers. Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
     {n8n_widget}
+    {_ad_slot("adsense_slot_in_article", n8n_elig)}
+    {n8n_notes_html}
     {_render_tool_affiliates(cfg, esc)}
     """
     urls.append("/tools/n8n-ai-workflow-cost-calculator/")
@@ -697,7 +785,7 @@ def build_tools_and_data_assets(
         "/tools/n8n-ai-workflow-cost-calculator/",
         "tool",
         "index",
-        _sem_hash(["n8n-tool-v2.2.1", calc_sig]),
+        _sem_hash(["n8n-tool-v2.3", calc_sig]),
         render_layout_fn(
             cfg,
             title="n8n AI Workflow Cost Calculator: Self-Hosted vs Cloud | SysV",
@@ -706,11 +794,15 @@ def build_tools_and_data_assets(
             body_html=n8n_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=n8n_elig["ads_enabled"],
+            verification_enabled=n8n_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Tools", "/tools/"), ("n8n AI Workflow Cost Calculator", "/tools/n8n-ai-workflow-cost-calculator/")],
         ),
     )
-    write_page_fn(
+    _register_embed(
         "embed/n8n-ai-workflow-cost-calculator/index.html",
+        "/embed/n8n-ai-workflow-cost-calculator/",
         render_embed_layout_fn(
             cfg,
             title="n8n AI Workflow Cost Calculator (Embed) | SysV",
@@ -787,11 +879,29 @@ def build_tools_and_data_assets(
       }})();
     </script>
     """
+    tr_notes_html = f"""
+    <div class="card">
+      <h2>Formula, Worked Example &amp; Data Scope</h2>
+      <ul>
+        <li><strong>Word-to-Token Formula:</strong> <code>Input_Tokens = Docs &times; (Words &times; 1.333 + 200)</code> (adds 200 system-prompt tokens per document); <code>Output_Tokens = Docs &times; Words &times; 1.333 &times; Ratio</code>.</li>
+        <li><strong>Worked Example:</strong> <code>1,000</code> documents &times; <code>1,500</code> words at <code>1.15x</code> ratio &approx; <code>2.20M</code> input tokens and <code>2.30M</code> output tokens. At <code>$0.05/1M</code> input and <code>$0.25/1M</code> output on an async <code>:batch</code> model, total spend is <code>$0.69</code> (<code>$0.69</code> per 1,000 docs).</li>
+        <li><strong>Sync vs. Async Batch vs. Free:</strong> Toggle <code>:batch</code> off for immediate responses; keep it checked for non-urgent overnight backfills (~50% lower rates). Unknown/variable (<code>-1</code>) prices are excluded. Source: <a href="https://openrouter.ai/api/v1/models" target="_blank" rel="noopener noreferrer">OpenRouter Public Models API</a> ({esc(date_lbl)}).</li>
+      </ul>
+    </div>
+    """
+    tr_elig = _eval(
+        "/tools/llm-translation-cost-calculator/",
+        "tool",
+        "index",
+        _tool_cver(tr_notes_html, policies={"words_to_tokens": 1.333, "sys_prompt_tokens": 200}),
+    )
     trans_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / Bulk Translation &amp; 1,000-Document Cost Calculator</div>
     <h1>LLM Bulk Translation &amp; Document Cost Calculator</h1>
-    <p class="muted">Convert document counts and word lengths into token spend and compare real-time vs. asynchronous <code>:batch</code> discounts.</p>
+    <p class="muted">Convert document counts and word lengths into token spend and compare real-time vs. asynchronous <code>:batch</code> discounts. Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
     {trans_widget}
+    {_ad_slot("adsense_slot_in_article", tr_elig)}
+    {tr_notes_html}
     """
     urls.append("/tools/llm-translation-cost-calculator/")
     register_page_fn(
@@ -799,7 +909,7 @@ def build_tools_and_data_assets(
         "/tools/llm-translation-cost-calculator/",
         "tool",
         "index",
-        _sem_hash(["trans-tool-v2.2.1", calc_sig]),
+        _sem_hash(["trans-tool-v2.3", calc_sig]),
         render_layout_fn(
             cfg,
             title="LLM Bulk Translation & 1,000-Document Cost Calculator | SysV",
@@ -808,11 +918,15 @@ def build_tools_and_data_assets(
             body_html=trans_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=tr_elig["ads_enabled"],
+            verification_enabled=tr_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Tools", "/tools/"), ("LLM Translation Cost Calculator", "/tools/llm-translation-cost-calculator/")],
         ),
     )
-    write_page_fn(
+    _register_embed(
         "embed/llm-translation-cost-calculator/index.html",
+        "/embed/llm-translation-cost-calculator/",
         render_embed_layout_fn(
             cfg,
             title="LLM Bulk Translation Cost Calculator (Embed) | SysV",
@@ -898,11 +1012,29 @@ def build_tools_and_data_assets(
       }})();
     </script>
     """
+    loc_notes_html = f"""
+    <div class="card">
+      <h2>Formula, Worked Example &amp; Data Scope</h2>
+      <ul>
+        <li><strong>Formula:</strong> <code>API_Monthly = (Input_M &times; Input_Rate) + (Output_M &times; Output_Rate)</code>; <code>Power_Monthly = (Watts / 1000) &times; 24 &times; 30 &times; $/kWh</code>; <code>Payback_Months = Hardware_Cost / (API_Monthly - Power_Monthly)</code>.</li>
+        <li><strong>Worked Example:</strong> At <code>100M</code> input + <code>25M</code> output tokens/mo on an API priced at <code>$0.50/1M</code> in and <code>$2.00/1M</code> out, API spend is <code>$100.00/mo</code>. A <code>$2,500</code> rig drawing <code>350W</code> at <code>$0.18/kWh</code> uses <code>$45.36/mo</code> in power &rarr; net savings <code>$54.64/mo</code> &rarr; <code>45.8 months</code> cash payback.</li>
+        <li><strong>Scope &amp; Limits:</strong> Reference API options include real-time paid endpoints with verified token prices from <a href="https://openrouter.ai/api/v1/models" target="_blank" rel="noopener noreferrer">OpenRouter Public Models API</a> ({esc(date_lbl)}); excludes async <code>:batch</code>, free-tier caps, unknown prices, and local quantization quality tradeoffs.</li>
+      </ul>
+    </div>
+    """
+    loc_elig = _eval(
+        "/tools/api-vs-local-llm-calculator/",
+        "tool",
+        "index",
+        _tool_cver(loc_notes_html, policies={"affiliates": [a.get("url") for a in cfg.get("monetization", {}).get("affiliates", []) if a.get("url")]}),
+    )
     local_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / API vs. Local LLM Break-Even Calculator</div>
     <h1>API vs. Local LLM Break-Even Calculator</h1>
-    <p class="muted">Compare buying local GPU hardware (amortization + electricity) against paying per-token for managed real-time LLM APIs.</p>
+    <p class="muted">Compare buying local GPU hardware (amortization + electricity) against paying per-token for managed real-time LLM APIs. Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
     {local_widget}
+    {_ad_slot("adsense_slot_in_article", loc_elig)}
+    {loc_notes_html}
     {_render_tool_affiliates(cfg, esc)}
     """
     urls.append("/tools/api-vs-local-llm-calculator/")
@@ -911,7 +1043,7 @@ def build_tools_and_data_assets(
         "/tools/api-vs-local-llm-calculator/",
         "tool",
         "index",
-        _sem_hash(["local-tool-v2.2.1", calc_sig]),
+        _sem_hash(["local-tool-v2.3", calc_sig]),
         render_layout_fn(
             cfg,
             title="API vs Local LLM Break-Even Calculator (GPU vs Per-Token) | SysV",
@@ -920,11 +1052,15 @@ def build_tools_and_data_assets(
             body_html=local_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=loc_elig["ads_enabled"],
+            verification_enabled=loc_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Tools", "/tools/"), ("API vs Local LLM Calculator", "/tools/api-vs-local-llm-calculator/")],
         ),
     )
-    write_page_fn(
+    _register_embed(
         "embed/api-vs-local-llm-calculator/index.html",
+        "/embed/api-vs-local-llm-calculator/",
         render_embed_layout_fn(
             cfg,
             title="API vs Local LLM Break-Even Calculator (Embed) | SysV",
@@ -1041,6 +1177,7 @@ Live LLM API pricing &amp; daily CSV archive: https://sysv.cn/data/</pre>
       <pre style="overflow-x:auto;background:#f5f5f7;padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.84rem">&lt;iframe src="https://sysv.cn/embed/openrouter-cost-calculator/" width="100%" height="580" style="border:1px solid #d2d2d7;border-radius:16px" loading="lazy"&gt;&lt;/iframe&gt;</pre>
     </div>
     """
+    data_hub_elig = _eval("/data/", "linkable_asset", "index", _tool_cver(data_hub_body))
     urls.append("/data/")
     register_page_fn(
         "data/index.html",
@@ -1056,6 +1193,9 @@ Live LLM API pricing &amp; daily CSV archive: https://sysv.cn/data/</pre>
             body_html=data_hub_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=data_hub_elig["ads_enabled"],
+            verification_enabled=data_hub_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Open Data", "/data/")],
         ),
     )

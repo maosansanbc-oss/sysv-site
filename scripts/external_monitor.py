@@ -21,7 +21,10 @@ from datetime import datetime, timezone
 
 
 def fetch_text(url: str, timeout: int = 15) -> tuple[int, str]:
-    req = urllib.request.Request(url, headers={"User-Agent": "SysV-External-Monitor/1.0"})
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": "Mozilla/5.0 (compatible; SysV-External-Monitor/1.1; +https://sysv.cn)"},
+    )
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return resp.status, resp.read().decode("utf-8", errors="ignore")
 
@@ -80,6 +83,28 @@ def main() -> None:
                 issues.append(f"/sitemap.xml URL count dropped to {len(urls)} (< {min_urls})")
     except Exception as err:
         issues.append(f"/sitemap.xml check failed: {err}")
+
+    # 4. Production root ads.txt & robots.txt availability and format check (TASK-04 / TASK-05)
+    expected_pub = os.getenv("EXPECTED_ADSENSE_PUB", "pub-7981084270242721").strip()
+    try:
+        code, ads_raw = fetch_text(f"{base}/ads.txt")
+        if code != 200:
+            issues.append(f"/ads.txt returned HTTP {code}")
+        elif "<html" in ads_raw.lower() or "<!doctype" in ads_raw.lower():
+            issues.append("/ads.txt returned HTML instead of plain text")
+        elif expected_pub and f"google.com, {expected_pub}, DIRECT, f08c47fec0942fa0" not in ads_raw:
+            issues.append(f"/ads.txt missing expected publisher record for {expected_pub}")
+    except Exception as err:
+        issues.append(f"/ads.txt check failed: {err}")
+
+    try:
+        code, robots_raw = fetch_text(f"{base}/robots.txt")
+        if code != 200:
+            issues.append(f"/robots.txt returned HTTP {code}")
+        elif "sitemap:" not in robots_raw.lower():
+            issues.append("/robots.txt missing Sitemap directive")
+    except Exception as err:
+        issues.append(f"/robots.txt check failed: {err}")
 
     if issues:
         report = "\n".join(f"- {i}" for i in issues)

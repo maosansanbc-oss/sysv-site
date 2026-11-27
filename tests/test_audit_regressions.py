@@ -436,22 +436,40 @@ class TestAdSenseComplianceRegression(unittest.TestCase):
             self.assertIn("AdSense policy violation", "\n".join(errs))
 
     def test_render_layout_excludes_adsense_on_404_legal_and_noindex_but_keeps_on_content(self):
-        cfg = {
+        cfg_ver = {
             "site_name": "SysV",
             "domain": "sysv.cn",
             "base_url": "https://sysv.cn",
             "tagline": "Radar",
-            "monetization": {"adsense_client_id": "ca-pub-7981084270242721"},
+            "monetization": {
+                "ad_mode": "verification",
+                "verification_enabled": True,
+                "verification_method": "ads_txt_and_meta",
+                "adsense_client_id": "ca-pub-7981084270242721",
+            },
         }
-        home = build_site.render_layout(
-            cfg, title="Home", description="Desc", canonical_path="/", body_html="<h1>Home</h1>", git_commit="abc", index_policy="index"
+        # In verification mode with explicit verification_enabled=True, homepage emits meta ONLY (zero live ad requests)
+        home_ver = build_site.render_layout(
+            cfg_ver, title="Home", description="Desc", canonical_path="/", body_html="<h1>Home</h1>", git_commit="abc", index_policy="index", ads_enabled=False, verification_enabled=True
         )
-        self.assertIn("adsbygoogle.js", home)
-        self.assertIn("google-adsense-account", home)
+        self.assertIn("google-adsense-account", home_ver)
+        self.assertNotIn("adsbygoogle.js", home_ver)
+
+        # In authorized live runtime with explicit ads_enabled=True, homepage emits both meta and adsbygoogle.js
+        prod_live_rt = {
+            "allow_live_ad_requests": True,
+            "verification_enabled": True,
+            "verification_method": "ads_txt_and_meta",
+        }
+        home_live = build_site.render_layout(
+            cfg_ver, title="Home", description="Desc", canonical_path="/", body_html="<h1>Home</h1>", git_commit="abc", index_policy="index", ads_enabled=True, verification_enabled=True, runtime_cfg=prod_live_rt
+        )
+        self.assertIn("adsbygoogle.js", home_live)
+        self.assertIn("google-adsense-account", home_live)
 
         for path, pol in [("/404.html", "noindex"), ("/repos/", "noindex"), ("/privacy/", "noindex"), ("/terms/", "noindex"), ("/contact/", "noindex"), ("/models/missing/", "noindex"), ("/models/delisted/", "archived")]:
             out = build_site.render_layout(
-                cfg, title="T", description="D", canonical_path=path, body_html="<h1>T</h1>", git_commit="abc", index_policy=pol
+                cfg_ver, title="T", description="D", canonical_path=path, body_html="<h1>T</h1>", git_commit="abc", index_policy=pol, ads_enabled=True, verification_enabled=True, runtime_cfg=prod_live_rt
             )
             self.assertNotIn("adsbygoogle", out, f"AdSense script must not render on {path} ({pol})")
             self.assertNotIn("google-adsense-account", out, f"AdSense meta must not render on {path} ({pol})")

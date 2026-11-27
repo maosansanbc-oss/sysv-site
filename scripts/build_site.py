@@ -20,9 +20,10 @@ import shutil
 import subprocess
 from collections import defaultdict
 from itertools import combinations
+from pathlib import Path
 from typing import Any
 
-from scripts import seo_gate, tools_builder
+from scripts import content_quality_gate, seo_gate, tools_builder
 from scripts.utils import DATA_DIR, DIST_DIR, ROOT_DIR, load_config, load_json, save_json, utc_now_iso, utc_today
 
 TEMPLATE_VERSION = "v2.2.1"
@@ -398,10 +399,21 @@ tr:hover td { background: #fafafa; }
 }
 .btn:hover { background: var(--accent-hover); color: #ffffff; text-decoration: none; }
 .ad-slot {
-  margin: 26px 0; text-align: center; min-height: 90px;
-  border: 1px dashed var(--border-strong); border-radius: 14px; padding: 10px;
-  display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.84rem;
+  margin: 28px 0; text-align: center; min-height: 100px;
+  border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  color: var(--muted); font-size: 0.82rem;
   background: var(--surface-2);
+}
+.ad-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.ad-slot-mock {
+  border-style: dashed;
+  border-color: var(--border-strong);
 }
 .breadcrumb { font-size: 0.83rem; color: var(--muted); margin-bottom: 14px; }
 .breadcrumb a { color: var(--muted); }
@@ -463,18 +475,36 @@ footer {
 """
 
 
-def render_ad_slot(cfg: dict[str, Any], slot_key: str) -> str:
+def render_ad_slot(
+    cfg: dict[str, Any],
+    slot_key: str,
+    *,
+    ads_enabled: bool = False,
+    mock_ads: bool = False,
+    runtime_cfg: dict[str, Any] | None = None,
+) -> str:
+    if mock_ads:
+        return (
+            f'<aside class="ad-slot ad-slot-mock" aria-label="Advertisement preview placeholder" data-mock-ad="true" data-slot-key="{e(slot_key)}">'
+            '<div class="ad-label">Advertisement (Preview Placeholder)</div>'
+            '<div class="small muted">Reserved non-intrusive ad container &mdash; zero external ad requests in preview mode.</div>'
+            "</aside>"
+        )
+    rt = runtime_cfg or content_quality_gate.resolve_ad_runtime_config(cfg)
+    if not ads_enabled or not rt.get("allow_live_ad_requests"):
+        return ""
     mon = cfg.get("monetization", {})
     client_id = str(mon.get("adsense_client_id") or "").strip()
     slot_id = str(mon.get(slot_key) or "").strip()
     if not client_id or not slot_id:
         return ""
     return (
-        '<div class="ad-slot">'
-        f'<ins class="adsbygoogle" style="display:block" data-ad-client="{e(client_id)}" '
+        '<aside class="ad-slot" aria-label="Advertisement">'
+        '<div class="ad-label">Advertisement</div>'
+        f'<ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="{e(client_id)}" '
         f'data-ad-slot="{e(slot_id)}" data-ad-format="auto" data-full-width-responsive="true"></ins>'
         "<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>"
-        "</div>"
+        "</aside>"
     )
 
 
@@ -505,21 +535,61 @@ def render_layout(
     git_commit: str,
     index_policy: str = "index",
     allow_ads: bool | None = None,
+    ads_enabled: bool = False,
+    verification_enabled: bool = False,
+    runtime_cfg: dict[str, Any] | None = None,
     breadcrumbs: list[tuple[str, str]] | None = None,
     extra_json_ld: dict[str, Any] | None = None,
 ) -> str:
     base = cfg["base_url"].rstrip("/")
     canonical = base + canonical_path
-    client_id = str(cfg.get("monetization", {}).get("adsense_client_id") or "").strip()
+    mon = cfg.get("monetization", {})
+    client_id = str(mon.get("adsense_client_id") or "").strip()
     robots_meta = '<meta name="robots" content="noindex, follow" />' if index_policy == "noindex" else ""
-    no_ad_paths = {"/404.html", "/repos/", "/privacy/", "/terms/", "/contact/"}
-    ads_allowed = (index_policy == "index" and canonical_path not in no_ad_paths) if allow_ads is None else bool(allow_ads)
-    adsense_head = (
-        f'<meta name="google-adsense-account" content="{e(client_id)}" />\n'
-        f'  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={e(client_id)}" '
-        f'crossorigin="anonymous"></script>'
-        if (client_id and ads_allowed)
-        else ""
+    no_ad_paths = content_quality_gate.PROHIBITED_AD_PATHS
+    is_clean_content = (
+        index_policy == "index"
+        and canonical_path not in no_ad_paths
+        and not canonical_path.startswith("/embed/")
+    )
+
+    # Strict default-off ad serving (TASK-02 & TASK-03):
+    # - ads_enabled defaults to False
+    # - allow_ads can ONLY restrict (allow_ads=False), NEVER bypass eligibility or prod authorization
+    rt = runtime_cfg or content_quality_gate.resolve_ad_runtime_config(cfg)
+    serve_ads = (
+        bool(ads_enabled)
+        and (allow_ads is not False)
+        and bool(rt.get("allow_live_ad_requests"))
+        and is_clean_content
+        and bool(client_id)
+    )
+    emit_verify_meta = (
+        bool(verification_enabled)
+        and (allow_ads is not False)
+        and bool(rt.get("verification_enabled"))
+        and rt.get("verification_method") in ("meta_only", "ads_txt_and_meta")
+        and is_clean_content
+        and bool(client_id)
+    )
+
+    head_parts: list[str] = []
+    if emit_verify_meta or serve_ads:
+        head_parts.append(f'<meta name="google-adsense-account" content="{e(client_id)}" />')
+    if serve_ads:
+        head_parts.append(
+            f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={e(client_id)}" '
+            f'crossorigin="anonymous"></script>'
+        )
+    adsense_head = "\n  ".join(head_parts)
+
+    # Official Google Funding Choices revocation link ONLY on live ad-enabled pages (TASK-06)
+    cmp_footer_link = (
+        '<a href="/privacy/#consent-settings" id="sysv-consent-revocation" '
+        'onclick="if(window.googlefc&&typeof window.googlefc.showRevocationMessage===\'function\')'
+        '{window.googlefc.showRevocationMessage();return false;}">Manage Ad Consent</a>'
+        if serve_ads
+        else '<a href="/privacy/#consent-settings">Privacy &amp; Ad Settings</a>'
     )
 
     ld_blocks: list[str] = []
@@ -581,6 +651,7 @@ def render_layout(
         <a href="/data/">Open Data &amp; CSV</a>
         <a href="/about/">About &amp; Methodology</a>
         <a href="/privacy/">Privacy Policy</a>
+        {cmp_footer_link}
         <a href="/terms/">Terms of Use</a>
         <a href="/contact/">Contact</a>
         <a href="/sitemap.xml">Sitemap</a>
@@ -626,8 +697,8 @@ def render_embed_layout(
 """
 
 
-def write_page(rel_path: str, content: str) -> None:
-    out = DIST_DIR / rel_path.lstrip("/")
+def write_page(rel_path: str, content: str, *, dist_dir: Path | None = None) -> None:
+    out = (dist_dir or DIST_DIR) / rel_path.lstrip("/")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(content, encoding="utf-8")
 
@@ -835,11 +906,26 @@ def render_task_cell(m: dict[str, Any], task: str, m_in: float, m_out: float) ->
     return f"<strong>${(p_in * m_in + p_out * m_out):.2f}</strong>"
 
 
-def main(today_override: str | None = None, now_iso_override: str | None = None) -> None:
-    cfg = load_config()
+def main(
+    today_override: str | None = None,
+    now_iso_override: str | None = None,
+    *,
+    cfg_override: dict[str, Any] | None = None,
+    dist_dir_override: Path | None = None,
+    reports_dir_override: Path | None = None,
+    review_path_override: Path | None = None,
+    published_pages_path_override: Path | None = None,
+    published_comparisons_path_override: Path | None = None,
+) -> None:
+    cfg = cfg_override if cfg_override is not None else load_config()
     today = today_override or utc_today()
     now_iso = now_iso_override or utc_now_iso()
     git_commit = get_git_commit()
+    target_dist = Path(dist_dir_override) if dist_dir_override is not None else DIST_DIR
+    target_reports = content_quality_gate.get_reports_dir(reports_dir_override)
+    review_path = Path(review_path_override) if review_path_override is not None else content_quality_gate.REVIEW_CONFIG_PATH
+    pub_pages_path = Path(published_pages_path_override) if published_pages_path_override is not None else (DATA_DIR / "published_pages.json")
+    pub_comps_path = Path(published_comparisons_path_override) if published_comparisons_path_override is not None else (DATA_DIR / "published_comparisons.json")
 
     models = load_json(DATA_DIR / "models.json", default=load_json(DATA_DIR / "seed_models.json", default=[]))
     repos = load_json(DATA_DIR / "repos.json", default=load_json(DATA_DIR / "seed_repos.json", default=[]))
@@ -849,11 +935,44 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
     )
     selection_audit = load_json(DATA_DIR / "selection_audit.json", default={})
 
-    if DIST_DIR.exists():
-        shutil.rmtree(DIST_DIR)
-    DIST_DIR.mkdir(parents=True, exist_ok=True)
+    if target_dist.exists():
+        shutil.rmtree(target_dist)
+    target_dist.mkdir(parents=True, exist_ok=True)
+
+    def _write(rel_path: str, content: str) -> None:
+        write_page(rel_path, content, dist_dir=target_dist)
 
     page_records: dict[str, dict[str, str]] = {}
+    review_ledger = content_quality_gate.load_review_ledger(review_path)
+    runtime_cfg = content_quality_gate.resolve_ad_runtime_config(cfg)
+    page_eligibility: dict[str, dict[str, Any]] = {}
+    build_id = sem_hash([git_commit, now_iso, runtime_cfg["effective_ad_mode"], runtime_cfg["prod_authorized"]])
+
+    def eval_page(
+        url_path: str,
+        page_type: str,
+        index_policy: str,
+        *,
+        content_version: str,
+        fact_version: str,
+        status: str = "active",
+        factual_conflicts: list[str] | None = None,
+        has_auto_generated_copy: bool = False,
+    ) -> dict[str, Any]:
+        meta = content_quality_gate.evaluate_page_ad_eligibility(
+            url_path=url_path,
+            page_type=page_type,
+            index_policy=index_policy,
+            status=status,
+            content_version=content_version,
+            fact_version=fact_version,
+            review_ledger=review_ledger,
+            runtime_cfg=runtime_cfg,
+            factual_conflicts=factual_conflicts,
+            has_auto_generated_copy=has_auto_generated_copy,
+        )
+        page_eligibility[url_path] = meta
+        return meta
 
     def register_page(
         rel_path: str,
@@ -864,7 +983,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         full_html: str,
         status: str = "active",
     ) -> None:
-        write_page(rel_path, full_html)
+        if url_path not in page_eligibility:
+            raise RuntimeError(f"Page '{url_path}' must call eval_page() BEFORE rendering & registering HTML!")
+        _write(rel_path, full_html)
         page_records[url_path] = {
             "page_type": page_type,
             "index_policy": index_policy,
@@ -894,7 +1015,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         and isinstance(m.get("completion_price_per_m"), (int, float))
     ]
 
-    pairs = reconcile_comparison_registry(models, int(cfg["pipeline"].get("max_compare_pages", 40)), today=today)
+    pairs = reconcile_comparison_registry(models, int(cfg["pipeline"].get("max_compare_pages", 40)), registry_path=pub_comps_path, today=today)
     active_pairs = [p for p in pairs if p[4] == "active"]
     models_sem_sig = sem_hash([model_semantic_fingerprint(m) for m in active_models])
     repos_sem_sig = sem_hash([repo_semantic_fingerprint(r) for r in repos])
@@ -934,6 +1055,38 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         for a, b, slug, lbl, _ in active_pairs[:6]
     )
 
+    from pathlib import Path as _Path  # noqa: F401
+    home_methodology_html = f"""
+    <section>
+      <h2>How SysV Calculates Costs &amp; Filters Models</h2>
+      <div class="card">
+        <p><strong>What SysV solves:</strong> AI API pricing sheets mix real-time endpoints, 24-hour asynchronous <code>:batch</code> queues, rate-limited <code>:free</code> tiers, and dynamic routers (<code>-1</code>). SysV separates these pricing states so engineers can estimate real monthly token spend without accidentally picking an incompatible model.</p>
+        <ul>
+          <li><strong>Pricing Source &amp; Last Update:</strong> Pulled daily from the <a href="https://openrouter.ai/api/v1/models" target="_blank" rel="noopener noreferrer">OpenRouter Public Models API</a> (last successful snapshot: <strong>{e(today)}</strong>).</li>
+          <li><strong>Base Token Formula:</strong> <code>Monthly Spend = (Input_M &times; Input_Rate_per_1M) + (Output_M &times; Output_Rate_per_1M)</code>. Example: <code>18M input &times; $0.20 + 3.5M output &times; $0.80 = $6.40/mo</code>.</li>
+          <li><strong>Capability Gates:</strong> Coding Agent requires real-time + verified <code>tools</code> + &ge;64K context; Structured Pipeline requires real-time + <code>structured_outputs</code>; RAG requires real-time + &ge;100K context. Editing token numbers preserves your chosen gate.</li>
+          <li><strong>Known Limitations:</strong> Excludes OpenRouter top-up fees (model them in the <a href="/tools/openrouter-cost-calculator/">OpenRouter Fee Calculator</a>), prompt-cache hit discounts, tiered long-context surcharges, and unmeasured output quality or latency. Variable routers (<code>-1</code>) and missing prices are never coerced to <code>$0</code>.</li>
+        </ul>
+      </div>
+    </section>
+    """
+    home_editorial_for_fp = (
+        "LLM API Pricing & Token Cost Calculator "
+        "Compare live AI API pricing per 1M tokens, run capability-gated workload estimates, and separate rate-limited free tiers, async batch endpoints, and variable routers. "
+        + home_methodology_html
+    )
+    home_cver = content_quality_gate.compute_content_fingerprint(
+        editorial_html=home_editorial_for_fp,
+        formula_sources=[tools_builder.CALC_ENGINE_JS],
+        policy_payload={"presets": ["coding", "autosite", "translation", "rag", "custom"], "excludes_affiliates": True},
+    )
+    home_elig = eval_page(
+        "/",
+        "home",
+        "index",
+        content_version=home_cver,
+        fact_version=models_sem_sig,
+    )
     home_body = f"""
     <section class="hero-open">
       <h1>LLM API Pricing &amp; Token Cost Calculator</h1>
@@ -943,6 +1096,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         <span><strong>{len(paid_models)}</strong> Real-Time Paid</span>
         <span><strong>{len(batch_models)}</strong> Async Batch</span>
         <span><strong>{changelog.get("latest_total_endpoints", len(active_models))}</strong> Endpoints in Daily Snapshot</span>
+        <span>Last Verified: <strong>{e(today)}</strong></span>
       </div>
     </section>
 
@@ -982,7 +1136,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
       </div>
     </section>
 
-    {render_ad_slot(cfg, "adsense_slot_top")}
+    {render_ad_slot(cfg, "adsense_slot_top", ads_enabled=home_elig["ads_enabled"], mock_ads=runtime_cfg["mock_ads"], runtime_cfg=runtime_cfg)}
 
     <section>
       <h2>Live LLM API Pricing Table (USD / 1M Tokens)</h2>
@@ -1010,13 +1164,13 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
       </div>
     </section>
 
+    {home_methodology_html}
+
     <section>
       <h2>Same-Cohort LLM Comparisons</h2>
       <div class="grid">{compare_cards}</div>
       <p><a href="/compare/">Browse all {len(active_pairs)} active comparisons &rarr;</a></p>
     </section>
-
-    {render_affiliates(cfg)}
 
     <script src="/assets/calc-engine.js"></script>
     <script>
@@ -1110,6 +1264,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             body_html=home_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=home_elig["ads_enabled"],
+            verification_enabled=home_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             extra_json_ld={"@context": "https://schema.org", "@type": "WebSite", "name": "SysV", "url": cfg["base_url"]},
         ),
     )
@@ -1128,6 +1285,13 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
     <p class="lead">Complete directory of Source Verified LLM endpoints tracked on SysV, spanning real-time paid models, rate-limited free models, async <code translate="no">:batch</code> endpoints, and flagged variable routers.</p>
     <div class="table-wrap" style="margin-top:24px"><table><thead><tr><th>Model</th><th>Provider</th><th>Pricing Type</th><th class="num-col">Context</th><th class="num-col">Input / 1M</th><th class="num-col">Output / 1M</th></tr></thead><tbody>{models_hub_rows}</tbody></table></div>
     """
+    models_hub_elig = eval_page(
+        "/models/",
+        "models_hub",
+        "index",
+        content_version=content_quality_gate.compute_content_fingerprint(editorial_html="All LLM API Models & Pricing Directory"),
+        fact_version=models_sem_sig,
+    )
     register_page(
         "models/index.html",
         "/models/",
@@ -1142,6 +1306,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             body_html=models_hub_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=models_hub_elig["ads_enabled"],
+            verification_enabled=models_hub_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Models", "/models/")],
         ),
     )
@@ -1426,6 +1593,20 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         (p.get("id"), p.get("tier_classification"), p.get("credit_card_required"), p.get("quota_summary"), p.get("verification_status"), p.get("last_verified_date"))
         for p in providers_list
     ]
+    free_mat_ver, free_fact_ver, free_conflicts = content_quality_gate.compute_free_policy_versions(
+        policy_db,
+        today=today,
+        editorial_html="Free LLM APIs With Tool Calling & Real Rate Limits Cross-Provider Free LLM API Comparison",
+        formula_sources=[tools_builder.CALC_ENGINE_JS],
+    )
+    free_elig = eval_page(
+        "/free-llm-apis/",
+        "free_hub",
+        "index",
+        content_version=free_mat_ver,
+        fact_version=free_fact_ver,
+        factual_conflicts=free_conflicts,
+    )
     register_page(
         "free-llm-apis/index.html",
         "/free-llm-apis/",
@@ -1440,6 +1621,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             body_html=free_hub_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=free_elig["ads_enabled"],
+            verification_enabled=free_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Free LLM APIs", "/free-llm-apis/")],
         ),
     )
@@ -1489,6 +1673,35 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             extra_meta.append("<strong>Tiered Long-Context Surcharge Applies</strong>")
         extra_line = (" &middot; " + " &middot; ".join(extra_meta)) if extra_meta else ""
 
+        rel_url = f"/models/{m['slug']}/"
+        not_for_items: list[str] = []
+        if not m.get("is_realtime"):
+            not_for_items.append("Live interactive chat or synchronous agent loops (endpoint is not real-time interactive).")
+        if not caps.get("tools"):
+            not_for_items.append("Function-calling coding agents or n8n tool nodes (OpenRouter metadata reports tools=False).")
+        if not caps.get("structured_outputs"):
+            not_for_items.append("Strict JSON-schema extraction pipelines without post-validation (structured_outputs=False).")
+        if int(m.get("context_length") or 0) < 100000:
+            not_for_items.append(f"Large-corpus 100K+ RAG retrieval (max context is {m['context_length']:,} tokens).")
+        if ptype in ("limited_free", "free", "free_router"):
+            not_for_items.append("Guaranteed high-throughput production SLAs (free tiers enforce strict RPM/RPD ceilings).")
+        if ptype == "variable":
+            not_for_items.append("Predictable fixed-budget token forecasting (dynamic routing bills downstream model rates).")
+        if not not_for_items:
+            not_for_items.append("Workloads requiring guaranteed latency SLAs or verified runtime speed (SysV does not claim synthetic speed scores).")
+        not_for_html = "".join(f"<li>{e(x)}</li>" for x in not_for_items)
+        m_cver, m_fver, m_conflicts = content_quality_gate.compute_model_versions(m, not_for_items=not_for_items)
+        m_elig = eval_page(
+            rel_url,
+            "model_detail",
+            pol,
+            content_version=m_cver,
+            fact_version=m_fver,
+            status=status,
+            factual_conflicts=m_conflicts,
+            has_auto_generated_copy=True,
+        )
+
         m_body = f"""
         <div class="breadcrumb"><a href="/">Home</a> / <a href="{parent_path}">{parent_lbl}</a> / {e(m["name"])}</div>
         {status_banner}
@@ -1497,7 +1710,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
           {'<span class="badge badge-danger">Delisted</span>' if status == 'delisted' else ''}
           <h1 style="margin-top:10px">{e(m["name"])} API Pricing &amp; Capabilities</h1>
           <p class="muted upstream-desc">{e(m["description"])}</p>
-          <p class="muted small">Endpoint ID: <code>{e(m["id"])}</code> &middot; Source: <a href="https://openrouter.ai/api/v1/models" rel="noopener noreferrer" target="_blank">OpenRouter Public API</a>{extra_line}</p>
+          <p class="muted small">Endpoint ID: <code>{e(m["id"])}</code> &middot; Source: <a href="https://openrouter.ai/api/v1/models" rel="noopener noreferrer" target="_blank">OpenRouter Public API</a> &middot; Last Verified: <strong>{e(m.get("updated_at") or today)}</strong>{extra_line}</p>
           <div class="stats">
             <div class="stat"><div class="num">{e(fmt_price(m["prompt_price_per_m"], ptype))}</div><div class="lbl">Input / 1M Tokens</div></div>
             <div class="stat"><div class="num">{e(fmt_price(m["completion_price_per_m"], ptype))}</div><div class="lbl">Output / 1M Tokens</div></div>
@@ -1520,14 +1733,16 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             <div><h3>Best Suited For</h3><ul>{best_for}</ul></div>
             <div><h3>Watch-Outs</h3><ul>{watch_outs}</ul></div>
           </div>
+          <h3>Not Recommended For (Verified Constraints)</h3>
+          <ul>{not_for_html}</ul>
+          <p class="muted small">Notes above reflect upstream API metadata and deterministic capability rules; actual output quality and latency are not measured here.</p>
         </div>
-        {render_ad_slot(cfg, "adsense_slot_in_article")}
+        {render_ad_slot(cfg, "adsense_slot_in_article", ads_enabled=m_elig["ads_enabled"], mock_ads=(runtime_cfg["mock_ads"] and pol == "index"), runtime_cfg=runtime_cfg)}
         <div class="card">
           <h2>Active Same-Cohort Alternatives</h2>
           <ul>{rel_html}</ul>
         </div>
         """
-        rel_url = f"/models/{m['slug']}/"
         register_page(
             f"models/{m['slug']}/index.html",
             rel_url,
@@ -1542,6 +1757,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
                 body_html=m_body,
                 git_commit=git_commit,
                 index_policy=pol,
+                ads_enabled=m_elig["ads_enabled"],
+                verification_enabled=m_elig["verification_enabled"],
+                runtime_cfg=runtime_cfg,
                 breadcrumbs=[("Home", "/"), (parent_lbl, parent_path), (m["name"], rel_url)],
             ),
             status=status,
@@ -1619,12 +1837,32 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             )
         summary_html = "".join(f"<li>{e(item)}</li>" for item in summary_bullets)
 
+        cell_trans = (render_task_cell(a, "translation", 2.5, 2.5), render_task_cell(b, "translation", 2.5, 2.5))
+        cell_auto = (render_task_cell(a, "autosite", 8.0, 2.0), render_task_cell(b, "autosite", 8.0, 2.0))
+        cell_code = (render_task_cell(a, "coding", 18.0, 3.5), render_task_cell(b, "coding", 18.0, 3.5))
+        c_cver, c_fver, c_conf = content_quality_gate.compute_comparison_versions(
+            a,
+            b,
+            cohort_label=cohort_label,
+            comp_status=comp_status,
+            task_cells={"translation": cell_trans, "autosite": cell_auto, "coding": cell_code},
+            editorial_html="Key Engineering Takeaways Decision Scope & Limitations",
+        )
+        c_elig = eval_page(
+            rel_url,
+            "comparison",
+            pol,
+            content_version=c_cver,
+            fact_version=c_fver,
+            status=comp_status,
+            factual_conflicts=c_conf,
+        )
         c_body = f"""
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/compare/">Compare</a> / {e(a["name"])} vs {e(b["name"])}</div>
         {archive_banner}
         <span class="badge">{e(cohort_label)}</span>
         <h1 style="margin-top:8px">{e(a["name"])} vs {e(b["name"])}: Cost, Limits &amp; Capabilities</h1>
-        <p class="muted small">Source Verified via OpenRouter Public API (USD / 1M tokens). Workloads where a model lacks required capabilities are explicitly marked <strong>Not Applicable</strong>.</p>
+        <p class="muted small">Source Verified via <a href="https://openrouter.ai/api/v1/models" target="_blank" rel="noopener noreferrer">OpenRouter Public API</a> (last verified: <strong>{e(today)}</strong>, USD / 1M tokens). Workloads where a model lacks required capabilities are explicitly marked <strong>Not Applicable</strong>.</p>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Metric / Task Workload</th><th>{e(a["name"])}</th><th>{e(b["name"])}</th></tr></thead>
@@ -1633,9 +1871,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
               <tr><td>Context Window</td><td>{a["context_length"]:,} tokens</td><td>{b["context_length"]:,} tokens</td></tr>
               <tr><td>Tool Calling / Structured JSON</td><td>{"Yes" if a_caps.get("tools") else "No"} / {"Yes" if a_caps.get("structured_outputs") else "No"}</td><td>{"Yes" if b_caps.get("tools") else "No"} / {"Yes" if b_caps.get("structured_outputs") else "No"}</td></tr>
               <tr><td>Input / Output per 1M</td><td>{e(fmt_price(a["prompt_price_per_m"], a["pricing_type"]))} / {e(fmt_price(a["completion_price_per_m"], a["pricing_type"]))}</td><td>{e(fmt_price(b["prompt_price_per_m"], b["pricing_type"]))} / {e(fmt_price(b["completion_price_per_m"], b["pricing_type"]))}</td></tr>
-              <tr><td>Est. Bulk Translation (2.5M in / 2.5M out)</td><td>{render_task_cell(a, "translation", 2.5, 2.5)}</td><td>{render_task_cell(b, "translation", 2.5, 2.5)}</td></tr>
-              <tr><td>Est. Structured Data Pipeline (8M in / 2M out)</td><td>{render_task_cell(a, "autosite", 8.0, 2.0)}</td><td>{render_task_cell(b, "autosite", 8.0, 2.0)}</td></tr>
-              <tr><td>Est. Coding Agent Loop (18M in / 3.5M out)</td><td>{render_task_cell(a, "coding", 18.0, 3.5)}</td><td>{render_task_cell(b, "coding", 18.0, 3.5)}</td></tr>
+              <tr><td>Est. Bulk Translation (2.5M in / 2.5M out)</td><td>{cell_trans[0]}</td><td>{cell_trans[1]}</td></tr>
+              <tr><td>Est. Structured Data Pipeline (8M in / 2M out)</td><td>{cell_auto[0]}</td><td>{cell_auto[1]}</td></tr>
+              <tr><td>Est. Coding Agent Loop (18M in / 3.5M out)</td><td>{cell_code[0]}</td><td>{cell_code[1]}</td></tr>
               <tr><td>Full Endpoint Details</td><td><a href="/models/{e(a['slug'])}/">View {e(a["name"])} &rarr;</a></td><td><a href="/models/{e(b['slug'])}/">View {e(b["name"])} &rarr;</a></td></tr>
             </tbody>
           </table>
@@ -1643,9 +1881,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         <div class="card" style="margin-top:18px">
           <h2>Key Engineering Takeaways</h2>
           <ul>{summary_html}</ul>
-          <p class="muted small">Need custom token volumes, retry multipliers, or OpenRouter payment fee modeling? Run your exact workload in the <a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a> or the <a href="/">main token calculator</a>.</p>
+          <p class="muted small"><strong>Decision Scope &amp; Limitations:</strong> Figures compare base upstream token rates and API capability flags verified on {e(today)}. Unmeasured generation quality, latency, and tiered long-context surcharges are excluded. Need custom token volumes, retry multipliers, or OpenRouter payment fee modeling? Run your exact workload in the <a href="/tools/openrouter-cost-calculator/">OpenRouter Cost Calculator</a> or the <a href="/">main token calculator</a>.</p>
         </div>
-        {render_ad_slot(cfg, "adsense_slot_in_article")}
+        {render_ad_slot(cfg, "adsense_slot_in_article", ads_enabled=c_elig["ads_enabled"], mock_ads=(runtime_cfg["mock_ads"] and pol == "index"), runtime_cfg=runtime_cfg)}
         """
         register_page(
             f"compare/{slug}/index.html",
@@ -1661,6 +1899,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
                 body_html=c_body,
                 git_commit=git_commit,
                 index_policy=pol,
+                ads_enabled=c_elig["ads_enabled"],
+                verification_enabled=c_elig["verification_enabled"],
+                runtime_cfg=runtime_cfg,
                 breadcrumbs=[("Home", "/"), ("Compare", "/compare/"), (f"{a['name']} vs {b['name']}", rel_url)],
             ),
             status=comp_status,
@@ -1672,6 +1913,13 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
     <p class="muted">Permanent, order-independent comparison URLs pairing cross-provider real-time text models within the same capability tier ({len(active_pairs)} active).</p>
     <div class="grid">{"".join(hub_cards)}</div>
     """
+    comp_hub_elig = eval_page(
+        "/compare/",
+        "compare_hub",
+        "index",
+        content_version=content_quality_gate.compute_content_fingerprint(editorial_html="LLM API Comparisons Cost & Capabilities Side-by-Side"),
+        fact_version=sem_hash([p[2] for p in active_pairs]),
+    )
     register_page(
         "compare/index.html",
         "/compare/",
@@ -1686,6 +1934,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             body_html=compare_hub_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=comp_hub_elig["ads_enabled"],
+            verification_enabled=comp_hub_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Compare", "/compare/")],
         ),
     )
@@ -1712,6 +1963,13 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
     <p class="muted">Append-only daily price archive covering {changelog.get("latest_total_endpoints", 0)} OpenRouter endpoints (<a href="/data/price-history.csv">download CSV</a>).</p>
     {pc_table}
     """
+    pc_elig = eval_page(
+        "/price-changes/",
+        "price_history",
+        "index",
+        content_version=content_quality_gate.compute_content_fingerprint(editorial_html="LLM API Price History & Free-Tier Changes"),
+        fact_version=sem_hash([events[:100], changelog.get("snapshot_days", 1)]),
+    )
     register_page(
         "price-changes/index.html",
         "/price-changes/",
@@ -1726,6 +1984,9 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             body_html=pc_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=pc_elig["ads_enabled"],
+            verification_enabled=pc_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Price History", "/price-changes/")],
         ),
     )
@@ -1781,6 +2042,17 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
           </div>
         </div>
         """
+        r_elig = eval_page(
+            rel_url,
+            "repo_detail",
+            pol,
+            content_version=content_quality_gate.compute_content_fingerprint(
+                editorial_html=r_body,
+                policy_payload={"license": lic, "docker_status": docker_status, "docker_evidence": docker_ev},
+            ),
+            fact_version=repo_semantic_fingerprint(r),
+            has_auto_generated_copy=True,
+        )
         register_page(
             f"repos/{r['slug']}/index.html",
             rel_url,
@@ -1795,11 +2067,29 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
                 body_html=r_body,
                 git_commit=git_commit,
                 index_policy=pol,
+                ads_enabled=r_elig["ads_enabled"],
+                verification_enabled=r_elig["verification_enabled"],
+                runtime_cfg=runtime_cfg,
                 breadcrumbs=[("Home", "/"), ("Self-Hosting", "/self-hosting/"), (r["full_name"], rel_url)],
             ),
         )
 
     cat_opts = "".join(f'<option value="{e(c)}">{e(c)}</option>' for c in categories)
+    sh_intro_html = (
+        "<h1>Self-Hosted AI &amp; Automation Infrastructure Directory</h1>"
+        "<p class=\"muted\">Curated open-source AI gateways, local LLM runtimes, and workflow automation repositories. "
+        "Docker support is verified against actual repository root files (<code>Dockerfile</code> / <code>compose.yml</code>)—never guessed from descriptions.</p>"
+    )
+    sh_elig = eval_page(
+        "/self-hosting/",
+        "self_hosting_hub",
+        "index",
+        content_version=content_quality_gate.compute_content_fingerprint(
+            editorial_html=sh_intro_html,
+            policy_payload={"affiliates": [a.get("url") for a in cfg.get("monetization", {}).get("affiliates", []) if a.get("url")]},
+        ),
+        fact_version=repos_sem_sig,
+    )
     sh_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / Self-Hosting</div>
     <h1>Self-Hosted AI &amp; Automation Infrastructure Directory</h1>
@@ -1810,6 +2100,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
       <label style="cursor:pointer"><input id="repo-perm" type="checkbox" /> Permissive Licenses Only (MIT/Apache/BSD)</label>
     </div>
     <div class="grid">{"".join(repo_cards)}</div>
+    {render_ad_slot(cfg, "adsense_slot_in_article", ads_enabled=sh_elig["ads_enabled"], mock_ads=runtime_cfg["mock_ads"], runtime_cfg=runtime_cfg)}
     {render_affiliates(cfg)}
     <script>
       (function() {{
@@ -1841,10 +2132,14 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             body_html=sh_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=sh_elig["ads_enabled"],
+            verification_enabled=sh_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Self-Hosting", "/self-hosting/")],
         ),
     )
     # Keep legacy /repos/ alive with canonical pointing to /self-hosting/ (noindex duplicate protection & zero ads!)
+    repos_alias_elig = eval_page("/repos/", "alias", "noindex", content_version=sem_hash(["repos-alias"]), fact_version="static")
     repos_alias_html = render_layout(
         cfg,
         title="Self-Hosted AI Infrastructure Archive Alias | SysV",
@@ -1853,11 +2148,28 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         body_html='<div class="hero"><h1>Self-Hosted Infrastructure Directory Moved</h1><p class="muted">This directory now lives at <a href="/self-hosting/">/self-hosting/</a>.</p><p><a class="btn" href="/self-hosting/">Open Self-Hosting Directory &rarr;</a></p></div>',
         git_commit=git_commit,
         index_policy="noindex",
-        allow_ads=False,
+        ads_enabled=repos_alias_elig["ads_enabled"],
+        verification_enabled=repos_alias_elig["verification_enabled"],
+        runtime_cfg=runtime_cfg,
     )
     register_page("repos/index.html", "/repos/", "alias", "noindex", sem_hash(["repos-alias"]), repos_alias_html)
 
     # Keep /zero-cost-stack/ permanently alive (indexed guide linking to tools & self-hosting)
+    zcs_static_editorial = """
+    <h1>Zero-Cost Infrastructure &amp; AI Automation Stack Guide</h1>
+    <p class="muted">How to combine free-tier LLM APIs (no credit card), scheduled compute, static CDN hosting, and self-hosted automation with near-zero marginal cost.</p>
+    OpenRouter :free capped at 20 RPM & 50 RPD (1,000 RPD with >=$10 credits). GitHub Actions Cron + External Monitor. Cloudflare Pages / Workers Static Assets. Entry VPS ($5-$10/mo) + Docker.
+    """
+    zcs_elig = eval_page(
+        "/zero-cost-stack/",
+        "guide",
+        "index",
+        content_version=content_quality_gate.compute_content_fingerprint(
+            editorial_html=zcs_static_editorial,
+            policy_payload={"affiliates": [a.get("url") for a in cfg.get("monetization", {}).get("affiliates", []) if a.get("url")]},
+        ),
+        fact_version=sem_hash(["zcs", len(free_models)]),
+    )
     zcs_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / Zero-Cost Stack</div>
     <h1>Zero-Cost Infrastructure &amp; AI Automation Stack Guide</h1>
@@ -1873,6 +2185,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         </tbody>
       </table>
     </div>
+    {render_ad_slot(cfg, "adsense_slot_in_article", ads_enabled=zcs_elig["ads_enabled"], mock_ads=runtime_cfg["mock_ads"], runtime_cfg=runtime_cfg)}
     {render_affiliates(cfg)}
     """
     register_page(
@@ -1889,13 +2202,29 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             body_html=zcs_body,
             git_commit=git_commit,
             index_policy="index",
+            ads_enabled=zcs_elig["ads_enabled"],
+            verification_enabled=zcs_elig["verification_enabled"],
+            runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Zero-Cost Stack", "/zero-cost-stack/")],
         ),
     )
 
     # --- 8. Standalone Tool Pages (/tools/*), Ad-Free Embeds (/embed/*) & Linkable Data Assets (/data/*) ---
     tools_builder.build_tools_and_data_assets(
-        cfg, models, calc_models, changelog, git_commit, write_page, render_layout, render_embed_layout, register_page, e
+        cfg,
+        models,
+        calc_models,
+        changelog,
+        git_commit,
+        _write,
+        render_layout,
+        render_embed_layout,
+        register_page,
+        e,
+        eval_page_fn=eval_page,
+        render_ad_slot_fn=render_ad_slot,
+        runtime_cfg=runtime_cfg,
+        today=today,
     )
 
     # --- 9. Trust / Compliance Pages ---
@@ -1909,51 +2238,68 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             "About & Data Methodology | SysV",
             f"<h1>About SysV &amp; Verification Methodology</h1>"
             f"<div class='card'>"
-            f"<p><strong>SysV ({e(domain)})</strong> is an independent developer reference and cost-estimation tool that tracks live LLM API token pricing, capability flags, cross-provider free-tier limits, daily price history, and self-hosted AI infrastructure.</p>"
-            f"<p>SysV is not affiliated with, sponsored by, or endorsed by OpenRouter, OpenAI, Anthropic, Google, Groq, Cloudflare, Cerebras, or GitHub. All trademarks and model names belong to their respective owners.</p>"
-            f"<h2>Evidence &amp; Verification Standards</h2><ul>"
-            f"<li><strong>Source Verified:</strong> Retrieved daily via automated pipelines directly from the OpenRouter Public Models API and GitHub Public API, then validated by deterministic quality gates before publication.</li>"
-            f"<li><strong>Repository Verified:</strong> Self-hosting Docker support is checked directly against actual repository root files (<code>Dockerfile</code>, <code>docker-compose.yml</code>, <code>compose.yml</code>) rather than guessed from descriptions.</li>"
-            f"<li><strong>Official Docs Verified (Free-Tier Policies):</strong> Free-tier vs. time-limited trial rules (RPM, RPD, TPM, TPD, credit-card gates, and Cloudflare Workers AI Neurons) are audited against vendor documentation and monitored daily for policy drift.</li>"
-            f"<li><strong>Not Verified:</strong> Hardware RAM/GPU requirements and runtime latency are never fabricated or displayed as synthetic scores; users should confirm runtime sizing directly in upstream documentation.</li></ul>"
-            f"<h2 id='selection'>Endpoint Selection ({selection_audit.get('selected_for_display', 140)} of {selection_audit.get('total_raw_endpoints', 470)})</h2>"
+            f"<p><strong>SysV ({e(domain)})</strong> is an independent developer tool and reference website focused on LLM API token cost calculation, cross-provider free-tier limit tracking, daily price history, and self-hosted AI infrastructure.</p>"
+            f"<p>SysV is operated as an independent project and is not affiliated with, sponsored by, or endorsed by OpenRouter, OpenAI, Anthropic, Google, Groq, Cloudflare, Cerebras, or GitHub. We do not claim an external advisory board, synthetic speed tests, or unverified runtime reviews.</p>"
+            f"<h2>1. Data Acquisition &amp; Calculation Methodology</h2><ul>"
+            f"<li><strong>Source Verified:</strong> Retrieved daily via automated GitHub Actions workflows from the <a href='https://openrouter.ai/api/v1/models' target='_blank' rel='noopener noreferrer'>OpenRouter Public Models API</a> and GitHub Public API, then validated by automated factual and semantic gates before publishing.</li>"
+            f"<li><strong>Repository Verified:</strong> Self-hosting Docker support is verified against actual repository root files (<code>Dockerfile</code>, <code>docker-compose.yml</code>, <code>compose.yml</code>) rather than inferred from marketing descriptions.</li>"
+            f"<li><strong>Official Docs Verified (Free-Tier Policies):</strong> Cross-provider free tiers vs. time-limited trials (RPM, RPD, TPM, TPD, credit-card rules, and Cloudflare Workers AI Neurons) are audited against official provider docs and checked daily for policy drift.</li>"
+            f"<li><strong>Not Verified:</strong> Hardware RAM/GPU requirements and runtime inference speed are not measured on SysV and are explicitly marked <em>Not Verified</em>.</li></ul>"
+            f"<h2>2. Automated Updates vs. Manual Human Review</h2>"
+            f"<p>SysV separates deterministic calculator logic, daily structured upstream data, automated explanatory summaries, and human-reviewed editorial pages. Automated factual gates catch pricing or capability contradictions, while monetization eligibility requires explicit human review records tracked in our review ledger rather than automatic approval.</p>"
+            f"<h2 id='selection'>3. Endpoint Selection ({selection_audit.get('selected_for_display', 140)} of {selection_audit.get('total_raw_endpoints', 470)})</h2>"
             f"<p class='muted'>{e(selection_audit.get('selection_rationale', ''))}</p><ul>{breakdown_rows}</ul>"
-            f"<h2>Open Data &amp; Ad-Free Embeds</h2>"
-            f"<p>Machine-readable JSON snapshots, 30-day CSV price history, and RSS feeds are published openly under <a href='/data/'>/data/</a>. Embeddable calculator widgets under <code>/embed/</code> contain zero advertisements and zero third-party analytics.</p>"
-            f"<h2 id='partners'>Advertising &amp; Affiliate Disclosure</h2>"
-            f"<p class='muted'>To keep SysV free to use, content pages may display Google AdSense advertisements or clearly labeled <code>sponsored</code> infrastructure affiliate links (such as Vultr and DMIT). Model rankings, calculator outputs, and capability gates are computed strictly from public pricing and API metadata and are never influenced by commercial partnerships.</p>"
-            f"<p>Spotted an outdated limit or pricing discrepancy? Reach us via our <a href='/contact/'>Contact page</a> or email <a href='mailto:{e(email)}'>{e(email)}</a>.</p>"
+            f"<h2>4. Open Data &amp; Ad-Free Embeds</h2>"
+            f"<p>Machine-readable JSON snapshots, 30-day CSV price history, and RSS feeds are published under <a href='/data/'>/data/</a>. Embeddable calculator widgets under <code>/embed/</code> contain zero advertisements and zero third-party analytics.</p>"
+            f"<h2 id='partners'>5. Advertising &amp; Affiliate Independence</h2>"
+            f"<p class='muted'>SysV may use Google AdSense on approved content pages and clearly labeled <code>rel=&quot;sponsored&quot;</code> infrastructure affiliate links (Vultr and DMIT) on self-hosting and VPS cost pages. Calculator math, model rankings, and capability gates are strictly deterministic from public API metadata and never influenced by advertising or affiliate commissions.</p>"
+            f"<h2>6. Error Reports &amp; Corrections</h2>"
+            f"<p>Found an outdated price, free-tier policy change, or capability mismatch? Report it via our <a href='/contact/'>Contact page</a> or email <a href='mailto:{e(email)}'>{e(email)}</a>.</p>"
             f"</div>",
         ),
         (
             "/privacy/",
             "Privacy Policy | SysV",
             f"<h1>Privacy Policy</h1><div class='card'>"
-            f"<p><strong>Effective Date:</strong> 2026-11-24 &middot; <strong>Last Updated:</strong> 2026-11-27</p>"
-            f"<p>SysV (<strong>{e(domain)}</strong>) is a static, read-only informational website and client-side cost calculator. We do not offer user accounts, logins, comment forms, or server-side databases, and all calculator inputs are processed locally inside your web browser without being transmitted to our servers.</p>"
-            f"<h2>1. Google AdSense &amp; Third-Party Advertising Cookies</h2>"
-            f"<p>Content pages on {e(domain)} use <strong>Google AdSense</strong> to display advertisements. Third-party vendors, including Google, use cookies to serve ads based on a user&rsquo;s prior visits to this website or other websites on the internet. Google&rsquo;s use of advertising cookies enables Google and its partners to serve ads based on your visit to {e(domain)} and/or other sites.</p>"
+            f"<p><strong>Effective Date:</strong> 2026-11-24 &middot; <strong>Last Updated:</strong> {e(today)}</p>"
+            f"<p><strong>Operator &amp; Contact:</strong> SysV (<strong>{e(domain)}</strong>) is an independent static developer tool website. For privacy questions or data inquiries, contact <a href='mailto:{e(email)}'>{e(email)}</a>.</p>"
+            f"<p>SysV has no user accounts, login forms, server-side user databases, or comment systems. All token calculator inputs are computed locally in your browser and are never transmitted to SysV servers.</p>"
+            f"<h2>1. Audited Data Processing &amp; Third-Party Services Inventory</h2>"
+            f"<div class='table-wrap'><table><thead><tr><th>Service / Technology</th><th>Used on {e(domain)}?</th><th>Data &amp; Purpose</th></tr></thead><tbody>"
+            f"<tr><td><strong>Google AdSense</strong></td><td>Configured (eligible content pages in live mode only)</td><td>Third-party advertising and measurement cookies when active and permitted by regional consent rules. Never loaded on 404, Privacy, Terms, Contact, or <code>/embed/</code> pages.</td></tr>"
+            f"<tr><td><strong>Google Analytics</strong></td><td>No</td><td>Not installed on {e(domain)}.</td></tr>"
+            f"<tr><td><strong>Cloudflare Web Analytics</strong></td><td>Yes</td><td>Cookieless, aggregate page views and Core Web Vitals performance telemetry.</td></tr>"
+            f"<tr><td><strong>Cloudflare CDN &amp; Security</strong></td><td>Yes</td><td>Edge HTTPS delivery, DDoS mitigation, and standard transient HTTP request logs.</td></tr>"
+            f"<tr><td><strong>GitHub Pages</strong></td><td>Yes</td><td>Static HTML/CSS/JS origin hosting.</td></tr>"
+            f"<tr><td><strong>First-Party Cookies / Local Storage</strong></td><td>No</td><td>SysV sets zero first-party cookies and does not use <code>localStorage</code> or <code>sessionStorage</code>.</td></tr>"
+            f"<tr><td><strong>Affiliate Links (Vultr, DMIT)</strong></td><td>Yes (self-hosting/VPS pages only)</td><td>Outbound <code>rel=&quot;sponsored&quot;</code> referral links; partner sites may set cookies on their own domains after you click.</td></tr>"
+            f"<tr><td><strong>External Web Fonts / Forms</strong></td><td>No</td><td>Uses native system fonts only; contact is via direct <code>mailto:</code> link without web forms.</td></tr>"
+            f"</tbody></table></div>"
+            f"<h2>2. Third-Party Advertising &amp; Google Cookies</h2>"
+            f"<p>When Google AdSense is active on eligible content pages, third-party vendors, including Google, use cookies to serve ads based on a user&rsquo;s prior visits to {e(domain)} or other websites on the internet. Google&rsquo;s use of advertising cookies enables Google and its partners to serve ads based on your visit to this site and/or other sites.</p>"
             f"<ul>"
-            f"<li>You may opt out of personalized advertising at any time by visiting <a href='https://adssettings.google.com/' target='_blank' rel='noopener noreferrer'>Google Ads Settings</a>.</li>"
-            f"<li>You can also opt out of a third-party vendor&rsquo;s use of cookies for personalized advertising via <a href='https://www.aboutads.info/choices/' target='_blank' rel='noopener noreferrer'>aboutads.info</a>.</li>"
-            f"<li>Learn more about how Google uses data when you use partner sites at <a href='https://policies.google.com/technologies/partner-sites' target='_blank' rel='noopener noreferrer'>Google&rsquo;s Privacy &amp; Terms</a>.</li>"
+            f"<li>Manage or opt out of Google personalized advertising at <a href='https://myadcenter.google.com/' target='_blank' rel='noopener noreferrer'>Google My Ad Center</a>.</li>"
+            f"<li>Review how Google uses cookies and data in advertising at <a href='https://policies.google.com/technologies/ads' target='_blank' rel='noopener noreferrer'>Google Advertising Policies</a> and <a href='https://policies.google.com/technologies/partner-sites' target='_blank' rel='noopener noreferrer'>Google Partner Sites Policy</a>.</li>"
+            f"<li>Opt out of participating third-party vendors&rsquo; personalized advertising cookies at <a href='https://optout.aboutads.info/' target='_blank' rel='noopener noreferrer'>Digital Advertising Alliance (optout.aboutads.info)</a>.</li>"
             f"</ul>"
-            f"<p>AdSense scripts are intentionally excluded from error pages (<code>404</code>), legal pages, and ad-free calculator embeds under <code>/embed/</code>.</p>"
-            f"<h2>2. Consent Management (EEA, UK, Switzerland &amp; US States)</h2>"
-            f"<p>For visitors in the European Economic Area (EEA), the United Kingdom, and Switzerland, {e(domain)} uses Google&rsquo;s certified Consent Management Platform (CMP) to request and record your consent choices under GDPR and ePrivacy rules. For visitors in applicable US states (including California under CCPA/CPRA), privacy notice and opt-out controls are presented via Google&rsquo;s US state regulations framework. You can review or withdraw your consent at any time using the privacy link provided at the bottom of eligible pages.</p>"
-            f"<h2>3. Privacy-First Analytics &amp; Hosting Logs</h2>"
-            f"<p>We use <strong>Cloudflare Web Analytics</strong> to measure aggregate page views and Core Web Vitals performance without setting client-side tracking cookies or collecting personally identifiable user profiles. Our static hosting and CDN providers (GitHub Pages and Cloudflare) may process standard HTTP request metadata (such as IP address and user agent) temporarily to deliver content and prevent abuse.</p>"
-            f"<h2>4. Outbound Affiliate &amp; External Links</h2>"
-            f"<p>Selected infrastructure recommendations are marked <code>rel=&quot;sponsored&quot;</code> (including Vultr and DMIT). Clicking an external or affiliate link navigates you to a third-party website governed by that provider&rsquo;s own privacy policy and cookie practices.</p>"
-            f"<h2>5. Contact &amp; Privacy Requests</h2>"
-            f"<p>If you have questions about this Privacy Policy or wish to submit a privacy inquiry regarding {e(domain)}, please email <a href='mailto:{e(email)}'>{e(email)}</a>.</p>"
+            f"<h2 id='consent-settings'>3. Consent Management &amp; Regional Privacy Rights (EEA/UK/Switzerland &amp; US States)</h2>"
+            f"<p>Privacy requirements differ by region. Where applicable (including the EEA, UK, Switzerland under GDPR/ePrivacy, and applicable US states under state privacy statutes such as CCPA/CPRA), Google&rsquo;s Privacy &amp; messaging Consent Management Platform (CMP) is used to offer <strong>Consent</strong>, <strong>Do not consent</strong>, and <strong>Manage options</strong> controls when ad serving is enabled.</p>"
+            f"<ul>"
+            f"<li><strong>Refusing Consent:</strong> Declining advertising cookies never disables or restricts any SysV cost calculator, pricing table, or open dataset.</li>"
+            f"<li><strong>Changing or Withdrawing Consent:</strong> This section documents your privacy options and does not itself load Google Funding Choices or AdSense scripts. When live ad serving is active on approved content pages, Google&rsquo;s official CMP automatically provides a consent revocation control (and footer <em>Manage Ad Consent</em> trigger) in applicable regions; real live CMP behavior is tracked as <em>Pending Live Verification</em> until live ad serving is approved. You may also clear browser cookies or update preferences at <a href='https://myadcenter.google.com/' target='_blank' rel='noopener noreferrer'>myadcenter.google.com</a> and <a href='https://optout.aboutads.info/' target='_blank' rel='noopener noreferrer'>optout.aboutads.info</a>.</li>"
+            f"<li><strong>No Consent-Gated Scripts Here:</strong> This Privacy Policy page intentionally omits AdSense and Funding Choices tags so you can always read disclosures without triggering ad scripts.</li>"
+            f"</ul>"
+            f"<h2>4. Affiliate Relationships</h2>"
+            f"<p>SysV participates in infrastructure referral programs (Vultr and DMIT) on self-hosting and VPS cost-comparison pages. Every affiliate link is explicitly labeled with <code>rel=&quot;sponsored&quot;</code> and may earn a referral commission at no extra cost to you. Affiliate relationships never influence calculator formulas or model rankings.</p>"
+            f"<h2>5. Data Retention &amp; User Rights</h2>"
+            f"<p>Because SysV does not collect or store personal user profiles on its own servers, we do not retain personal account databases. Infrastructure logs and third-party ad/analytics telemetry are governed by the respective retention policies of Cloudflare, GitHub, and Google. Depending on your jurisdiction, you may have rights to access, delete, or opt out of personalized advertising or data sharing; contact <a href='mailto:{e(email)}'>{e(email)}</a> for assistance with any request related to {e(domain)}.</p>"
             f"</div>",
         ),
         (
             "/terms/",
             "Terms of Use | SysV",
             f"<h1>Terms of Use</h1><div class='card'>"
-            f"<p><strong>Effective Date:</strong> 2026-11-24 &middot; <strong>Last Updated:</strong> 2026-11-27</p>"
+            f"<p><strong>Effective Date:</strong> 2026-11-24 &middot; <strong>Last Updated:</strong> {e(today)}</p>"
             f"<p>By accessing or using SysV (<strong>{e(domain)}</strong>), you agree to these Terms of Use. If you do not agree, please discontinue use of the site.</p>"
             f"<h2>1. Informational Purpose &amp; Pricing Accuracy</h2>"
             f"<p>All LLM API token prices, fee simulations, free-tier quota summaries, comparison tables, and self-hosting profiles published on {e(domain)} are provided strictly &ldquo;as-is&rdquo; for informational comparison. Upstream AI vendors frequently change token rates, rate limits, trial terms, and tiered context surcharges without notice. Always verify live pricing, billing policies, and open-source <code>LICENSE</code> files directly with the upstream provider before making production or financial commitments.</p>"
@@ -1962,7 +2308,7 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
             f"<h2>3. Open Datasets &amp; Embeddable Calculators</h2>"
             f"<p>Public JSON and CSV files published under <a href='/data/'>/data/</a> are made available under CC-BY-4.0 attribution terms (subject to upstream API data policies). Ad-free widgets under <code>/embed/</code> may be embedded via <code>&lt;iframe&gt;</code> on external documentation or blogs provided you do not misrepresent SysV data or inject deceptive overlays.</p>"
             f"<h2>4. Affiliate &amp; Advertising Disclosure</h2>"
-            f"<p>SysV may earn advertising revenue via Google AdSense and referral commissions from clearly labeled <code>sponsored</code> affiliate links at no additional cost to you.</p>"
+            f"<p>SysV may earn advertising revenue via Google AdSense on approved content pages and referral commissions from clearly labeled <code>sponsored</code> affiliate links on self-hosting/VPS pages at no additional cost to you.</p>"
             f"<h2>5. Limitation of Liability</h2>"
             f"<p>To the maximum extent permitted by applicable law, SysV and its operators shall not be liable for any direct, indirect, incidental, or consequential damages (including unexpected API billing overages or service downtime) arising from reliance on estimates or data displayed on this website.</p>"
             f"<p>Questions regarding these terms may be directed to <a href='mailto:{e(email)}'>{e(email)}</a>.</p>"
@@ -1987,12 +2333,15 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
     ]
     for path, title, body in trust_defs:
         pol = seo_gate.decide_static_index_policy(path)
+        t_page_type = "legal" if path in ("/privacy/", "/terms/", "/contact/") else "trust"
+        t_cver = content_quality_gate.compute_content_fingerprint(editorial_html=body)
+        t_elig = eval_page(path, t_page_type, pol, content_version=t_cver, fact_version=sem_hash([path, breakdown if path == "/about/" else "static"]))
         register_page(
             f"{path.strip('/')}/index.html",
             path,
-            "trust",
+            t_page_type,
             pol,
-            sem_hash([path, "trust-v2.2.2", TEMPLATE_VERSION, breakdown if path == "/about/" else "static"]),
+            t_cver,
             render_layout(
                 cfg,
                 title=title,
@@ -2001,38 +2350,53 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
                 body_html=body,
                 git_commit=git_commit,
                 index_policy=pol,
+                ads_enabled=t_elig["ads_enabled"],
+                verification_enabled=t_elig["verification_enabled"],
+                runtime_cfg=runtime_cfg,
                 breadcrumbs=[("Home", "/"), (title.split(" | ")[0], path)],
             ),
         )
 
     # --- 10. 404 Page (noindex & strictly ad-free per AdSense policy) ---
+    nf_body = "<div class='hero'><h1>404 — Page Not Found</h1><p class='muted'>The requested URL was not found. Delisted model pages remain archived under <a href='/models/'>/models/</a>.</p><p><a class='btn' href='/'>Back to LLM Pricing &amp; Calculator &rarr;</a></p></div>"
+    nf_elig = eval_page("/404.html", "error", "noindex", content_version=content_quality_gate.compute_content_fingerprint(editorial_html=nf_body), fact_version="static")
     not_found_html = render_layout(
         cfg,
         title="404 Page Not Found | SysV",
         description="Requested page not found.",
         canonical_path="/404.html",
-        body_html="<div class='hero'><h1>404 — Page Not Found</h1><p class='muted'>The requested URL was not found. Delisted model pages remain archived under <a href='/models/'>/models/</a>.</p><p><a class='btn' href='/'>Back to LLM Pricing &amp; Calculator &rarr;</a></p></div>",
+        body_html=nf_body,
         git_commit=git_commit,
         index_policy="noindex",
-        allow_ads=False,
+        ads_enabled=nf_elig["ads_enabled"],
+        verification_enabled=nf_elig["verification_enabled"],
+        runtime_cfg=runtime_cfg,
     )
-    write_page("404.html", not_found_html)
+    _write("404.html", not_found_html)
 
-    # --- 11. Reconcile Permanent Page Registry, Sitemap (INDEX ONLY!), Feeds, Manifest ---
-    published_pages = update_published_pages_registry(page_records, now_iso=now_iso, today=today)
+    # --- 11. Reconcile Permanent Page Registry, Sitemap (INDEX ONLY!), Feeds, Manifest & Audit Reports ---
+    published_pages = update_published_pages_registry(page_records, registry_path=pub_pages_path, now_iso=now_iso, today=today)
     base = cfg["base_url"].rstrip("/")
     sitemap_nodes = [
         f"  <url><loc>{e(base + u)}</loc><lastmod>{meta['lastmod']}</lastmod></url>"
         for u, meta in sorted(published_pages.items())
         if meta.get("status") != "gone" and meta.get("index_policy") == "index"
     ]
-    write_page(
+    _write(
         "sitemap.xml",
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "\n".join(sitemap_nodes)
         + "\n</urlset>\n",
     )
-    write_page("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n")
+    _write(
+        "robots.txt",
+        "User-agent: Googlebot\nAllow: /\n\n"
+        "User-agent: Mediapartners-Google\nAllow: /\n\n"
+        "User-agent: Google-Display-Ads-Bot\nAllow: /\n\n"
+        "User-agent: AdsBot-Google\nAllow: /\n\n"
+        "User-agent: *\nAllow: /\n\n"
+        f"Sitemap: {base}/sitemap.xml\n",
+    )
 
     feed_items = "\n".join(
         "    <item>\n"
@@ -2043,19 +2407,19 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         "    </item>"
         for m in active_models[:20]
     )
-    write_page(
+    _write(
         "feed.xml",
         '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n'
         f"    <title>SysV LLM API Pricing Feed</title>\n    <link>{e(base)}/</link>\n"
         f"    <description>{e(cfg['description'])}</description>\n{feed_items}\n  </channel>\n</rss>\n",
     )
-    write_page(
+    _write(
         "favicon.svg",
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#1d1d1f"/>'
         '<text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="600" font-size="27" letter-spacing="-1" fill="#ffffff">SV</text></svg>\n',
     )
-    write_page("CNAME", f"{cfg['domain']}\n")
-    write_page(
+    _write("CNAME", f"{cfg['domain']}\n")
+    _write(
         "_headers",
         "/*\n"
         "  X-Content-Type-Options: nosniff\n"
@@ -2071,18 +2435,22 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
 
     client_id = str(cfg.get("monetization", {}).get("adsense_client_id") or "").strip()
     if client_id:
-        write_page("ads.txt", f"google.com, {client_id.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
+        _write("ads.txt", f"google.com, {client_id.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
 
     indexnow_key = os.getenv("INDEXNOW_KEY", "").strip()
     if indexnow_key:
-        write_page(f"{indexnow_key}.txt", f"{indexnow_key}\n")
+        _write(f"{indexnow_key}.txt", f"{indexnow_key}\n")
 
     version_manifest = {
         "site": cfg["domain"],
         "version": TEMPLATE_VERSION,
+        "build_id": build_id,
         "deploy_target": os.getenv("DEPLOY_TARGET", "github-pages"),
         "git_commit": git_commit,
         "built_at_utc": now_iso,
+        "ad_mode": runtime_cfg["effective_ad_mode"],
+        "prod_authorized": runtime_cfg["prod_authorized"],
+        "preview_mode": runtime_cfg["preview_mode"],
         "sitemap_indexable_urls": len(sitemap_nodes),
         "active_models": len(active_models),
         "delisted_models": sum(1 for m in models if m.get("status") == "delisted"),
@@ -2091,8 +2459,28 @@ def main(today_override: str | None = None, now_iso_override: str | None = None)
         "active_comparisons": len(active_pairs),
         "snapshot_days": changelog.get("snapshot_days", 1),
     }
-    write_page("version.json", json.dumps(version_manifest, indent=2) + "\n")
-    print(f"[build_site] Built V2.2 site: {len(page_records)} total pages, {len(sitemap_nodes)} indexable in sitemap.xml (commit={git_commit})")
+    _write("version.json", json.dumps(version_manifest, indent=2) + "\n")
+
+    # Export machine-readable ad eligibility ledger & prioritized manual review queue (outside dist/)
+    save_json(
+        target_reports / "page_ad_eligibility.json",
+        {
+            "schema_version": "1.1",
+            "build_id": build_id,
+            "generated_at_utc": now_iso,
+            "git_commit": git_commit,
+            "runtime": runtime_cfg,
+            "pages": dict(sorted(page_eligibility.items())),
+        },
+    )
+    queue_report = content_quality_gate.write_manual_review_queue(page_eligibility, output_path=target_reports / "manual_review_queue.json")
+    print(
+        f"[build_site] Built V2.2 site: {len(page_records)} total pages, {len(sitemap_nodes)} indexable in sitemap.xml "
+        f"(ad_mode={runtime_cfg['effective_ad_mode']}, prod_auth={runtime_cfg['prod_authorized']}, "
+        f"ads_eligible={sum(1 for p in page_eligibility.values() if p['ads_eligible'])}, "
+        f"ads_enabled={sum(1 for p in page_eligibility.values() if p['ads_enabled'])}, "
+        f"review_queue={queue_report['summary']['total_pending_manual_review']}, commit={git_commit})"
+    )
 
 
 if __name__ == "__main__":

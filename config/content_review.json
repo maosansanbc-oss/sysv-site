@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0",
+  "policy_note": "Traceable manual human review ledger for SysV monetization eligibility. Automated code MUST NEVER write review_status='approved'. Pages default to 'unreviewed' (ads_eligible=false) until a real human reviewer verifies content accuracy, user utility, and policy compliance.",
+  "valid_statuses": [
+    "unreviewed",
+    "approved",
+    "needs_review",
+    "rejected"
+  ],
+  "records": {
+    "/": {
+      "url": "/",
+      "page_type": "home",
+      "content_version": null,
+      "fact_version": null,
+      "review_scope": "core_landing_and_token_calculator",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_status": "unreviewed",
+      "open_issues": [
+        "Pending real human editorial and AdSense readiness review before enabling live ads"
+      ]
+    },
+    "/free-llm-apis/": {
+      "url": "/free-llm-apis/",
+      "page_type": "free_hub",
+      "content_version": null,
+      "fact_version": null,
+      "review_scope": "free_tier_policy_matrix_and_quota_calculator",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_status": "unreviewed",
+      "open_issues": [
+        "Pending real human verification of all provider free-tier policies and calculator outputs"
+      ]
+    },
+    "/tools/openrouter-cost-calculator/": {
+      "url": "/tools/openrouter-cost-calculator/",
+      "page_type": "tool",
+      "content_version": null,
+      "fact_version": null,
+      "review_scope": "standalone_cost_calculator",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_status": "unreviewed",
+      "open_issues": [
+        "Pending real human review of OpenRouter fee rules, worked example, and UX layout"
+      ]
+    },
+    "/tools/n8n-ai-workflow-cost-calculator/": {
+      "url": "/tools/n8n-ai-workflow-cost-calculator/",
+      "page_type": "tool",
+      "content_version": null,
+      "fact_version": null,
+      "review_scope": "standalone_cost_calculator_and_affiliate_context",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_status": "unreviewed",
+      "open_issues": [
+        "Pending real human review of n8n Cloud vs self-hosted math and affiliate disclosures"
+      ]
+    },
+    "/tools/llm-translation-cost-calculator/": {
+      "url": "/tools/llm-translation-cost-calculator/",
+      "page_type": "tool",
+      "content_version": null,
+      "fact_version": null,
+      "review_scope": "standalone_cost_calculator",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_status": "unreviewed",
+      "open_issues": [
+        "Pending real human review of bulk document token formula and sync vs batch guidance"
+      ]
+    },
+    "/tools/api-vs-local-llm-calculator/": {
+      "url": "/tools/api-vs-local-llm-calculator/",
+      "page_type": "tool",
+      "content_version": null,
+      "fact_version": null,
+      "review_scope": "standalone_cost_calculator_and_affiliate_context",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_status": "unreviewed",
+      "open_issues": [
+        "Pending real human review of hardware break-even assumptions and disclosures"
+      ]
+    },
+    "/self-hosting/": {
+      "url": "/self-hosting/",
+      "page_type": "self_hosting_hub",
+      "content_version": null,
+      "fact_version": null,
+      "review_scope": "repository_verified_self_hosting_directory",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_status": "unreviewed",
+      "open_issues": [
+        "Pending real human review of curated repos and affiliate disclosures"
+      ]
+    },
+    "/zero-cost-stack/": {
+      "url": "/zero-cost-stack/",
+      "page_type": "guide",
+      "content_version": null,
+      "fact_version": null,
+      "review_scope": "deployment_architecture_guide",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_status": "unreviewed",
+      "open_issues": [
+        "Pending real human review of deployment steps, cost limits, and external sources"
+      ]
+    },
+    "/about/": {
+      "url": "/about/",
+      "page_type": "trust",
+      "content_version": null,
+      "fact_version": null,
+      "review_scope": "methodology_and_independence_disclosure",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_status": "unreviewed",
+      "open_issues": [
+        "Pending real human review of methodology and operator disclosures"
+      ]
+    }
+  }
+}
