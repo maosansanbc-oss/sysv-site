@@ -1,9 +1,144 @@
 {
-  "updated_at": "2026-11-27",
-  "snapshot_days": 4,
+  "updated_at": "2026-11-28",
+  "snapshot_days": 5,
   "first_snapshot_date": "2026-11-24",
-  "latest_total_endpoints": 477,
+  "latest_total_endpoints": 476,
   "events": [
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "thinkingmachines/inkling-2-mini",
+      "name": "Thinking Machines: Inkling 2 Mini",
+      "slug": "thinkingmachines-inkling-2-mini",
+      "detail": "Input $0.075 -> $0.06, Output $0.3 -> $0.24 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "new_model",
+      "model_id": "inclusionai/ling-3.2-flash",
+      "name": "inclusionAI: Ling 3.2 Flash",
+      "slug": "inclusionai-ling-3-2-flash",
+      "detail": "Added (paid) — In: 0.3 / Out: 0.9 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "thinkingmachines/inkling-2-small",
+      "name": "Thinking Machines: Inkling 2 Small",
+      "slug": "thinkingmachines-inkling-2-small",
+      "detail": "Input $0.3 -> $0.15, Output $1.0 -> $0.5 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4.1-flash-1017",
+      "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+      "slug": "deepseek-deepseek-v4-1-flash-1017",
+      "detail": "Input $0.3 -> $0.15, Output $1.2 -> $0.6 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "reflection/beam-1.0-501b-a23b",
+      "name": "Reflection: Beam 1.0 501B A23B",
+      "slug": "reflection-beam-1-0-501b-a23b",
+      "detail": "Input $0.3 -> $0.25, Output $1.0 -> $1.0 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "nvidia/nemotron-3.5-super-vl",
+      "name": "NVIDIA: Nemotron 3.5 Super VL",
+      "slug": "nvidia-nemotron-3-5-super-vl",
+      "detail": "Input $0.15 -> $0.15, Output $0.47 -> $0.45 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_hike",
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "name": "DeepSeek: DeepSeek V4.1 Flash",
+      "slug": "deepseek-deepseek-v4-1-flash",
+      "detail": "Input $0.14 -> $0.051, Output $0.42 -> $0.567 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "nvidia/nemotron-3.5-lightning",
+      "name": "NVIDIA: Nemotron 3.5 Lightning",
+      "slug": "nvidia-nemotron-3-5-lightning",
+      "detail": "Input $0.07 -> $0.05, Output $0.2 -> $0.2 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "~deepseek/deepseek-v4-flash-latest",
+      "name": "DeepSeek: DeepSeek V4 Flash Latest",
+      "slug": "deepseek-deepseek-v4-flash-latest",
+      "detail": "Input $0.047 -> $0.04532, Output $0.3 -> $0.13596 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4-flash-0731",
+      "name": "DeepSeek: DeepSeek V4 Flash 0731",
+      "slug": "deepseek-deepseek-v4-flash-0731",
+      "detail": "Input $0.047 -> $0.0456, Output $0.3 -> $0.3 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro 0423",
+      "slug": "deepseek-deepseek-v4-pro",
+      "detail": "Input $0.888188 -> $0.43109, Output $1.5082 -> $1.5509 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "google/gemma-4-26b-a4b-it",
+      "name": "Google: Gemma 4 26B A4B",
+      "slug": "google-gemma-4-26b-a4b-it",
+      "detail": "Input $0.09 -> $0.0675, Output $0.3 -> $0.225 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "qwen/qwen3.5-9b",
+      "name": "Qwen: Qwen3.5-9B",
+      "slug": "qwen-qwen3-5-9b",
+      "detail": "Input $0.1 -> $0.085, Output $0.25 -> $0.125 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "price_drop",
+      "model_id": "google/gemma-3-4b-it",
+      "name": "Google: Gemma 3 4B",
+      "slug": "google-gemma-3-4b-it",
+      "detail": "Input $0.05 -> $0.04, Output $0.1 -> $0.05 per 1M"
+    },
+    {
+      "date": "2026-11-28",
+      "compared_to": "2026-11-27",
+      "type": "free_removed",
+      "model_id": "inclusionai/ling-3.2-flash:free",
+      "name": "inclusionAI: Ling 3.2 Flash (free)",
+      "slug": "inclusionai-ling-3-2-flash-free",
+      "detail": "Absent from OpenRouter active free registry"
+    },
     {
       "date": "2026-11-27",
       "compared_to": "2026-11-26",

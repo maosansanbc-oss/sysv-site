@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-11-27T03:02:24Z",
+  "updated_utc": "2026-11-28T02:58:37Z",
   "note": "Structured cross-provider Free LLM API policy database. Distinguishes permanently free, credit-unlocked free tiers, and time-limited free trials. Never claim verified when stale or unverified.",
   "providers": [
     {
@@ -33,13 +33,13 @@
       "verification_status": "DOC_CHANGED_SIGNAL_STABLE",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "5e4dbc6bdfaa28d0",
-      "last_checked_utc": "2026-11-27T03:02:24Z",
+      "last_checked_utc": "2026-11-28T02:58:37Z",
       "verification_reason": "doc_html_changed_core_signals_unchanged",
       "policy_signal_hash": "8f5ac553e273a077",
       "consecutive_fetch_errors": 0,
-      "pending_source_hash": "fb7e1ba102c83463",
+      "pending_source_hash": "869d0ed0ab55f9f0",
       "pending_signal_hash": "8f5ac553e273a077",
-      "drift_detected_utc": "2026-11-27T03:02:24Z"
+      "drift_detected_utc": "2026-11-28T02:58:37Z"
     },
     {
       "id": "google_gemini",
@@ -67,13 +67,13 @@
       "source_url": "https://ai.google.dev/gemini-api/docs/rate-limits",
       "last_verified_date": "2026-11-26",
       "max_freshness_days": 14,
-      "verification_status": "FETCH_ERROR_CACHED",
+      "verification_status": "FETCH_ERROR_PERSISTENT",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "f849843c103ea67e",
-      "last_checked_utc": "2026-11-27T03:02:24Z",
-      "verification_reason": "transient_fetch_error_2_using_fresh_cache",
+      "last_checked_utc": "2026-11-28T02:58:37Z",
+      "verification_reason": "consecutive_fetch_errors_3",
       "policy_signal_hash": "8fb8fef5cc524b1e",
-      "consecutive_fetch_errors": 2
+      "consecutive_fetch_errors": 3
     },
     {
       "id": "groq",
@@ -115,7 +115,7 @@
       "verification_status": "OFFICIAL_DOCS_VERIFIED",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "e5919df579be0423",
-      "last_checked_utc": "2026-11-27T03:02:24Z",
+      "last_checked_utc": "2026-11-28T02:58:37Z",
       "verification_reason": "ok",
       "policy_signal_hash": "e3b0c44298fc1c14",
       "consecutive_fetch_errors": 0
@@ -151,7 +151,7 @@
       "verification_status": "OFFICIAL_DOCS_VERIFIED",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "44c02782efd6b6ca",
-      "last_checked_utc": "2026-11-27T03:02:24Z",
+      "last_checked_utc": "2026-11-28T02:58:37Z",
       "verification_reason": "ok",
       "policy_signal_hash": "50537845453cdc1b",
       "consecutive_fetch_errors": 0
@@ -186,13 +186,13 @@
       "verification_status": "DOC_CHANGED_SIGNAL_STABLE",
       "runtime_availability": "NOT_LIVE_PROBED",
       "source_content_hash": "af30062d54eb841e",
-      "last_checked_utc": "2026-11-27T03:02:24Z",
+      "last_checked_utc": "2026-11-28T02:58:37Z",
       "verification_reason": "doc_html_changed_core_signals_unchanged",
       "policy_signal_hash": "07ea1874c07c5656",
       "consecutive_fetch_errors": 0,
-      "pending_source_hash": "fdfe80fb7c822101",
+      "pending_source_hash": "a547430833db7b1c",
       "pending_signal_hash": "07ea1874c07c5656",
-      "drift_detected_utc": "2026-11-27T03:02:24Z"
+      "drift_detected_utc": "2026-11-28T02:58:37Z"
     }
   ],
   "policy_history": [

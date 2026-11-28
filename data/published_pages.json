@@ -5,8 +5,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "fb247205708695a3",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "6e0579828993a7de",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/about/": {
     "url": "/about/",
@@ -14,8 +14,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "28c78fd730498498",
-    "lastmod": "2026-11-27T08:56:16Z"
+    "semantic_hash": "bf615093e79d3e43",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/": {
     "url": "/compare/",
@@ -23,8 +23,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "2fa4f08f2ef9f95a",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "1eedece9cf87b595",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-1-terminus/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-deepseek-deepseek-v3-1-terminus/",
@@ -62,14 +62,23 @@
     "semantic_hash": "e1c5f605ad1d48de",
     "lastmod": "2026-11-27T07:05:32Z"
   },
+  "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen-2-5-coder-32b-instruct/": {
+    "url": "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen-2-5-coder-32b-instruct/",
+    "page_type": "comparison",
+    "status": "active",
+    "index_policy": "index",
+    "first_published": "2026-11-28",
+    "semantic_hash": "a439b7296b29ca55",
+    "lastmod": "2026-11-28T02:58:59Z"
+  },
   "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-30b-a3b-instruct/",
     "page_type": "comparison",
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "700a9ee21086b063",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "b6d8f9e19cda0a8a",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-flash/": {
     "url": "/compare/anthropic-claude-haiku-5-5-vs-qwen-qwen3-coder-flash/",
@@ -101,11 +110,11 @@
   "/compare/baidu-ernie-5-5-flash-preview-free-vs-inclusionai-ling-3-2-flash-free/": {
     "url": "/compare/baidu-ernie-5-5-flash-preview-free-vs-inclusionai-ling-3-2-flash-free/",
     "page_type": "comparison",
-    "status": "active",
-    "index_policy": "index",
+    "status": "archived",
+    "index_policy": "archived",
     "first_published": "2026-11-24",
-    "semantic_hash": "4a916e7bb54afc4d",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "48ad69b606fef5f8",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/baidu-ernie-5-5-flash-preview-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/baidu-ernie-5-5-flash-preview-free-vs-particle-ai-particle-1-free/",
@@ -122,8 +131,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "60a548f4feb92e07",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "0e25d71cf15277b8",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/deepseek-deepseek-v3-2-exp-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/deepseek-deepseek-v3-2-exp-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -131,8 +140,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "dcf4b62e34120bb7",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "54f54d2db45bd00f",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/deepseek-deepseek-v3-2-vs-qwen-qwen3-coder-30b-a3b-instruct/": {
     "url": "/compare/deepseek-deepseek-v3-2-vs-qwen-qwen3-coder-30b-a3b-instruct/",
@@ -140,8 +149,17 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ecb96e1eed271f39",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "38eb4ff2963bd490",
+    "lastmod": "2026-11-28T02:58:59Z"
+  },
+  "/compare/deepseek-deepseek-v3-2-vs-qwen-qwen3-coder-next/": {
+    "url": "/compare/deepseek-deepseek-v3-2-vs-qwen-qwen3-coder-next/",
+    "page_type": "comparison",
+    "status": "active",
+    "index_policy": "index",
+    "first_published": "2026-11-28",
+    "semantic_hash": "33a66057b31a0410",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-3-12b-it-vs-mistralai-mistral-nemo/": {
     "url": "/compare/google-gemma-3-12b-it-vs-mistralai-mistral-nemo/",
@@ -149,8 +167,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "8a152c5bf879c0ad",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "ed0a95c160aafbff",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-3-27b-it-vs-mistralai-mistral-nemo/": {
     "url": "/compare/google-gemma-3-27b-it-vs-mistralai-mistral-nemo/",
@@ -158,8 +176,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "708c4f56870d13b4",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "e1ce6a2e30fcf3c5",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-14b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-14b-2512/",
@@ -167,8 +185,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "ec1f73c49d44c1e0",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "06cdff0b1c46175c",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-3b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-3b-2512/",
@@ -176,8 +194,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "574c0b5c0ff87dba",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "c3b537da3686853c",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-ministral-8b-2512/",
@@ -185,8 +203,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "eb0d6c67f5871ae9",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "3243bc597c07896a",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-nemo/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-nemo/",
@@ -194,8 +212,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "edcfa26e59f19401",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "7369fb2a3522c36e",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-24b-instruct-2501/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-24b-instruct-2501/",
@@ -203,8 +221,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "3cb011724417fb19",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "e8a7d97b0d62c5e4",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-3-2-24b-instruct/": {
     "url": "/compare/google-gemma-3-4b-it-vs-mistralai-mistral-small-3-2-24b-instruct/",
@@ -212,8 +230,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "7bc94ee0ea1f6b25",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "53ce66481ce15e44",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507/": {
     "url": "/compare/google-gemma-3-4b-it-vs-qwen-qwen3-30b-a3b-instruct-2507/",
@@ -221,8 +239,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d1a424aa1f639349",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "984174bcf01d3a7d",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/google-gemma-4-26b-a4b-it-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/google-gemma-4-26b-a4b-it-free-vs-particle-ai-particle-1-free/",
@@ -245,11 +263,11 @@
   "/compare/inclusionai-ling-3-2-flash-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/inclusionai-ling-3-2-flash-free-vs-particle-ai-particle-1-free/",
     "page_type": "comparison",
-    "status": "active",
-    "index_policy": "index",
+    "status": "archived",
+    "index_policy": "archived",
     "first_published": "2026-11-24",
-    "semantic_hash": "1cc097a3421b9cd6",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "0adc97393d70a483",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/liquid-lfm-3-1-7b-free-vs-particle-ai-particle-1-free/": {
     "url": "/compare/liquid-lfm-3-1-7b-free-vs-particle-ai-particle-1-free/",
@@ -266,8 +284,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "7f12415569392765",
-    "lastmod": "2026-11-27T07:05:32Z"
+    "semantic_hash": "7cc98e2c7923ade2",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/compare/mistralai-mistral-large-2407-vs-qwen-qwen2-5-vl-72b-instruct/": {
     "url": "/compare/mistralai-mistral-large-2407-vs-qwen-qwen2-5-vl-72b-instruct/",
@@ -419,8 +437,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "34d6e95f84620738",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "3b0aadc043ef7280",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/free-llm-apis/": {
     "url": "/free-llm-apis/",
@@ -428,8 +446,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "4b390172c4464f7c",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "9a4fcc16c8a82d93",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/": {
     "url": "/models/",
@@ -437,8 +455,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "eeeec09496501747",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "afd21c8622ea99f5",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/anthropic-claude-haiku-4-5-batch/": {
     "url": "/models/anthropic-claude-haiku-4-5-batch/",
@@ -563,8 +581,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "bdea8ddb5d9c3604",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "deaee48059d514c5",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/deepseek-deepseek-v4-1-flash-batch/": {
     "url": "/models/deepseek-deepseek-v4-1-flash-batch/",
@@ -581,8 +599,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "fa168c1767f50d76",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "fab911c44587c9ad",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/deepseek-deepseek-v4-flash-0731-batch/": {
     "url": "/models/deepseek-deepseek-v4-flash-0731-batch/",
@@ -599,8 +617,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5619fdd787dc61ac",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "a35b1514f44f2c9c",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/deepseek-deepseek-v4-flash-vision-exp/": {
     "url": "/models/deepseek-deepseek-v4-flash-vision-exp/",
@@ -635,8 +653,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "bad7288820d6513f",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "430936b9bd82904e",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/dots-studio-dots-3-note-preview-free/": {
     "url": "/models/dots-studio-dots-3-note-preview-free/",
@@ -692,6 +710,15 @@
     "semantic_hash": "af806d8a81e82de8",
     "lastmod": "2026-11-25T02:16:34Z"
   },
+  "/models/google-gemini-3-5-flash/": {
+    "url": "/models/google-gemini-3-5-flash/",
+    "page_type": "model_detail",
+    "status": "active",
+    "index_policy": "index",
+    "first_published": "2026-11-28",
+    "semantic_hash": "81b7cd03d5a3e354",
+    "lastmod": "2026-11-28T02:58:59Z"
+  },
   "/models/google-gemini-3-6-flash/": {
     "url": "/models/google-gemini-3-6-flash/",
     "page_type": "model_detail",
@@ -743,8 +770,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "f06ea3b58ea90c41",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "487fd38f2ee28795",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/google-gemma-3-27b-it/": {
     "url": "/models/google-gemma-3-27b-it/",
@@ -752,8 +779,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "04528e2a281c0222",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "2e1a7c1513dc5e9d",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/google-gemma-3-4b-it/": {
     "url": "/models/google-gemma-3-4b-it/",
@@ -761,8 +788,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "3b5616c4f61daa26",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "4e10f96a65ed3429",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/google-gemma-4-26b-a4b-it-free/": {
     "url": "/models/google-gemma-4-26b-a4b-it-free/",
@@ -779,8 +806,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d15b0803752aee3c",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "a27dc3200756d653",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/google-gemma-4-31b-it-free/": {
     "url": "/models/google-gemma-4-31b-it-free/",
@@ -803,11 +830,11 @@
   "/models/inclusionai-ling-3-2-flash-free/": {
     "url": "/models/inclusionai-ling-3-2-flash-free/",
     "page_type": "model_detail",
-    "status": "active",
-    "index_policy": "index",
+    "status": "temporarily_missing",
+    "index_policy": "noindex",
     "first_published": "2026-11-24",
-    "semantic_hash": "4008e5e0d771022e",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "bdf87435976ff896",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/liquid-lfm-3-1-7b-free/": {
     "url": "/models/liquid-lfm-3-1-7b-free/",
@@ -950,8 +977,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "96e7238cef725706",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "d77e913234a3ad31",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/mistralai-mistral-large-2407/": {
     "url": "/models/mistralai-mistral-large-2407/",
@@ -1049,8 +1076,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d6adc3824773735a",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "9ad569d053d02149",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/mistralai-mistral-small-2603/": {
     "url": "/models/mistralai-mistral-small-2603/",
@@ -1484,6 +1511,15 @@
     "semantic_hash": "9b3e9c761762bda9",
     "lastmod": "2026-11-27T06:31:27Z"
   },
+  "/models/openai-o3/": {
+    "url": "/models/openai-o3/",
+    "page_type": "model_detail",
+    "status": "active",
+    "index_policy": "index",
+    "first_published": "2026-11-28",
+    "semantic_hash": "600b149006becddf",
+    "lastmod": "2026-11-28T02:58:59Z"
+  },
   "/models/openai-o4-mini-batch/": {
     "url": "/models/openai-o4-mini-batch/",
     "page_type": "model_detail",
@@ -1586,11 +1622,11 @@
   "/models/qwen-qwen3-235b-a22b-thinking-2507/": {
     "url": "/models/qwen-qwen3-235b-a22b-thinking-2507/",
     "page_type": "model_detail",
-    "status": "active",
-    "index_policy": "index",
+    "status": "temporarily_missing",
+    "index_policy": "noindex",
     "first_published": "2026-11-24",
-    "semantic_hash": "208bd638f40977da",
-    "lastmod": "2026-11-25T15:26:47Z"
+    "semantic_hash": "50d2afa1f70ce490",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/qwen-qwen3-30b-a3b-instruct-2507/": {
     "url": "/models/qwen-qwen3-30b-a3b-instruct-2507/",
@@ -1661,8 +1697,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "994898c68aafe547",
-    "lastmod": "2026-11-26T03:00:45Z"
+    "semantic_hash": "0f8bd37e57863c83",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/qwen-qwen3-5-flash-02-23/": {
     "url": "/models/qwen-qwen3-5-flash-02-23/",
@@ -1769,8 +1805,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "237880d36630f252",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "e2db284d7ae6ecbe",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/qwen-qwen3-8-27b-batch/": {
     "url": "/models/qwen-qwen3-8-27b-batch/",
@@ -1832,8 +1868,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "68e946baade3374a",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "88f28914aafe5636",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/models/qwen-qwen3-coder-flash/": {
     "url": "/models/qwen-qwen3-coder-flash/",
@@ -1949,8 +1985,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "1047a2f3a0afb717",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "ce48048ff48ed899",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/privacy/": {
     "url": "/privacy/",
@@ -1994,8 +2030,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "d5a7f29745c65e1d",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "4ce7dfc0e70de963",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/repos/chatboxai-chatbox/": {
     "url": "/repos/chatboxai-chatbox/",
@@ -2120,8 +2156,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "9e3de03756a526a3",
-    "lastmod": "2026-11-25T02:16:34Z"
+    "semantic_hash": "6bcdca8e070d1863",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/repos/hkuds-nanobot/": {
     "url": "/repos/hkuds-nanobot/",
@@ -2399,8 +2435,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "4ebf4e09dfef9e3e",
-    "lastmod": "2026-11-27T03:02:43Z"
+    "semantic_hash": "324c836341654b87",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/terms/": {
     "url": "/terms/",
@@ -2417,8 +2453,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "5c0e711527859772",
-    "lastmod": "2026-11-27T06:31:27Z"
+    "semantic_hash": "8d87e292ce271195",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/tools/api-vs-local-llm-calculator/": {
     "url": "/tools/api-vs-local-llm-calculator/",
@@ -2426,8 +2462,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "a3351bff26003b61",
-    "lastmod": "2026-11-27T07:41:24Z"
+    "semantic_hash": "25916e224fb12eb0",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/tools/llm-translation-cost-calculator/": {
     "url": "/tools/llm-translation-cost-calculator/",
@@ -2435,8 +2471,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "825449ba0993b55c",
-    "lastmod": "2026-11-27T07:41:24Z"
+    "semantic_hash": "091d42b1f2619199",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/tools/n8n-ai-workflow-cost-calculator/": {
     "url": "/tools/n8n-ai-workflow-cost-calculator/",
@@ -2444,8 +2480,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "93209e0f37b372fe",
-    "lastmod": "2026-11-27T07:41:24Z"
+    "semantic_hash": "5430c2958adcdd40",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/tools/openrouter-cost-calculator/": {
     "url": "/tools/openrouter-cost-calculator/",
@@ -2453,8 +2489,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "74a12fe6da56d645",
-    "lastmod": "2026-11-27T07:41:24Z"
+    "semantic_hash": "d497b06de8cd9407",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/zero-cost-stack/": {
     "url": "/zero-cost-stack/",
@@ -2462,8 +2498,8 @@
     "status": "active",
     "index_policy": "index",
     "first_published": "2026-11-24",
-    "semantic_hash": "6665f1d33b17d723",
-    "lastmod": "2026-11-24T17:29:15Z"
+    "semantic_hash": "c92dd44ba24807c0",
+    "lastmod": "2026-11-28T02:58:59Z"
   },
   "/repos/nocobase-nocobase/": {
     "url": "/repos/nocobase-nocobase/",

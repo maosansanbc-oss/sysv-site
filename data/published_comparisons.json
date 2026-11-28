@@ -96,7 +96,7 @@
     "model_b_id": "particle-ai/particle-1:free",
     "cohort": "Reasoning & Thinking Models",
     "first_published": "2026-11-24",
-    "status": "active"
+    "status": "archived"
   },
   "baidu-ernie-5-5-flash-preview-free::particle-ai-particle-1-free": {
     "pair_key": "baidu-ernie-5-5-flash-preview-free::particle-ai-particle-1-free",
@@ -177,7 +177,7 @@
     "model_b_id": "inclusionai/ling-3.2-flash:free",
     "cohort": "Reasoning & Thinking Models",
     "first_published": "2026-11-24",
-    "status": "active"
+    "status": "archived"
   },
   "google-gemma-3-4b-it::mistralai-mistral-nemo": {
     "pair_key": "google-gemma-3-4b-it::mistralai-mistral-nemo",
@@ -375,6 +375,24 @@
     "model_b_id": "qwen/qwen3-coder",
     "cohort": "Real-Time Coding & Tool-Calling Models",
     "first_published": "2026-11-27",
+    "status": "active"
+  },
+  "anthropic-claude-haiku-5-5::qwen-qwen-2-5-coder-32b-instruct": {
+    "pair_key": "anthropic-claude-haiku-5-5::qwen-qwen-2-5-coder-32b-instruct",
+    "slug": "anthropic-claude-haiku-5-5-vs-qwen-qwen-2-5-coder-32b-instruct",
+    "model_a_id": "anthropic/claude-haiku-5.5",
+    "model_b_id": "qwen/qwen-2.5-coder-32b-instruct",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-28",
+    "status": "active"
+  },
+  "deepseek-deepseek-v3-2::qwen-qwen3-coder-next": {
+    "pair_key": "deepseek-deepseek-v3-2::qwen-qwen3-coder-next",
+    "slug": "deepseek-deepseek-v3-2-vs-qwen-qwen3-coder-next",
+    "model_a_id": "deepseek/deepseek-v3.2",
+    "model_b_id": "qwen/qwen3-coder-next",
+    "cohort": "Real-Time Coding & Tool-Calling Models",
+    "first_published": "2026-11-28",
     "status": "active"
   }
 }

@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-27",
-  "total_raw_endpoints": 477,
+  "updated_at": "2026-11-28",
+  "total_raw_endpoints": 476,
   "raw_breakdown_by_pricing_type": {
     "paid": 344,
     "batch": 96,
-    "limited_free": 11,
+    "limited_free": 10,
     "media": 16,
     "variable": 9,
     "free_router": 1
