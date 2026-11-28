@@ -421,6 +421,77 @@ def _render_tool_affiliates(cfg: dict[str, Any], esc) -> str:
     )
 
 
+def _render_embed_and_cite_card(base: str, tool_slug: str, tool_name: str, esc) -> str:
+    embed_url = f"{base}/embed/{tool_slug}/"
+    tool_url = f"{base}/tools/{tool_slug}/"
+    iframe_code = (
+        f'<iframe src="{embed_url}" width="100%" height="580" '
+        f'style="border:1px solid #d2d2d7;border-radius:16px" loading="lazy"></iframe>'
+    )
+    md_cite = f"[{tool_name} (Daily-Verified LLM Pricing)]({tool_url})"
+    return f"""
+    <div class="card">
+      <h2>Embed This Calculator (Ad-Free) or Cite Live Data</h2>
+      <p class="muted small">Use the dedicated ad-free <code>/embed/</code> endpoint on technical blogs, GitHub wikis, or internal engineering docs (zero ads, zero third-party analytics). Open datasets available at <a href="/data/">/data/</a>.</p>
+      <p class="small"><strong>Ad-Free Iframe Embed:</strong></p>
+      <pre style="overflow-x:auto;background:#f5f5f7;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.82rem">{esc(iframe_code)}</pre>
+      <p class="small"><strong>Markdown Citation:</strong></p>
+      <pre style="overflow-x:auto;background:#f5f5f7;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.82rem">{esc(md_cite)}</pre>
+    </div>
+    """
+
+
+def _render_related_tools_card(current_slug: str, esc) -> str:
+    all_links = [
+        ("home", "/", "LLM API Pricing Calculator", "Compare live per-1M token rates across capability-gated workloads"),
+        ("free-llm-apis", "/free-llm-apis/", "Free LLM API List & Quota Calculator", "Verify permanently free tiers, RPM/RPD caps, and Cloudflare Neurons"),
+        ("openrouter-cost-calculator", "/tools/openrouter-cost-calculator/", "OpenRouter Cost Calculator", "Separate token inference, 5.5% card fee ($0.80 min), crypto, and BYOK"),
+        ("n8n-ai-workflow-cost-calculator", "/tools/n8n-ai-workflow-cost-calculator/", "n8n AI Workflow Cost Calculator", "Compare self-hosted VPS vs. n8n Cloud plus tool-calling LLM spend"),
+        ("llm-translation-cost-calculator", "/tools/llm-translation-cost-calculator/", "LLM Translation Cost Calculator", "Estimate bulk 1,000-document & 1M-word translation with :batch savings"),
+        ("api-vs-local-llm-calculator", "/tools/api-vs-local-llm-calculator/", "API vs Local LLM Cost Calculator", "Model GPU hardware amortization and power draw vs. managed APIs"),
+        ("price-changes", "/price-changes/", "Daily LLM Price History", "Inspect append-only daily price drops and CSV exports"),
+    ]
+    items = "".join(
+        f'<li><a href="{href}"><strong>{esc(lbl)}</strong></a> &mdash; {esc(desc)}</li>'
+        for slug, href, lbl, desc in all_links
+        if slug != current_slug
+    )
+    return f"""
+    <div class="card">
+      <h2>Related LLM Cost Calculators &amp; Data</h2>
+      <ul>{items}</ul>
+    </div>
+    """
+
+
+def _build_tool_json_ld(base: str, canonical_path: str, name: str, description: str, faqs: list[tuple[str, str]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": name,
+            "url": base + canonical_path,
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "All",
+            "isAccessibleForFree": True,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+            "description": description,
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": q,
+                    "acceptedAnswer": {"@type": "Answer", "text": a},
+                }
+                for q, a in faqs
+            ],
+        },
+    ]
+
+
 def build_tools_and_data_assets(
     cfg: dict[str, Any],
     models: list[dict[str, Any]],
@@ -445,6 +516,7 @@ def build_tools_and_data_assets(
     calc_sig = _sem_hash([(m["slug"], m["in"], m["out"], m["pricing_type"], m["tools"], m["structured"]) for m in calc_models])
     rt = runtime_cfg or {"mock_ads": False}
     date_lbl = today or changelog.get("updated_at") or "latest snapshot"
+    base = cfg["base_url"].rstrip("/")
 
     def _eval(url_path: str, page_type: str, index_policy: str, cver: str) -> dict[str, Any]:
         if eval_page_fn is not None:
@@ -612,6 +684,20 @@ def build_tools_and_data_assets(
     """
     or_notes_html = f"""
     <div class="card">
+      <h2>OpenRouter Fee Thresholds: When Card, Crypto, or BYOK Wins</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Billing Method</th><th>Fee Rule</th><th>Example on $10 Top-Up</th><th>Example on $100 Spend</th><th>Best Fit</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Credit Card (&lt;$14.55 top-up)</strong></td><td>$0.80 minimum fee</td><td>$0.80 (8.0% effective)</td><td>&mdash;</td><td>Avoid small top-ups; bundle &ge;$25 to eliminate minimum-fee penalty</td></tr>
+            <tr><td><strong>Credit Card (&ge;$14.55 top-up)</strong></td><td>5.5% flat</td><td>&mdash;</td><td>$5.50 (5.5%)</td><td>Fastest setup for small to medium teams</td></tr>
+            <tr><td><strong>Crypto Top-Up</strong></td><td>5.0% flat</td><td>$0.50 (5.0%)</td><td>$5.00 (5.0%)</td><td>Saves 0.5% vs card; avoids the $0.80 card minimum on small loads</td></tr>
+            <tr><td><strong>BYOK (Bring Your Own Key)</strong></td><td>0% up to $25k/mo list inference; 5% overage</td><td>$0 platform fee</td><td>$0 platform fee</td><td>Best for teams with existing OpenAI/Anthropic/Google billing accounts</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
       <h2>Formula, Worked Example &amp; Data Scope</h2>
       <ul>
         <li><strong>Input vs. Output Tokens:</strong> Prompts, system instructions, and retrieved context count as <em>input tokens</em>; model completions and reasoning traces count as <em>output tokens</em> (typically 3&times;&ndash;5&times; pricier per 1M tokens).</li>
@@ -640,23 +726,45 @@ def build_tools_and_data_assets(
     )
     or_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / OpenRouter Cost Calculator</div>
-    <h1>OpenRouter Pricing &amp; Cost Calculator</h1>
-    <p class="muted">Compare upstream token inference costs against OpenRouter's exact top-up fee rules (<strong>5.5% card fee with $0.80 minimum</strong>, <strong>5.0% crypto</strong>, or <strong>BYOK 0% up to $25k/mo</strong>). Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
+    <h1>OpenRouter Cost Calculator: Token Pricing, 5.5% Fee &amp; BYOK</h1>
+    <p class="muted">Compare daily-verified upstream token inference costs against OpenRouter's exact billing rules (<strong>5.5% card fee with $0.80 minimum</strong>, <strong>5.0% crypto</strong>, or <strong>BYOK 0% up to $25k/mo</strong>). Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
     {or_widget}
     {_ad_slot("adsense_slot_in_article", or_elig)}
     {or_notes_html}
+    {_render_embed_and_cite_card(base, "openrouter-cost-calculator", "SysV OpenRouter Cost Calculator", esc)}
+    {_render_related_tools_card("openrouter-cost-calculator", esc)}
     """
+    or_json_ld = _build_tool_json_ld(
+        base,
+        "/tools/openrouter-cost-calculator/",
+        "SysV OpenRouter Cost Calculator",
+        "Calculate real OpenRouter API spend separating upstream inference cost, 5.5% credit card fee ($0.80 minimum), 5.0% crypto fee, BYOK $25k/mo allowance, and async :batch discounts.",
+        [
+            (
+                "How much is the OpenRouter credit card fee?",
+                "OpenRouter charges a 5.5% credit card top-up fee with a $0.80 minimum per transaction. Topping up $14.55 or more avoids the minimum-fee surcharge.",
+            ),
+            (
+                "Does OpenRouter BYOK charge a platform fee?",
+                "OpenRouter BYOK charges 0% platform fee up to $25,000/month in list-price inference volume on eligible plans, and 5% on monthly volume above $25,000, while the upstream provider bills your API key directly.",
+            ),
+            (
+                "How do I unlock 1,000 free requests per day on OpenRouter?",
+                "Purchasing at least $10 in lifetime credits raises the :free model cap from 50 requests/day to 1,000 requests/day while keeping the global 20 RPM burst limit.",
+            ),
+        ],
+    )
     urls.append("/tools/openrouter-cost-calculator/")
     register_page_fn(
         "tools/openrouter-cost-calculator/index.html",
         "/tools/openrouter-cost-calculator/",
         "tool",
         "index",
-        _sem_hash(["or-tool-v2.3", calc_sig]),
+        _sem_hash(["or-tool-v2.4", calc_sig]),
         render_layout_fn(
             cfg,
-            title="OpenRouter Pricing & Cost Calculator (5.5% Fee, $0.80 Min & BYOK) | SysV",
-            description="Calculate real OpenRouter API spend separating upstream inference cost, 5.5% card fee ($0.80 min), BYOK $25k allowance, and async :batch discounts.",
+            title="OpenRouter Cost Calculator — Exact 5.5% Fee, $0.80 Min & BYOK (2026) | SysV",
+            description="Calculate real OpenRouter API spend separating upstream inference cost, 5.5% card fee ($0.80 min), 5% crypto fee, BYOK $25k allowance, and async :batch discounts.",
             canonical_path="/tools/openrouter-cost-calculator/",
             body_html=or_body,
             git_commit=git_commit,
@@ -665,6 +773,7 @@ def build_tools_and_data_assets(
             verification_enabled=or_elig["verification_enabled"],
             runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Tools", "/tools/"), ("OpenRouter Cost Calculator", "/tools/openrouter-cost-calculator/")],
+            extra_json_ld=or_json_ld,
         ),
     )
     # Ad-free embed version!
@@ -756,6 +865,20 @@ def build_tools_and_data_assets(
     """
     n8n_notes_html = f"""
     <div class="card">
+      <h2>Common n8n AI Workflow Cost Profiles</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Workflow Pattern</th><th>Typical Tokens / Run</th><th>Retry Multiplier</th><th>Main Cost Driver</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Webhook Triage / JSON Classifier</strong></td><td>800 in / 150 out</td><td>1.0x&ndash;1.15x</td><td>Hosting plan (often &gt;80% of total spend vs. tokens)</td></tr>
+            <tr><td><strong>Support Draft + CRM Tool Call</strong></td><td>1,800 in / 400 out</td><td>1.35x</td><td>Balanced hosting + tool-calling tokens</td></tr>
+            <tr><td><strong>Multi-Step Autonomous AI Agent</strong></td><td>4,500 in / 1,200 out</td><td>2.2x+</td><td>Token compounding across tool-call loops (prefer low-cost tool-verified models)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small" style="margin-top:8px">Planning to self-host n8n? Inspect our <a href="/self-hosting/">Self-Hosted AI &amp; Automation Directory</a> and <a href="/zero-cost-stack/">Zero-Cost Automation Stack</a>.</p>
+    </div>
+    <div class="card">
       <h2>Formula, Worked Example &amp; Data Scope</h2>
       <ul>
         <li><strong>Formula:</strong> <code>Input_M = (Executions &times; Input_Tokens &times; Retry_Mult) / 1,000,000</code>; <code>Output_M = (Executions &times; Output_Tokens &times; Retry_Mult) / 1,000,000</code>; <code>Total = Token_Cost + Hosting_Cost</code>.</li>
@@ -772,24 +895,42 @@ def build_tools_and_data_assets(
     )
     n8n_body = f"""
     <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / n8n AI Workflow Cost Calculator</div>
-    <h1>n8n AI Workflow Cost Calculator: Self-Hosted vs. Cloud</h1>
-    <p class="muted">Compare self-hosted VPS hosting vs. n8n Cloud alongside live real-time tool-calling LLM token spend and retry multipliers. Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
+    <h1>n8n AI Workflow Cost Calculator: Cloud vs. Self-Hosted + Tokens</h1>
+    <p class="muted">Compare self-hosted VPS hosting vs. n8n Cloud alongside live real-time tool-calling LLM token spend and multi-step retry multipliers. Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
     {n8n_widget}
     {_ad_slot("adsense_slot_in_article", n8n_elig)}
     {n8n_notes_html}
     {_render_tool_affiliates(cfg, esc)}
+    {_render_embed_and_cite_card(base, "n8n-ai-workflow-cost-calculator", "SysV n8n AI Workflow Cost Calculator", esc)}
+    {_render_related_tools_card("n8n-ai-workflow-cost-calculator", esc)}
     """
+    n8n_json_ld = _build_tool_json_ld(
+        base,
+        "/tools/n8n-ai-workflow-cost-calculator/",
+        "SysV n8n AI Workflow Cost Calculator",
+        "Forecast monthly n8n AI workflow costs comparing self-hosted VPS vs n8n Cloud alongside live tool-calling LLM token rates and multi-turn retry loops.",
+        [
+            (
+                "Why do n8n AI agent workflows cost more than single-prompt estimates?",
+                "Each tool call or validation retry re-sends prior conversation and tool-schema tokens, multiplying input token spend by 1.35x to 2.2x+ per execution.",
+            ),
+            (
+                "Why does this calculator filter for tool-calling models only?",
+                "n8n AI Agent nodes rely on structured function/tool calling. Filtering by Source Verified tools=True and real-time endpoints prevents recommending async :batch or chat-only models that fail in agent loops.",
+            ),
+        ],
+    )
     urls.append("/tools/n8n-ai-workflow-cost-calculator/")
     register_page_fn(
         "tools/n8n-ai-workflow-cost-calculator/index.html",
         "/tools/n8n-ai-workflow-cost-calculator/",
         "tool",
         "index",
-        _sem_hash(["n8n-tool-v2.3", calc_sig]),
+        _sem_hash(["n8n-tool-v2.4", calc_sig]),
         render_layout_fn(
             cfg,
-            title="n8n AI Workflow Cost Calculator: Self-Hosted vs Cloud | SysV",
-            description="Forecast monthly n8n AI workflow costs comparing self-hosted VPS vs n8n Cloud alongside live tool-calling LLM token rates and retry loops.",
+            title="n8n AI Workflow Cost Calculator — Self-Hosted VPS vs Cloud + LLM Tokens | SysV",
+            description="Forecast monthly n8n AI workflow costs comparing self-hosted VPS vs n8n Cloud alongside live tool-calling LLM token rates and retry multipliers.",
             canonical_path="/tools/n8n-ai-workflow-cost-calculator/",
             body_html=n8n_body,
             git_commit=git_commit,
@@ -798,6 +939,7 @@ def build_tools_and_data_assets(
             verification_enabled=n8n_elig["verification_enabled"],
             runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Tools", "/tools/"), ("n8n AI Workflow Cost Calculator", "/tools/n8n-ai-workflow-cost-calculator/")],
+            extra_json_ld=n8n_json_ld,
         ),
     )
     _register_embed(
@@ -881,6 +1023,19 @@ def build_tools_and_data_assets(
     """
     tr_notes_html = f"""
     <div class="card">
+      <h2>Language Expansion Ratios &amp; Sync vs. Async <code>:batch</code> Decision Guide</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Translation Workload</th><th>Typical Output / Input Ratio</th><th>Recommended Mode</th><th>Cost Control Tip</th></tr></thead>
+          <tbody>
+            <tr><td><strong>English &harr; European Languages</strong></td><td>~1.15x</td><td>Async <code>:batch</code> for backfills; Real-Time for live UI</td><td>Keep glossary/system prompt concise (added per chunk)</td></tr>
+            <tr><td><strong>English &rarr; CJK / Dense Multilingual</strong></td><td>~1.4x&ndash;1.6x</td><td>Async <code>:batch</code> (~50% lower output rate)</td><td>Output tokens dominate cost; verify output $/1M first</td></tr>
+            <tr><td><strong>Bulk Summarization / Structured Extraction</strong></td><td>~0.25x</td><td>Real-Time or Async <code>:batch</code></td><td>Input tokens dominate; choose lowest input $/1M model</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
       <h2>Formula, Worked Example &amp; Data Scope</h2>
       <ul>
         <li><strong>Word-to-Token Formula:</strong> <code>Input_Tokens = Docs &times; (Words &times; 1.333 + 200)</code> (adds 200 system-prompt tokens per document); <code>Output_Tokens = Docs &times; Words &times; 1.333 &times; Ratio</code>.</li>
@@ -896,24 +1051,42 @@ def build_tools_and_data_assets(
         _tool_cver(tr_notes_html, policies={"words_to_tokens": 1.333, "sys_prompt_tokens": 200}),
     )
     trans_body = f"""
-    <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / Bulk Translation &amp; 1,000-Document Cost Calculator</div>
-    <h1>LLM Bulk Translation &amp; Document Cost Calculator</h1>
-    <p class="muted">Convert document counts and word lengths into token spend and compare real-time vs. asynchronous <code>:batch</code> discounts. Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
+    <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / LLM Translation Cost Calculator</div>
+    <h1>LLM Translation Cost Calculator: Bulk Documents &amp; 1M Words</h1>
+    <p class="muted">Convert document counts and word lengths into exact input/output LLM token spend and compare real-time vs. asynchronous <code>:batch</code> discounts. Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
     {trans_widget}
     {_ad_slot("adsense_slot_in_article", tr_elig)}
     {tr_notes_html}
+    {_render_embed_and_cite_card(base, "llm-translation-cost-calculator", "SysV LLM Translation Cost Calculator", esc)}
+    {_render_related_tools_card("llm-translation-cost-calculator", esc)}
     """
+    tr_json_ld = _build_tool_json_ld(
+        base,
+        "/tools/llm-translation-cost-calculator/",
+        "SysV LLM Translation Cost Calculator",
+        "Calculate LLM translation API cost per 1,000 documents and per 1M words across daily-verified real-time and async :batch models.",
+        [
+            (
+                "How many LLM tokens is 1,000 words for translation?",
+                "English prose averages roughly 1,333 tokens per 1,000 words, plus system-prompt overhead (modeled at 200 tokens per document). Target languages like CJK or morphologically rich scripts often require 1.15x to 1.5x output tokens.",
+            ),
+            (
+                "When should I use async :batch LLM APIs for document translation?",
+                "Use async :batch endpoints for non-urgent localization backfills, knowledge-base migrations, or overnight jobs where 24-hour completion windows are acceptable and ~50% lower token pricing matters.",
+            ),
+        ],
+    )
     urls.append("/tools/llm-translation-cost-calculator/")
     register_page_fn(
         "tools/llm-translation-cost-calculator/index.html",
         "/tools/llm-translation-cost-calculator/",
         "tool",
         "index",
-        _sem_hash(["trans-tool-v2.3", calc_sig]),
+        _sem_hash(["trans-tool-v2.4", calc_sig]),
         render_layout_fn(
             cfg,
-            title="LLM Bulk Translation & 1,000-Document Cost Calculator | SysV",
-            description="Calculate LLM API cost per 1,000 documents and per 1M words across real-time and async :batch models.",
+            title="LLM Translation Cost Calculator — Per 1,000 Docs, 1M Words & Batch API | SysV",
+            description="Calculate LLM translation API cost per 1,000 documents and per 1M words across real-time and async :batch models with daily-verified pricing.",
             canonical_path="/tools/llm-translation-cost-calculator/",
             body_html=trans_body,
             git_commit=git_commit,
@@ -922,6 +1095,7 @@ def build_tools_and_data_assets(
             verification_enabled=tr_elig["verification_enabled"],
             runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Tools", "/tools/"), ("LLM Translation Cost Calculator", "/tools/llm-translation-cost-calculator/")],
+            extra_json_ld=tr_json_ld,
         ),
     )
     _register_embed(
@@ -1014,6 +1188,20 @@ def build_tools_and_data_assets(
     """
     loc_notes_html = f"""
     <div class="card">
+      <h2>Typical Local LLM Hardware Reference Profiles</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Local Setup</th><th>Est. Hardware Cost</th><th>Avg. Power Draw (24/7)</th><th>Monthly Power (@ $0.18/kWh)</th><th>When Local Beats API</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Single 24GB GPU Workstation</strong></td><td>$2,500</td><td>350W</td><td>$45.36/mo</td><td>Steady &gt;$150/mo API spend or strict on-prem privacy requirements</td></tr>
+            <tr><td><strong>Dual-GPU 48GB Inference Server</strong></td><td>$6,000</td><td>700W</td><td>$90.72/mo</td><td>High continuous team token volume (&gt;$400/mo API spend)</td></tr>
+            <tr><td><strong>Low-Volume Dev / Burst Traffic</strong></td><td>$0 CapEx (API)</td><td>0W idle</td><td>$0/mo</td><td>Managed per-token APIs or <a href="/free-llm-apis/">free tiers</a> usually win when GPU utilization is low</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small" style="margin-top:8px">Evaluating open-source local runtimes? Browse <a href="/self-hosting/">Self-Hosted AI Stacks &amp; GitHub Repos</a> (Ollama, vLLM, LiteLLM, Open WebUI).</p>
+    </div>
+    <div class="card">
       <h2>Formula, Worked Example &amp; Data Scope</h2>
       <ul>
         <li><strong>Formula:</strong> <code>API_Monthly = (Input_M &times; Input_Rate) + (Output_M &times; Output_Rate)</code>; <code>Power_Monthly = (Watts / 1000) &times; 24 &times; 30 &times; $/kWh</code>; <code>Payback_Months = Hardware_Cost / (API_Monthly - Power_Monthly)</code>.</li>
@@ -1029,24 +1217,42 @@ def build_tools_and_data_assets(
         _tool_cver(loc_notes_html, policies={"affiliates": [a.get("url") for a in cfg.get("monetization", {}).get("affiliates", []) if a.get("url")]}),
     )
     local_body = f"""
-    <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / API vs. Local LLM Break-Even Calculator</div>
-    <h1>API vs. Local LLM Break-Even Calculator</h1>
-    <p class="muted">Compare buying local GPU hardware (amortization + electricity) against paying per-token for managed real-time LLM APIs. Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
+    <div class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / API vs. Local LLM Cost Calculator</div>
+    <h1>API vs. Local LLM Cost Calculator: GPU Hardware Break-Even</h1>
+    <p class="muted">Compare buying local GPU hardware (amortization + 24/7 electricity) against paying per-token for managed real-time LLM APIs. Last pricing sync: <strong>{esc(date_lbl)}</strong>.</p>
     {local_widget}
     {_ad_slot("adsense_slot_in_article", loc_elig)}
     {loc_notes_html}
     {_render_tool_affiliates(cfg, esc)}
+    {_render_embed_and_cite_card(base, "api-vs-local-llm-calculator", "SysV API vs Local LLM Cost Calculator", esc)}
+    {_render_related_tools_card("api-vs-local-llm-calculator", esc)}
     """
+    loc_json_ld = _build_tool_json_ld(
+        base,
+        "/tools/api-vs-local-llm-calculator/",
+        "SysV API vs Local LLM Cost Calculator",
+        "Compare managed LLM API token spending against local GPU hardware amortization and electricity costs to calculate exact break-even months.",
+        [
+            (
+                "How do you calculate API vs local LLM break-even payback months?",
+                "Subtract monthly local electricity cost from monthly managed API spend to find net monthly cash savings, then divide upfront hardware cost by those net monthly savings. If electricity exceeds API spend, hardware never pays back on cost alone.",
+            ),
+            (
+                "When is a managed LLM API cheaper than self-hosting a local GPU?",
+                "When monthly token usage is bursty or low, electricity plus 24-month hardware depreciation exceeds per-token API spend—especially with sub-$0.50/1M paid models.",
+            ),
+        ],
+    )
     urls.append("/tools/api-vs-local-llm-calculator/")
     register_page_fn(
         "tools/api-vs-local-llm-calculator/index.html",
         "/tools/api-vs-local-llm-calculator/",
         "tool",
         "index",
-        _sem_hash(["local-tool-v2.3", calc_sig]),
+        _sem_hash(["local-tool-v2.4", calc_sig]),
         render_layout_fn(
             cfg,
-            title="API vs Local LLM Break-Even Calculator (GPU vs Per-Token) | SysV",
+            title="API vs Local LLM Cost Calculator — GPU Break-Even, Power & Payback | SysV",
             description="Compare managed LLM API token spending against local GPU hardware amortization and electricity costs to calculate exact break-even months.",
             canonical_path="/tools/api-vs-local-llm-calculator/",
             body_html=local_body,
@@ -1056,6 +1262,7 @@ def build_tools_and_data_assets(
             verification_enabled=loc_elig["verification_enabled"],
             runtime_cfg=runtime_cfg,
             breadcrumbs=[("Home", "/"), ("Tools", "/tools/"), ("API vs Local LLM Calculator", "/tools/api-vs-local-llm-calculator/")],
+            extra_json_ld=loc_json_ld,
         ),
     )
     _register_embed(
@@ -1069,8 +1276,7 @@ def build_tools_and_data_assets(
         ),
     )
 
-    # 6. Linkable Assets under /data/ (iframe snippet now points to AD-FREE /embed/!)
-    base = cfg["base_url"].rstrip("/")
+    # 6. Linkable Assets under /data/ (iframe snippets point to AD-FREE /embed/!)
     active_models = [m for m in models if m.get("status", "active") == "active"]
     free_models = [m for m in active_models if m["pricing_type"] in ("limited_free", "free")]
 
@@ -1172,9 +1378,16 @@ def build_tools_and_data_assets(
       <h2>Voluntary Markdown Citation Snippet (GitHub README / Docs)</h2>
       <pre style="overflow-x:auto;background:#f5f5f7;padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.84rem">![SysV Free LLM APIs](https://sysv.cn/data/badge-free-count.svg)
 Live LLM API pricing &amp; daily CSV archive: https://sysv.cn/data/</pre>
-      <h3>Ad-Free Embeddable Cost Calculator Snippet</h3>
+      <h3>Ad-Free Embeddable Cost Calculators (4 Widgets)</h3>
       <p class="muted small">Dedicated <code>/embed/</code> endpoints strip all ads and third-party trackers to prevent invalid ad impressions on host pages.</p>
-      <pre style="overflow-x:auto;background:#f5f5f7;padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.84rem">&lt;iframe src="https://sysv.cn/embed/openrouter-cost-calculator/" width="100%" height="580" style="border:1px solid #d2d2d7;border-radius:16px" loading="lazy"&gt;&lt;/iframe&gt;</pre>
+      <p class="small"><strong>1. OpenRouter Cost Calculator</strong> (<a href="/tools/openrouter-cost-calculator/">Full page</a>)</p>
+      <pre style="overflow-x:auto;background:#f5f5f7;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.82rem">&lt;iframe src="https://sysv.cn/embed/openrouter-cost-calculator/" width="100%" height="580" style="border:1px solid #d2d2d7;border-radius:16px" loading="lazy"&gt;&lt;/iframe&gt;</pre>
+      <p class="small"><strong>2. n8n AI Workflow Cost Calculator</strong> (<a href="/tools/n8n-ai-workflow-cost-calculator/">Full page</a>)</p>
+      <pre style="overflow-x:auto;background:#f5f5f7;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.82rem">&lt;iframe src="https://sysv.cn/embed/n8n-ai-workflow-cost-calculator/" width="100%" height="580" style="border:1px solid #d2d2d7;border-radius:16px" loading="lazy"&gt;&lt;/iframe&gt;</pre>
+      <p class="small"><strong>3. LLM Translation Cost Calculator</strong> (<a href="/tools/llm-translation-cost-calculator/">Full page</a>)</p>
+      <pre style="overflow-x:auto;background:#f5f5f7;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.82rem">&lt;iframe src="https://sysv.cn/embed/llm-translation-cost-calculator/" width="100%" height="580" style="border:1px solid #d2d2d7;border-radius:16px" loading="lazy"&gt;&lt;/iframe&gt;</pre>
+      <p class="small"><strong>4. API vs Local LLM Break-Even Calculator</strong> (<a href="/tools/api-vs-local-llm-calculator/">Full page</a>)</p>
+      <pre style="overflow-x:auto;background:#f5f5f7;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);font-size:0.82rem">&lt;iframe src="https://sysv.cn/embed/api-vs-local-llm-calculator/" width="100%" height="580" style="border:1px solid #d2d2d7;border-radius:16px" loading="lazy"&gt;&lt;/iframe&gt;</pre>
     </div>
     """
     data_hub_elig = _eval("/data/", "linkable_asset", "index", _tool_cver(data_hub_body))
